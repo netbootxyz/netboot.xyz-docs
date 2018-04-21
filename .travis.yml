@@ -2,7 +2,11 @@ language: go
 go:
   - master
 install:
-  - go get github.com/spf13/hugo
+  - go get github.com/magefile/mage
+  - go get -d github.com/gohugoio/hugo
+  - cd ${GOPATH:-$HOME/go}/src/github.com/gohugoio/hugo
+  - mage vendor
+  - mage install
 script:
   - git clone https://github.com/matcornic/hugo-theme-learn ./themes/hugo-theme-learn
   - hugo
