@@ -9,7 +9,7 @@ theme = "hugo-theme-learn"
 googleAnalytics = "UA-68807-15"
 
 [outputs]
-  home     = ["HTML"]
+  home     = ["HTML", "JSON" ]
   section  = ["HTML"]
 
 [params]
