@@ -1,0 +1,17 @@
+language: go
+go:
+  - master
+install:
+  - go get github.com/spf13/hugo
+script:
+  - git clone https://github.com/matcornic/hugo-theme-learn ./themes/hugo-theme-learn
+  - hugo
+deploy:
+  provider: s3
+  access_key_id: $AWS_ACCESS_KEY_ID
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
+  bucket: $BUCKET_SITE
+  local_dir: public
+  skip_cleanup: true
+  on:
+    repo: antonym/netboot.xyz-site
