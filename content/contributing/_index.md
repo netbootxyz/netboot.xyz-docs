@@ -53,7 +53,7 @@ idea, feel free to open up a Github [issue] or open up a [Pull Request].
 
 ### Communication Channels
 
-* [Discord](https://discord.gg/C6dB6) Chat Server for netboot.xyz discussions and questions.
+* [Discord](https://discord.gg/An6PA2a) Chat Server for netboot.xyz discussions and questions.
 * Follow us on [Twitter](https://twitter.com/netbootxyz) with [@netbootxyz](https://twitter.com/netbootxyz)
   for the latest updates
 * [Freenode IRC](http://webchat.freenode.net/?channels=%23netbootxyz&uio=d4) in #netbootxyz
