@@ -2,6 +2,8 @@ sudo: true
 language: go
 go:
   - master
+before_install:
+  - sudo pip install awscli
 install:
   - wget https://github.com/gohugoio/hugo/releases/download/v0.39/hugo_0.39_Linux-64bit.deb
   - sudo dpkg -i hugo_0.39_Linux-64bit.deb
@@ -17,3 +19,9 @@ deploy:
   skip_cleanup: true
   on:
     repo: antonym/netboot.xyz-site
+after_deploy:
+  - aws configure set preview.cloudfront true
+  - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DIST_ID_SITE --paths "/*"
+notifications:
+  email:
+    - antony@mes.ser.li
