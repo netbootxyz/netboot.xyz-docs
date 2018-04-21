@@ -1,9 +1,10 @@
+sudo: true
 language: go
 go:
   - master
 install:
   - wget https://github.com/gohugoio/hugo/releases/download/v0.39/hugo_0.39_Linux-64bit.deb
-  - dpkg -i hugo_0.39_Linux-64bit.deb
+  - sudo dpkg -i hugo_0.39_Linux-64bit.deb
 script:
   - git clone https://github.com/matcornic/hugo-theme-learn ./themes/hugo-theme-learn
   - hugo
