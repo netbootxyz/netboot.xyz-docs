@@ -1,15 +1,13 @@
 baseURL = "https://netboot.xyz/"
 languageCode = "en-us"
 title = "netboot.xyz"
-
-# Change the default theme to be use when building the site with Hugo
 theme = "hugo-theme-learn"
 
 # google analytics
 googleAnalytics = "UA-68807-15"
 
 [outputs]
-  home     = ["HTML", "JSON" ]
+  home     = ["HTML", "RSS", "JSON" ]
   section  = ["HTML"]
 
 [params]
