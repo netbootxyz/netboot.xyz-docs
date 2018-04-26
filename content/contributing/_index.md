@@ -1,7 +1,9 @@
 ---
 title: "Contributing"
+description: "How to contribute to the netboot.xyz project"
 weight: 40
 date: 2018-04-14T11:40:21-05:00
+tags: [netboot.xyz,contributing,project,opensource,discord,twitter,contribute]
 ---
 
 Thanks for supporting netboot.xyz, and for considering contributing to the

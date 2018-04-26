@@ -3,6 +3,7 @@ title: "Booting with an ISO"
 description: "How to use an ISO to boot into netboot.xyz"
 date: 2018-04-14T11:32:02-05:00
 weight: 10
+tags: [netboot.xyz,ISO,booting,how-to]
 ---
 
 ### Burning a CD/DVD

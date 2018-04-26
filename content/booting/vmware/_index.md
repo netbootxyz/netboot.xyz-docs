@@ -3,6 +3,7 @@ title: "Boot using VMware"
 description: "Using netboot.xyz in VMware to install a VM"
 date: 2018-04-14T11:32:19-05:00
 weight: 25
+tags: [netboot.xyz,booting,vmware]
 ---
 
 ### VMware Fusion

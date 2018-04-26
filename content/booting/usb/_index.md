@@ -3,6 +3,7 @@ title: "Booting from USB"
 description: "How to create a USB stick capable of booting into netboot.xyz"
 date: 2018-04-14T11:32:14-05:00
 weight: 20
+tags: [netboot.xyz,USB,booting]
 ---
 
 *Warning: Backup your important data before using USB as it will overwrite anything on the USB key.*

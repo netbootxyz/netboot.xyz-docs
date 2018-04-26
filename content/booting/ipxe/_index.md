@@ -3,6 +3,7 @@ title: "Booting using iPXE"
 description: "Details how to chainload into netboot.xyz from iPXE"
 date: 2018-04-14T11:31:57-05:00
 weight: 5
+tags: [netboot.xyz,iPXE,PXE]
 ---
 
 ### NIC with Embedded iPXE

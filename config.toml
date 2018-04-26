@@ -2,7 +2,6 @@ baseURL = "https://netboot.xyz/"
 languageCode = "en-us"
 title = "netboot.xyz"
 theme = "hugo-theme-learn"
-
 # google analytics
 googleAnalytics = "UA-68807-15"
 
@@ -10,7 +9,7 @@ googleAnalytics = "UA-68807-15"
   home     = ["HTML", "RSS", "JSON" ]
   section  = ["HTML"]
 
-[params]
+[Params]
   # Prefix URL to edit current page. Will display an "Edit this page" button on top right hand corner of every page. 
   # Useful to give opportunity to people to create merge request for your doc.
   # See the config.toml file from this documentation site to have an example.
@@ -19,6 +18,8 @@ googleAnalytics = "UA-68807-15"
   author = "netboot.xyz"
   # Description of the site, will be used in meta information
   description = "netboot.xyz uses iPXE to network boot Operating System installers and utilities from an easy to use menu."
+  # tagline
+  tagline = "pxe boot all the things"
   # Shows a checkmark for visited pages on the menu
   showVisitedLinks = false
   # Disable search function. It will hide search bar
@@ -37,19 +38,13 @@ googleAnalytics = "UA-68807-15"
   # Change default color scheme with a variant one. Can be "red", "blue", "green".
   themeVariant = "blue"
 
-[Languages]
-[Languages.en]
-title = "netboot.xyz"
-weight = 1
-languageName = "English"
-
-[[Languages.en.menu.shortcuts]] 
+[[menu.shortcuts]]
 name = "<i class='fa fa-fw fa-github'></i> Github repo"
 identifier = "ds"
 url = "https://github.com/antonym/netboot.xyz"
 weight = 10
 
-[[Languages.en.menu.shortcuts]]
+[[menu.shortcuts]]
 name = "<i class='fa fa-newspaper'></i> Blog (Coming Soon)"
 identifier = "netboot.xyz-blog"
 #url = "https://blog.netboot.xyz/"
