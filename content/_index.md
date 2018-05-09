@@ -3,7 +3,6 @@ title: "netboot.xyz"
 weight: 1
 date: 2018-04-14T11:30:13-05:00
 description: "netboot.xyz uses iPXE to network boot Operating System installers and utilities from an easy to use menu."
-tags: [netboot.xyz,iPXE,PXE,boot]
 ---
 
 # netboot.xyz

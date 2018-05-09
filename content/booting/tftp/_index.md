@@ -3,7 +3,6 @@ title: "Booting from TFTP"
 description: "Methods of booting into netboot.xyz using TFTP and DHCP"
 date: 2018-04-14T11:32:10-05:00
 weight: 15
-tags: [netboot.xyz,TFTP,booting]
 ---
 
 If you want to utilize netboot.xyz from your home or office network, it's relatively easy to set up.  It will allow all of your devices on your network to have netboot.xyz available whenever you need it by just changing the boot order on your device, selecting network boot, or manually selecting the device to boot.

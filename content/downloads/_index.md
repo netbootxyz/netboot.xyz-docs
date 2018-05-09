@@ -3,7 +3,6 @@ title: "Downloads"
 description: "Bootloader Downloads for netboot.xyz"
 weight: 5
 date: 2018-04-14T11:40:21-05:00
-tags: [netboot.xyz,downloads,EFI,ISO,USB,PXE]
 ---
 
 ### Bootloader Downloads

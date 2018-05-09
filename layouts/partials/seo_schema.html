@@ -32,7 +32,6 @@
           "name": "{{ .Site.Params.author }}"
         },
       "description": "{{ .Site.Params.description }}",
-      "wordCount" : "{{ .WordCount }}",
       "keywords" : [ {{ if isset .Params "tags" }}{{ range .Params.tags }}"{{ . }}",{{ end }}{{ end }}"Blog" ]
     }
     </script>
@@ -49,7 +48,7 @@
             "datePublished": "{{ time .Date }}",
             "description": "{{ .Description }}",
             "author": {
-                "@type": "Person",
+                "@type": "Organization",
                 "name": "{{ .Site.Params.author }}"
             }
          }
@@ -60,7 +59,7 @@
           "url": "{{ .Permalink }}",
           "name": "{{ .Title }}",
            "author": {
-              "@type": "Person",
+              "@type": "Organization",
               "name": "{ .Site.Params.author }}"
             },
           "description": "{ .Site.Params.description }}",
