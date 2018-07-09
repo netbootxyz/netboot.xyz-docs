@@ -8,7 +8,7 @@ This document covers how to setup netboot.xyz, a service that provides
 iPXE-based installation and live boot of a bunch of operating systems,
 on a Ubiquiti EdgeRouter.
 
-Thanks go to [Sam Kottler](https://github.com/skottler) for originally writing up this how-to.
+Thanks go to [Sam Kottler](https://github.com/skottler) for originally writing up this how-to. Improve setup robustness by using the embedded TFTP daemon from dnsmasq by [Yan Grunenberger](https://github.com/ravens) instead of external TFTP package.
 
 ### Assumptions
 
@@ -18,38 +18,30 @@ different for your setup:
 * There is a DHCP pool called `LAN`
 * The `LAN` pool manages `10.10.2.0/24`
 
-### Basic setup
+### Configure tftp support in dnsmasq
 
-With that out of the way, let's get started.
-
-First, we're going to configure the main and contrib components with a mirror
-for Wheezy:
+By default, dnsmasq is using in the Edgerouter to provide DNS services. In order to enable it :
 
 ```
+sudo mkdir /config/user-data/tftproot
+sudo chmod ugo+rX /config/user-data/tftproot
+
 configure
 
-set system package repository wheezy components 'main contrib'
-set system package repository wheezy distribution wheezy
-set system package repository wheezy url http://http.us.debian.org/debian
+set service dns forwarding  options enable-tftp
+set service dns forwarding  options tftp-root=/config/user-data/tftproot
 
 commit
 save
-exit
 ```
-
-Update the apt cache with our newly configured repo using `sudo apt-get update`.
-
-Next, install TFTPD: `sudo apt-get install tftpd-hpa`. The service will be
-running once the package is installed. It doesn't require any further
-configuration.
 
 ### Setup TFTP components
 
 Download the kpxe image for netboot.xyz and set the permissions properly:
 
 ```
-sudo curl -o /srv/tftp/netboot.xyz.kpxe https://boot.netboot.xyz/ipxe/netboot.xyz.kpxe
-sudo chown tftp:tftp /srv/tftp/netboot.xyz.kpxe
+sudo curl -o /config/user-data/tftproot/netboot.xyz.kpxe https://boot.netboot.xyz/ipxe/netboot.xyz.kpxe
+sudo chmod ugo+r /config/user-data/tftproot/netboot.xyz.kpxe
 ```
 
 At this point you should be able to use a TFTP client from a client in
