@@ -81,7 +81,6 @@ Yes!  You can fork [netboot.xyz-custom](https://github.com/antonym/netboot.xyz-c
 * [GParted](http://gparted.org)
 * [Grml](http://grml.org)
 * [Memtest](http://www.memtest.org/)
-* [Partition Wizard](http://www.partitionwizard.com)
 * [Pogostick - Offline Windows Password and Registry Editor](http://pogostick.net/~pnh/ntpasswd)
 * [Super Grub2 Disk](http://www.supergrubdisk.org)
 * [SystemRescueCD](https://www.system-rescue-cd.org)
