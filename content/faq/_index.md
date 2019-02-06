@@ -53,6 +53,7 @@ Yes!  You can fork [netboot.xyz-custom](https://github.com/antonym/netboot.xyz-c
 * [Manjaro Linux](https://manjaro.github.io)
 * [Microsoft Windows](https://www.microsoft.com)
 * [MirOS](https://www.mirbsd.org)
+* [NixOS](https://nixos.org)
 * [OpenBSD](http://openbsd.org)
 * [OpenSUSE](http://opensuse.org)
 * [RancherOS](http://rancher.com/rancher-os/)
