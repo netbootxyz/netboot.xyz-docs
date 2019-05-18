@@ -37,19 +37,19 @@ theme = "hugo-theme-learn"
   themeVariant = "blue"
 
 [[menu.shortcuts]]
-name = "<i class='fa fa-fw fa-github'></i> Github"
+name = "<i class='fab fa-github'></i> Github"
 identifier = "ds"
 url = "https://github.com/antonym/netboot.xyz"
 weight = 10
 
 [[menu.shortcuts]]
-name = "<i class='fa fa-newspaper-o'></i> Blog (Coming Soon)"
+name = "<i class='fas fa-newspaper'></i> Blog (Coming Soon)"
 identifier = "netboot.xyz-blog"
 #url = "https://blog.netboot.xyz/"
 weight = 20
 
 [[menu.shortcuts]]
-name = "<i class='fa fa-external-link'></i> netboot.xyz Store"
+name = "<i class='fas fa-external-link-alt'></i> netboot.xyz Store"
 identifier = "netboot.xyz-gear"
 url = "https://teespring.com/stores/netbootxyz"
 weight = 30
