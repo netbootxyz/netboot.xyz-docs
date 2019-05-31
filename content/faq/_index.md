@@ -38,7 +38,6 @@ Yes!  You can fork [netboot.xyz-custom](https://github.com/antonym/netboot.xyz-c
 ### Operating Systems
 
 * [Alpine Linux](https://alpinelinux.org)
-* [Antergos](https://antergos.com)
 * [Arch Linux](https://www.archlinux.org)
 * [CentOS](https://centos.org)
 * [CoreOS Container Linux](https://coreos.com/)
