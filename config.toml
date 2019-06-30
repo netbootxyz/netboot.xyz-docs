@@ -15,7 +15,7 @@ theme = "hugo-theme-learn"
   # Author of the site, will be used in meta information
   author = "netboot.xyz"
   # Description of the site, will be used in meta information
-  description = "netboot.xyz uses iPXE to network boot Operating System installers and utilities from an easy to use menu."
+  description = "netboot.xyz enables you to PXE boot Operating System installers and utilities from a simple to use menu based on the iPXE project."
   # tagline
   tagline = "pxe boot all the things"
   # Shows a checkmark for visited pages on the menu
