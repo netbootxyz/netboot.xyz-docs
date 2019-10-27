@@ -43,13 +43,7 @@ url = "https://github.com/antonym/netboot.xyz"
 weight = 10
 
 [[menu.shortcuts]]
-name = "<i class='fas fa-newspaper'></i> Blog (Coming Soon)"
-identifier = "netboot.xyz-blog"
-#url = "https://blog.netboot.xyz/"
-weight = 20
-
-[[menu.shortcuts]]
 name = "<i class='fas fa-external-link-alt'></i> netboot.xyz Store"
 identifier = "netboot.xyz-gear"
 url = "https://teespring.com/stores/netbootxyz"
-weight = 30
+weight = 20
