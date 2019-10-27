@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/antonym/netboot.xyz-docs.svg?branch=master)](https://travis-ci.org/antonym/netboot.xyz-docs)
 [![Discord](https://img.shields.io/discord/425186187368595466)](https://discord.gg/An6PA2a)
 
-This is the main documentation repository for netboot.xyz which is built upon [Hugo](https://gohugo.io/), a static site generator.  
+This is the main documentation repository for [netboot.xyz](https://netboot.xyz) which is built upon [Hugo](https://gohugo.io/), a static site generator.  
 
 The contents of this repo are deployed automatically to netboot.xyz upon being merged.
 
