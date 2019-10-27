@@ -18,7 +18,7 @@ deploy:
   local_dir: public
   skip_cleanup: true
   on:
-    repo: antonym/netboot.xyz-site
+    repo: antonym/netboot.xyz-docs
 after_deploy:
   - aws configure set preview.cloudfront true
   - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DIST_ID_SITE --paths "/*"
