@@ -15,15 +15,31 @@ Example:
     next-server "1.2.3.4"
     filename "netboot.xyz.kpxe"
 
+If you are using [dnsmasq as your DHCP server](https://wiki.archlinux.org/index.php/dnsmasq#DHCP_server) as well as your TFTP server then setting the next-server option is as simple as adding the following line to `/etc/dnsmasq.conf`: 
+
+    dhcp-option=66,0.0.0.0
+
+`0.0.0.0` is parsed as the address of the machine running dnsmasq.
+
 ### TFTP Server Setup
 
 You will need to set up a tftp server to host the iPXE files.  There are various types of TFTP servers out there and they all usually work pretty well.  You can also use dnsmasq to host the files as well.
 
-If you use dnsmasq you can add this configuration to /etc/dnsmasq.conf:
+If you use dnsmasq you can add this configuration to `/etc/dnsmasq.conf`:
 
     enable-tftp
     tftp-root=/var/lib/tftp
     dhcp-boot=netboot.xyz.kpxe
+
+### Fixing the dnsmasq service
+
+If you are running systemd and you can start dnsmasq fine manually but it fails to start at boot you may need to edit the [Unit] section of `/lib/systemd/system/dnsmasq.service` by changing:
+
+    After=network.target
+
+to
+
+    After=network-online.target 
 
 ### Regular and Undionly Boot Files
 
