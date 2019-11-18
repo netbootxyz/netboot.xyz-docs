@@ -5,8 +5,8 @@ go:
 before_install:
   - sudo pip install awscli
 install:
-  - wget https://github.com/gohugoio/hugo/releases/download/v0.59.0/hugo_0.59.0_Linux-64bit.deb
-  - sudo dpkg -i hugo_0.59.0_Linux-64bit.deb
+  - wget https://github.com/gohugoio/hugo/releases/download/v0.59.1/hugo_0.59.1_Linux-64bit.deb
+  - sudo dpkg -i hugo_0.59.1_Linux-64bit.deb
 script:
   - git clone https://github.com/matcornic/hugo-theme-learn ./themes/hugo-theme-learn
   - hugo
@@ -18,7 +18,7 @@ deploy:
   local_dir: public
   skip_cleanup: true
   on:
-    repo: antonym/netboot.xyz-docs
+    repo: netbootxyz/netboot.xyz-docs
 after_deploy:
   - aws configure set preview.cloudfront true
   - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DIST_ID_SITE --paths "/*"
