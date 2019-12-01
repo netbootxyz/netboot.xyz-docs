@@ -8,7 +8,7 @@ draft: false
 
 We have been hard at work the last few weeks and I wanted to provide some updates as to what we're currently working on and where we want to go.
 
-I would like to thank all of the contributers over the last few years that have contributed code, tested, and provided feedback for the project. The contributions have all been really helpful and have helped keep the project up to date.
+I would like to thank all of the contributors over the last few years that have contributed code, tested, and provided feedback for the project. The contributions have all been really helpful and have helped keep the project up to date.
 
 ### Self Hosting
 
@@ -16,7 +16,7 @@ I have been working on getting the netboot.xyz source tree to a point where they
 
 The new netboot.xyz repo will allow you to create a self-hosted environment using Ansible to a target or you can use Docker to generate the site.  The Ansible playbooks will:
 
-* Generate the iPXE files from templates using default settings which can be overrideen
+* Generate the iPXE files from templates using default settings which can be overridden
 * Generate all iPXE disks customized to your environment
 
 This should make it a lot easier to get a custom environment set up in the environment of your choosing.
