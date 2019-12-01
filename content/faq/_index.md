@@ -60,10 +60,6 @@ Yes!  You can fork [netboot.xyz-custom](https://github.com/antonym/netboot.xyz-c
 * [Tiny Core Linux](http://tinycorelinux.net)
 * [Ubuntu](http://www.ubuntu.com/)
 
-### Hypervisors
-
-* [Citrix XenServer](http://xenserver.org)
-
 ### Security Related
 
 * [BlackArch Linux](https://blackarch.org)

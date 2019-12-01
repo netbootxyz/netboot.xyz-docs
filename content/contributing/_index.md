@@ -54,10 +54,13 @@ idea, feel free to open up a Github [issue] or open up a [Pull Request].
 
 ### Communication Channels
 
-* [Discord](https://discord.gg/An6PA2a) Chat Server for netboot.xyz discussions and questions.
-* Follow us on [Twitter](https://twitter.com/netbootxyz) with [@netbootxyz](https://twitter.com/netbootxyz)
+* [Discord](https://discord.gg/An6PA2a) Chat Server for netboot.xyz discussions, questions, and development
+* Follow us on [Twitter](https://twitter.com/netbootxyz) at [@netbootxyz](https://twitter.com/netbootxyz)
   for the latest updates
-* [Freenode IRC](http://webchat.freenode.net/?channels=%23netbootxyz&uio=d4) in #netbootxyz
+
+### Donate
+
+We have set up an [Open Collective](https://opencollective.com/netbootxyz) to open the project up to those who wish to donate to help out the project. This may cover hosting and domain fees, hardware for validation testing, or anything else that comes up in maintaining a project like this. Every little bit will help! If you enjoy the work we do, please support us!
 
 ## Enjoy and have fun!
 

@@ -1,5 +1,5 @@
 ---
-title: "netboot.xyz"
+title: "Introducing netboot.xyz"
 date: 2015-11-25T07:41:21-07:00
 draft: false
 ---
