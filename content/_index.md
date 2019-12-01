@@ -19,11 +19,16 @@ You can remote attach the ISO to servers, set it up as a rescue option in Grub, 
 
 [Download](https://netboot.xyz/downloads/) one of the netboot.xyz bootloaders that works for your situation and start PXE booting your favorite operating system.  The bootloaders are precompiled versions of the latest version of [iPXE](https://github.com/ipxe/ipxe) that will allow you to PXE boot into [https://boot.netboot.xyz](https://boot.netboot.xyz).  If you have DHCP it'll automatically attempt to boot from DHCP.  If you need to set a static IP address, hit the 'm' key during boot up for the failsafe menu and choose manual network configuration.
 
-If you already have iPXE up and running on the network, you can hit netboot.xyz at anytime by typing:
+If you already have iPXE up and running on the network, you can hit load the netboot.xyz kernel by typing the following when loaded in a legacy BIOS:
 
-    chain --autofree https://boot.netboot.xyz
+    chain --autofree https://boot.netboot.xyz/ipxe/netboot.xyz.lkrn
 
-You'll need to make sure to have [DOWNLOAD_PROTO_HTTPS](https://github.com/ipxe/ipxe/blob/master/src/config/general.h#L57) enabled when compiling iPXE.
+or when in EFI mode:
+    
+    chain --autofree https://boot.netboot.xyz/ipxe/netboot.xyz.efi
+
+
+This will load the appropriate netboot.xyz kernel with all of the proper options enabled.
 
 ### Source Code
 
@@ -31,12 +36,12 @@ The source code for netboot.xyz is located [here](https://github.com/antonym/net
 
 ### Contributing
 
-New version of an operating system out?  Found one that network boots well with iPXE?  Pull requests are welcomed and encouraged and helps me out a ton!  Feel free to issue a pull request for new versions or tools that you might find useful.  Once merged into master, [Travis CI](https://travis-ci.org/antonym/netboot.xyz) will regenerate new versions of [iPXE from upstream](https://github.com/ipxe/ipxe) and deploy the latest changes to netboot.xyz.  See more on contributing [here](https://netboot.xyz/contributing).
+New version of an operating system out?  Found one that network boots well with iPXE?  Pull requests are welcomed and encouraged and helps out a ton!  Feel free to issue a pull request for new versions or tools that you might find useful.  Once merged into master, [Travis CI](https://travis-ci.org/antonym/netboot.xyz) will regenerate new versions of [iPXE from upstream](https://github.com/ipxe/ipxe) and deploy the latest changes to netboot.xyz.  See more on contributing [here](https://netboot.xyz/contributing).
 
 ### Testing New Branches
 
 Under the **Utilities** menu on netboot.xyz, there's an option for ["Test netboot.xyz branch"](https://github.com/antonym/netboot.xyz/blob/master/src/utils.ipxe#L157).  If you've forked the code and have developed a new feature branch, you can use this option to chainload into that branch to test and validate the code.  All you need to do is specify your Github user name and the name of your branch or abbreviated hash of the commit. Also, disable the signature verification for *netboot.xyz* under **Signatures Checks**.
 
-### Feedback
+### Communication
 
-Feel free to open up an [issue](https://github.com/antonym/netboot.xyz/issues) on Github, swing by [Freenode IRC](http://freenode.net/) in the [#netbootxyz](http://webchat.freenode.net/?channels=#netbootxyz) channel, or join us on our [Discord](https://discord.gg/An6PA2a) server.  Follow us on [Twitter](https://twitter.com/netbootxyz) or like us on [Facebook](https://www.facebook.com/netboot.xyz)!
+Feel free to open up an [issue](https://github.com/antonym/netboot.xyz/issues) on Github or join us on our [Discord](https://discord.gg/An6PA2a) server.  Follow us on [Twitter](https://twitter.com/netbootxyz) or like us on [Facebook](https://www.facebook.com/netboot.xyz)!

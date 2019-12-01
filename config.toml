@@ -35,15 +35,3 @@ theme = "hugo-theme-learn"
   ordersectionsby = "weight"
   # Change default color scheme with a variant one. Can be "red", "blue", "green".
   themeVariant = "blue"
-
-[[menu.shortcuts]]
-name = "<i class='fab fa-github'></i> Github"
-identifier = "ds"
-url = "https://github.com/antonym/netboot.xyz"
-weight = 10
-
-[[menu.shortcuts]]
-name = "<i class='fas fa-external-link-alt'></i> netboot.xyz Store"
-identifier = "netboot.xyz-gear"
-url = "https://teespring.com/stores/netbootxyz"
-weight = 20
