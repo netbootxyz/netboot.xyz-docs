@@ -37,48 +37,54 @@ Yes!  You can fork [netboot.xyz-custom](https://github.com/antonym/netboot.xyz-c
 
 ### Operating Systems
 
-* [Alpine Linux](https://alpinelinux.org)
-* [Arch Linux](https://www.archlinux.org)
-* [CentOS](https://centos.org)
-* [Debian](https://debian.org)
-* [Devuan](https://devuan.org)
-* [Fedora](https://fedoraproject.org)
-* [Flatcar Linux](https://www.flatcar-linux.org)
-* [FreeBSD](https://freebsd.org)
-* [FreeDOS](http://www.freedos.org)
-* [Gentoo](https://gentoo.org)
-* [IPFire](https://www.ipfire.org)
-* [Mageia](http://www.mageia.org)
-* [Microsoft Windows](https://www.microsoft.com)
-* [MirOS](https://www.mirbsd.org)
-* [NixOS](https://nixos.org)
-* [OpenBSD](http://openbsd.org)
-* [OpenSUSE](http://opensuse.org)
-* [RancherOS](http://rancher.com/rancher-os/)
-* [Red Hat Enterprise Linux](https://www.redhat.com/)
-* [Scientific Linux](http://scientificlinux.org)
-* [Tiny Core Linux](http://tinycorelinux.net)
-* [Ubuntu](http://www.ubuntu.com/)
 
-### Security Related
-
-* [BlackArch Linux](https://blackarch.org)
-* [Kali Linux](https://www.kali.org)
-* [Parrot Security](https://www.parrotsec.org)
+| Name       | URL             | Installer Kernel | Live OS       |
+|------------|-----------------|------------------|---------------|
+|Alpine Linux| https://alpinelinux.org | Yes              | No            |
+|Arch Linux | https://www.archlinux.org| Yes              | No            |
+|BlackArch Linux|https://blackarch.org| ISO - Memdisk | No                |
+|CentOS| https://centos.org | Yes | No |
+|Debian| https://debian.org | Yes | Yes|
+|Devuan| https://devuan.org | Yes | No |
+|Elementary OS| https://elementary.io | No | Yes |
+|Fedora| https://fedoraproject.org | Yes | Yes |
+|Flatcar Linux|https://www.flatcar-linux.org| Yes | No |
+|FreeBSD|https://freebsd.org| No, disk image | No |
+|FreeDOS|http://www.freedos.org| ISO - Memdisk| No |
+|Gentoo|https://gentoo.org| Not Working | No |
+|IPFire|https://www.ipfire.org| Yes | No |
+|Kali Linux|https://www.kali.org| Yes | Yes |
+|Mageia|https://www.mageia.org| Yes | No |
+|Manjaro|https://manjaro.org| No | Yes |
+|Mint|https://linuxmint.com| No | Yes |
+|Microsoft Windows|https://www.microsoft.com| User supplied media | No |
+|MirOS|https://www.mirbsd.org| Yes | No |
+|NixOS|https://nixos.org| Yes | No |
+|OpenBSD|https://openbsd.org| Yes | No |
+|OpenSUSE|https://opensuse.org| Yes | No |
+|Parrot Security|https://www.parrotsec.org| ISO | No |
+|Pop OS|https://system76.com/pop| No | Yes |
+|RancherOS|https://rancher.com/rancher-os| Yes | No |
+|Red Hat Enterprise Linux|https://www.redhat.com| User supplied media | No |
+|Scientific Linux|https://scientificlinux.org| Yes | No |
+|Slackware|https://www.slackware.com| Yes | No |
+|Tails|https://tails.boum.org | No | Yes |
+|Tiny Core Linux|https://tinycorelinux.net| ISO - Memdisk | No |
+|Ubuntu|https://www.ubuntu.com| Yes | Yes |
 
 ### Utilities
 
-* [ALT Linux Rescue](https://en.altlinux.org/Rescue)
-* [AVG Rescue CD](http://www.avg.com/us-en/avg-rescue-cd)
-* [Breakin](http://www.advancedclustering.com/products/software/breakin/)
-* [Clonezilla](http://www.clonezilla.org/)
-* [DBAN](http://www.dban.org/)
-* [GParted](http://gparted.org)
-* [Grml](http://grml.org)
-* [Memtest](http://www.memtest.org/)
-* [Super Grub2 Disk](http://www.supergrubdisk.org)
-* [SystemRescueCD](https://www.system-rescue-cd.org)
-* [Ultimate Boot CD](http://www.ultimatebootcd.com)
+| Name       | URL                     | Installer Kernel | Live OS |
+|------------|-------------------------|------------------|---------|
+|ALT Linux Rescue|https://en.altlinux.org/Rescue| ISO - Memdisk | - |
+|Breakin|http://www.advancedclustering.com/products/software/breakin/| ISO - Memdisk | - |
+|Clonezilla|http://www.clonezilla.org/| ISO - Memdisk | - |
+|DBAN|http://www.dban.org/| ISO - Memdisk | - |
+|GParted|http://gparted.org| ISO - Memdisk | - |
+|Grml|http://grml.org| ISO - Memdisk | - |
+|Memtest|http://www.memtest.org/| Yes | - |
+|Super Grub2 Disk|http://www.supergrubdisk.org| ISO - Memdisk | - |
+|Ultimate Boot CD|http://www.ultimatebootcd.com| ISO - Memdisk | - |
 
 ## What are some good resources for learning more about network booting?
 
