@@ -64,5 +64,5 @@ We have set up an [Open Collective](https://opencollective.com/netbootxyz) to op
 
 ## Enjoy and have fun!
 
-[issue]: https://github.com/antonym/netboot.xyz/issues/new
-[Pull Request]: https://github.com/antonym/netboot.xyz/pulls
+[issue]: https://github.com/netbootxyz/netboot.xyz/issues/new
+[Pull Request]: https://github.com/netbootxyz/netboot.xyz/pulls
