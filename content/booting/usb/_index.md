@@ -13,7 +13,7 @@ Download a netboot.xyz USB disk:
 
 ## Creating USB Key on Linux
 
-Insert a USB key in your compute and find the device name. Then use following command:
+Insert a USB key in your computer and find the device name. Then use following command:
 
     cat ipxe.usb > /dev/sdX
 
