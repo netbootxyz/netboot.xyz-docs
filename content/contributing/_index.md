@@ -5,10 +5,10 @@ weight: 40
 date: 2018-04-14T11:40:21-05:00
 ---
 
-Thanks for supporting netboot.xyz, and for considering contributing to the
+First of all, thanks for supporting the netboot.xyz community and for considering contributing to the
 project!
 
-## How to Contribute
+### How to Contribute
 
 Because netboot.xyz supports many different operating systems and utilities, it
 takes work and time to keep the many options updated.  Distributions may add a
@@ -18,20 +18,20 @@ might go end of life and drop off the mirrors.
 The end goal is to support as many operating systems as possible so that it's
 really easy to go explore new operating systems and tools from one location.
 
-## So what can I do to help?
+### What can I do to help?
 
-### Help us keep netboot.xyz updated
+#### Help us keep netboot.xyz updated
 
 If you noticed one of your favorite operating system or tool has been updated,
 feel free to open a [Pull Request] to get the operating system updated.  It
 will be reviewed and merged once validated.
 
-### Add support for new OS and Utilities
+#### Add support for new OS and Utilities
 
 Do you have a favorite utility that you use often but isn't on netboot.xyz?
 Feel free to request it being added or submit a [Pull Request].
 
-### Ask your OS distribution to become netboot friendly
+#### Ask your OS distribution to become netboot friendly
 
 If you don't see support for your favorite distribution in netboot.xyz, please
 open up an [issue] with netboot.xyz and if possible, open up an issue with the
@@ -47,22 +47,22 @@ from their own PXE servers.  In this day and age as physical media is less
 necessary, having the option to pull files as needed is much more efficient
 especially when you may have limited bandwidth.
 
-### Submit ideas
+#### Submit ideas
 
-I'm always looking for new ideas to make the tool more useful, if you have an
+We are always looking for new ideas to make the tool more useful, if you have an
 idea, feel free to open up a Github [issue] or open up a [Pull Request].
 
-### Communication Channels
+#### Communication Channels
 
 * [Discord](https://discord.gg/An6PA2a) Chat Server for netboot.xyz discussions, questions, and development
 * Follow us on [Twitter](https://twitter.com/netbootxyz) at [@netbootxyz](https://twitter.com/netbootxyz)
   for the latest updates
 
-### Donate
+#### Donate
 
 We have set up an [Open Collective](https://opencollective.com/netbootxyz) to open the project up to those who wish to donate to help out the project. This may cover hosting and domain fees, hardware for validation testing, or anything else that comes up in maintaining a project like this. Every little bit will help! If you enjoy the work we do, please support us!
 
-## Enjoy and have fun!
+### Enjoy and have fun!
 
 [issue]: https://github.com/netbootxyz/netboot.xyz/issues/new
 [Pull Request]: https://github.com/netbootxyz/netboot.xyz/pulls

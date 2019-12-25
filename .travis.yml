@@ -22,6 +22,3 @@ deploy:
 after_deploy:
   - aws configure set preview.cloudfront true
   - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DIST_ID_SITE --paths "/*"
-notifications:
-  email:
-    - antony@mes.ser.li
