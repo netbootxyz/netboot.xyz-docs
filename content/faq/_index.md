@@ -40,11 +40,15 @@ Yes!  You can fork [netboot.xyz-custom](https://github.com/netbootxyz/netboot.xy
 
 | Name       | URL             | Installer Kernel | Live OS       |
 |------------|-----------------|------------------|---------------|
-|Alpine Linux| https://alpinelinux.org | Yes              | No            |
-|Arch Linux | https://www.archlinux.org| Yes              | No            |
+|Alpine Linux| https://alpinelinux.org | Yes | No |
+|Anarchy Linux| https://www.anarchylinux.org | Yes | No |
+|Arch Linux| https://www.archlinux.org| Yes | No |
 |Backbox|https://www.backbox.org | No | Yes |
-|BlackArch Linux|https://blackarch.org| ISO - Memdisk | No                |
+|BlackArch Linux|https://blackarch.org| Yes | Yes |
+|Bluestar Linux|https://sourceforge.net/projects/bluestarlinux| No | Yes |
+|Bodhi Linux|https://www.bodhilinux.com| No | Yes |
 |CentOS| https://centos.org | Yes | No |
+|CoreOS| http://coreos.com/ | Yes | No |
 |Debian| https://debian.org | Yes | Yes|
 |Deepin| https://www.deepin.org | No | Yes |
 |Devuan| https://devuan.org | Yes | No |
@@ -58,42 +62,52 @@ Yes!  You can fork [netboot.xyz-custom](https://github.com/netbootxyz/netboot.xy
 |IPFire|https://www.ipfire.org| Yes | No |
 |Kali Linux|https://www.kali.org| Yes | Yes |
 |KDE Neon|https://neon.kde.org | No | Yes |
+|Kodachi|https://www.digi77.com/linux-kodachi/ | No | Yes |
 |Linux Lite| https://www.linuxliteos.com | No | Yes |
+|Q4OS|https://q4os.org | No | Yes |
 |Mageia|https://www.mageia.org| Yes | No |
 |Manjaro|https://manjaro.org| No | Yes |
 |Mint|https://linuxmint.com| No | Yes |
 |Microsoft Windows|https://www.microsoft.com| User supplied media | No |
 |MirOS|https://www.mirbsd.org| Yes | No |
+|Nitrux|https://nxos.org/| No | Yes |
 |NixOS|https://nixos.org| Yes | No |
 |OpenBSD|https://openbsd.org| Yes | No |
 |OpenSUSE|https://opensuse.org| Yes | No |
-|Parrot Security|https://www.parrotsec.org| ISO | No |
+|Oracle Linux|https://www.oracle.com/linux/| Yes | Installer |
+|Parrot Security|https://www.parrotsec.org| Yes | Yes |
 |Peppermint|https://peppermintos.com | No | Yes |
 |Pop OS|https://system76.com/pop| No | Yes |
-|Q4OS|https://q4os.org | No | Yes |
 |RancherOS|https://rancher.com/rancher-os| Yes | No |
 |Red Hat Enterprise Linux|https://www.redhat.com| User supplied media | No |
 |Regolith|https://regolith-linux.org| No | Yes |
 |Scientific Linux|https://scientificlinux.org| Yes | No |
 |Slackware|https://www.slackware.com| Yes | No |
+|SparkyLinux|https://sparkylinux.org/| No | Yes |
 |Tails|https://tails.boum.org | No | Yes |
 |Tiny Core Linux|https://tinycorelinux.net| ISO - Memdisk | No |
 |Ubuntu|https://www.ubuntu.com| Yes | Yes |
+|Velt|https://velt.io/| No | Yes |
 |Voyager|https://voyagerlive.org | No | Yes |
-|Zoris OS|https://zorinos.com| No | Yes |
+|Zen Installer|https://sourceforge.net/projects/revenge-installer| Yes | No |
+|Zorin OS|https://zorinos.com| No | Yes |
 
 ### Utilities
 
 | Name       | URL                     | Installer Kernel | Live OS |
 |------------|-------------------------|------------------|---------|
 |ALT Linux Rescue|https://en.altlinux.org/Rescue| ISO - Memdisk | - |
+|Boot Repair CD|https://sourceforge.net/projects/boot-repair-cd/| NA | Yes |
 |Breakin|http://www.advancedclustering.com/products/software/breakin/| Yes | Yes |
+|CAINE|https://www.caine-live.net/| NA | Yes |
 |Clonezilla|http://www.clonezilla.org/| - | Yes |
 |DBAN|http://www.dban.org/| Yes | Yes |
-|GParted|http://gparted.org| ISO - Memdisk | - |
-|Grml|http://grml.org| ISO - Memdisk | - |
+|GParted|http://gparted.org| NA | Yes |
+|Grml|http://grml.org| NA | Yes |
 |Memtest|http://www.memtest.org/| Yes | - |
+|Rescatux|https://www.supergrubdisk.org/rescatux/| NA | Yes |
 |Super Grub2 Disk|http://www.supergrubdisk.org| ISO - Memdisk | - |
+|System Rescue CD|http://www.system-rescue-cd.org/| NA | Yes |
 |Ultimate Boot CD|http://www.ultimatebootcd.com| ISO - Memdisk | - |
 
 ### What are some good resources for learning more about network booting?
