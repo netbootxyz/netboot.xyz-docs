@@ -7,7 +7,7 @@ weight: 5
 
 ### NIC with Embedded iPXE
 
-If you've already compiled your own iPXE, you can load up the netboot.xyz menu easily by entering CTRL-B when prompted setting DHCP and then chainloading iPXE:
+If you've already compiled your own iPXE, you can load up the netboot.xyz menu easily by entering CTRL-B when prompted, setting DHCP and then chainloading iPXE:
 
     dhcp
     chain --autofree https://boot.netboot.xyz
@@ -20,3 +20,7 @@ If you don't have DHCP on your network, you can manually set your network inform
     set dns <nameserver>
     ifopen net0
     chain --autofree https://boot.netboot.xyz
+
+### KVM
+
+On VPSes that use KVM, you can usually connect to the VPS via VNC, reboot it, press escape while rebooting to get a boot menu, then select the iPXE option. Once iPXE has started, press Ctrl-B and follow the instructions above.
