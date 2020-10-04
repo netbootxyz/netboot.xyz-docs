@@ -41,3 +41,9 @@ name = "Blog"
 identifier = "blog"
 url = "https://blog.netboot.xyz/"
 weight = 20
+
+[[menu.shortcuts]]
+name = "Discord"
+identifier = "discord"
+url = "https://discord.gg/An6PA2a"
+weight = 30
