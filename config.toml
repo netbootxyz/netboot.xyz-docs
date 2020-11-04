@@ -47,3 +47,9 @@ name = "Discord"
 identifier = "discord"
 url = "https://discord.gg/An6PA2a"
 weight = 30
+
+[[menu.shortcuts]]
+name = "Discussions"
+identifier = "discussions"
+url = "https://github.com/netbootxyz/netboot.xyz/discussions"
+weight = 40
