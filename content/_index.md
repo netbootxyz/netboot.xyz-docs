@@ -44,4 +44,4 @@ Under the **Utilities** menu on netboot.xyz, there's an option for ["Test netboo
 
 ### Communication
 
-Feel free to open up an [issue](https://github.com/netbootxyz/netboot.xyz/issues) on Github or join us on our [Discord](https://discord.gg/An6PA2a) server.  Follow us on [Twitter](https://twitter.com/netbootxyz) or like us on [Facebook](https://www.facebook.com/netboot.xyz)!
+Feel free to open up an [issue](https://github.com/netbootxyz/netboot.xyz/issues/new/choose) on Github or join us on our [Discord](https://discord.gg/An6PA2a) server.  Follow us on [Twitter](https://twitter.com/netbootxyz) or like us on [Facebook](https://www.facebook.com/netboot.xyz)!
