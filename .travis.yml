@@ -5,8 +5,8 @@ go:
 before_install:
   - sudo pip install awscli
 install:
-  - wget https://github.com/gohugoio/hugo/releases/download/v0.75.1/hugo_0.75.1_Linux-64bit.deb
-  - sudo dpkg -i hugo_0.75.1_Linux-64bit.deb
+  - wget https://github.com/gohugoio/hugo/releases/download/v0.78.2/hugo_0.78.2_Linux-64bit.deb
+  - sudo dpkg -i hugo_0.78.2_Linux-64bit.deb
 script:
   - git clone https://github.com/matcornic/hugo-theme-learn ./themes/hugo-theme-learn
   - hugo
