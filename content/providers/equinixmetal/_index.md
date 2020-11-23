@@ -2,7 +2,7 @@
 title: "Equinix Metal"
 description: "Using netboot.xyz with Equinix Metal bare metal servers"
 date: 2020-11-23T02:02:22-05:00
-weight: 20
+weight: 7
 ---
 
 [Equinix Metal](https://metal.equinix.com) fully supports netboot.xyz with its Custom iPXE
