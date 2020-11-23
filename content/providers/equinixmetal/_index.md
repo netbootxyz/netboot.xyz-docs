@@ -1,11 +1,11 @@
 ---
-title: "Packet"
-description: "Using netboot.xyz with Packet bare metal servers"
-date: 2018-04-15T02:02:22-05:00
+title: "Equinix Metal"
+description: "Using netboot.xyz with Equinix Metal bare metal servers"
+date: 2020-11-23T02:02:22-05:00
 weight: 20
 ---
 
-[Packet](https://packet.net) fully supports netboot.xyz with its Custom iPXE
+[Equinix Metal](https://metal.equinix.com) fully supports netboot.xyz with its Custom iPXE
 operating system.
 
 ### Usage
@@ -21,17 +21,17 @@ Put the netboot.xyz URL in the text field that appears in the portal, or use the
     https://boot.netboot.xyz
 
 Press "Deploy" to provision your device. It will take 2-3 minutes for the device
-to become active. Once it's online, connect to Packet's out-of-band serial-over-SSH
-service (S.O.S.) using the device's `id` and the facility where the device was
-deployed, e.g. `ewr1`.
+to become active. Once it's online, connect to Equinix Metal's out-of-band
+serial-over-SSH service (S.O.S.) using the device's `id` and the facility where
+the device was deployed, e.g. `ewr1`.
 
-    ssh <device-id>@sos.<facility-code>.packet.net
+    ssh {server-uuid}@sos.{facility-code}.platformequinix.com
 
-The current list of facilities is [here](https://www.packet.net/locations/). The
+The current list of facilities is [here](https://metal.equinix.com/product/locations). The
 netboot.xyz iPXE menu will appear and you can complete installation from there.
 
 > **Please Note:** By default, devices are set to boot from the local disk. During
-> provisioning, Packet sets the next boot to PXE. This happens once, which means that
+> provisioning, Equinix Metal sets the next boot to PXE. This happens once, which means that
 > if you don't install an operating system before rebooting, it won't reload the
 > netboot.xyz menu. However, you can set your device to always boot to iPXE
 > first by enabling that option under 'server actions' through the customer portal.
@@ -39,12 +39,12 @@ netboot.xyz iPXE menu will appear and you can complete installation from there.
 ### Networking
 
 Devices that are provisioned via Custom iPXE will be able to DHCP for the life of
-the device; however, Packet recommends configuring networking statically. IP
-address information can be found by querying https://metadata.packet.net/metadata
+the device; however, Equinix Metal recommends configuring networking statically. IP
+address information can be found by querying https://metadata.platformequinix.com/metadata
 from the host.
 
-More information on how Packet configures bonding can be found
-[here](https://www.packet.net/help/kb/how-does-the-packet-bonded-network-interface-work/).
+More information on how Equinix Metal configures bonding can be found
+[here](https://metal.equinix.com/developers/docs/networking/layer2/).
 
 Nameservers should be configured as:
 
