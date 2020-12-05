@@ -84,7 +84,6 @@ Yes!  You can fork [netboot.xyz-custom](https://github.com/netbootxyz/netboot.xy
 |Scientific Linux|https://scientificlinux.org| Yes | No |
 |Slackware|https://www.slackware.com| Yes | No |
 |SparkyLinux|https://sparkylinux.org/| No | Yes |
-|Tails|https://tails.boum.org | No | Yes |
 |Tiny Core Linux|https://tinycorelinux.net| ISO - Memdisk | No |
 |Ubuntu|https://www.ubuntu.com| Yes | Yes |
 |Velt|https://velt.io/| No | Yes |
