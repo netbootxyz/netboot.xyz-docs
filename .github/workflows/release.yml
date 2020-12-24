@@ -1,0 +1,40 @@
+name: release
+
+on:
+  push:
+    branches:
+      - master
+
+env:
+  DISCORD_HOOK_URL: ${{ secrets.DISCORD_HOOK_URL }}
+  GITHUB_SHA: ${{ github.sha }}
+  HUGO_VERSION: 0.78.2
+
+jobs:
+  release:
+    name: Deploy website
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ secrets.AWS_ACCESS_REGION }}
+
+    - name: Build hugo site
+      run: |
+        wget https://github.com/gohugoio/hugo/releases/download/v${{ env.HUGO_VERSION }}/hugo_${{ env.HUGO_VERSION }}_Linux-64bit.deb
+        sudo dpkg -i hugo_${{ env.HUGO_VERSION }}_Linux-64bit.deb
+        git clone https://github.com/matcornic/hugo-theme-learn ./themes/hugo-theme-learn
+        hugo
+
+    - name: Deploy hugo site to bucket
+      run: |
+        aws s3 sync --no-progress --acl public-read public s3://${{ secrets.BUCKET_SITE }}
+
+    - name: Invalidate Cloudfront
+      run: |
+        aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DIST_ID_SITE }} --paths "/*"
