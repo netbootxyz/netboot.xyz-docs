@@ -1,6 +1,6 @@
 # netboot.xyz documentation
 
-[![Build Status](https://travis-ci.com/netbootxyz/netboot.xyz-docs.svg?branch=master)](https://travis-ci.com/netbootxyz/netboot.xyz-docs)
+[![Build Status](https://github.com/netbootxyz/netboot.xyz-docs/workflows/release/badge.svg)](https://github.com/netbootxyz/netboot.xyz-docs/actions?query=workflow%3Arelease)
 [![Discord](https://img.shields.io/discord/425186187368595466)](https://discord.gg/An6PA2a)
 
 This is the main documentation repository for [netboot.xyz](https://netboot.xyz) which is built upon [Hugo](https://gohugo.io/), a static site generator.  

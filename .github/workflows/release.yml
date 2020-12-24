@@ -8,7 +8,7 @@ on:
 env:
   DISCORD_HOOK_URL: ${{ secrets.DISCORD_HOOK_URL }}
   GITHUB_SHA: ${{ github.sha }}
-  HUGO_VERSION: 0.78.2
+  HUGO_VERSION: 0.79.1
 
 jobs:
   release:
