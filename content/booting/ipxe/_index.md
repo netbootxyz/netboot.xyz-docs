@@ -20,6 +20,10 @@ If you don't have DHCP on your network, you can manually set your network inform
     set dns <nameserver>
     ifopen net0
     chain --autofree https://boot.netboot.xyz
+    
+Some iPXE builds do not support HTTPS connections. If you get an "Operation not supported" error message, run this instead:
+
+    chain --autofree http://boot.netboot.xyz
 
 ### KVM
 
