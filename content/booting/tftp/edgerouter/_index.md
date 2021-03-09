@@ -93,7 +93,7 @@ That's it!
 
 
 ## The advanced setup with support for Legacy and UEFI
-
+### Using ISC DHCP
 This section was written by [Skyler Mäntysaari](https://github.com/samip5).
 
 This requires that you do not use `set service dhcp-server use-dnsmasq enable`. If you do use that, it will not work.
@@ -192,3 +192,29 @@ option arch code 93 = unsigned integer 16;
 ```
 
 After all of that, it should be it! I hope that helps.
+
+### Using dnsmasq
+This section was written by [Benjamin Reich](https://benjaminreich.de/).
+
+This Part is requierd if you using `set service dhcp-server use-dnsmasq enable`.
+
+Connect via SSH and replace `SERVERIP` with the actual IP.
+
+```
+configure
+set service dhcp-server use-dnsmasq enable
+set service dns forwarding options "dhcp-match=set:bios,60,PXEClient:Arch:00000"
+set service dns forwarding options "dhcp-boot=tag:bios,netboot.xyz.kpxe,,SERVERIP"
+set service dns forwarding options "dhcp-match=set:efi32,60,PXEClient:Arch:00002"
+set service dns forwarding options "dhcp-boot=tag:efi32,netboot.xyz.efi,,SERVERIP"
+set service dns forwarding options "dhcp-match=set:efi32-1,60,PXEClient:Arch:00006"
+set service dns forwarding options "dhcp-boot=tag:efi32-1,netboot.xyz.efi,,SERVERIP"
+set service dns forwarding options "dhcp-match=set:efi64,60,PXEClient:Arch:00007"
+set service dns forwarding options "dhcp-boot=tag:efi64,netboot.xyz.efi,,SERVERIP"
+set service dns forwarding options "dhcp-match=set:efi64-1,60,PXEClient:Arch:00008"
+set service dns forwarding options "dhcp-boot=tag:efi64-1,netboot.xyz.efi,,SERVERIP"
+set service dns forwarding options "dhcp-match=set:efi64-2,60,PXEClient:Arch:00009"
+set service dns forwarding options "dhcp-boot=tag:efi64-2,netboot.xyz.efi,,SERVERIP"
+commit; save
+```
+
