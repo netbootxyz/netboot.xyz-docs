@@ -2,19 +2,24 @@
 title: "Downloads"
 description: "Bootloader Downloads for netboot.xyz"
 weight: 5
-date: 2019-12-17T11:40:21-05:00
+date: 2021-5-01T11:40:21-05:00
 ---
 
 ### Bootloader Downloads
 
 These iPXE disks will automatically load into [boot.netboot.xyz](https://boot.netboot.xyz):
 
-#### Legacy (PCBIOS) iPXE Bootloaders
+#### Combined Legacy and UEFI iPXE Bootloaders
 
 | Type | Bootloader | Description |
 |------|------------|-------------|
 |ISO| [netboot.xyz.iso](https://boot.netboot.xyz/ipxe/netboot.xyz.iso)| Used for CD/DVD, Virtual CDs, DRAC/iLO, VMware, Virtual Box |
-|USB| [netboot.xyz.usb](https://boot.netboot.xyz/ipxe/netboot.xyz.usb)| Used for creation of USB Keys|
+|USB| [netboot.xyz.img](https://boot.netboot.xyz/ipxe/netboot.xyz.img)| Used for creation of USB Keys|
+
+#### Legacy (PCBIOS) iPXE Bootloaders
+
+| Type | Bootloader | Description |
+|------|------------|-------------|
 |Kernel| [netboot.xyz.lkrn](https://boot.netboot.xyz/ipxe/netboot.xyz.lkrn)|Used for booting from GRUB/EXTLINUX|
 |Floppy| [netboot.xyz.dsk](https://boot.netboot.xyz/ipxe/netboot.xyz.dsk)| Virtual floppy disk for DRAC/iLO, VMware, Virtual Box, etc|
 |DHCP| [netboot.xyz.kpxe](https://boot.netboot.xyz/ipxe/netboot.xyz.kpxe)| DHCP boot image file, uses built-in iPXE NIC drivers|
@@ -24,11 +29,9 @@ These iPXE disks will automatically load into [boot.netboot.xyz](https://boot.ne
 
 | Type | Bootloader | Description |
 |------|------------|-------------|
-|ISO| [netboot.xyz-efi.iso](https://boot.netboot.xyz/ipxe/netboot.xyz-efi.iso)| Used for CD/DVD, Virtual CDs, DRAC/iLO, VMware, Virtual Box |
-|USB| [netboot.xyz-efi.usb](https://boot.netboot.xyz/ipxe/netboot.xyz-efi.usb)| Used for creation of USB Keys|
 |DHCP| [netboot.xyz.efi](https://boot.netboot.xyz/ipxe/netboot.xyz.efi)| DHCP boot image file, uses built-in iPXE NIC drivers|
-|DHCP-snp |	[netboot.xyz-snp.efi](https://boot.netboot.xyz/ipxe/netboot.xyz-snp.efi)| EFI w/ Simple Network Protocol, attempts to boot all net devices|
-|DHCP-snponly | [netboot.xyz-snponly.efi](https://boot.netboot.xyz/ipxe/netboot.xyz-snponly.efi)| EFI w/ Simple Network Protocol, only boots from device chained from|
+|DHCP-snp| [netboot.xyz-snp.efi](https://boot.netboot.xyz/ipxe/netboot.xyz-snp.efi)| EFI w/ Simple Network Protocol, attempts to boot all net devices|
+|DHCP-snponly| [netboot.xyz-snponly.efi](https://boot.netboot.xyz/ipxe/netboot.xyz-snponly.efi)| EFI w/ Simple Network Protocol, only boots from device chained from|
 
 ### Checksums
 

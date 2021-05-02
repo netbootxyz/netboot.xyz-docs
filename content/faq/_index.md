@@ -86,6 +86,7 @@ Yes!  You can fork [netboot.xyz-custom](https://github.com/netbootxyz/netboot.xy
 | RancherOS | https://rancher.com/rancher-os | Yes | No |
 | Red Hat Enterprise Linux | https://www.redhat.com | User supplied media | No |
 | Regolith | https://regolith-linux.org | No | Yes |
+| Rocky Linux | https://rockylinux.org/ | Yes | No |
 | Scientific Linux | https://scientificlinux.org | Yes | No |
 | Septor | https://septor.sourceforge.io | No | Yes |
 | Slackware | https://www.slackware.com | Yes | No |
@@ -115,7 +116,10 @@ Yes!  You can fork [netboot.xyz-custom](https://github.com/netbootxyz/netboot.xy
 | Grml | http://grml.org | LiveCD |
 | Kaspersky Rescue Disk | https://support.kaspersky.com/viruses/krd18 | LiveCD |
 | Memtest | http://www.memtest.org/ | Kernel |
+| Redo Rescue | http://redorescue.com/ | LiveCD |
 | Rescatux | https://www.supergrubdisk.org/rescatux/ | LiveCD |
+| Rescuezilla | https://rescuezilla.com/ | LiveCD |
+| ShredOS | https://github.com/PartialVolume/shredos.x86_64 | Kernel |
 | Super Grub2 Disk | http://www.supergrubdisk.org | ISO - Memdisk |
 | System Rescue | https://system-rescue.org/ | LiveCD |
 | The Smallest Server Suite | https://thesss.4mlinux.com/ | Kernel/Initrd |
