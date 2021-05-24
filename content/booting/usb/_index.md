@@ -9,17 +9,17 @@ weight: 20
 
 Download a netboot.xyz USB disk:
 
-* [netboot.xyz](https://boot.netboot.xyz/ipxe/netboot.xyz.usb)
+* [netboot.xyz](https://boot.netboot.xyz/ipxe/netboot.xyz.img)
 
 ## Creating USB Key on Linux
 
 Insert a USB key in your computer and find the device name. Then use following command:
 
-    cat ipxe.usb > /dev/sdX
+    cat netboot.xyz.img > /dev/sdX
 
 or
 
-    dd if=ipxe.usb of=/dev/sdX
+    dd if=netboot.xyz.img of=/dev/sdX
 
 where sdX is your usb drive.
 
@@ -49,7 +49,7 @@ __Run:__
 
 __Execute:__
 
-    sudo dd if=netboot.xyz.usb of=/dev/rdiskN bs=1m
+    sudo dd if=netboot.xyz.img of=/dev/rdiskN bs=1m
 
 * Using /dev/rdisk instead of /dev/disk may be faster
 * If you see the error dd: Invalid number '1m', you are using GNU dd. Use the same command but replace bs=1m with bs=1M
@@ -63,7 +63,7 @@ and remove your flash media when the command completes.
 
 ### Creating USB Key on Windows
 
-Check out [Rufus](https://rufus.akeo.ie/) to install the ISO file to a USB key.
+Check out [Rufus](https://rufus.akeo.ie/) to install the IMG file to a USB key.
 
 ### Booting
 
