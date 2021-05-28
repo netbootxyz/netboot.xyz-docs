@@ -13,7 +13,7 @@ Tests were done using a [Fedora 23](https://getfedora.org) instance on [Digital 
 
 ### Download an iPXE linux kernel
 
-Obtain an iPXE generic kernel [here](https://boot.netboot.xyz/ipxe/generic-ipxe.lkrn) or [compile your own](http://ipxe.org/download) and save it to /boot/generic-ipxe.lkrn.
+Obtain an iPXE generic kernel [here](https://boot.netboot.xyz/ipxe/netboot.xyz.lkrn) or [compile your own](http://ipxe.org/download) and save it to /boot/generic-ipxe.lkrn.
 
 ### Create a netboot.xyz initrd file
 
@@ -38,7 +38,7 @@ Add the following entry to /etc/grub.d/40_custom:
     #/etc/grub.d/40_custom
     menuentry 'netboot.xyz' {
         set root='hd0,msdos1'
-        linux16 /boot/generic-ipxe.lkrn
+        linux16 /boot/netboot.xyz.lkrn
         initrd16 /boot/netboot.xyz-initrd
     }
 
