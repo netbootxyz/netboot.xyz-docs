@@ -38,9 +38,9 @@ The source code for netboot.xyz is located [here](https://github.com/netbootxyz/
 
 New version of an operating system out?  Found one that network boots well with iPXE?  Pull requests are welcomed and encouraged and helps out a ton!  Feel free to issue a pull request for new versions or tools that you might find useful.  Once merged into master, [Github Actions](https://github.com/netbootxyz/netboot.xyz/actions) will regenerate new versions of [iPXE from upstream](https://github.com/ipxe/ipxe) and deploy the latest changes to netboot.xyz.  See more on contributing [here](https://netboot.xyz/contributing).
 
-### Testing New Branches
+### Testing New Features
 
-Under the **Utilities** menu on netboot.xyz, there's an option for ["Test netboot.xyz branch"](https://github.com/netbootxyz/netboot.xyz/blob/master/src/utils.ipxe#L157).  If you've forked the code and have developed a new feature branch, you can use this option to chainload into that branch to test and validate the code.  All you need to do is specify your Github user name and the name of your branch or abbreviated hash of the commit. Also, disable the signature verification for *netboot.xyz* under **Signatures Checks**.
+Under the **Utilities** menu on netboot.xyz, there's an option for ["netboot.xyz endpoints"](https://github.com/netbootxyz/netboot.xyz/blob/development/roles/netbootxyz/templates/menu/nbxyz.ipxe.j2).  Features or changes that have been merged into the development branch can be loaded here to be tested before they are merged into production.
 
 ### Communication
 
