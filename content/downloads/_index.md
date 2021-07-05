@@ -2,7 +2,7 @@
 title: "Downloads"
 description: "Bootloader Downloads for netboot.xyz"
 weight: 5
-date: 2021-5-01T11:40:21-05:00
+date: 2021-7-04T11:40:21-05:00
 ---
 
 ### Bootloader Downloads
@@ -32,6 +32,19 @@ These iPXE disks will automatically load into [boot.netboot.xyz](https://boot.ne
 |DHCP| [netboot.xyz.efi](https://boot.netboot.xyz/ipxe/netboot.xyz.efi)| DHCP boot image file, uses built-in iPXE NIC drivers|
 |DHCP-snp| [netboot.xyz-snp.efi](https://boot.netboot.xyz/ipxe/netboot.xyz-snp.efi)| EFI w/ Simple Network Protocol, attempts to boot all net devices|
 |DHCP-snponly| [netboot.xyz-snponly.efi](https://boot.netboot.xyz/ipxe/netboot.xyz-snponly.efi)| EFI w/ Simple Network Protocol, only boots from device chained from|
+
+#### ARM64 iPXE Bootloaders
+
+| Type | Bootloader | Description |
+|------|------------|-------------|
+|DHCP-snp| [netboot.xyz-arm64.efi](https://boot.netboot.xyz/ipxe/netboot.xyz-arm64.efi)| EFI w/ Simple Network Protocol, attempts to boot all net devices|
+
+#### Raspberry Pi iPXE Bootloaders
+
+| Type | Bootloader | Description |
+|------|------------|-------------|
+|USB/SD Card| [netboot.xyz-rpi4-sdcard.img](https://boot.netboot.xyz/ipxe/netboot.xyz-rpi4-sdcard.img)| Raspberry Pi 4 - USB/SD Card Image|
+|DHCP-snp| [netboot.xyz-rpi4-snp.efi](https://boot.netboot.xyz/ipxe/netboot.xyz-rpi4-snp.efi)| Raspberry Pi 4 - EFI Image|
 
 ### Checksums
 
