@@ -1,0 +1,36 @@
+name: deploy
+on:
+  push:
+    branches:
+      - master
+  repository_dispatch:
+    types: [build]
+  workflow_dispatch:
+jobs:
+  release:
+    name: Build and deploy site
+    runs-on: ubuntu-20.04
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - name: Install dependencies
+        run: yarn install
+      - name: Build static site
+        run: yarn run build
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_ACCESS_REGION }}
+      - name: Deploy docusaurus site to bucket
+        run: |
+          aws s3 sync --no-progress --acl public-read build s3://${{ secrets.BUCKET_SITE }}
+      - name: Invalidate Cloudfront
+        run: |
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DIST_ID_SITE }} --paths "/*"
