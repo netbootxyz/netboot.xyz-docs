@@ -59,7 +59,7 @@ function Home() {
   const {siteConfig = {}} = context;
   return (
     <Layout
-      title={`${siteConfig.title} | your favorite operating systems in one place`}
+      title={`Your favorite operating systems in one place!`}
       description="netboot.xyz enables you to PXE boot Operating System installers and utilities from a simple to use menu based on the iPXE project.">
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
         <div className="container">
