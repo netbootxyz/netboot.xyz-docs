@@ -37,17 +37,7 @@ module.exports = {
           label: 'Downloads',
           position: 'left',
         },
-        {
-          to: 'changelog/',
-          activeBasePath: 'changelog',
-          label: 'Changelog',
-          position: 'left',
-        },
-        {
-          to: 'blog',
-          label: 'Blog',
-          position: 'left'
-        },
+        {to: 'blog', label: 'Blog', position: 'left'},
         {
           href: 'https://github.com/netbootxyz/netboot.xyz',
           label: 'GitHub',
