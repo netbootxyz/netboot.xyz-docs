@@ -54,3 +54,12 @@ minutes to launch a console and choose an option from the netboot.xyz menu:
 Once you've finished the installation, reboot the instance as you normally
 would.  Vultr will automatically reboot your virtual machine into the OS you
 deployed.
+
+### Boot from iPXE on a Vultr Bare Metal Server
+
+On Vultr Bare Metal, you can find the iPXE options in the iPXE tab in the Server Type section.
+
+* Set the chain URL to `https://boot.netboot.xyz`
+
+Make sure to use Legacy (PCBIOS) images because Bare Metal does not support EFI at this time.
+You can then load the console up and use the menu from there.
