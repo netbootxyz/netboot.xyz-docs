@@ -50,7 +50,7 @@ cd /opt/netboot.xyz
 ansible-playbook -i inventory site.yml
 ```
 
-The output will be dropped into `/var/www/html` by default.  You can override this to deploy to the web server server directory of your choice.
+The output will be dropped into `/var/www/html` by default.  You can override this to deploy to the web server directory of your choice.
 
 #### Deploying with Docker
 
