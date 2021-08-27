@@ -12,6 +12,7 @@ module.exports = {
             'booting/usb',
             'booting/iso',
             'booting/ipxe',
+            'booting/qemu',
             'booting/tftp',
             'booting/vmware',
           ],
