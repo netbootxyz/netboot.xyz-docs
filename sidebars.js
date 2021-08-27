@@ -22,6 +22,7 @@ module.exports = {
     'selfhosting',
     'contributing',
     'faq',
+    'changelog',
     {
       type: 'category',
       label: 'Knowledgebase',

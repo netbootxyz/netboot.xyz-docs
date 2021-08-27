@@ -15,6 +15,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Download external project files
+        run: |
+          wget https://github.com/netbootxyz/netboot.xyz/blob/master/CHANGELOG.md -O external/CHANGELOG.md
+
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
