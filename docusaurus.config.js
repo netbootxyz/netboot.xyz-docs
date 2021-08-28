@@ -16,7 +16,7 @@ module.exports = {
       disableSwitch: true
     },
     gtag: {
-      trackingID: 'UA-68807-15',
+      trackingID: 'G-VBSC8VX50S',
     },
     algolia: {
       apiKey: '789cf842b29871daa2c05f5623dc23c6',
