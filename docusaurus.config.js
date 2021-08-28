@@ -18,6 +18,10 @@ module.exports = {
     gtag: {
       trackingID: 'UA-68807-15',
     },
+    algolia: {
+      apiKey: '789cf842b29871daa2c05f5623dc23c6',
+      indexName: 'netboot',
+    },
     navbar: {
       title: 'netboot.xyz',
       logo: {
@@ -25,7 +29,7 @@ module.exports = {
         src: 'img/nbxyz-logo.svg',
       },
       items: [
-	      {
+	{
           to: 'docs/',
           activeBasePath: 'docs',
           label: 'Docs',
@@ -37,7 +41,11 @@ module.exports = {
           label: 'Downloads',
           position: 'left',
         },
-        {to: 'blog', label: 'Blog', position: 'left'},
+        {
+	  to: 'blog',
+	  label: 'Blog',
+	  position: 'left'
+	},
         {
           href: 'https://github.com/netbootxyz/netboot.xyz',
           label: 'GitHub',
