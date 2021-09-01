@@ -10,17 +10,19 @@ hide_table_of_contents: true
 netboot.xyz is tool that allows you to boot your favorite Operating System's installer or various utilities over the network with minimal overhead and all from a single menu system.  It's similar to various tools netbooting tools of the past like boot.kernel.org with a lot more flexibility.  The boot loader is very light weight being under 1MB in size which translates into a very quick time to create a USB key.
 
 ### How does this work?
-netboot.xyz uses an open source tool called iPXE.  The bootloader used calls to a webserver that hosts that the iPXE source files.  The iPXE source files contain menus and logic that understand how the various Linux installers operate.  When you select an Operating System, netboot.xyz retrieves the images from the project directory when possible or known and trusted performant mirrors.  The location the file is pulled from is always displayed during retrieval.
+netboot.xyz uses an open source tool called iPXE.  The bootloader calls to a webserver that hosts that the iPXE source files.  The iPXE source files contain menus and logic that understand how the various Linux installers operate.  When you select an Operating System, netboot.xyz retrieves the images from the project directory when possible or known and trusted performant mirrors.  The location the file is pulled from is always displayed during retrieval.
 
 ### What is PXE Booting?
 PXE stands for **P**re-Boot e**X**ecution **E**nvironment.  PXE booting has been used for years to allow for clients to boot from a server over the network.  It gives you an oportunity to automate a system inside the BIOS before it boots off its hard drive which opens up the door for running stateless machines without having to use storage in the system.  PXE booting is used in many applications but it's most common use is automating the installation of bare metal or a virtual machine.
 
 ### Will my favorite distribution work with netboot.xyz?
-Usually you need three things to boot up an OS, the vmlinuz, the initramfs, and the rootfs.  Distributions that support an installer kernel hosted on a mirror are typically the easier ones to implement.  Distributions that only release as ISOs typically are harder to implement as we have to use memdisk to load it up into memory.
+Usually you need three things to boot up an OS over the network, the vmlinuz, the initramfs, and the rootfs.  Distributions that support an installer kernel hosted on a mirror are typically the easier ones to implement as they are very lightweight.  Distributions that only release ISOs are typically a bit more involved to implement as we have to use memdisk to load it up into memory.
 
 From [syslinux - memdisk](http://www.syslinux.org/wiki/index.php/MEMDISK): The majority of Linux based CD images will also fail to work with MEMDISK ISO emulation. Linux distributions require kernel and initrd files to be specified, as soon as these files are loaded the protected mode kernel driver(s) take control and the virtual CD will no longer be accessible. If any other files are required from the CD/DVD they will be missing, resulting in boot error(s). Linux distributions that only require kernel and initrd files function fully via ISO emulation, as no other data needs accessing from the virtual CD/DVD drive once they have been loaded. The boot loader has read all necessary files to memory by using INT 13h, before booting the kernel.
 
-You can read more about my thoughts and possible solutions [here](https://www.reversengineered.com/2016/01/07/booting-linux-isos-with-memdisk-and-ipxe/).
+To get around these limitations, especially since memdisk is not supported with UEFI, we have built a CI/CD system that consumes the ISOs from upstream projects and prepares the needed files to boot the operating system remotely as a release.  In some cases this may involve a small modification to the init scripts in order to tune the network boot flexibility or handle multiple parts for larger operating systems.  Those releases are added to the endpoints.yml in the main netboot.xyz repo and are then available for download.
+
+You can read more about our build system [here](https://github.com/netbootxyz/build-pipelines/blob/master/README.md).
 
 ### My distribution uses ISOs for delivery, how can I see if they work?
 You can do a quick check by loading up netboot.xyz in a virtual environment baremetal.  Make sure you have plenty of RAM as you are loading the ISO into RAM.  Then select the iPXE command line and enter the following;
