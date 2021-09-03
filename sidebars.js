@@ -20,7 +20,19 @@ module.exports = {
       ],
     },
     'selfhosting',
-    'contributing',
+    {
+      type: 'category',
+      label: 'Community',
+      collapsed: true,
+      items: [
+        'community/build-automation',
+        'changelog',
+        'contributing',
+	'changelog',
+	'community/pipeline-status'
+      ],
+    },
+ 'contributing',
     'faq',
     'changelog',
     {
