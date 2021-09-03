@@ -17,8 +17,9 @@ jobs:
 
       - name: Download external project files
         run: |
-          wget https://raw.githubusercontent.com/netbootxyz/netboot.xyz/master/CHANGELOG.md -O external/CHANGELOG.md
-
+          wget https://raw.githubusercontent.com/netbootxyz/netboot.xyz/master/CHANGELOG.md -O external/changelog.md
+          wget https://raw.githubusercontent.com/netbootxyz/build-pipelines/master/README.md -O external/build-automation.md
+          wget https://github.com/netbootxyz/netboot.xyz/blob/master/CONTRIBUTING.md -O external/contributing.md
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:

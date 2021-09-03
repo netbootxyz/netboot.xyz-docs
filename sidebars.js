@@ -20,9 +20,17 @@ module.exports = {
       ],
     },
     'selfhosting',
-    'contributing',
     'faq',
-    'changelog',
+    {
+      type: 'category',
+      label: 'Community',
+      collapsed: true,
+      items: [
+        'community/build-automation',
+        'community/changelog',
+        'community/contributing',
+      ],
+    },
     {
       type: 'category',
       label: 'Knowledgebase',
