@@ -55,8 +55,9 @@ module.exports = {
 	},
         {
           href: 'https://github.com/netbootxyz/netboot.xyz',
-          label: 'GitHub',
           position: 'right',
+          className: 'header-github-link',
+          'aria-label': 'GitHub repository',
         },
       ],
     },
