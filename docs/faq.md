@@ -66,6 +66,7 @@ Yes!  You can fork [netboot.xyz-custom](https://github.com/netbootxyz/netboot.xy
 | FreeDOS | http://www.freedos.org | ISO - Memdisk| No |
 | Gentoo | https://gentoo.org | Yes | Yes |
 | Harvester | https://harvesterhci.io | Yes | No |
+| hrmpf | https://github.com/leahneukirchen/hrmpf/ | No | Yes |
 | IPFire | https://www.ipfire.org | Yes | No |
 | Kali Linux | https://www.kali.org | Yes | Yes |
 | KDE Neon | https://neon.kde.org | No | Yes |
@@ -98,6 +99,7 @@ Yes!  You can fork [netboot.xyz-custom](https://github.com/netbootxyz/netboot.xy
 | Slackware | https://www.slackware.com | Yes | No |
 | SmartOS | https://www.joyent.com/smartos | Yes | No |
 | SparkyLinux | https://sparkylinux.org/ | No | Yes |
+| Tails | https://tails.boum.org/ | No | Yes |
 | Talos | https://www.talos.dev/ | Yes | No |
 | Tiny Core Linux | https://tinycorelinux.net | Yes | Yes |
 | Ubuntu | https://www.ubuntu.com | Yes | Yes |
