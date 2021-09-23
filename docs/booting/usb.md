@@ -5,7 +5,9 @@ sidebar_label: Booting from USB
 description: "How to create a USB stick capable of booting into netboot.xyz"
 hide_table_of_contents: true
 ---
-*Warning: Backup your important data before using USB as it will overwrite anything on the USB key.*
+:::danger
+Backup your important data before writing the USB as it will overwrite anything on the USB key.
+:::
 
 Download a netboot.xyz USB disk:
 

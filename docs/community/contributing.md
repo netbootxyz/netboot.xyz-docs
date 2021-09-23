@@ -13,4 +13,6 @@ import Contributing, {toc as ContributingTOC} from "@site/external/contributing.
 <Contributing/>
 
 export const toc = ContributingTOC;
+
 ```
+
