@@ -16,7 +16,7 @@ module.exports = {
     docsSideNavCollapsible: true,
     announcementBar: {
       id: 'announcementBar-1', // Increment on change
-      content: `⭐️ If you like netboot.xyz, give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/netbootxyz/netboot.xyz">GitHub</a> and follow us on <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/netbootxyz" >Twitter</a> ${TwitterSvg}`,
+      content: `If you like netboot.xyz, give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/netbootxyz/netboot.xyz">GitHub</a>⭐️, follow us on <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/netbootxyz" >Twitter</a> ${TwitterSvg} and join our <a target="_blank" rel="noopener noreferrer" href="https://discord.gg/An6PA2a">Discord</a>!`,
     },
     colorMode: {
       defaultMode: 'light',
