@@ -1,45 +1,56 @@
-import React from 'react';
-import clsx from 'clsx';
-import styles from './HomepageFeatures.module.css';
+import React from "react";
+import clsx from "clsx";
+import styles from "./HomepageFeatures.module.css";
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import ThemedImage from "@theme/ThemedImage";
 
 const FeatureList = [
   {
-    title: 'Simple to Use',
-    Svg: require('../../static/img/nbxyz-logo.svg').default,
+    title: "Simple to Use",
+    Svg: ["./img/nbxyz-logo.svg", "./img/nbxyz-logo-dark.svg"],
     description: (
       <>
-        netboot.xyz enables you to boot into many types of operating systems using lightweight tooling to get you up and 
-        running as soon as possible.
+        netboot.xyz enables you to boot into many types of operating systems
+        using lightweight tooling to get you up and running as soon as possible.
       </>
     ),
   },
   {
-    title: 'Evaluate, Install, Rescue',
-    Svg: require('../../static/img/nbxyz-logo.svg').default,
+    title: "Evaluate, Install, Rescue",
+    Svg: ["./img/nbxyz-logo.svg", "./img/nbxyz-logo-dark.svg"],
     description: (
       <>
-        Discover new operating systems without having to download and rewrite media over and over again.  Rescue operating
-	systems from a single image. An essential for any sysadmin.
+        Discover new operating systems without having to download and rewrite
+        media over and over again. Rescue operating systems from a single image.
+        An essential for any sysadmin.
       </>
     ),
   },
   {
-    title: 'Powered by the iPXE project',
-    Svg: require('../../static/img/ipxe-logo.svg').default,
+    title: "Powered by the iPXE project",
+    Svg: ["./static/img/ipxe-logo.svg", "./static/img/ipxe-logo.svg"],
     description: (
       <>
-        netboot.xyz uses the iPXE project to enable you to provision, rescue or load into a live boot environment leveraging the 
-        the Preboot Execution Environment (PXE) on most systems.
+        netboot.xyz uses the iPXE project to enable you to provision, rescue or
+        load into a live boot environment leveraging the the Preboot Execution
+        Environment (PXE) on most systems.
       </>
     ),
   },
 ];
 
-function Feature({Svg, title, description}) {
+function Feature({ Svg, title, description }) {
   return (
-    <div className={clsx('col col--4')}>
+    <div className={clsx("col col--4")}>
       <div className="text--center">
-        <Svg className={styles.featureSvg} alt={title} />
+        <ThemedImage
+          sources={{
+            light: useBaseUrl(Svg[0]),
+            dark: useBaseUrl(Svg[1]),
+          }}
+          alt="logo"
+          className={styles.featureSvg}
+        />
       </div>
       <div className="text--center padding-horiz--md">
         <h3>{title}</h3>
