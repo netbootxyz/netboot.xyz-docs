@@ -1,6 +1,6 @@
 ---
 id: docker
-title: Docker
+title: Docker Container
 description: "How to use the netboot.xyz docker container"
 hide_table_of_contents: true
 ---
