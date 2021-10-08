@@ -20,6 +20,7 @@ jobs:
           wget https://raw.githubusercontent.com/netbootxyz/netboot.xyz/master/CHANGELOG.md -O external/changelog.md
           wget https://raw.githubusercontent.com/netbootxyz/build-pipelines/master/README.md -O external/build-automation.md
           wget https://raw.githubusercontent.com/netbootxyz/netboot.xyz/master/CONTRIBUTING.md -O external/contributing.md
+          wget https://raw.githubusercontent.com/netbootxyz/docker-netbootxyz/master/README.md -O external/docker.md
 
       - name: Setup Node.js
         uses: actions/setup-node@v2
