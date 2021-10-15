@@ -64,10 +64,12 @@ Yes!  You can fork [netboot.xyz-custom](https://github.com/netbootxyz/netboot.xy
 | Flatcar Linux | https://kinvolk.io/flatcar-container-linux/ | Yes | No |
 | FreeBSD | https://freebsd.org | Yes, disk image | No |
 | FreeDOS | http://www.freedos.org | ISO - Memdisk| No |
+| Garuda Linux | https://garudalinux.org/ | No | Yes |
 | Gentoo | https://gentoo.org | Yes | Yes |
 | Harvester | https://harvesterhci.io | Yes | No |
 | hrmpf | https://github.com/leahneukirchen/hrmpf/ | No | Yes |
 | IPFire | https://www.ipfire.org | Yes | No |
+| K3OS | https://k3os.io/ | Yes | Yes |
 | Kali Linux | https://www.kali.org | Yes | Yes |
 | KDE Neon | https://neon.kde.org | No | Yes |
 | Kodachi | https://www.digi77.com/linux-kodachi/ | No | Yes |
