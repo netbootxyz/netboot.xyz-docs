@@ -14,7 +14,7 @@ and perform a custom installation of an operating system.
 
 Start by downloading the ISO and then import it into glance:
 
-    $ wget https://boot.netboot.xyz/ipxe/netboot.xyz-dhcp.iso
+    $ wget https://boot.netboot.xyz/ipxe/netboot.xyz.iso
     $ glance image-create --name netboot.xyz \
         --disk-format iso \
         --container-format bare \
@@ -85,7 +85,7 @@ netboot.xyz iPXE interface in the spice console!
 
 ### Horizon
 
-Start by [downloading the netboot.xyz ISO](https://boot.netboot.xyz/ipxe/netboot.xyz-dhcp.iso)
+Start by [downloading the netboot.xyz ISO](https://boot.netboot.xyz/ipxe/netboot.xyz.iso)
 to your local workstation.  Follow these steps to import the image into your
 OpenStack cloud using Horizon:
 
