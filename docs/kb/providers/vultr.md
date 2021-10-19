@@ -8,6 +8,12 @@ hide_table_of_contents: true
 [Vultr](http://www.vultr.com/?ref=6870843) has some great support for using
 netboot.xyz right out of the box.
 
+:::info
+If you have not signed up for a Vultr account yet, please utilize our affiliate link
+[here](http://www.vultr.com/?ref=6870843). It will help provide us testing resources
+for improving this project!
+:::
+
 ### Boot from ISO
 
 Once you've logged into the console, select ISOs.  In the remote URLs box,

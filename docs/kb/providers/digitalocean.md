@@ -1,51 +1,66 @@
 ---
 id: digitalocean
-title: Digital Ocean
-description: Using netboot.xyz on Digital Ocean
+title: DigitalOcean
+description: Using netboot.xyz on DigitalOcean
 hide_table_of_contents: true
 ---
 
-[Digital Ocean](https://m.do.co/c/ab4e8f17ba0d) at one point had iPXE support loaded within their SeaBIOS but has since removed it.  In order to get around this, we'll have to rely on the Grub bootloader instead.
+netboot.xyz can be loaded on a [DigitalOcean](https://m.do.co/c/ab4e8f17ba0d) droplet with a little bit of work so that you can then customize the droplet as needed. For this method, we'll use the smallest droplet size running Debian.
 
-iPXE generates linux bootable kernels so that you can boot iPXE directly from Grub.  It then treats the initrd as an embedded script which contains your networking and details to load up netboot.xyz.
+:::info
+If you haven't signed up for a DigitalOcean account, please utilize our affiliate link [here](https://m.do.co/c/ab4e8f17ba0d). It will help provide us testing resources for improving this project!
+:::
 
-Tests were done using a [Fedora 23](https://getfedora.org) instance on [Digital Ocean](https://m.do.co/c/ab4e8f17ba0d).
+### Create a Droplet
 
-### Download an iPXE linux kernel
+For this method, it's recommended to use an apt-based distro like Debian or Ubuntu. Start a droplet with one of those operating systems. Once it is up and running, connect to it via SSH or connect to it with the console button.
 
-Obtain an iPXE generic kernel [here](https://boot.netboot.xyz/ipxe/generic-ipxe.lkrn) or [compile your own](http://ipxe.org/download) and save it to /boot/generic-ipxe.lkrn.
+### Install GRUB Imageboot and Download ISO
 
-### Create a netboot.xyz initrd file
+We will need to ensure that the GRUB menu pauses long enough for us to select the netboot.xyz option. For that we'll need to remove a timeout file and increase the timeout for GRUB. Adjust the time period as needed for your
+situation:
 
-The netboot.xyz initrd file contains the script necessary to bring the instance on the network and reach out to netboot.xyz.
+```shell
+# Remove grub timeout configuration
+rm /etc/default/grub.d/15_timeout.cfg
 
-Save as /boot/netboot.xyz-initrd (replace your networking information where appropriate):
+# Increase grub timeout if desired
+sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=60/g' /etc/default/grub
 
-    #!ipxe
-    #/boot/netboot.xyz-initrd
-    imgfree
-    set net0/ip <instance public ip>
-    set net0/netmask <instance public netmask>
-    set net0/gateway <instance public gateway>
-    set dns <instance dns address>
-    ifopen net0
-    chain --autofree https://boot.netboot.xyz
+# Install grub-imageboot
+apt update
+apt install -y grub-imageboot
 
-### Add a Grub2 custom entry
+# Download netboot.xyz ISO
+mkdir /boot/images
+cd /boot/images
+wget https://boot.netboot.xyz/ipxe/netboot.xyz.iso
 
-Add the following entry to /etc/grub.d/40_custom:
+# Update GRUB menu to include this ISO
+update-grub2
 
-    #/etc/grub.d/40_custom
-    menuentry 'netboot.xyz' {
-        set root='hd0,msdos1'
-        linux16 /boot/generic-ipxe.lkrn
-        initrd16 /boot/netboot.xyz-initrd
-    }
+# reboot once you are ready, it may be good to load up the recovery console first
+reboot
+```
 
-### Regenerate your grub config
+### Connect via Recovery Console
 
-Run grub2-mkconfig right after editing the configuration to add the netboot.xyz entry to your grub menu:
+Under the access section, connect to the Recovery Console. The recovery console is different from the regular console command in that it allows direct acess to the droplet as it boots, including access to the GRUB menu.
+At this point if you are within the timeout window, you should now see the Grub menu with the following option now available:
 
-    grub2-mkconfig -o /boot/grub2/grub.cfg
+```
+Bootable ISO image: netboot.xyz
+```
 
-Load up a console and then reboot from the instance to catch the menu option.  You can also change the default boot to netboot.xyz or increase the timeout if you want to be able to catch it easier.
+### Set Networking Up
+Because the droplets use a static IP instead of DHCP, you will need to set up the networking for iPXE to talk to the networking. Upon selecting the netboot.xyz option, press **m** when prompted for the failsafe menu. You will need to set the networking of the instance so that iPXE can get on-line. You can get the networking information from the droplet control panel from the networking tab. Once you have the networking information, select Manual networking configuration:
+
+```
+Set network interface number [0 for net0, defaults to 0]: <set to 0>
+IP: <set to droplet IP>
+Subnet mask: <set to droplet netmask>
+Gateway: <set to droplet gateway>
+DNS: <set DNS server, e.g. 1.1.1.1>
+```
+
+Once set, you should connect right into netboot.xyz. If you do a installation, you should be able to reinstall over the existing drive at that point and customize the droplet as you see fit. Keep the networking information handy as you will need to populate that when doing an install.
