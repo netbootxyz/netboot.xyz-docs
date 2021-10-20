@@ -48,6 +48,7 @@ module.exports = {
             'kb/providers/digitalocean',
             'kb/providers/equinixmetal',
             'kb/providers/gce',
+            'kb/providers/linode',
             'kb/providers/openstack',
             'kb/providers/vultr',
           ],
