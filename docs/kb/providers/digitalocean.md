@@ -66,5 +66,5 @@ DNS: <set DNS server, e.g. 1.1.1.1>
 Once set, you should connect right into netboot.xyz. If you do a installation, you should be able to reinstall over the existing drive at that point and customize the droplet as you see fit. Keep the networking information handy as you will need to populate that when doing an install.
 
 :::info
-If you run into out of memory issues running an installer, you may need a large droplet.
+If you run into out of memory issues running an installer, you may need a larger droplet.
 :::
