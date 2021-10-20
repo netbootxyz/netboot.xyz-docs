@@ -30,7 +30,7 @@ export default function Home() {
   return (
     <Layout
       title={`Your favorite operating systems in one place!`}
-      description="netboot.xyz enables you to PXE boot Operating System installers and utilities from a simple to use menu based on the iPXE project.">
+      description="netboot.xyz enables you to PXE boot many Operating System installers and utilities from a simple to use menu powered by the iPXE project.">
       <HomepageHeader />
       <main>
         <HomepageFeatures />
