@@ -2,6 +2,7 @@
 id: introduction
 title: Introduction
 description: netboot.xyz uses iPXE to network boot Operating System installers and utilities from an easy to use menu."
+hide_table_of_contents: true
 slug: /
 ---
 
