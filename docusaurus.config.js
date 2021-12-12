@@ -23,9 +23,6 @@ module.exports = {
       defaultMode: "light",
       disableSwitch: false,
     },
-    gtag: {
-      trackingID: "G-VBSC8VX50S",
-    },
     algolia: {
       apiKey: "789cf842b29871daa2c05f5623dc23c6",
       indexName: "netboot",
@@ -137,6 +134,9 @@ module.exports = {
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
+        },
+        gtag: {
+          trackingID: "G-VBSC8VX50S",
         },
       },
     ],
