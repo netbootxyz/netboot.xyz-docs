@@ -23,7 +23,7 @@ jobs:
           curl https://raw.githubusercontent.com/netbootxyz/docker-netbootxyz/master/README.md | tail -n+6 > external/docker.md
 
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 14
 
