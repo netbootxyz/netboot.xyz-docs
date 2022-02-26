@@ -24,8 +24,8 @@ module.exports = {
       disableSwitch: false,
     },
     algolia: {
+      appId: "BMY28LDVW4",
       apiKey: "873e139d48a4536cc31c55d50cc0b03e",
-      appID: "BMY28LDVW4",
     },
     navbar: {
       title: "netboot.xyz",
