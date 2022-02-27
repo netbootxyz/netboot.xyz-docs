@@ -4,18 +4,28 @@ module.exports = {
     {
       type: 'category',
       label: 'Getting Started',
+      link: {
+        type: 'generated-index',
+      },
       collapsed: false,
       items: [
         'quick-start',
         {
-          "Booting Methods": [
-            'booting/usb',
-            'booting/iso',
-            'booting/ipxe',
-            'booting/grub',
-            'booting/qemu',
-            'booting/tftp',
-            'booting/vmware',
+          type: 'category',
+          label: 'Booting Methods',
+          link: {
+            type: 'generated-index',
+            title: 'Booting Methods',
+            description: 'Select your desired netboot.xyz boot method below:',
+          },
+          items: [
+          'booting/usb',
+          'booting/iso',
+          'booting/ipxe',
+          'booting/grub',
+          'booting/qemu',
+          'booting/tftp',
+          'booting/vmware',
           ],
         },
       ],
@@ -26,6 +36,9 @@ module.exports = {
     {
       type: 'category',
       label: 'Community',
+      link: {
+        type: 'generated-index',
+      },
       collapsed: true,
       items: [
         'community/build-automation',
@@ -36,6 +49,9 @@ module.exports = {
     {
       type: 'category',
       label: 'Knowledgebase',
+      link: {
+        type: 'generated-index',
+      },
       collapsed: true,
       items: [
         { 

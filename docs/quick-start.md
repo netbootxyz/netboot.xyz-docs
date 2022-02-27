@@ -1,7 +1,7 @@
 ---
 id: quick-start
 title: Quick Start
-description: netboot.xyz uses iPXE to network boot Operating System installers and utilities from an easy to use menu."
+description: "Getting started with netboot.xyz"
 hide_table_of_contents: true
 ---
 
