@@ -15,4 +15,3 @@ import Contributing, {toc as ContributingTOC} from "@site/external/contributing.
 export const toc = ContributingTOC;
 
 ```
-

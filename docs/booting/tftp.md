@@ -9,6 +9,7 @@ hide_table_of_contents: true
 If you want to utilize netboot.xyz from your home or office network, it's relatively easy to set up.  It will allow all of your devices on your network to have netboot.xyz available whenever you need it by just changing the boot order on your device, selecting network boot, or manually selecting the device to boot.
 
 ### DHCP Server Setup
+
 You will have to tell your DHCP server to provide a "next-server", the address of a TFTP server on your network, and a "filename", the [netboot.xyz boot file](https://boot.netboot.xyz/ipxe/netboot.xyz.kpxe).  When your clients boot up, if they are set to network boot, they'll automatically get a valid DHCP address, pull down the netboot.xyz iPXE bootloader and load up the Operating System menu.
 
 Example:

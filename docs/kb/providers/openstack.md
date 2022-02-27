@@ -91,11 +91,11 @@ OpenStack cloud using Horizon:
 
 * Click the _Compute_ tab on the left side, then click _Images_
 * Click _Create Image_ (top right)
-    * Name: `netboot.xyz ISO`
-    * Image Source: Image File
-    * Image File: (browse to the ISO you downloaded)
-    * Format: ISO - Optical Disk Image
-    * Public: Checked (optional, but recommended if you want other tenants to use
+  * Name: `netboot.xyz ISO`
+  * Image Source: Image File
+  * Image File: (browse to the ISO you downloaded)
+  * Format: ISO - Optical Disk Image
+  * Public: Checked (optional, but recommended if you want other tenants to use
    it)
 * Click _Create Image_
 

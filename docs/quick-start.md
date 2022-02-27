@@ -9,7 +9,7 @@ hide_table_of_contents: true
 
 [Download](https://netboot.xyz/downloads/) one of the netboot.xyz bootloaders that works best for your situation and start PXE booting your favorite operating system.  The bootloaders are precompiled versions of the latest version of [iPXE](https://github.com/ipxe/ipxe) that will allow you to PXE boot into [https://boot.netboot.xyz](https://boot.netboot.xyz).  If you have DHCP it'll automatically attempt to boot from DHCP.  If you need to set a static IP address, hit the 'm' key during boot up for the failsafe menu and choose manual network configuration.
 
-You can look at the next section entitled Boot Methods for instructions on how to set up the downloaded bootloader.
+You can look at the next section entitled Booting Methods for instructions on how to set up the downloaded bootloader.
 
 If you already have iPXE up and running on the network, you can hit load the netboot.xyz kernel by typing the following when loaded in a legacy BIOS:
 

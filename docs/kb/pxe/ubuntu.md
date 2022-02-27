@@ -6,8 +6,6 @@ description: PXE Booting the Ubuntu Installer
 hide_table_of_contents: true
 ---
 
-# Ubuntu
-
 ## Installer Kernels
 
 Ubuntu maintains installer kernels that are lightweight way to load the Ubuntu installer and then stream packages over the network as needed. The installer kernels are located at:

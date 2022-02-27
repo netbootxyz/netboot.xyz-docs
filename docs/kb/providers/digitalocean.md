@@ -48,14 +48,15 @@ reboot
 Under the access section, connect to the Recovery Console. The recovery console is different from the regular console command in that it allows direct access to the droplet as it boots, including access to the GRUB menu.
 At this point if you are within the timeout window, you should now see the Grub menu with the following option now available:
 
-```
+```bash
 Bootable ISO image: netboot.xyz
 ```
 
 ### Set Networking Up
+
 Because the droplets use a static IP instead of DHCP, you will need to set up the networking for iPXE to talk to the networking. Upon selecting the netboot.xyz option, press **m** when prompted for the failsafe menu. You will need to set the networking of the instance so that iPXE can get on-line. You can get the networking information from the droplet control panel from the networking tab. Once you have the networking information, select Manual networking configuration:
 
-```
+```bash
 Set network interface number [0 for net0, defaults to 0]: <set to 0>
 IP: <set to droplet IP>
 Subnet mask: <set to droplet netmask>

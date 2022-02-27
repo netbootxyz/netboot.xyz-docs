@@ -23,7 +23,7 @@ different for your setup:
 
 By default, dnsmasq is using in the Edgerouter to provide DNS services. In order to enable it :
 
-```
+```bash
 sudo mkdir /config/user-data/tftproot
 sudo chmod ugo+rX /config/user-data/tftproot
 
@@ -40,7 +40,7 @@ save
 
 Download the kpxe image for netboot.xyz and set the permissions properly:
 
-```
+```bash
 sudo curl -o /config/user-data/tftproot/netboot.xyz.kpxe https://boot.netboot.xyz/ipxe/netboot.xyz.kpxe
 sudo chmod ugo+r /config/user-data/tftproot/netboot.xyz.kpxe
 ```
@@ -48,7 +48,7 @@ sudo chmod ugo+r /config/user-data/tftproot/netboot.xyz.kpxe
 At this point you should be able to use a TFTP client from a client in
 `10.10.2.0/24` to fetch the image:
 
-```
+```bash
 $ tftp 10.10.2.1
 tftp> get netboot.xyz.kpxe
 Received 354972 bytes in 2.0 seconds
@@ -59,7 +59,7 @@ Received 354972 bytes in 2.0 seconds
 We're gonna configure DHCP on the EdgeRouter to serve the right parameters to
 clients:
 
-```
+```bash
 configure
 
 set service dhcp-server global-parameters "option client-arch code 93 = unsigned integer 16;"
@@ -73,7 +73,7 @@ save
 
 The configuration for the `LAN` pool should now look something like the following:
 
-```
+```bash
 skottler@edge1# show service dhcp-server shared-network-name LAN
  authoritative enable
  subnet 10.10.2.0/24 {
@@ -91,15 +91,17 @@ skottler@edge1# show service dhcp-server shared-network-name LAN
 
 That's it!
 
-
 ## The advanced setup with support for Legacy and UEFI
+
 ### Using ISC DHCP
+
 This section was written by [Skyler Mäntysaari](https://github.com/samip5).
 
 This requires that you do not use `set service dhcp-server use-dnsmasq enable`. If you do use that, it will not work.
 
 We are going to start by removing the PXE boot related things from dhcp-server options, so the commands for that are something like:
-```
+
+```bash
 delete service dhcp-server shared-network-name LAN subnet 10.10.2.0/24 bootfile-name netboot.xyz.kpxe
 delete service dhcp-server shared-network-name LAN subnet 10.10.2.0/24 bootfile-server 10.10.2.1
 ```
@@ -111,21 +113,24 @@ sudo chmod ugo+r /config/user-data/tftproot/netboot.xyz.efi
 ```
 
 Next we are going to create a scripts folder for the scripts, in persistent storage (should persist over upgrades):
-```
+
+```bash
 mkdir --parents /config/user-data/scripts/pxe/
 ```
 
 Next we are going to go into configure mode, and include the main pxe config file:
-```
+
+```bash
 set service dhcp-server global-parameters "deny bootp;"
 set service dhcp-server global-parameters "include &quot;/config/user-data/scripts/pxe/option-space.conf&quot;;"
 set service dhcp-server shared-network-name LAN subnet 10.10.2.0/24 subnet-parameters "include &quot;/config/user-data/scripts/pxe/pxe.conf&quot;;"
 ```
+
 IT NEEDS to be typed exactly like that, the "" part.
 
-
 The file /config/user-data/scripts/pxe/pxe.conf:
-```
+
+```bash
 allow booting;
 next-server 10.10.2.1;
 
@@ -139,7 +144,8 @@ if option arch = 00:07 {
 ```
 
 The file /config/user-data/scripts/pxe/option-space.conf:
-```
+
+```bash
 # Declare the iPXE/gPXE/Etherboot option space
 option space ipxe;
 option ipxe-encap-opts code 175 = encapsulate ipxe;
@@ -194,13 +200,14 @@ option arch code 93 = unsigned integer 16;
 After all of that, it should be it! I hope that helps.
 
 ### Using dnsmasq
+
 This section was written by [Benjamin Reich](https://benjaminreich.de/).
 
 This Part is requierd if you using `set service dhcp-server use-dnsmasq enable`.
 
 Connect via SSH and replace `SERVERIP` with the actual IP.
 
-```
+```bash
 configure
 set service dhcp-server use-dnsmasq enable
 set service dns forwarding options "dhcp-match=set:bios,60,PXEClient:Arch:00000"
@@ -217,4 +224,3 @@ set service dns forwarding options "dhcp-match=set:efi64-2,60,PXEClient:Arch:000
 set service dns forwarding options "dhcp-boot=tag:efi64-2,netboot.xyz.efi,,SERVERIP"
 commit; save
 ```
-

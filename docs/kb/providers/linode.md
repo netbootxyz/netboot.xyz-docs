@@ -42,7 +42,7 @@ Under the Linode settings click ..., and select Launch LISH Console. For interra
 
 At this point if you are within the timeout window, you should now see the Grub menu with the following option now available which you can select to load the netwboot.xyz menu:
 
-```
+```bash
 Bootable ISO image: netboot.xyz
 ```
 
