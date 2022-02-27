@@ -1,7 +1,7 @@
 ---
 id: build-automation
 title: Build Automation
-description: "describes how the netboot.xyz automated build system works"
+description: "Details how the netboot.xyz automated build system works"
 sidebar_label: Build Automation
 hide_table_of_contents: false
 hide_title: true
