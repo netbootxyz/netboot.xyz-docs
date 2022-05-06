@@ -12,7 +12,11 @@ module.exports = {
   organizationName: "netbootxyz",
   projectName: "netboot.xyz",
   themeConfig: {
-    hideableSidebar: true,
+    docs: {
+      sidebar: {
+        hideable: true,
+      },
+    },
     docsSideNavCollapsible: true,
     image: 'img/nbxyz_logo_name.png',
     announcementBar: {
