@@ -24,10 +24,6 @@ update-grub2
 reboot
 ```
 
-After reboot, select "Bootable ISO Image: netboot.xyz" in the GRUB menu.
-
-If the GRUB menu disappears too quickly, you may need to edit `/etc/default/grub` and increase the `GRUB_TIMEOUT`. Run `update-grub2` any time you modify this file.
-
 ## On CenOS/Redhat
 ```shell
 yum install syslinux wget -y
@@ -41,5 +37,10 @@ wget https://raw.githubusercontent.com/formorer/grub-imageboot/529ac5d2bf91e7da8
 chmod 755 /etc/grub.d/60_grub-imageboot
 grub2-mkconfig
 reboot
-
 ```
+
+After reboot, select "Bootable ISO Image: netboot.xyz" in the GRUB menu.
+
+If the GRUB menu disappears too quickly, you may need to edit `/etc/default/grub` and increase the `GRUB_TIMEOUT`. Run `update-grub2` any time you modify this file.
+
+
