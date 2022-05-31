@@ -56,6 +56,7 @@ module.exports = {
       items: [
         { 
           "Networking": [
+            'kb/networking/asuswrt-merlin',
             'kb/networking/edgerouter',
           ],
         },
