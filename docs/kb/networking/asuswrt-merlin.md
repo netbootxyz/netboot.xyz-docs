@@ -42,7 +42,7 @@ Assume your AsusWRT-Merlin router is 192.168.1.1; Login to GUI
 > tftp> `get netboot.xyz.kpxe`  
 > Received 368475 bytes in 0.5 seconds  
 
-16. Test with an UEFI device and with a legacy BIOS device that PXE booting is working (you might have enable PXE booting in the BIOS and/or in UEFI. For UEFI you usually have to enable UEFI Networking stack).
+13. Test with an UEFI device and with a legacy BIOS device that PXE booting is working (you might have enable PXE booting in the BIOS and/or in UEFI. For UEFI you usually have to enable UEFI Networking stack).
 
 References:
 
