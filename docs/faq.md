@@ -37,6 +37,10 @@ That should load the ISO and if you make it all the way into the installer, grea
 
 Yes!  You can fork [netboot.xyz-custom](https://github.com/netbootxyz/netboot.xyz-custom) and create your own menu.  You can then set your Github user from the Utility menu and your menu will show up in the main menu.  If you don't want to set your user every time, you can custom compile the netboot.xyz iPXE code and include your github_user during the compile.  This allows you to create your own menu without the maintenance of everything else.
 
+### Does netboot.xyx support Secure Boot?
+
+iPXE and hence netboot.xyx does not support Secure Boot because its [binaries are not signed by Microsoft](https://ipxe.org/appnote/etoken). You must disable Secure Boot mode in your computers firmware configuration menu before you can boot netboot.xyz.
+
 ### What Operating Systems are currently available on netboot.xyz?
 
 #### Operating Systems
