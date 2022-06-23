@@ -23,7 +23,7 @@ This will load the appropriate netboot.xyz kernel with all of the proper options
 
 :::note
 
-If your version of iPXE has HTTPS support compiled in, you can retrieve those images over HTTPS. By default the upstream iPXE project does not compile in HTTPS support.*
+If your version of iPXE has HTTPS support compiled in, you can retrieve those images over HTTPS. By default the upstream iPXE project does not compile in HTTPS support.
 
 :::
 
