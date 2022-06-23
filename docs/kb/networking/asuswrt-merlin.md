@@ -11,7 +11,13 @@ Assume your AsusWRT-Merlin router is 192.168.1.1; Login to GUI
 1. LAN -> DHCP Server -> Basic Config: Set "Enable the DHCP Server" to Yes; IP Pool Starting Address: 192.168.1.2; IP Pool Ending Address: 192.168.1.254
 2. Administration -> System -> Service: Set "Enable SSH" to LAN Only
 3. Administration -> System -> Persistent JFFS2 partition: Set "Enable JFFS custom scripts and configs" to Yes  
-   _Note: JFFS is a writeable section of the flash memory (the size will vary between router models, with the newer models having a bit over 60 MB of space available), which will allow you to store small files (such as scripts) inside the router without needing to have a USB disk plugged in. This space will survive reboot (**but it might NOT survive firmware flashing, so back it up first before flashing!**)._
+
+:::note
+
+JFFS is a writeable section of the flash memory (the size will vary between router models, with the newer models having a bit over 60 MB of space available), which will allow you to store small files (such as scripts) inside the router without needing to have a USB disk plugged in. This space will survive reboot (**but it might NOT survive firmware flashing, so back it up first before flashing!**).
+
+:::
+
 4. Reboot the router from the GUI and wait until you can ping 192.168.1.1
 5. `ssh username@192.168.1.1`
 6. `mkdir /jffs/tftproot`
