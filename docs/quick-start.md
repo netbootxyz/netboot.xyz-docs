@@ -30,7 +30,7 @@ If your version of iPXE has HTTPS support compiled in, you can retrieve those im
 ### System Requirements
 
 - i686, x86_64, or aarch64 Processor
-- x86_64 4GB of RAM is recommended. Lower amounts of memory can be used depending on how large the distribution is. Some distributions have to load a ramdisk into memory. If you experience issues when kernels are loading, this is generally one of the first things you should check and tune.
+- 4GB of RAM is recommended. Lower amounts of memory can be used depending on how large the distribution is. Some distributions have to load a ramdisk into memory. If you experience issues when kernels are loading, this is generally one of the first things you should check and tune.
 - Hard wired ethernet connection, Wifi support in iPXE is limited
 
 ### Source Code
