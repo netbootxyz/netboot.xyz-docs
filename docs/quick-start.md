@@ -9,23 +9,33 @@ hide_table_of_contents: true
 
 [Download](https://netboot.xyz/downloads/) one of the netboot.xyz bootloaders that works best for your situation and start PXE booting your favorite operating system.  The bootloaders are precompiled versions of the latest version of [iPXE](https://github.com/ipxe/ipxe) that will allow you to PXE boot into [https://boot.netboot.xyz](https://boot.netboot.xyz).  If you have DHCP it'll automatically attempt to boot from DHCP.  If you need to set a static IP address, hit the 'm' key during boot up for the failsafe menu and choose manual network configuration.
 
-You can look at the next section entitled Booting Methods for instructions on how to set up the downloaded bootloader.
+You can look at the next section entitled [Booting Methods](https://netboot.xyz/docs/category/booting-methods) for instructions on how to set up the downloaded bootloader.
 
-If you already have iPXE up and running on the network, you can hit load the netboot.xyz kernel by typing the following when loaded in a legacy BIOS:
+If you already have iPXE up and running on the network, you can hit load the netboot.xyz kernel by typing the following when loaded in a Legacy Mode BIOS:
 
     chain --autofree http://boot.netboot.xyz/ipxe/netboot.xyz.lkrn
 
-or when in EFI mode:
-    
-    chain --autofree http://boot.netboot.xyz/ipxe/netboot.xyz.efi
+or when in EFI mode BIOS:
 
-*Note: If your version of iPXE has HTTPS support compiled in, you can retrieve those images over HTTPS.  By default iPXE does not compile in HTTPS support.*
+    chain --autofree http://boot.netboot.xyz/ipxe/netboot.xyz.efi
 
 This will load the appropriate netboot.xyz kernel with all of the proper options enabled.
 
+:::note
+
+If your version of iPXE has HTTPS support compiled in, you can retrieve those images over HTTPS. By default the upstream iPXE project does not compile in HTTPS support.*
+
+:::
+
+### System Requirements
+
+- i686, x86_64, or aarch64 Processor
+- x86_64 4GB of RAM is recommended. Lower amounts of memory can be used depending on how large the distribution is. Some distributions have to load a ramdisk into memory. If you experience issues when kernels are loading, this is generally one of the first things you should check and tune.
+- Hard wired ethernet connection, Wifi support in iPXE is limited
+
 ### Source Code
 
-The source code for netboot.xyz is located [here](https://github.com/netbootxyz/netboot.xyz).
+The source code for netboot.xyz is located on [Github](https://github.com/netbootxyz/netboot.xyz).
 
 ### Contributing
 
