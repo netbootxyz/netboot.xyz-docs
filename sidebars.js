@@ -55,6 +55,11 @@ module.exports = {
       collapsed: true,
       items: [
         { 
+          "Hardware": [
+             'kb/hardware/steamdeck',
+          ],
+        },
+        {
           "Networking": [
             'kb/networking/asuswrt-merlin',
             'kb/networking/edgerouter',
