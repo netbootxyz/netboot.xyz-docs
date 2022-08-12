@@ -29,7 +29,7 @@ module.exports = {
     },
     algolia: {
       appId: "BMY28LDVW4",
-      apiKey: "873e139d48a4536cc31c55d50cc0b03e",
+      apiKey: "51b51a157c47742003b8943f2c5acc09",
       indexName: "netboot",
     },
     navbar: {
