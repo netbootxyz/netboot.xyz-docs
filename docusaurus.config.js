@@ -12,6 +12,7 @@ module.exports = {
   organizationName: "netbootxyz",
   projectName: "netboot.xyz",
   themeConfig: {
+    metadata: [{name: 'keywords', content: 'ipxe, netbootxyz, pxe, linux, os, operating system, install, installer, netboot, netboot.xyz'}],
     docs: {
       sidebar: {
         hideable: true,
