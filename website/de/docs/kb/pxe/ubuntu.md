@@ -1,32 +1,32 @@
 ---
-id: ubuntu
-title: PXE Booting the Ubuntu Installer
+id: Ubuntu
+title: PXE-Booten des Ubuntu-Installationsprogramms
 sidebar_label: Ubuntu
-description: PXE Booting the Ubuntu Installer
-hide_table_of_contents: true
+description: PXE-Booten des Ubuntu-Installationsprogramms
+hide_table_of_contents: Stimmt
 ---
 
-## Installer Kernels
+## Installer-Kernel
 
-Ubuntu maintains installer kernels that are lightweight way to load the Ubuntu installer and then stream packages over the network as needed. The installer kernels are located at:
+Ubuntu verwaltet Installer-Kernel, die eine einfache Möglichkeit bieten, das Ubuntu-Installationsprogramm zu laden und dann Pakete nach Bedarf über das Netzwerk zu streamen. Die Installer-Kernel befinden sich unter:
 
 ```bash
-# http://archive.ubuntu.com or other ubuntu mirrors
+# http://archive.ubuntu.com oder andere Ubuntu-Spiegel
 #
 # (${version} == xenial, bionic, etc)
 # (${arch} == amd64, i386)
 
-# original release directory: 
+# ursprüngliches Veröffentlichungsverzeichnis: 
 # ubuntu/dists/${version}/main/installer-${arch}/current/images/netboot/
 # 
-# updated release directory which contain newer kernels and updates:
+# aktualisiertes Release-Verzeichnis, das neuere Kernel und Updates enthält:
 # ubuntu/dists/${version}-updates/main/installer-${arch}/current/images/netboot/
 #
-# kernel filename: linux
-# initrd filename: initrd.gz
+# Kernel-Dateiname: linux
+# initrd-Dateiname: initrd.gz
 ```
 
-In order to load them, you'll need use a boot snippet in iPXE similar to:
+Um sie zu laden, müssen Sie ein Boot-Snippet in iPXE ähnlich dem folgenden verwenden:
 
 ```bash
 set install_params auto=true priority=critical
@@ -37,30 +37,30 @@ set arch amd64
 set mirrorcfg mirror/suite=${ubuntu_version}
 set dir ${mirror}/${base_dir}/dists/${version}/main/installer-${arch}/current/images/netboot
 
-kernel ${dir}/linux ${install_params} ${mirrorcfg} -- quiet initrd=initrd.gz
+Kernel ${dir}/linux ${install_params} ${mirrorcfg} -- quiet initrd=initrd.gz
 initrd ${dir}/initrd.gz
 boot
 ```
 
-If you want to use a [preseed](https://help.ubuntu.com/lts/installation-guide/example-preseed.txt) url for automation, you can add this to the kernel line:
+Wenn Sie eine [Preseed](https://help.ubuntu.com/lts/installation-guide/example-preseed.txt) -URL für die Automatisierung verwenden möchten, können Sie dies der Kernel-Zeile hinzufügen:
 
 ```bash
-set preseedurl http://my.preseed.com/preseed.cfg
+setze preseedurl http://my.preseed.com/preseed.cfg
 preseed/url=${preseedurl}
 ```
 
-For more examples you can view the netboot.xyz configuration for Ubuntu [here](https://github.com/netbootxyz/netboot.xyz/blob/master/roles/netbootxyz/templates/menu/ubuntu.ipxe.j2).
+Weitere Beispiele finden Sie in der netboot.xyz-Konfiguration für Ubuntu [hier](https://github.com/netbootxyz/netboot.xyz/blob/master/roles/netbootxyz/templates/menu/ubuntu.ipxe.j2).
 
-## Live Boot
+## Live-Boot
 
-Ubuntu also provides a number of Live Boot ISOs that will boot an OS directly into memory and can be used immediately without doing an install or modifying the hard drive.  The Live OS will also include the installer as well.  These are great for evaluating other desktops that you might want to try out without doing a full install.
+Ubuntu bietet auch eine Reihe von Live-Boot-ISOs, die ein Betriebssystem direkt in den Speicher booten und sofort verwendet werden können, ohne eine Installation durchzuführen oder die Festplatte zu modifizieren.  Das Live-Betriebssystem enthält auch das Installationsprogramm.  Diese eignen sich hervorragend zum Bewerten anderer Desktops, die Sie vielleicht ausprobieren möchten, ohne eine vollständige Installation durchzuführen.
 
-| Distribution  | Website                                                      |
-|:------------- |:------------------------------------------------------------ |
-| Kubuntu       | [https://kubuntu.org/](https://kubuntu.org/)                 |
-| Lubuntu       | [https://lubuntu.me/](https://lubuntu.me/)                   |
-| Ubuntu Budgie | [https://ubuntubudgie.org/](https://ubuntubudgie.org/)       |
-| Ubuntu Kylin  | [https://www.ubuntukylin.com/](https://www.ubuntukylin.com/) |
-| Ubuntu Mate   | [https://ubuntu-mate.org/](https://ubuntu-mate.org/)         |
-| Ubuntu Studio | [https://ubuntustudio.org/](https://ubuntustudio.org/)       |
-| Xubuntu       | [https://xubuntu.org/](https://xubuntu.org/)                 |
+| Verteilung           | Webseite                                                     |
+|:-------------------- |:------------------------------------------------------------ |
+| Kubuntu              | [https://kubuntu.org/](https://kubuntu.org/)                 |
+| Lubuntu              | [https://lubuntu.me/](https://lubuntu.me/)                   |
+| Ubuntu Wellensittich | [https://ubuntubudgie.org/](https://ubuntubudgie.org/)       |
+| Ubuntu Kylin         | [https://www.ubuntukylin.com/](https://www.ubuntukylin.com/) |
+| Ubuntu Mate          | [https://ubuntu-mate.org/](https://ubuntu-mate.org/)         |
+| Ubuntu-Studio        | [https://ubuntustudio.org/](https://ubuntustudio.org/)       |
+| Xubuntu              | [https://xubuntu.org/](https://xubuntu.org/)                 |
