@@ -1,56 +1,56 @@
 ---
-id: vultr
-title: "Vultr"
-description: "Using netboot.xyz with Vultr"
-hide_table_of_contents: true
+id: Vult
+title: "vultr"
+description: "Usando netboot.xyz con Vultr"
+hide_table_of_contents: verdadero
 ---
 
-[Vultr](http://www.vultr.com/?ref=6870843) has some great support for using netboot.xyz right out of the box.
+[Vultr](http://www.vultr.com/?ref=6870843) tiene un gran soporte para usar netboot.xyz desde el primer momento.
 
 :::info
-If you have not signed up for a Vultr account yet, please utilize our affiliate link [here](http://www.vultr.com/?ref=6870843). It will help provide us testing resources for improving this project!
+Si aún no se ha registrado para obtener una cuenta de Vultr, utilice nuestro enlace de afiliado [aquí](http://www.vultr.com/?ref=6870843). ¡Nos ayudará a proporcionar recursos de prueba para mejorar este proyecto!
 :::
 
-### Boot from ISO
+### Arrancar desde ISO
 
-Once you've logged into the console, select ISOs.  In the remote URLs box, enter in the URL of a netboot.xyz ISO and press upload:
+Una vez que haya iniciado sesión en la consola, seleccione ISO.  En el cuadro de URL remotas, ingrese la URL de un ISO y presione cargar:
 
     https://boot.netboot.xyz/ipxe/netboot.xyz.iso
 
-Go back to the main console screen and press "Deploy New Instance". Follow these steps:
+Regrese a la pantalla principal de la consola y presione "Implementar nueva instancia". Siga estos pasos:
 
-* Select _Custom_ for the operating system
-* Select the ISO you uploaded
-* Click _Place Order_
+* Seleccione _Custom_ para el sistema operativo
+* Selecciona la ISO que subiste
+* Haga clic en _Realizar pedido_
 
-The instance should be online in a few minutes.  Once it's online, go to the main account page that lists all of your instances.  Click _Manage_ next to the instance you just launched, and then click _View Console_ under _Server Actions_. When the console appears, you should see the netboot.xyz iPXE menu.
+La instancia debería estar en línea en unos minutos.  Una vez que esté en línea, vaya a la página de la cuenta principal que enumera todas sus instancias.  Haga clic en _Administrar_ junto a la instancia que acaba de iniciar y luego haga clic en _Ver consola_ debajo de _Acciones del servidor_. Cuando aparezca la consola, debería ver el menú netboot.xyz iPXE.
 
-When you've completed the OS installation, select _Custom ISO_ from the Server Manager page and click _Remove ISO_.  The ISO will be removed from your instance and it will reboot.
+Cuando haya completado la instalación del sistema operativo, seleccione _Custom ISO_ de la página Server Manager y haga clic en _Remove ISO_.  El ISO se eliminará de su instancia y se reiniciará.
 
-### Boot from iPXE Chain URL
+### Arranque desde la URL de la cadena iPXE
 
-Using an iPXE chain url may be easier for some users.  Follow these steps:
+El uso de una URL de cadena iPXE puede ser más fácil para algunos usuarios.  Sigue estos pasos:
 
-* Click _Deploy New Instance_
-* Select _Custom_ for the operating system
-* Select _iPXE_ in the Virtual ISO section
-* Set the chain URL to `https://boot.netboot.xyz`
-* Click _Place Order_
+* Haga clic en _Implementar nueva instancia_
+* Seleccione _Custom_ para el sistema operativo
+* Seleccione _iPXE_ en la sección ISO virtual
+* Establezca la URL de la cadena en `https://boot.netboot.xyz`
+* Haga clic en _Realizar pedido_
 
-The instance will boot within a few minutes.  Once it boots, you'll have five minutes to launch a console and choose an option from the netboot.xyz menu:
+La instancia se iniciará en unos minutos.  Una vez que arranque, tendrá cinco minutos para iniciar una consola y elegir una opción del menú :
 
-* Go back to your account home page with your instances listed
-* Click _Manage_ next to the instance you just launched
-* Click _View Console_ in the _Server Actions_ section
-* Choose the OS you want to deploy in the netboot.xyz menu
-* Complete the OS installation
+* Regrese a la página de inicio de su cuenta con sus instancias en la lista
+* Haga clic en _Administrar_ junto a la instancia que acaba de lanzar
+* Haga clic en _Ver consola_ en la sección _Acciones del servidor_
+* Elija el sistema operativo que desea implementar en el menú netboot.xyz
+* Complete la instalación del sistema operativo
 
-Once you've finished the installation, reboot the instance as you normally would.  Vultr will automatically reboot your virtual machine into the OS you deployed.
+Una vez que haya terminado la instalación, reinicie la instancia como lo normalmente. reiniciará automáticamente su máquina virtual en el sistema operativo que implementó.
 
-### Boot from iPXE on a Vultr Bare Metal Server
+### Arranque desde iPXE en un servidor Vultr Bare Metal
 
-On Vultr Bare Metal, you can find the iPXE options in the iPXE tab in the Server Type section.
+En Vultr Bare Metal, puede encontrar las opciones de iPXE en la pestaña iPXE en la sección Tipo de servidor.
 
-* Set the chain URL to `https://boot.netboot.xyz`
+* Establezca la URL de la cadena en `https://boot.netboot.xyz`
 
-Make sure to use Legacy (PCBIOS) images because Bare Metal does not support EFI at this time. You can then load the console up and use the menu from there.
+Asegúrese de usar imágenes heredadas (PCBIOS) porque Bare Metal no es compatible con EFI en este momento. Luego puede cargar la consola y usar el menú desde allí.
