@@ -1,50 +1,50 @@
 ---
 id: qemu
-title: Booting from QEMU
-sidebar_label: Booting from QEMU
-description: "Methods of booting into netboot.xyz using QEMU"
-hide_table_of_contents: true
+title: Démarrage à partir de QEMU
+sidebar_label: Démarrage à partir de QEMU
+description: "Méthodes de démarrage dans netboot.xyz à l'aide de QEMU"
+hide_table_of_contents: vrai
 ---
 
-### Overview
+### Aperçu
 
-A quick way to try out netboot.xyz without any modifications to your existing environment is to leverage QEMU.  You can start up a virtual machine to evaluate what netboot.xyz is and how it works.  You will need the qemu-system package for your appropriate operating system and a window manager installed.  In the example below we are using Ubuntu 20.04.
+Un moyen rapide d'essayer netboot.xyz sans aucune modification de votre environnement existant consiste à tirer parti de QEMU.  Vous pouvez démarrer une machine virtuelle pour évaluer ce qu'est netboot.xyz et son fonctionnement.  Vous aurez besoin du package qemu-system pour votre système d'exploitation approprié et d'un gestionnaire de fenêtres installé.  Dans l'exemple ci-dessous, nous utilisons Ubuntu 20.04.
 
-### Install dependencies
+### Installer les dépendances
 
 ```bash
-# install the qemu-system package
+# installez le package qemu-system
 sudo apt-get install -y qemu-system ovmf
 
-# download the latest combined Legacy and EFI iso
+# téléchargez le dernier combiné Legacy et EFI iso
 wget http://boot.netboot.xyz/ipxe/netboot.xyz.iso
 ```
 
-If you want to write to a disk, you can set one at this point, or optionally you can boot without a disk if you want to test drive netboot.xyz:
+Si vous souhaitez écrire sur un disque, vous pouvez en définir un à ce stade, ou vous pouvez éventuellement démarrer sans disque si vous souhaitez tester le lecteur netboot.xyz :
 
-### Create a disk (optional)
+### Créer un disque (facultatif)
 
 ```bash
 qemu-img create -f raw vmdisk 8G
 
-# add the following to end of the qemu-system lines below if you want to add a disk to write to:
+# ajoutez ce qui suit à la fin des lignes qemu-system ci-dessous si vous souhaitez ajouter un disque sur lequel écrire :
 # -drive file=vmdisk,format=raw
 ```
 
-### Booting with Legacy PCBIOS
+### Démarrage avec Legacy PCBIOS
 
 ```bash
 qemu-system-x86_64 -cdrom netboot.xyz.iso -m 4G
 ```
 
-### Booting with a UEFI BIOS
+### Démarrage avec un BIOS UEFI
 
 ```bash
 qemu-system-x86_64 -bios /usr/share/ovmf/OVMF.fd -cdrom netboot.xyz.iso -m 4G
 ```
 
-:::note
+:::Remarque
 
-At least 4GB of memory is recommended for some of the images that are loaded into RAM.  If you experience problems during initrd load, the machine usually just needs more RAM.
+Au moins 4 Go de mémoire sont recommandés pour certaines des images chargées dans la RAM.  Si vous rencontrez des problèmes lors du chargement initrd, la machine a généralement juste besoin de plus de RAM.
 
 :::
