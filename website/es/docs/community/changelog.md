@@ -1,9 +1,9 @@
 ---
-id: changelog
-title: netboot.xyz changelog
-description: netboot.xyz changelog
-hide_title: true
-sidebar_label: Changelog
+id: registro de cambios
+title: netboot.xyz registro de cambios
+description: netboot.xyz registro de cambios
+hide_title: verdadero
+sidebar_label: registro de cambios
 ---
 
 ```mdx-code-block
