@@ -1,5 +1,5 @@
 ---
-id: comida
+id: grub
 title: Arrancar desde una instalación de Linux existente usando GRUB
 sidebar_label: Arrancando desde GRUB
 description: "Cómo usar GRUB para arrancar en netboot.xyz"
