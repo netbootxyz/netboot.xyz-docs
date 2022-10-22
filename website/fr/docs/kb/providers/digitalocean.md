@@ -1,69 +1,69 @@
 ---
-id: digitalocean
+id: océan numérique
 title: DigitalOcean
-description: Using netboot.xyz on DigitalOcean
-hide_table_of_contents: true
+description: Utilisation de netboot.xyz sur DigitalOcean
+hide_table_of_contents: vrai
 ---
 
-netboot.xyz can be loaded on a [DigitalOcean](https://m.do.co/c/ab4e8f17ba0d) droplet with a little bit of work so that you can then customize the droplet as needed. For this method, we'll use the smallest droplet size running Debian.
+netboot.xyz peut être chargé sur un droplet [DigitalOcean](https://m.do.co/c/ab4e8f17ba0d) avec un peu de travail afin que vous puissiez ensuite personnaliser le droplet selon vos besoins. Pour cette méthode, nous utiliserons la plus petite taille de gouttelette exécutant Debian.
 
 :::info
-If you haven't signed up for a DigitalOcean account, please utilize our affiliate link [here](https://m.do.co/c/ab4e8f17ba0d). It will help provide us testing resources for improving this project!
+Si vous n'avez pas créé de compte DigitalOcean, veuillez utiliser notre lien d'affiliation [ici](https://m.do.co/c/ab4e8f17ba0d). Cela nous aidera à nous fournir des ressources de test pour améliorer ce projet !
 :::
 
-### Create a Droplet
+### Créer une gouttelette
 
-For this method, it's recommended to use an apt-based distro like Debian or Ubuntu. Start a droplet with one of those operating systems. Once it is up and running, connect to it via SSH or connect to it with the console button.
+Pour cette méthode, il est recommandé d'utiliser une distribution basée sur apt comme Debian ou Ubuntu. Démarrez une gouttelette avec l'un de ces systèmes d'exploitation. Une fois qu'il est opérationnel, connectez-vous via SSH ou connectez-vous avec le bouton de la console.
 
-### Install GRUB Imageboot and Download ISO
+### Installez GRUB Imageboot et téléchargez ISO
 
-We will need to ensure that the GRUB menu pauses long enough for us to select the netboot.xyz option. For that we'll need to remove a timeout file and increase the timeout for GRUB. Adjust the time period as needed for your situation:
+Nous devrons nous assurer que le menu GRUB s'arrête suffisamment longtemps pour que nous sélectionnions l'option netboot.xyz. Pour cela, nous devrons supprimer un fichier de délai d'attente et augmenter le délai d'attente pour GRUB. Ajustez la période de temps selon vos besoins pour votre situation  :
 
 ```shell
-# Remove grub timeout configuration
+# Supprimer la configuration du délai d'expiration de grub
 rm /etc/default/grub.d/15_timeout.cfg
 
-# Increase grub timeout if desired
+# Augmenter le délai d'expiration de grub si désiré
 sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=60/g' /etc/default/grub
 
-# Install grub-imageboot
+# Installez grub-imageboot
 apt update
 apt install -y grub-imageboot
 
-# Download netboot.xyz ISO
+# Téléchargez netboot.xyz ISO
 mkdir /boot/images
 cd /boot/images
-wget https://boot.netboot.xyz/ipxe/netboot.xyz.iso
+wget https://boot.netboot.xyz/ipxe/netboot .xyz.iso
 
-# Update GRUB menu to include this ISO
-update-grub2
+# Mettre à jour le menu GRUB pour inclure cette mise à jour ISO
+-grub2
 
-# reboot once you are ready, it may be good to load up the recovery console first
-reboot
+# redémarrer une fois que vous êtes prêt, il peut être bon de charger la console de récupération en premier
+redémarrage
 ```
 
-### Connect via Recovery Console
+### Connectez-vous via la console de récupération
 
-Under the access section, connect to the Recovery Console. The recovery console is different from the regular console command in that it allows direct access to the droplet as it boots, including access to the GRUB menu. At this point if you are within the timeout window, you should now see the Grub menu with the following option now available:
+Sous la section d'accès, connectez-vous à la console de récupération. La console de récupération est différente de la commande de console habituelle en ce sens qu'elle permet un accès direct au droplet lors de son démarrage, y compris l'accès au menu GRUB. À ce stade, si vous êtes dans la fenêtre de temporisation, vous devriez maintenant voir le menu Grub avec l'option suivante désormais disponible :
 
 ```bash
-Bootable ISO image: netboot.xyz
+Image ISO amorçable : netboot.xyz
 ```
 
-### Set Networking Up
+### Configurer la mise en réseau
 
-Because the droplets use a static IP instead of DHCP, you will need to set up the networking for iPXE to talk to the networking. Upon selecting the netboot.xyz option, press **m** when prompted for the failsafe menu. You will need to set the networking of the instance so that iPXE can get on-line. You can get the networking information from the droplet control panel from the networking tab. Once you have the networking information, select Manual networking configuration:
+Étant donné que les droplets utilisent une adresse IP statique au lieu de DHCP, vous devrez configurer la mise en réseau pour que iPXE communique avec la mise en réseau. Lors de la sélection de l'option netboot.xyz, appuyez sur **m** lorsque vous êtes invité à accéder au menu de sécurité. Vous devrez définir la mise en réseau de l'instance afin que iPXE puisse être en ligne. Vous pouvez obtenir les informations de mise en réseau à partir du panneau de configuration des gouttelettes à partir de l'onglet Mise en réseau. Une fois que vous disposez des informations de mise en réseau, sélectionnez Configuration réseau manuelle :
 
 ```bash
-Set network interface number [0 for net0, defaults to 0]: <set to 0>
-IP: <set to droplet IP>
-Subnet mask: <set to droplet netmask>
-Gateway: <set to droplet gateway>
-DNS: <set DNS server, e.g. 1.1.1.1>
+Définir le numéro d'interface réseau [0 pour net0, par défaut sur 0] : <set to 0>
+IP : <set to droplet IP>
+Masque de sous-réseau : <set to droplet netmask>
+Passerelle : <set to droplet gateway>
+DNS : <set DNS server, e.g. 1.1.1.1>
 ```
 
-Once set, you should connect right into netboot.xyz. If you do a installation, you should be able to reinstall over the existing drive at that point and customize the droplet as you see fit. Keep the networking information handy as you will need to populate that when doing an install.
+Une fois défini, vous devez vous connecter directement à netboot.xyz. Si vous effectuez une installation, vous devriez pouvoir réinstaller sur le lecteur existant à ce stade et personnaliser la goutte comme bon vous semble. Conservez les informations de mise en réseau à portée de main, car vous devrez les remplir lors d'une installation.
 
 :::info
-If you run into out of memory issues running an installer, you may need a larger droplet.
+Si vous rencontrez des problèmes de mémoire insuffisante lors de l'exécution d'un programme d'installation, vous aurez peut-être besoin d'une goutte plus grande.
 :::
