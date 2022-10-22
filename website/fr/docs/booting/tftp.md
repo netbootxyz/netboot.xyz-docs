@@ -1,48 +1,48 @@
 ---
-id: tftp
-title: Booting from TFTP
-sidebar_label: Booting from TFTP
-description: "Methods of booting into netboot.xyz using TFTP and DHCP"
-hide_table_of_contents: true
+id: TFTP
+title: Démarrage à partir de TFTP
+sidebar_label: Démarrage à partir de TFTP
+description: "Méthodes de démarrage dans netboot.xyz à l'aide de TFTP et DHCP"
+hide_table_of_contents: vrai
 ---
 
-If you want to utilize netboot.xyz from your home or office network, it's relatively easy to set up.  It will allow all of your devices on your network to have netboot.xyz available whenever you need it by just changing the boot order on your device, selecting network boot, or manually selecting the device to boot.
+Si vous souhaitez utiliser netboot.xyz depuis votre réseau domestique ou professionnel, il est relativement facile à configurer.  Cela permettra à tous vos appareils de votre réseau d'avoir netboot.xyz disponible chaque fois que vous en aurez besoin en modifiant simplement l'ordre de démarrage sur votre appareil, en sélectionnant le démarrage du réseau ou en sélectionnant manuellement l'appareil à démarrer.
 
-### DHCP Server Setup
+### Configuration du serveur DHCP
 
-You will have to tell your DHCP server to provide a "next-server", the address of a TFTP server on your network, and a "filename", the [netboot.xyz boot file](https://boot.netboot.xyz/ipxe/netboot.xyz.kpxe).  When your clients boot up, if they are set to network boot, they'll automatically get a valid DHCP address, pull down the netboot.xyz iPXE bootloader and load up the Operating System menu.
+Vous devrez indiquer à votre serveur DHCP de fournir un "serveur suivant", l'adresse d'un serveur TFTP sur votre réseau, et un "nom de fichier", le fichier de démarrage [netboot.xyz](https://boot.netboot.xyz/ipxe/netboot.xyz.kpxe).  Lorsque vos clients démarrent, s'ils sont configurés pour un démarrage réseau, ils obtiendront automatiquement une adresse DHCP valide, dérouleront le chargeur de démarrage iPXE netboot.xyz et chargeront le menu Système d'exploitation.
 
-Example:
+Exemple:
 
-    next-server "1.2.3.4"
-    filename "netboot.xyz.kpxe"
+    serveur suivant "1.2.3.4"
+    nom de fichier "netboot.xyz.kpxe"
 
-If you are using [dnsmasq as your DHCP server](https://wiki.archlinux.org/index.php/dnsmasq#DHCP_server) as well as your TFTP server then setting the next-server option is as simple as adding the following line to `/etc/dnsmasq.conf`: 
+Si vous utilisez [dnsmasq comme serveur DHCP](https://wiki.archlinux.org/index.php/dnsmasq#DHCP_server) ainsi que votre serveur TFTP, définir l'option next-server est aussi simple que d'ajouter la ligne suivante à `/etc/dnsmasq.conf`: 
 
     dhcp-option=66,0.0.0.0
 
-`0.0.0.0` is parsed as the address of the machine running dnsmasq.
+`0.0.0.0` est analysé comme l'adresse de la machine exécutant dnsmasq.
 
-### TFTP Server Setup
+### Configuration du serveur TFTP
 
-You will need to set up a tftp server to host the iPXE files.  There are various types of TFTP servers out there and they all usually work pretty well.  You can also use dnsmasq to host the files as well.
+Vous devrez configurer un serveur TFTP pour héberger les fichiers iPXE.  Il existe différents types de serveurs TFTP et ils fonctionnent généralement assez bien.  Vous pouvez également utiliser dnsmasq pour héberger les fichiers.
 
-If you use dnsmasq you can add this configuration to `/etc/dnsmasq.conf`:
+Si vous utilisez dnsmasq vous pouvez ajouter cette configuration à `/etc/dnsmasq.conf`:
 
     enable-tftp
     tftp-root=/var/lib/tftp
     dhcp-boot=netboot.xyz.kpxe
 
-### Fixing the dnsmasq service
+### Correction du service dnsmasq
 
-If you are running systemd and you can start dnsmasq fine manually but it fails to start at boot you may need to edit the [Unit] section of `/lib/systemd/system/dnsmasq.service` by changing:
+Si vous exécutez systemd et que vous pouvez démarrer manuellement dnsmasq mais qu'il ne démarre pas au démarrage, vous devrez peut-être modifier la section [Unit] de `/lib/systemd/system/dnsmasq.service` en modifiant :
 
-    After=network.target
+    Après=réseau.cible
 
-to
+à
 
     After=network-online.target
 
-### Regular and Undionly Boot Files
+### Fichiers de démarrage réguliers et indivisibles
 
-If you experiencing issues with the regular [netboot.xyz.kpxe](https://boot.netboot.xyz/ipxe/netboot.xyz.kpxe) bootloader, you can try and use the [netboot.xyz-undionly.kpxe](https://boot.netboot.xyz/ipxe/netboot.xyz-undionly.kpxe) bootloader.  The regular bootloader includes common NIC drivers in the iPXE image, while the undionly loader will piggyback off the NIC boot firmware.
+Si vous rencontrez des problèmes avec le chargeur de démarrage standard [netboot.xyz.kpxe](https://boot.netboot.xyz/ipxe/netboot.xyz.kpxe) , vous pouvez essayer d'utiliser le chargeur de démarrage [netboot.xyz-undionly.kpxe](https://boot.netboot.xyz/ipxe/netboot.xyz-undionly.kpxe).  Le chargeur de démarrage standard inclut des pilotes de carte réseau communs dans l'image iPXE, tandis que le chargeur undionly se superposera au micrologiciel de démarrage de la carte réseau.
