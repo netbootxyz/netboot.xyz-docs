@@ -1,24 +1,24 @@
 ---
-id: edgerouter
+id: edgerouteur
 title: "Ubiquiti EdgeRouter"
-description: Ubiquiti EdgeRouter Usage
-hide_table_of_contents: true
+description: Ubiquiti EdgeRouter Utilisation
+hide_table_of_contents: vrai
 ---
 
-This document covers how to setup netboot.xyz, a service that provides iPXE-based installation and live boot of a bunch of operating systems, on a Ubiquiti EdgeRouter.
+Ce document explique comment configurer netboot.xyz, un service qui fournit installation basée sur iPXE et un démarrage en direct d'un tas de systèmes d'exploitation, sur un Ubiquiti EdgeRouter.
 
-Thanks go to [Sam Kottler](https://github.com/skottler) for originally writing up this how-to. Improve setup robustness by using the embedded TFTP daemon from dnsmasq by [Yan Grunenberger](https://github.com/ravens) instead of external TFTP package.
+Merci à [Sam Kottler](https://github.com/skottler) pour avoir initialement écrit ce guide pratique. Améliorez la robustesse de la configuration en utilisant le démon TFTP intégré de dnsmasq par [Yan Grunenberger](https://github.com/ravens) au lieu du package TFTP externe.
 
-### Assumptions
+### Hypothèses
 
-I've made a few assumptions throughout this document that will probably be different for your setup:
+J'ai fait quelques hypothèses tout au long de ce document qui seront probablement différentes pour votre configuration :
 
-* There is a DHCP pool called `LAN`
-* The `LAN` pool manages `10.10.2.0/24`
+* Il existe un pool DHCP appelé `LAN`
+* Le pool `LAN` gère `10.10.2.0/24`
 
-### Configure tftp support in dnsmasq
+### Configurer le support tftp dans dnsmasq
 
-By default, dnsmasq is using in the Edgerouter to provide DNS services. In order to enable it :
+Par défaut, dnsmasq utilise dans Edgerouter pour fournir des services DNS. Pour l'activer :
 
 ```bash
 sudo mkdir /config/user-data/tftproot
@@ -26,39 +26,39 @@ sudo chmod ugo+rX /config/user-data/tftproot
 
 configure
 
-set service dns forwarding  options enable-tftp
-set service dns forwarding  options tftp-root=/config/user-data/tftproot
+set service dns forwarding options enable-tftp
+set service dns forwarding options tftp-root=/config/user- données/tftproot
 
-commit
-save
+validation
+sauvegarde
 ```
 
-### Setup TFTP components
+### Configurer les composants TFTP
 
-Download the kpxe image for netboot.xyz and set the permissions properly:
+Téléchargez l'image kpxe pour netboot.xyz et définissez correctement les autorisations :
 
 ```bash
 sudo curl -o /config/user-data/tftproot/netboot.xyz.kpxe https://boot.netboot.xyz/ipxe/netboot.xyz.kpxe
-sudo chmod ugo+r /config/user-data/tftproot/netboot.xyz.kpxe
+sudo chmod ugo+r /config/user-data/tftproot/ netboot.xyz.kpxe
 ```
 
-At this point you should be able to use a TFTP client from a client in `10.10.2.0/24` to fetch the image:
+À ce stade, vous devriez pouvoir utiliser un client TFTP à partir d'un client en `10.10.2.0/24` pour récupérer l'image :
 
 ```bash
 $ tftp 10.10.2.1
 tftp> get netboot.xyz.kpxe
-Received 354972 bytes in 2.0 seconds
+354972 octets reçus en 2,0 secondes
 ```
 
-### Configure dhcpd
+### Configurer DHCP
 
-We're gonna configure DHCP on the EdgeRouter to serve the right parameters to clients:
+Nous allons configurer DHCP sur l'EdgeRouter pour servir les bons paramètres à  clients :
 
 ```bash
 configure
 
-set service dhcp-server global-parameters "option client-arch code 93 = unsigned integer 16;"
-edit service dhcp-server shared-network-name LAN subnet 10.10.2.0/24
+set service dhcp-server global-parameters "option client-arch code 93 = entier non signé 16 ;"
+edit service dhcp-server nom-réseau-partagé sous-réseau LAN 10.10.2.0/24
 set bootfile-server 10.10.2.1
 set bootfile-name netboot.xyz.kpxe
 
@@ -66,17 +66,17 @@ commit
 save
 ```
 
-The configuration for the `LAN` pool should now look something like the following:
+La configuration du pool `LAN` devrait maintenant ressembler à ceci :
 
 ```bash
-skottler@edge1# show service dhcp-server shared-network-name LAN
- authoritative enable
- subnet 10.10.2.0/24 {
+skottler@edge1# show service dhcp-server nom-réseau-partagé LAN
+ autorité enable
+ sous-réseau 10.10.2.0/24 {
      bootfile-name netboot.xyz.kpxe
      bootfile-server 10.10.2.1
      default-router 10.10.2.1
      dns-server 10.10.2.1
-     lease 86400
+     bail 86400
      start 10.10.2.100 {
          stop 10.10.2.199
      }
@@ -84,61 +84,61 @@ skottler@edge1# show service dhcp-server shared-network-name LAN
 [edit]
 ```
 
-That's it!
+C'est ça!
 
-## The advanced setup with support for Legacy and UEFI
+## La configuration avancée avec prise en charge de Legacy et UEFI
 
-### Using ISC DHCP
+### Utilisation du DHCP ISC
 
-This section was written by [Skyler Mäntysaari](https://github.com/samip5).
+Cette section a été rédigée par [Skyler Mäntysaari](https://github.com/samip5).
 
-This requires that you do not use `set service dhcp-server use-dnsmasq enable`. If you do use that, it will not work.
+Cela nécessite que vous n'utilisiez pas `set service dhcp-server use-dnsmasq enable`. Si vous l'utilisez, cela ne fonctionnera pas.
 
-We are going to start by removing the PXE boot related things from dhcp-server options, so the commands for that are something like:
+Nous allons commencer par supprimer les éléments liés au démarrage PXE des options dhcp-server, donc les commandes pour cela sont quelque chose comme :
 
 ```bash
-delete service dhcp-server shared-network-name LAN subnet 10.10.2.0/24 bootfile-name netboot.xyz.kpxe
-delete service dhcp-server shared-network-name LAN subnet 10.10.2.0/24 bootfile-server 10.10.2.1
+delete service dhcp-server nom-réseau-partagé sous-réseau LAN 10.10.2.0/24 bootfile-name netboot.xyz.kpxe
+delete service dhcp-server nom-réseau-partagé sous-réseau LAN 10.10.2.0/24 bootfile-server 10.10.2.1
 ```
 
-We are now going to download the efi version of the boot file if it does not exist yet:
+Nous allons maintenant télécharger la version efi du fichier de boot si elle n'existe pas encore :
 ```
 sudo curl -o /config/user-data/tftproot/netboot.xyz.efi https://boot.netboot.xyz/ipxe/netboot.xyz.efi
-sudo chmod ugo+r /config/user-data/tftproot/netboot.xyz.efi
+sudo chmod ugo+r /config/user-data/tftproot/ netboot.xyz.efi
 ```
 
-Next we are going to create a scripts folder for the scripts, in persistent storage (should persist over upgrades):
+Ensuite, nous allons créer un dossier de scripts pour les scripts, dans un stockage persistant (devrait persister lors des mises à niveau) :
 
 ```bash
 mkdir --parents /config/user-data/scripts/pxe/
 ```
 
-Next we are going to go into configure mode, and include the main pxe config file:
+Ensuite, nous allons passer en mode de configuration et inclure le fichier de configuration principal de pxe :
 
 ```bash
 set service dhcp-server global-parameters "deny bootp;"
-set service dhcp-server global-parameters "include &quot;/config/user-data/scripts/pxe/option-space.conf&quot;;"
-set service dhcp-server shared-network-name LAN subnet 10.10.2.0/24 subnet-parameters "include &quot;/config/user-data/scripts/pxe/pxe.conf&quot;;"
+set service dhcp-server global-parameters "include &quot;/config/user-data/scripts/pxe/option-space.conf&quot; ;"
+set service dhcp-server shared-network-name LAN subnet 10.10.2.0/24 subnet-parameters "include &quot;/config/user-data/scripts/pxe/pxe.conf&quot; ;"
 ```
 
-IT NEEDS to be typed exactly like that, the "" part.
+IL DOIT être tapé exactement comme ça, la partie "".
 
-The file /config/user-data/scripts/pxe/pxe.conf:
+Le fichier /config/user-data/scripts/pxe/pxe.conf :
 
 ```bash
-allow booting;
-next-server 10.10.2.1;
+autoriser le démarrage ;
+serveur suivant 10.10.2.1 ;
 
-if option arch = 00:07 {
-    filename "netboot.xyz.efi";
+si option arch = 00:07 {
+    nom de fichier "netboot.xyz.efi" ;
 } elsif option arch = 00:00 {
-    filename "netboot.xyz.kpxe";
+    nom de fichier "netboot.xyz.kpxe" ;
 } else {
-    filename "netboot.xyz.efi";
+    nom de fichier "netboot.xyz.efi" ;
 }
 ```
 
-The file /config/user-data/scripts/pxe/option-space.conf:
+Le fichier /config/user-data/scripts/pxe/option-space.conf :
 
 ```bash
 # Declare the iPXE/gPXE/Etherboot option space
@@ -192,30 +192,30 @@ option ipxe.nfs       code 41 = unsigned integer 8;
 option arch code 93 = unsigned integer 16;
 ```
 
-After all of that, it should be it! I hope that helps.
+Après tout ça, ça devrait être ça ! J'espère que cela aide.
 
-### Using dnsmasq
+### Utilisation de dnsmasq
 
-This section was written by [Benjamin Reich](https://benjaminreich.de/).
+Cette section a été rédigée par [Benjamin Reich](https://benjaminreich.de/).
 
-This Part is requierd if you using `set service dhcp-server use-dnsmasq enable`.
+Cette partie est requise si vous utilisez `set service dhcp-server use-dnsmasq enable`.
 
-Connect via SSH and replace `SERVERIP` with the actual IP.
+Connectez-vous via SSH et remplacez `SERVERIP` par l'adresse IP réelle.
 
 ```bash
 configure
 set service dhcp-server use-dnsmasq enable
 set service dns forwarding options "dhcp-match=set:bios,60,PXEClient:Arch:00000"
-set service dns forwarding options "dhcp-boot=tag:bios,netboot.xyz.kpxe,,SERVERIP"
-set service dns forwarding options "dhcp-match=set:efi32,60,PXEClient:Arch:00002"
-set service dns forwarding options "dhcp-boot=tag:efi32,netboot.xyz.efi,,SERVERIP"
-set service dns forwarding options "dhcp-match=set:efi32-1,60,PXEClient:Arch:00006"
-set service dns forwarding options "dhcp-boot=tag:efi32-1,netboot.xyz.efi,,SERVERIP"
-set service dns forwarding options "dhcp-match=set:efi64,60,PXEClient:Arch:00007"
-set service dns forwarding options "dhcp-boot=tag:efi64,netboot.xyz.efi,,SERVERIP"
-set service dns forwarding options "dhcp-match=set:efi64-1,60,PXEClient:Arch:00008"
-set service dns forwarding options "dhcp-boot=tag:efi64-1,netboot.xyz.efi,,SERVERIP"
-set service dns forwarding options "dhcp-match=set:efi64-2,60,PXEClient:Arch:00009"
-set service dns forwarding options "dhcp-boot=tag:efi64-2,netboot.xyz.efi,,SERVERIP"
-commit; save
+set service dns forwarding options "dhcp-boot=tag:bios,netboot .xyz.kpxe,,SERVERIP"
+options de transfert DNS de service définies "dhcp-match=set:efi32,60,PXEClient:Arch:00002"
+options de transfert DNS de service définies "dhcp-boot=tag:efi32,netboot.xyz. efi,,SERVERIP"
+options de transfert DNS du service "dhcp-match=set:efi32-1,60,PXEClient:Arch:00006"
+options de transfert DNS du service "dhcp-boot=tag:efi32-1,netboot.xyz .efi,,SERVERIP"
+définir les options de transfert DNS du service "dhcp-match=set:efi64,60,PXEClient:Arch:00007"
+définir les options de transfert DNS du service "dhcp-boot=tag:efi64,netboot.xyz.efi, ,SERVERIP"
+ définir les options de transfert DNS du service "dhcp-match=set:efi64-1,60,PXEClient:Arch:00008"
+définir les options de transfert DNS du service "dhcp-boot=tag:efi64-1,netboot.xyz.efi ,,SERVERIP"
+définir les options de transfert DNS du service "dhcp-match=set:efi64-2,60,PXEClient:Arch:00009"
+se t options de transfert DNS du service "dhcp-boot=tag:efi64-2,netboot.xyz.efi,,SERVERIP"
+commit ; enregistrer
 ```
