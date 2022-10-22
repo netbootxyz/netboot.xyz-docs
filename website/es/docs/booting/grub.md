@@ -1,29 +1,29 @@
 ---
-id: grub
-title: Booting from an existing Linux installation using GRUB
-sidebar_label: Booting from GRUB
-description: "How to use GRUB to boot into netboot.xyz"
-hide_table_of_contents: true
+id: comida
+title: Arrancar desde una instalación de Linux existente usando GRUB
+sidebar_label: Arrancando desde GRUB
+description: "Cómo usar GRUB para arrancar en netboot.xyz"
+hide_table_of_contents: verdadero
 ---
 
-If you have an existing Linux system where you are unable to use iPXE or boot from a disk image, but you can see the GRUB menu on boot, you can boot into netboot.xyz using `grub-imageboot`.
+Si tiene un sistema Linux existente en el que no puede usar iPXE o arrancar desde una imagen de disco, pero puede ver el menú de GRUB en el arranque, puede arrancar en netboot.xyz usando `grub-imageboot`.
 
-## On Debian/Ubuntu
+## En Debian/Ubuntu
 
 ```shell
-# Install grub-imageboot
+# Instalar grub-imageboot
 apt install grub-imageboot
 
-# Download netboot.xyz ISO
+# Descargar netboot.xyz ISO
 mkdir /boot/images
 cd /boot/images
 wget https://boot.netboot.xyz/ipxe/netboot.xyz.iso
 
-# Update GRUB menu to include this ISO
-update-grub2
-reboot
+# Actualice el menú de GRUB para incluir esta actualización de ISO
+-reinicio de grub2
+
 ```
 
-After reboot, select "Bootable ISO Image: netboot.xyz" in the GRUB menu.
+Después de reiniciar, seleccione "Imagen ISO de arranque: netboot.xyz" en el menú de GRUB.
 
-If the GRUB menu disappears too quickly, you may need to edit `/etc/default/grub` and increase the `GRUB_TIMEOUT`. Run `update-grub2` any time you modify this file.
+Si el menú de GRUB desaparece demasiado rápido, es posible que deba editar `/etc/default/grub` y aumentar `GRUB_TIMEOUT`. Ejecute `update-grub2` cada vez que modifique este archivo.
