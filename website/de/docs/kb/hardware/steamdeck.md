@@ -1,53 +1,53 @@
 ---
-id: steamdeck
-title: PXE Booting on the Steam Deck
-sidebar_label: Steam Deck
-description: PXE Booting on the Steam Deck
-hide_table_of_contents: true
+id: Dampfdeck
+title: PXE-Booten auf dem Steam-Deck
+sidebar_label: Dampfdeck
+description: PXE-Booten auf dem Steam-Deck
+hide_table_of_contents: Stimmt
 ---
 
-## Overview
+## Überblick
 
-This is a guide to PXE booting the [Valve Steam Deck](https://store.steampowered.com/steamdeck).
+Dies ist eine Anleitung zum PXE-Booten des [Valve Steam Deck](https://store.steampowered.com/steamdeck).
 
-## Requirements
+## Anforderungen
 
-To get the Steam Deck to PXE boot, you will need:
+Um das Steam Deck zum PXE-Booten zu bringen, benötigen Sie:
 
-- [USB-C Hub](https://amzn.to/3zveSgu) that supports Ethernet and USB
-- USB Keyboard
-- Hard Wired Ethernet
+- [USB-C Hub](https://amzn.to/3zveSgu) , der Ethernet und USB unterstützt
+- USB-Tastatur
+- Fest verdrahtetes Ethernet
 
-Connect the hub, ethernet, and power up to the Steam Deck. The first thing you will want to do is set the BIOS to allow for PXE booting.
+Verbinden Sie den Hub, das Ethernet und schalten Sie das Steam Deck ein. Als erstes sollten Sie das BIOS so einstellen, dass PXE-Booten möglich ist.
 
-## BIOS Configuration
+## BIOS-Konfiguration
 
-To bring up the Steam Deck Boot Loader menus, shutdown the Steam Deck and:
+Um die Steam-Deck-Bootloader-Menüs aufzurufen, fahren Sie das Steam-Deck herunter und:
 
-- Hold down `Volume +`, while pressing the power button `on` to access the Boot Manager, Setup Utility and Boot from File Menu. (`Volume -` will bring up just the Boot Manager)
-- Select Setup Utility to enter into the Setup.
-- Move down to the Boot Tab on the left and change these settings:
-  - Quick Boot: Disabled
-  - Quiet Boot: Disabled
-  - PXE Boot Capability: UEFI: IPv4 (Can change to what is appropriate for your network)
-  - Add Boot Options: First
-- Select Exit and Exit Saving Changes.
+- Halten Sie `Volume +`gedrückt, während Sie den Netzschalter `auf` drücken, um auf Boot Manager, Setup Utility und Boot from File Menu zuzugreifen. (`Volume -` bringt nur den Boot Manager)
+- Wählen Sie Setup Utility, um das Setup aufzurufen.
+- Gehen Sie nach unten zum Boot-Tab auf der linken Seite und ändern Sie diese Einstellungen:
+  - Schnellstart: Deaktiviert
+  - Stiller Start: Deaktiviert
+  - PXE-Startfähigkeit: UEFI: IPv4 (kann geändert werden, was für Ihr Netzwerk geeignet ist)
+  - Startoptionen hinzufügen: Zuerst
+- Wählen Sie Beenden und Speichern von Änderungen beenden.
 
-## PXE Booting
+## PXE-Booten
 
-The Steam Deck will now reboot and you will now see the Memory test as Quiet Boot has been disabled. If your Hub is connected to the network properly, and you have DHCP on the network, you should see:
+Das Steam Deck wird jetzt neu gestartet und Sie sehen jetzt den Speichertest, da Quiet Boot deaktiviert wurde. Wenn Ihr Hub richtig mit dem Netzwerk verbunden ist und Sie DHCP im Netzwerk haben, sollten Sie Folgendes sehen:
 
 ```shell
->>Start PXE over IPv4...
+>>PXE über IPv4 starten...
 ```
 
-At this point you should be able to PXE boot a UEFI image.
+An diesem Punkt sollten Sie in der Lage sein, ein UEFI-Image per PXE zu booten.
 
-Use the:
+Verwenden Sie die:
 
-- [netboot.xyz UEFI kernel](https://boot.netboot.xyz/ipxe/netboot.xyz.efi)
-- Set DHCP [next-server](https://netboot.xyz/docs/booting/tftp) to TFTP server, and filename to the netboot.xyz UEFI image on the DHCP server
+- [netboot.xyz UEFI-Kernel](https://boot.netboot.xyz/ipxe/netboot.xyz.efi)
+- Legen Sie DHCP [next-server](https://netboot.xyz/docs/booting/tftp) auf TFTP-Server und filename auf das UEFI-Image netboot.xyz auf dem DHCP-Server fest
 
-If you happen to break the Steam Deck when testing Operating Systems or tinkering with it, you can follow the Steam Deck Recovery Instructions [here](https://help.steampowered.com/en/faqs/view/1B71-EDF2-EB6D-2BB3).
+Wenn Sie das Steam-Deck beim Testen von Betriebssystemen oder beim Herumbasteln daran beschädigen, können Sie die Steam-Deck-Wiederherstellungsanweisungen [hier](https://help.steampowered.com/en/faqs/view/1B71-EDF2-EB6D-2BB3)befolgen.
 
-If you want to set the BIOS back to the default settings, you can load the BIOS back up, select Restore Defaults, and Exit Saving Changes. That will return the Steam Deck back to its original behavior.
+Wenn Sie das BIOS auf die Standardeinstellungen zurücksetzen möchten, können Sie die BIOS-Sicherung laden, Standardeinstellungen wiederherstellen und Speichern von Änderungen beenden auswählen. Dadurch wird das Steam-Deck wieder in sein ursprüngliches Verhalten versetzt.
