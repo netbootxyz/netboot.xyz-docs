@@ -1,87 +1,87 @@
 ---
-id: usb
-title: Booting from USB
-sidebar_label: Booting from USB
-description: "How to create a USB stick capable of booting into netboot.xyz"
-hide_table_of_contents: true
+id: USB
+title: Arrancando desde USB
+sidebar_label: Arrancando desde USB
+description: "Cómo crear una memoria USB capaz de arrancar en netboot.xyz"
+hide_table_of_contents: verdadero
 ---
 
-:::danger
-Backup your important data before writing the USB as it will overwrite anything on the USB key.
+:::peligro
+Haga una copia de seguridad de sus datos importantes antes de escribir el USB, ya que sobrescribirá cualquier cosa en la llave USB.
 :::
 
-Download a netboot.xyz USB disk:
+Descargue un disco USB netboot.xyz:
 
 * [netboot.xyz](https://boot.netboot.xyz/ipxe/netboot.xyz.img)
 
-## Creating USB Key on Linux
+## Creación de una llave USB en Linux
 
-Insert a USB key in your computer and find the device name. Then use following command:
-
-```shell
-cat netboot.xyz.img > /dev/sdX
-```
-
-or
+Inserte una llave USB en su computadora y busque el nombre del dispositivo. Luego use el siguiente comando:
 
 ```shell
-dd if=netboot.xyz.img of=/dev/sdX
+gato netboot.xyz.img > /dev/sdX
 ```
 
-where sdX is your usb drive.
-
-The USB key should be ready to eject once finished.
-
-## Creating USB Key on MacOS
-
-__Run:__
+o
 
 ```shell
-diskutil list
+dd if=netboot.xyz.img de=/dev/sdX
 ```
 
-to get the current list of devices
+donde sdX es tu unidad usb.
 
-___Insert the flash media.___
+La llave USB debería estar lista para ser expulsada una vez que haya terminado.
 
-__Run:__
+## Creación de una llave USB en MacOS
+
+__Correr:__
 
 ```shell
-diskutil list
+lista de utilidades de disco
 ```
 
-again and determine the device node assigned to your flash media (e.g. /dev/disk2).
+para obtener la lista actual de dispositivos
 
-__Run:__
+___Inserte el medio flash.___
+
+__Correr:__
+
+```shell
+lista de utilidades de disco
+```
+
+nuevamente y determine el nodo del dispositivo asignado a su medio flash (por ejemplo, /dev/disk2).
+
+__Correr:__
 
 ```shell
 diskutil unmountDisk /dev/diskN
 ```
 
-(replace N with the disk number from the last command; in the previous example, N would be 2).
+(reemplace N con el número de disco del último comando; en el ejemplo anterior, N sería 2).
 
-__Execute:__
+__Ejecutar:__
 
 ```shell
 sudo dd if=netboot.xyz.img of=/dev/rdiskN bs=1m
 ```
 
-* Using /dev/rdisk instead of /dev/disk may be faster
-* If you see the error dd: Invalid number '1m', you are using GNU dd. Use the same command but replace bs=1m with bs=1M
-* If you see the error dd: /dev/diskN: Resource busy, make sure the disk is not in use. Start the 'Disk Utility.app' and unmount (don't eject) the drive
+* Usar /dev/rdisk en lugar de /dev/disk puede ser más rápido
+* Si ve el error dd: número no válido '1m', está utilizando GNU dd. Use el mismo comando pero reemplace bs=1m con bs=1M
+* Si ve el error dd: /dev/diskN: Recurso ocupado, asegúrese de que el disco no esté en uso. Inicie 'Disk Utility.app' y desmonte (no expulse) la unidad
 
-__Run:__
+__Correr:__
 
 ```shell
-diskutil eject /dev/diskN
+diskutil expulsar /dev/diskN
 ```
 
-and remove your flash media when the command completes.
+y elimine su medio flash cuando se complete el comando.
 
-## Creating USB Key on Windows
+## Creación de una llave USB en Windows
 
-Check out [Rufus](https://rufus.akeo.ie/) to install the IMG file to a USB key.
+Consulte [Rufus](https://rufus.akeo.ie/) para instalar el archivo IMG en una llave USB.
 
-## Booting
+## Arrancando
 
-Once you've created your key, reboot and set your BIOS to load the USB key first if it's not set for that already. You should see iPXE load up either load up netboot.xyz automatically or you will be prompted to set your networking information up.
+Una vez que haya creado su clave, reinicie y configure su BIOS para cargar la clave USB primero si aún no está configurada para eso. Debería ver que iPXE se carga, ya sea que cargue netboot.xyz automáticamente o se le pedirá que configure su información de red.
