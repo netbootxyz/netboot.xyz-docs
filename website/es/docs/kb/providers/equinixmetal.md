@@ -1,41 +1,41 @@
 ---
 id: equinixmetal
 title: Equinix Metal
-description: Using netboot.xyz with Equinix Metal bare metal servers
-hide_table_of_contents: true
+description: Uso de netboot.xyz con servidores bare metal de Equinix Metal
+hide_table_of_contents: verdadero
 ---
 
-[Equinix Metal](https://metal.equinix.com) fully supports netboot.xyz with its Custom iPXE operating system.
+[Equinix Metal](https://metal.equinix.com) es totalmente compatible con netboot.xyz con su sistema operativo Custom iPXE .
 
-### Usage
+### Uso
 
-Select the "Custom iPXE" operating system from the portal, or the `custom_ipxe` slug when using the API.
+Seleccione el sistema operativo "Custom iPXE" del portal, o el slug `custom_ipxe` cuando use la API.
 
-### Provisioning
+### Aprovisionamiento
 
-Put the netboot.xyz URL in the text field that appears in the portal, or use the `ipxe_script_url` parameter when creating the device via the API.
+Coloque la URL de netboot.xyz en el campo de texto que aparece en el portal, o use el parámetro `ipxe_script_url` al crear el dispositivo a través de la API.
 
     https://boot.netboot.xyz
 
-Press "Deploy" to provision your device. It will take 2-3 minutes for the device to become active. Once it's online, connect to Equinix Metal's out-of-band serial-over-SSH service (S.O.S.) using the device's `id` and the facility where the device was deployed, e.g. `ewr1`.
+Presione "Implementar" para aprovisionar su dispositivo. El dispositivo tardará entre 2 y 3 minutos en activarse. Una vez que esté en línea, conéctese al servicio serial-over-SSH (SOS) fuera de banda de Equinix Metal usando el `id` del dispositivo y la instalación donde se implementó el dispositivo, por ejemplo, `ewr1`.
 
-    ssh {server-uuid}@sos.{facility-code}.platformequinix.com
+    ssh {server-uuid}@sos.{facility-code}.plataformaquinix.com
 
-The current list of facilities is [here](https://metal.equinix.com/product/locations). The netboot.xyz iPXE menu will appear and you can complete installation from there.
+La lista actual de instalaciones es [aquí](https://metal.equinix.com/product/locations). Aparecerá el menú netboot.xyz iPXE y podrá completar la instalación desde allí.
 
-:::note
+:::Nota
 
-By default, devices are set to boot from the local disk. During provisioning, Equinix Metal sets the next boot to PXE. This happens once, which means that if you don't install an operating system before rebooting, it won't reload the netboot.xyz menu. However, you can set your device to always boot to iPXE first by enabling that option under 'server actions' through the customer portal.
+De forma predeterminada, los dispositivos están configurados para arrancar desde el disco local. Durante el aprovisionamiento , Equinix Metal establece el siguiente arranque en PXE. Esto sucede una vez, lo que significa que si no instala un sistema operativo antes de reiniciar, no volverá a cargar el menú netboot.xyz. Sin embargo, puede configurar su dispositivo para que arranque siempre en iPXE primero habilitando esa opción en "acciones del servidor" a través del portal del cliente.
 
 :::
 
-### Networking
+### Redes
 
-Devices that are provisioned via Custom iPXE will be able to DHCP for the life of the device; however, Equinix Metal recommends configuring networking statically. IP address information can be found by querying https://metadata.platformequinix.com/metadata from the host.
+Los dispositivos que se aprovisionan a través de Custom iPXE podrán usar DHCP durante la vida del dispositivo; sin embargo, Equinix Metal recomienda configurar la red de forma estática. La información de la dirección IP se puede encontrar consultando https://metadata.platformequinix.com/metadata desde el host.
 
-More information on how Equinix Metal configures bonding can be found [here](https://metal.equinix.com/developers/docs/networking/layer2/).
+Puede encontrar más información sobre cómo Equinix Metal configura la unión [aquí](https://metal.equinix.com/developers/docs/networking/layer2/).
 
-Nameservers should be configured as:
+Los servidores de nombres deben configurarse como:
 
-    nameserver 147.75.207.207
-    nameserver 147.75.207.208
+    servidor de nombres 147.75.207.207
+    servidor de nombres 147.75.207.208
