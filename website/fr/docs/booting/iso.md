@@ -1,19 +1,19 @@
 ---
 id: iso
-title: Booting with an ISO
-sidebar_label: Booting with an ISO
-description: "How to use an ISO to boot into netboot.xyz"
-hide_table_of_contents: true
+title: Démarrer avec un ISO
+sidebar_label: Démarrer avec un ISO
+description: "Comment utiliser un ISO pour démarrer dans netboot.xyz"
+hide_table_of_contents: vrai
 ---
 
-### Burning a CD/DVD
+### Graver un CD/DVD
 
-To create a bootable CD-ROM/DVD, burn the ISO image [netboot.xyz.iso](https://boot.netboot.xyz/ipxe/netboot.xyz.iso) to a blank CD-ROM/DVD.  Insert the media into the server, set the proper boot order and boot up.
+Pour créer un CD-ROM/DVD amorçable, gravez l'image ISO [netboot.xyz.iso](https://boot.netboot.xyz/ipxe/netboot.xyz.iso) sur un CD-ROM/DVD vierge.  Insérez le support dans le serveur, définissez l'ordre de démarrage approprié et démarrez.
 
-### Virtual Machine Software
+### Logiciel de machine virtuelle
 
-You can also use these ISOs to boot any sort of VM in Citrix XenServer, Proxmox VE, VMware ESXi, VMware Fusion, VirtualBox.
+Vous pouvez également utiliser ces ISO pour démarrer n'importe quel type de machine virtuelle dans Citrix XenServer, Proxmox VE, VMware ESXi, VMware Fusion, VirtualBox.
 
-### Out of Band Virtual Media
+### Média virtuel hors bande
 
-They are great for attaching to remote virtual media of a server like the Dell DRAC or HP iLOs.  Because the iPXE boot disk is so light weight, they are great for starting installations where there might be really low bandwidth.
+Ils sont parfaits pour se connecter à un support virtuel distant d'un serveur tel que Dell DRAC ou HP iLO.  Étant donné que le disque de démarrage iPXE est si léger, il est idéal pour démarrer des installations où la bande passante peut être très faible.
