@@ -1,9 +1,9 @@
 ---
-id: changelog
-title: netboot.xyz changelog
-description: netboot.xyz changelog
-hide_title: true
-sidebar_label: Changelog
+id: journal des modifications
+title: journal des modifications netboot.xyz
+description: journal des modifications netboot.xyz
+hide_title: vrai
+sidebar_label: Journal des modifications
 ---
 
 ```mdx-code-block
