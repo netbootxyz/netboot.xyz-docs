@@ -1,19 +1,19 @@
 ---
 id: ipxe
-title: Boot using iPXE
-sidebar_label: Boot using iPXE
-description: "Details how to chainload into netboot.xyz from iPXE"
-hide_table_of_contents: true
+title: Démarrer avec iPXE
+sidebar_label: Démarrer avec iPXE
+description: "Détails sur le chargement en chaîne dans netboot.xyz à partir d'iPXE"
+hide_table_of_contents: vrai
 ---
 
-### NIC with Embedded iPXE
+### Carte réseau avec iPXE intégré
 
-If you've already compiled your own iPXE, you can load up the netboot.xyz menu easily by entering CTRL-B when prompted, setting DHCP and then chainloading iPXE:
+Si vous avez déjà compilé votre propre iPXE, vous pouvez facilement charger le menu netboot.xyz en entrant CTRL-B lorsque vous y êtes invité, en définissant DHCP, puis en chargeant iPXE en chaîne :
 
-    dhcp
-    chain --autofree https://boot.netboot.xyz
+    chaîne dhcp
+    --autofree https://boot.netboot.xyz
 
-If you don't have DHCP on your network, you can manually set your network information:
+Si vous n'avez pas de DHCP sur votre réseau, vous pouvez définir manuellement vos informations réseau :
 
     set net0/ip <ip>
     set net0/netmask <netmask>
@@ -22,10 +22,10 @@ If you don't have DHCP on your network, you can manually set your network inform
     ifopen net0
     chain --autofree https://boot.netboot.xyz
 
-Some iPXE builds do not support HTTPS connections. If you get an "Operation not supported" error message, run this instead:
+Certaines versions iPXE ne prennent pas en charge les connexions HTTPS. Si vous obtenez un message d'erreur "Opération non prise en charge", exécutez ceci à la place :
 
-    chain --autofree http://boot.netboot.xyz
+    chaîne --autofree http://boot.netboot.xyz
 
 ### KVM
 
-On VPSes that use KVM, you can usually connect to the VPS via VNC, reboot it, press escape while rebooting to get a boot menu, then select the iPXE option. Once iPXE has started, press Ctrl-B and follow the instructions above.
+Sur les VPS qui utilisent KVM, vous pouvez généralement vous connecter au VPS via VNC, le redémarrer, appuyer sur Échap lors du redémarrage pour obtenir un menu de démarrage, puis sélectionner l'option iPXE. Une fois que iPXE a démarré, appuyez sur Ctrl-B et suivez les instructions ci-dessus.
