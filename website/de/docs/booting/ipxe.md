@@ -1,19 +1,19 @@
 ---
 id: ipxe
-title: Boot using iPXE
-sidebar_label: Boot using iPXE
-description: "Details how to chainload into netboot.xyz from iPXE"
-hide_table_of_contents: true
+title: Booten Sie mit iPXE
+sidebar_label: Booten Sie mit iPXE
+description: "Details zum Kettenladen in netboot.xyz von iPXE"
+hide_table_of_contents: Stimmt
 ---
 
-### NIC with Embedded iPXE
+### Netzwerkkarte mit eingebettetem iPXE
 
-If you've already compiled your own iPXE, you can load up the netboot.xyz menu easily by entering CTRL-B when prompted, setting DHCP and then chainloading iPXE:
+Wenn Sie bereits Ihr eigenes iPXE kompiliert haben, können Sie das netboot.xyz-Menü einfach laden, indem Sie bei Aufforderung STRG-B eingeben, DHCP einstellen und dann iPXE verketten:
 
     dhcp
     chain --autofree https://boot.netboot.xyz
 
-If you don't have DHCP on your network, you can manually set your network information:
+Wenn Sie kein DHCP in Ihrem Netzwerk haben, können Sie Ihre Netzwerkinformationen manuell festlegen:
 
     set net0/ip <ip>
     set net0/netmask <netmask>
@@ -22,10 +22,10 @@ If you don't have DHCP on your network, you can manually set your network inform
     ifopen net0
     chain --autofree https://boot.netboot.xyz
 
-Some iPXE builds do not support HTTPS connections. If you get an "Operation not supported" error message, run this instead:
+Einige iPXE-Builds unterstützen keine HTTPS-Verbindungen. Wenn Sie die Fehlermeldung „Vorgang nicht unterstützt“ erhalten, führen Sie stattdessen Folgendes aus:
 
     chain --autofree http://boot.netboot.xyz
 
 ### KVM
 
-On VPSes that use KVM, you can usually connect to the VPS via VNC, reboot it, press escape while rebooting to get a boot menu, then select the iPXE option. Once iPXE has started, press Ctrl-B and follow the instructions above.
+Bei VPS, die KVM verwenden, können Sie sich normalerweise über VNC mit dem VPS verbinden, es neu starten, während des Neustarts die Escape-Taste drücken, um ein Startmenü zu erhalten, und dann die iPXE-Option auswählen. Sobald iPXE gestartet ist, drücken Sie Strg-B und folgen Sie den obigen Anweisungen.
