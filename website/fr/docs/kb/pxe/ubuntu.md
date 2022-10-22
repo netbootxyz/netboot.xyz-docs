@@ -1,32 +1,32 @@
 ---
 id: ubuntu
-title: PXE Booting the Ubuntu Installer
+title: Démarrage PXE du programme d'installation d'Ubuntu
 sidebar_label: Ubuntu
-description: PXE Booting the Ubuntu Installer
-hide_table_of_contents: true
+description: Démarrage PXE du programme d'installation d'Ubuntu
+hide_table_of_contents: vrai
 ---
 
-## Installer Kernels
+## Noyaux d'installation
 
-Ubuntu maintains installer kernels that are lightweight way to load the Ubuntu installer and then stream packages over the network as needed. The installer kernels are located at:
+Ubuntu maintient des noyaux d'installation qui sont un moyen léger de charger le programme d'installation d'Ubuntu, puis de diffuser des packages sur le réseau selon les besoins. Les noyaux d'installation sont situés à :
 
 ```bash
-# http://archive.ubuntu.com or other ubuntu mirrors
+# http://archive.ubuntu.com ou autres miroirs ubuntu
 #
-# (${version} == xenial, bionic, etc)
+# (${version} == xenial, bionic, etc.)
 # (${arch} == amd64, i386)
 
-# original release directory: 
+# répertoire de version d'origine : 
 # ubuntu/dists/${version}/main/installer-${arch}/current/images/netboot/
 # 
-# updated release directory which contain newer kernels and updates:
+# répertoire de version mis à jour contenant les nouveaux noyaux et mises à jour :
 # ubuntu/dists/${version}-updates/main/installer-${arch}/current/images/netboot/
 #
-# kernel filename: linux
-# initrd filename: initrd.gz
+# nom du fichier noyau : linux
+# nom du fichier initrd : initrd.gz
 ```
 
-In order to load them, you'll need use a boot snippet in iPXE similar to:
+Pour les charger, vous devrez utiliser un extrait de démarrage dans iPXE similaire à :
 
 ```bash
 set install_params auto=true priority=critical
@@ -42,25 +42,25 @@ initrd ${dir}/initrd.gz
 boot
 ```
 
-If you want to use a [preseed](https://help.ubuntu.com/lts/installation-guide/example-preseed.txt) url for automation, you can add this to the kernel line:
+Si vous souhaitez utiliser une URL [preseed](https://help.ubuntu.com/lts/installation-guide/example-preseed.txt) pour l'automatisation, vous pouvez ajouter ceci à la ligne du noyau :
 
 ```bash
-set preseedurl http://my.preseed.com/preseed.cfg
+définir preseedurl http://my.preseed.com/preseed.cfg
 preseed/url=${preseedurl}
 ```
 
-For more examples you can view the netboot.xyz configuration for Ubuntu [here](https://github.com/netbootxyz/netboot.xyz/blob/master/roles/netbootxyz/templates/menu/ubuntu.ipxe.j2).
+Pour plus d'exemples, vous pouvez voir la configuration netboot.xyz pour Ubuntu [ici](https://github.com/netbootxyz/netboot.xyz/blob/master/roles/netbootxyz/templates/menu/ubuntu.ipxe.j2).
 
-## Live Boot
+## Démarrage en direct
 
-Ubuntu also provides a number of Live Boot ISOs that will boot an OS directly into memory and can be used immediately without doing an install or modifying the hard drive.  The Live OS will also include the installer as well.  These are great for evaluating other desktops that you might want to try out without doing a full install.
+Ubuntu fournit également un certain nombre d'ISO Live Boot qui démarrent un système d'exploitation directement en mémoire et peuvent être utilisés immédiatement sans effectuer d'installation ni modifier le disque dur.  Le système d'exploitation Live inclura également le programme d'installation.  Ils sont parfaits pour évaluer d'autres ordinateurs de bureau que vous voudrez peut-être essayer sans effectuer une installation complète.
 
-| Distribution  | Website                                                      |
-|:------------- |:------------------------------------------------------------ |
-| Kubuntu       | [https://kubuntu.org/](https://kubuntu.org/)                 |
-| Lubuntu       | [https://lubuntu.me/](https://lubuntu.me/)                   |
-| Ubuntu Budgie | [https://ubuntubudgie.org/](https://ubuntubudgie.org/)       |
-| Ubuntu Kylin  | [https://www.ubuntukylin.com/](https://www.ubuntukylin.com/) |
-| Ubuntu Mate   | [https://ubuntu-mate.org/](https://ubuntu-mate.org/)         |
-| Ubuntu Studio | [https://ubuntustudio.org/](https://ubuntustudio.org/)       |
-| Xubuntu       | [https://xubuntu.org/](https://xubuntu.org/)                 |
+| Distribution       | Site Internet                                                |
+|:------------------ |:------------------------------------------------------------ |
+| Kubuntu            | [https://kubuntu.org/](https://kubuntu.org/)                 |
+| Lubuntu            | [https://lubuntu.me/](https://lubuntu.me/)                   |
+| Perruche Ubuntu    | [https://ubuntubudgie.org/](https://ubuntubudgie.org/)       |
+| Ubuntu Kylin       | [https://www.ubuntukylin.com/](https://www.ubuntukylin.com/) |
+| Compagnon d'Ubuntu | [https://ubuntu-mate.org/](https://ubuntu-mate.org/)         |
+| Studio Ubuntu      | [https://ubuntustudio.org/](https://ubuntustudio.org/)       |
+| XubuntuName        | [https://xubuntu.org/](https://xubuntu.org/)                 |
