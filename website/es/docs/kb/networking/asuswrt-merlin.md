@@ -1,30 +1,30 @@
 ---
-id: asuswrt-merlin
-title: "Asuswrt-Merlin"
-description: Asuswrt-Merlin Usage
-hide_table_of_contents: true
+id: asuswrt-merlín
+title: "Asuswrt-Merlín"
+description: Uso de Asuswrt-Merlin
+hide_table_of_contents: verdadero
 ---
 
-This will enable legacy BIOS, and UEFI devices to PXE boot into the [netboot.xyz](https://github.com/netbootxyz/netboot.xyz) menu on Asuswrt-Merlin devices.
+Esto permitirá que los dispositivos BIOS y UEFI heredados arranquen PXE en el menú [netboot.xyz](https://github.com/netbootxyz/netboot.xyz) en los dispositivos Asuswrt-Merlin.
 
-Assume your AsusWRT-Merlin router is 192.168.1.1; Login to GUI
-1. LAN -> DHCP Server -> Basic Config: Set "Enable the DHCP Server" to Yes; IP Pool Starting Address: 192.168.1.2; IP Pool Ending Address: 192.168.1.254
-2. Administration -> System -> Service: Set "Enable SSH" to LAN Only
-3. Administration -> System -> Persistent JFFS2 partition: Set "Enable JFFS custom scripts and configs" to Yes
+Suponga que su enrutador AsusWRT-Merlin es 192.168.1.1; Iniciar sesión en la interfaz gráfica de usuario
+1. LAN -> Servidor DHCP -> Configuración básica: Establezca "Habilitar el servidor DHCP" en Sí; Dirección inicial del conjunto de direcciones IP: 192.168.1.2; Dirección final del grupo IP: 192.168.1.254
+2. Administración -> Sistema -> Servicio: Establezca "Habilitar SSH" en Solo LAN
+3. Administración -> Sistema -> Partición JFFS2 persistente: establezca "Habilitar secuencias de comandos y configuraciones personalizadas de JFFS" en Sí
 
-:::note
+:::Nota
 
-JFFS is a writeable section of the flash memory (the size will vary between router models, with the newer models having a bit over 60 MB of space available), which will allow you to store small files (such as scripts) inside the router without needing to have a USB disk plugged in. This space will survive reboot (**but it might NOT survive firmware flashing, so back it up first before flashing!**).
+JFFS es una sección grabable de la memoria flash (el tamaño variará entre los modelos de enrutador, y los modelos más nuevos tienen un poco más de 60 MB de espacio disponible), lo que le permitirá almacenar archivos pequeños (como scripts) dentro del enrutador sin necesitando tener un disco USB conectado. Este espacio sobrevivirá al reinicio (**pero es posible que NO sobreviva a la actualización del firmware, ¡así que haga una copia de seguridad antes de actualizar!**).
 
 :::
 
-4. Reboot the router from the GUI and wait until you can ping 192.168.1.1
-5. `ssh username@192.168.1.1`
-6. `mkdir /jffs/tftproot`
+4. Reinicie el enrutador desde la GUI y espere hasta que pueda hacer ping a 192.168.1.1
+5. `ssh nombre de usuario@192.168.1.1`
+6. `mkdir /jffs/tftroot`
 7. `curl -o /jffs/tftproot/netboot.xyz.kpxe https://boot.netboot.xyz/ipxe/netboot.xyz.kpxe`
 8. `curl -o /jffs/tftproot/netboot.xyz.efi https://boot.netboot.xyz/ipxe/netboot.xyz.efi`
-9. `touch /jffs/configs/dnsmasq.conf.add`
-10. `nano /jffs/configs/dnsmasq.conf.add` and add the following:
+9. `toque /jffs/configs/dnsmasq.conf.add`
+10. `nano /jffs/configs/dnsmasq.conf.add` y agregue lo siguiente:
 
 > enable-tftp  
 > tftp-root=/jffs/tftproot  
@@ -32,25 +32,25 @@ JFFS is a writeable section of the flash memory (the size will vary between rout
 > dhcp-boot=tag:bios,netboot.xyz.kpxe,,192.168.1.1  
 > dhcp-match=set:efi32,60,PXEClient:Arch:00002  
 > dhcp-boot=tag:efi32,netboot.xyz.efi,,192.168.1.1  
-> dhcp-match=set:efi32-1,60,PXEClient:Arch:00006  
-> dhcp-boot=tag:efi32-1,netboot.xyz.efi,,192.168.1.1  
-> dhcp-match=set:efi64,60,PXEClient:Arch:00007  
-> dhcp-boot=tag:efi64,netboot.xyz.efi,,192.168.1.1  
+> dhcp-match=set:efi32-1,60 ,PXEClient:Arco:00006  
+> dhcp-boot=etiqueta:efi32-1,netboot.xyz.efi,,192.168.1.1  
+> dhcp-match=set:efi64,60,PXEClient:Arco:00007  
+> dhcp-boot =etiqueta:efi64,netboot.xyz.efi,,192.168.1.1  
 > dhcp-match=set:efi64-1,60,PXEClient:Arch:00008  
-> dhcp-boot=tag:efi64-1,netboot.xyz.efi,,192.168.1.1  
+> dhcp-boot=etiqueta:efi64-1,netboot.xyz. efi,,192.168.1.1  
 > dhcp-match=set:efi64-2,60,PXEClient:Arch:00009  
 > dhcp-boot=tag:efi64-2,netboot.xyz.efi,,192.168.1.1
 
-11. `reboot` and wait until you can ping 192.168.1.1
-12. from another device confirm that TFTP is working on the router
+11. `reinicie` y espere hasta que pueda hacer ping a 192.168.1.1
+12. desde otro dispositivo, confirme que TFTP está funcionando en el enrutador
 
 > `tftp 192.168.1.1`  
-> tftp> `get netboot.xyz.kpxe`  
-> Received 368475 bytes in 0.5 seconds
+> tftp> `obtener netboot.xyz.kpxe`  
+> Recibió 368475 bytes en 0,5 segundos
 
-13. Test with an UEFI device and with a legacy BIOS device that PXE booting is working (you might have enable PXE booting in the BIOS and/or in UEFI. For UEFI you usually have to enable UEFI Networking stack).
+13. Pruebe con un dispositivo UEFI y con un dispositivo BIOS heredado que el arranque PXE está funcionando (es posible que haya habilitado el arranque PXE en el BIOS y/o en UEFI. Para UEFI, generalmente debe habilitar la pila de redes UEFI).
 
-References:
+Referencias:
 
 * https://programmingflow.com/2015/04/08/boot-any-machine-in-your-home-with-pxe.html
 * https://netboot.xyz/docs/kb/networking/edgerouter
