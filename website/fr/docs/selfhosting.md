@@ -1,88 +1,113 @@
 ---
-id: selfhosting
-title: Self Hosting
-description: "How to self host your own netboot.xyz in your environment"
-hide_table_of_contents: true
+id: auto-hébergement
+title: Auto-hébergement
+description: "Comment auto-héberger votre propre netboot.xyz dans votre environnement"
+hide_table_of_contents: vrai
 ---
 
-### How can I self host netboot.xyz?
+### Comment puis-je auto-héberger netboot.xyz ?
 
-netboot.xyz was originally a hosted only tool and used static source files that were difficult to customize.  Now you can generate your own self hosted environment using the same tooling to generate the hosted site.
+netboot.xyz était à l'origine un outil hébergé uniquement et utilisait des fichiers source statiques difficiles à personnaliser.  Vous pouvez maintenant générer votre propre environnement auto-hébergé en utilisant les mêmes outils pour générer le site hébergé.
 
-[Ansible](https://www.ansible.com/), an open-source automation engine, is utilized to generate custom templates based on a set of default configurations which can then be overridden by the user. This allows a user to customize a netboot.xyz environment to their specification and set up a PXE server easily. The Ansible playbooks will generate:
+[Ansible](https://www.ansible.com/), un moteur d'automatisation open source, est utilisé pour générer des modèles personnalisés basés sur un ensemble de configurations par défaut qui peuvent ensuite être remplacées par l'utilisateur. Cela permet à un utilisateur de personnaliser un environnement netboot.xyz selon ses spécifications et de configurer facilement un serveur PXE. Les playbooks Ansible généreront :
 
-* Menus for their netboot.xyz environment using default configuration settings
-* iPXE Bootloaders for booting into that environment
-* Customized menu options for those who have additional options they want to add
+* Menus pour leur environnement netboot.xyz utilisant les paramètres de configuration par défaut
+* Chargeurs de démarrage iPXE pour démarrer dans cet environnement
+* Options de menu personnalisées pour ceux qui ont des options supplémentaires à ajouter
 
-#### Role structure
+#### Structure des rôles
 
-The netbootxyz Ansible [role](https://github.com/netbootxyz/netboot.xyz/tree/master/roles/netbootxyz) is located in the main netboot.xyz repository.  Most of the logic for netboot.xyz is contained in these areas:
+Le rôle</a> netbootxyz Ansiblese trouve dans le référentiel principal netboot.xyz.  La majeure partie de la logique de netboot.xyz est contenue dans ces zones :</p> 
 
-* defaults/main.yml - Consists default settings for deployment, OS versions, Utilities, and Bootloaders
-* tasks/* - Contains all tasks for rendering templates and compiling iPXE bootloaders
-* templates/disks - Templates for iPXE bootloaders
-* templates/menus - Templates for netboot.xyz menus
-* vars/* - Contain required package lists needed to support the compile and deployment of netboot.xyz
+* defaults/main.yml - Comprend les paramètres par défaut pour le déploiement, les versions du système d'exploitation, les utilitaires et les chargeurs de démarrage
+* tâches/* - Contient toutes les tâches pour le rendu des modèles et la compilation des chargeurs de démarrage iPXE
+* templates/disks - Modèles pour chargeurs de démarrage iPXE
+* templates/menus - Modèles pour les menus netboot.xyz
+* vars/* - Contient les listes de packages nécessaires pour prendre en charge la compilation et le déploiement de netboot.xyz
 
-#### Deploying using Ansible
 
-To run a deployment using Ansible, first install Ansible, Apache and git:
+
+#### Déploiement avec Ansible
+
+Pour exécuter un déploiement à l'aide d'Ansible, installez d'abord Ansible, Apache et git :
+
+
 
 ```bash
-# For Debian/Ubuntu:
+# Pour Debian/Ubuntu :
 apt install -y ansible git apache2
 
-# For Red Hat/CentOS/Fedora
+# Pour Red Hat/CentOS/Fedora
 yum install -y ansible git httpd
 ```
 
-Then check out the netboot.xyz repo:
+
+Consultez ensuite le dépôt netboot.xyz :
+
+
 
 ```bash
-git clone https://github.com/netbootxyz/netboot.xyz.git /opt/netboot.xyz
+git clone https://github.com/netbootxyz/netboot.xyz.git/opt/netboot.xyz
 ```
 
-Finally run the Ansible playbook:
+
+Enfin, lancez le playbook Ansible :
+
+
 
 ```bash
 cd /opt/netboot.xyz
-ansible-playbook -i inventory site.yml
+ansible-playbook -i site d'inventaire.yml
 ```
 
-The output will be dropped into `/var/www/html` by default.  You can override this to deploy to the web server directory of your choice.
 
-#### Deploying with Docker
+La sortie sera déposée dans `/var/www/html` par défaut.  Vous pouvez remplacer cela pour déployer dans le répertoire du serveur Web de votre choix.
 
-You can also leverage docker to generate the netboot.xyz menu and disks in a container which then outputs the results of the rendered templates and compiled iPXE disks into a directory.  First ensure you have docker installed and then run:
+
+
+#### Déployer avec Docker
+
+Vous pouvez également tirer parti de docker pour générer le menu et les disques netboot.xyz dans un conteneur qui génère ensuite les résultats des modèles rendus et des disques iPXE compilés dans un répertoire.  Assurez-vous d'abord que docker est installé, puis exécutez :
+
+
 
 ```bash
 docker build -t localbuild -f Dockerfile-build .
 docker run --rm -it -v $(pwd):/buildout localbuild
 ```
 
-The build output will be in the generated folder `buildout`. Docker provides a consistent and isolated environment for generating the build output. From there you'd drop the files into the root of your favorite web server.
 
-#### Local Overrides
+La sortie de construction sera dans le dossier généré `buildout`. Docker fournit un environnement cohérent et isolé pour générer la sortie de génération. De là, vous déposeriez les fichiers à la racine de votre serveur Web préféré.
 
-Ansible will handle source generation as well as iPXE disk generation with your settings.  It will generate Legacy (PCBIOS) and UEFI iPXE disks that can be used to load into your netboot.xyz environment. If you want to override the defaults, you can put overrides in user_overrides.yml.  See `user_overrides.yml` for examples.
 
-Using the overrides file, you can override all of the settings from the defaults/main.yml so that you can easily change the boot mirror URLs when the menus are rendered.  If you prefer to do this after the fact, you can also edit the boot.cfg to make changes, but keep in mind those changes will not be saved when you redeploy the menu.
 
-#### Self Hosted Custom Options
+#### Remplacements locaux
 
-In addition to being able to host netboot.xyz locally, you can also create your own custom templates for custom menus within netboot.xyz. Those templates are rendered during deployment and are available from the main menu via the custom menu option.
+Ansible gérera la génération de source ainsi que la génération de disque iPXE avec vos paramètres.  Il générera des disques hérités (PCBIOS) et UEFI iPXE qui peuvent être utilisés pour charger dans votre environnement netboot.xyz. Si vous souhaitez remplacer les valeurs par défaut, vous pouvez mettre des remplacements dans user_overrides.yml.  Voir `user_overrides.yml` pour des exemples.
 
-When these options are set:
+À l'aide du fichier overrides, vous pouvez remplacer tous les paramètres de defaults/main.yml afin de pouvoir facilement modifier les URL du miroir de démarrage lors du rendu des menus.  Si vous préférez le faire après coup, vous pouvez également modifier le fichier boot.cfg pour apporter des modifications, mais gardez à l'esprit que ces modifications ne seront pas enregistrées lorsque vous redéploierez le menu.
+
+
+
+#### Options personnalisées auto-hébergées
+
+En plus de pouvoir héberger localement netboot.xyz, vous pouvez également créer vos propres modèles personnalisés pour les menus personnalisés dans netboot.xyz. Ces modèles sont rendus lors du déploiement et sont disponibles à partir du menu principal via l'option de menu personnalisé.
+
+Lorsque ces options sont définies :
+
+
 
 ```bash
-custom_generate_menus: true
-custom_templates_dir: "{{ netbootxyz_conf_dir }}/custom"
+custom_generate_menus : vrai
+custom_templates_dir : "{{ netbootxyz_conf_dir }}/personnalisé"
 ```
 
-The menu will add an option for custom menus and attempt to load into custom/custom.ipxe. From there custom options can be built and maintained separately from the netboot.xyz source tree so that both menus can be updated independently.
 
-A sample menu is provided to demonstrate how to configure and set up a menu. You can copy the custom directory from the repo:
+Le menu ajoutera une option pour les menus personnalisés et tentera de se charger dans custom/custom.ipxe. À partir de là, des options personnalisées peuvent être créées et gérées séparément de l'arborescence source netboot.xyz afin que les deux menus puissent être mis à jour indépendamment.
+
+Un exemple de menu est fourni pour montrer comment configurer et paramétrer un menu. Vous pouvez copier le répertoire personnalisé à partir du dépôt :
+
+
 
 ```bash
 cp etc/netbootxyz/custom /etc/netbootxyz/custom
