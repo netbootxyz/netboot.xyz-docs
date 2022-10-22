@@ -1,56 +1,56 @@
 ---
-id: linode
+id: Linode
 title: Linode
-description: Using netboot.xyz on Linode
-hide_table_of_contents: true
+description: Verwenden von netboot.xyz auf Linode
+hide_table_of_contents: Stimmt
 ---
 
-netboot.xyz can be loaded on a [Linode](https://linode.com) instance so that you can then customize the Linode as needed. For this method, we'll use the smallest Linode size running Debian.
+netboot.xyz kann auf eine [Linode](https://linode.com) -Instanz geladen werden, sodass Sie Linode dann nach Bedarf anpassen können. Für diese Methode verwenden wir die kleinste Linode-Größe, auf der Debian ausgeführt wird.
 
-### Create a Linode
+### Erstellen Sie eine Linode
 
-For this method, it's recommended to use an apt-based distro like Debian or Ubuntu. Start a Linode with one of those operating systems. Once it is up and running, connect to it via SSH or connect to it with the console button.
+Für diese Methode wird empfohlen, eine apt-basierte Distribution wie Debian oder Ubuntu zu verwenden. Starten Sie Linode mit einem dieser Betriebssysteme. Sobald es betriebsbereit ist, verbinden Sie sich über SSH oder mit der Konsolentaste mit ihm.
 
-### Install GRUB Imageboot and Download ISO
+### Installieren Sie GRUB Imageboot und laden Sie ISO herunter
 
-We will need to ensure that the GRUB menu pauses long enough for us to select the netboot.xyz option. For that we'll need to remove a timeout file and increase the timeout for GRUB. Adjust the time period as needed for your situation:
+Wir müssen sicherstellen, dass das GRUB-Menü lange genug pausiert, damit wir die Option netboot.xyz auswählen können. Dazu müssen wir eine Timeout-Datei entfernen und das Timeout für GRUB erhöhen. Passen Sie den Zeitraum nach Bedarf für Ihre -Situation an:
 
 ```shell
-# Increase grub timeout if desired
+# Grub-Timeout erhöhen, falls gewünscht
 sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=60/g' /etc/default/grub
 
 # Install grub-imageboot
 apt update
 apt install -y grub-imageboot
 
-# Download netboot.xyz ISO
+# Netboot herunterladen .xyz ISO
 mkdir /boot/images
 cd /boot/images
 wget https://boot.netboot.xyz/ipxe/netboot.xyz.iso
 
-# Update GRUB menu to include this ISO
+# GRUB-Menü aktualisieren, um dieses ISO
 update-grub2
 
-# reboot once you are ready, it may be good to load up the recovery console first
-reboot
+# neu zu starten Sobald Sie bereit sind, kann es sinnvoll sein, zuerst die Wiederherstellungskonsole zu
+und neu zu starten
 ```
 
-### Launch LISH Console
+### Starten Sie die LISH-Konsole
 
-Under the Linode settings click ..., and select Launch LISH Console. For interraction with the GRUB Menu and netboot.xyz menus, you will need to click the Weblish tab. For interacting with an installer or other tool, you may need to use the Glish tab (Graphical).
+Klicken Sie unter den Linode-Einstellungen auf ... und wählen Sie Launch LISH Console. Für die Interaktion mit dem GRUB-Menü und den netboot.xyz-Menüs müssen Sie auf die Registerkarte Weblish klicken. Für die Interaktion mit einem Installationsprogramm oder einem anderen Tool müssen Sie möglicherweise die Registerkarte Glish (grafisch) verwenden.
 
-At this point if you are within the timeout window, you should now see the Grub menu with the following option now available which you can select to load the netwboot.xyz menu:
+Wenn Sie sich zu diesem Zeitpunkt innerhalb des Timeout-Fensters befinden, sollten Sie jetzt das Grub-Menü mit der folgenden jetzt verfügbaren Option sehen, die Sie auswählen können, um das netwboot.xyz-Menü zu laden:
 
 ```bash
-Bootable ISO image: netboot.xyz
+Bootfähiges ISO-Image: netboot.xyz
 ```
 
-### Networking
+### Vernetzung
 
-Linode uses DHCP so netboot.xyz should be able to get an IP address and load up the menu. If DHCP does not work, you may need to use the alternative failsafe menu to set up the networking for the instance manually by pressing **m** when prompted for the failsafe menu.
+Linode verwendet DHCP, daher sollte netboot.xyz in der Lage sein, eine IP-Adresse zu erhalten und das Menü zu laden. Wenn DHCP nicht funktioniert, müssen Sie möglicherweise das alternative Failsafe-Menü verwenden, um das Netzwerk für die Instanz manuell einzurichten, indem Sie **m** drücken, wenn Sie zum Failsafe-Menü aufgefordert werden.
 
-If you do a installation, you should be able to reinstall over the existing drive at that point and customize the Linode as you see fit. Keep the networking information handy as you will need to populate that when doing an install.
+Wenn Sie eine Installation durchführen, sollten Sie in der Lage sein, zu diesem Zeitpunkt über das vorhandene Laufwerk neu zu installieren und Linode nach Ihren Wünschen anzupassen. Halten Sie die Netzwerkinformationen bereit, da Sie diese bei einer Installation ausfüllen müssen.
 
 :::info
-If you run into out of memory issues running an installer, you may need a larger Linode.
+Wenn Sie beim Ausführen eines Installationsprogramms auf Speicherprobleme stoßen, benötigen Sie möglicherweise ein größeres Linode.
 :::
