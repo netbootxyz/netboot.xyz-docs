@@ -1,8 +1,8 @@
 ---
-id: docker
-title: Docker Container
-description: "How to use the netboot.xyz docker container"
-hide_table_of_contents: true
+id: estibador
+title: Contenedor Docker
+description: "Cómo usar el contenedor acoplable netboot.xyz"
+hide_table_of_contents: verdadero
 ---
 
 ```mdx-code-block
