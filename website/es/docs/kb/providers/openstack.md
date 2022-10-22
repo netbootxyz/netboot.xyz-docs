@@ -1,99 +1,99 @@
 ---
-id: openstack
-title: "OpenStack"
-description: "Using netboot.xyz with OpenStack"
-hide_table_of_contents: true
+id: pila abierta
+title: "pila abierta"
+description: "Uso de netboot.xyz con OpenStack"
+hide_table_of_contents: verdadero
 ---
 
-**Experimental, haven't had a chance to run through this recently so YMMV.**
+**Experimental, no he tenido la oportunidad de revisar esto recientemente, así que YMMV.**
 
-The netboot.xyz ISO image can be used with OpenStack clouds to boot an instance and perform a custom installation of an operating system.
+La imagen ISO netboot.xyz se puede usar con nubes OpenStack para iniciar una instancia y realizar una instalación personalizada de un sistema operativo.
 
-### Command line
+### Línea de comando
 
-Start by downloading the ISO and then import it into glance:
+Comienza descargando la ISO y luego impórtala en la vista:
 
     $ wget https://boot.netboot.xyz/ipxe/netboot.xyz.iso
-    $ glance image-create --name netboot.xyz \
+    $ vistazo image-create --name netboot.xyz \
         --disk-format iso \
         --container-format bare \
-        --file netboot.xyz-dhcp.iso \
-        --visibility public
-    +------------------+--------------------------------------+
-    | Property         | Value                                |
-    +------------------+--------------------------------------+
-    | checksum         | 45cdcb89576b6c05598b11585aef46bc     |
-    | container_format | bare                                 |
-    | created_at       | 2016-01-27T20:02:06Z                 |
-    | disk_format      | iso                                  |
-    | id               | 4f11d49e-157b-4740-87ad-db7d59bb5d6d |
-    | min_disk         | 0                                    |
-    | min_ram          | 0                                    |
-    | name             | netboot.xyz                          |
-    | owner            | fbfce4cb346c4f9097a977c54904cafd     |
-    | protected        | False                                |
-    | size             | 1048576                              |
-    | status           | active                               |
-    | tags             | []                                   |
-    | updated_at       | 2016-01-27T20:02:04Z                 |
-    | virtual_size     | None                                 |
-    | visibility       | public                               |
-    +------------------+--------------------------------------+
+        - -archivo netboot.xyz-dhcp.iso \
+        --visibilidad pública
+    +------------------+-------------- ------------------------+
+    | Propiedad | Valor |
+    +-------------------+------------------------------------------- ---------+
+    | suma de comprobación | 45cdcb89576b6c05598b11585aef46bc |
+    | formato_contenedor | desnudo |
+    | creado_en | 2016-01-27T20:02:06Z |
+    | formato_disco | iso |
+    | identificación | 4f11d49e-157b-4740-87ad-db7d59bb5d6d |
+    | min_disco | 0 |
+    | min_ram | 0 |
+    | nombre | netboot.xyz |
+    | propietario | fbfce4cb346c4f9097a977c54904cafd |
+    | protegido | Falso |
+    | tamaño | 1048576 |
+    | estado | activo |
+    | etiquetas | [] |
+    | actualizado_en | 2016-01-27T20:02:04Z |
+    | tamaño_virtual | Ninguno |
+    | visibilidad | publico |
+    +-------------------+-------------------------------------------- ---------+
 
-It should only take a few seconds to import.  Take the UUID from the `id` field returned by glance and verify that the image imported successfully:
+Solo debería tomar unos segundos para importar.  Tome el UUID del `id` campo devuelto por vistazo y verifique que la imagen se haya importado correctamente:
 
-    $ glance image-show 4f11d49e-157b-4740-87ad-db7d59bb5d6d
-    +------------------+--------------------------------------+
-    | Property         | Value                                |
-    +------------------+--------------------------------------+
-    | checksum         | 45cdcb89576b6c05598b11585aef46bc     |
-    | container_format | bare                                 |
-    | created_at       | 2016-01-27T20:02:06Z                 |
-    | disk_format      | iso                                  |
-    | id               | 4f11d49e-157b-4740-87ad-db7d59bb5d6d |
-    | min_disk         | 0                                    |
-    | min_ram          | 0                                    |
-    | name             | netboot.xyz                          |
-    | owner            | fbfce4cb346c4f9097a977c54904cafd     |
-    | protected        | False                                |
-    | size             | 1048576                              |
-    | status           | active                               |
-    | tags             | []                                   |
-    | updated_at       | 2016-01-27T20:02:04Z                 |
-    | virtual_size     | None                                 |
-    | visibility       | public                               |
-    +------------------+--------------------------------------+
+    $ vistazo imagen-mostrar 4f11d49e-157b-4740-87ad-db7d59bb5d6d
+    +------------------+--------------- -----------------------+
+    | Propiedad | Valor |
+    +------------------------+-------------------------------------------- ---------+
+    | suma de comprobación | 45cdcb89576b6c05598b11585aef46bc |
+    | formato_contenedor | desnudo |
+    | creado_en | 2016-01-27T20:02:06Z |
+    | formato_disco | iso |
+    | identificación | 4f11d49e-157b-4740-87ad-db7d59bb5d6d |
+    | min_disco | 0 |
+    | min_ram | 0 |
+    | nombre | netboot.xyz |
+    | propietario | fbfce4cb346c4f9097a977c54904cafd |
+    | protegido | Falso |
+    | tamaño | 1048576 |
+    | estado | activo |
+    | etiquetas | [] |
+    | actualizado_en | 2016-01-27T20:02:04Z |
+    | tamaño_virtual | Ninguno |
+    | visibilidad | publico |
+    +------------------+-------------------------------------------- ---------+
 
-The image has a status of `active`, so we know that glance imported it properly.
+La imagen tiene un estado de `activa`, por lo que sabemos que la mirada la importó correctamente.
 
-Let's boot a new instance with this ISO:
+Arranquemos una nueva instancia con este ISO:
 
     nova boot --flavor m1.small \
         --image <image-uuid-of-netbootxyz-image> \
         --nic net-id=<network-uuid> \
         netbootxyz-testing
 
-Wait about 30 seconds, then request a console URL:
+Espere unos 30 segundos, luego solicite una URL de consola:
 
-    nova get-spice-console c4ff017e-1234-4053-b740-e83eade277b9 spice-html5
+    nova get-spice-consola c4ff017e-1234-4053-b740-e83eade277b9 especias-html5
 
-Open the console URL that nova returns and you should see the familiar netboot.xyz iPXE interface in the spice console!
+¡Abra la URL de la consola que devuelve nova y debería ver la conocida interfaz netboot.xyz iPXE en la consola de especias!
 
-### Horizon
+### Horizonte
 
-Start by [downloading the netboot.xyz ISO](https://boot.netboot.xyz/ipxe/netboot.xyz.iso) to your local workstation.  Follow these steps to import the image into your OpenStack cloud using Horizon:
+Comience descargando [ISO](https://boot.netboot.xyz/ipxe/netboot.xyz.iso) a su estación de trabajo local.  Siga estos pasos para importar la imagen a su nube OpenStack usando Horizon:
 
-* Click the _Compute_ tab on the left side, then click _Images_
-* Click _Create Image_ (top right)
-  * Name: `netboot.xyz ISO`
-  * Image Source: Image File
-  * Image File: (browse to the ISO you downloaded)
-  * Format: ISO - Optical Disk Image
-  * Public: Checked (optional, but recommended if you want other tenants to use it)
-* Click _Create Image_
+* Haga clic en la pestaña _Calcular_ en el lado izquierdo, luego haga clic en _Imágenes_
+* Haga clic en _Crear imagen_ (arriba a la derecha)
+  * Nombre: `netboot.xyz ISO`
+  * Fuente de la imagen: archivo de imagen
+  * Archivo de imagen: (busque el ISO que descargó)
+  * Formato: ISO - Imagen de disco óptico
+  * Público: marcado (opcional, pero recomendado si desea que otros inquilinos lo usen
+* Haga clic en _Crear imagen_
 
-Wait a moment for the status to become `active`. This should only take a few seconds.  To boot an instance with the ISO you uploaded, be sure to choose _Boot from image_ and select _netboot.xyz ISO_ from the drop down list. Configure networking and security groups as you normally would for any other instance.
+Espere un momento para que el estado sea `activo`. Esto solo debería tomar unos segundos.  Para iniciar una instancia con la ISO que cargó, asegúrese de elegir _Iniciar desde la imagen_ y seleccione _netboot.xyz ISO_ de la lista desplegable. Configure los grupos de redes y seguridad como lo haría normalmente para cualquier otra instancia .
 
-When the instance has fully built and gone to active status, click on the instance name and then go to the _Console_ tab. Depending on your browser, you may need to click the link to show only the console.
+Cuando la instancia se haya construido por completo y haya pasado al estado activo, haga clic en el nombre de la instancia y luego vaya a la pestaña _Consola_. Dependiendo de su navegador, es que deba hacer clic en el enlace para mostrar solo la consola.
 
-At that point, you should be able to view the netboot.xyz iPXE menu and install your operating system.
+En ese momento, debería poder ver el menú netboot.xyz iPXE e instalar su sistema operativo.
