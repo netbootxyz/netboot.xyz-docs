@@ -1,13 +1,13 @@
 ---
-id: changelog
-title: netboot.xyz changelog
-description: netboot.xyz changelog
-hide_title: true
-sidebar_label: Changelog
+id: Änderungsprotokoll
+title: netboot.xyz-Änderungsprotokoll
+description: netboot.xyz-Änderungsprotokoll
+hide_title: Stimmt
+sidebar_label: Änderungsprotokoll
 ---
 
 ```mdx-code-block
-import Changelog, {toc as ChangelogTOC} from "@site/external/changelog.md"
+Changelog importieren, {toc as ChangelogTOC} von "@site/external/changelog.md"
 
 <Changelog />
 
