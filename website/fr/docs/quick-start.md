@@ -1,50 +1,50 @@
 ---
-id: quick-start
-title: Quick Start
-description: "Getting started with netboot.xyz"
-hide_table_of_contents: true
+id: démarrage rapide
+title: Démarrage rapide
+description: "Premiers pas avec netboot.xyz"
+hide_table_of_contents: vrai
 ---
 
-### Getting started
+### Commencer
 
-[Download](https://netboot.xyz/downloads/) one of the netboot.xyz bootloaders that works best for your situation and start PXE booting your favorite operating system.  The bootloaders are precompiled versions of the latest version of [iPXE](https://github.com/ipxe/ipxe) that will allow you to PXE boot into [https://boot.netboot.xyz](https://boot.netboot.xyz).  If you have DHCP it'll automatically attempt to boot from DHCP.  If you need to set a static IP address, hit the 'm' key during boot up for the failsafe menu and choose manual network configuration.
+[Téléchargez](https://netboot.xyz/downloads/) l'un des chargeurs de démarrage netboot.xyz qui convient le mieux à votre situation et lancez le démarrage PXE de votre système d'exploitation préféré.  Les chargeurs de démarrage sont des versions précompilées de la dernière version de [iPXE](https://github.com/ipxe/ipxe) qui vous permettront de démarrer PXE en [https://boot.netboot.xyz](https://boot.netboot.xyz).  Si vous avez DHCP, il tentera automatiquement de démarrer à partir de DHCP.  Si vous devez définir une adresse IP statique, appuyez sur la touche « m » lors du démarrage pour le menu de sécurité intégrée et choisissez la configuration manuelle du réseau.
 
-You can look at the next section entitled [Booting Methods](https://netboot.xyz/docs/category/booting-methods) for instructions on how to set up the downloaded bootloader.
+Vous pouvez consulter la section suivante intitulée [Méthodes de démarrage](https://netboot.xyz/docs/category/booting-methods) pour obtenir des instructions sur la configuration du chargeur de démarrage téléchargé.
 
-If you already have iPXE up and running on the network, you can hit load the netboot.xyz kernel by typing the following when loaded in a Legacy Mode BIOS:
+Si vous avez déjà iPXE en cours d'exécution sur le réseau, vous pouvez cliquer sur charger le noyau netboot.xyz en tapant ce qui suit lorsqu'il est chargé dans un BIOS en mode hérité :
 
-    chain --autofree http://boot.netboot.xyz/ipxe/netboot.xyz.lkrn
+    chaîne --autofree http://boot.netboot.xyz/ipxe/netboot.xyz.lkrn
 
-or when in EFI mode BIOS:
+ou en mode BIOS EFI :
 
-    chain --autofree http://boot.netboot.xyz/ipxe/netboot.xyz.efi
+    chaîne --autofree http://boot.netboot.xyz/ipxe/netboot.xyz.efi
 
-This will load the appropriate netboot.xyz kernel with all of the proper options enabled.
+Cela chargera le noyau netboot.xyz approprié avec toutes les options appropriées activées.
 
-:::note
+:::Remarque
 
-If your version of iPXE has HTTPS support compiled in, you can retrieve those images over HTTPS. By default the upstream iPXE project does not compile in HTTPS support.
+Si votre version d'iPXE a une prise en charge HTTPS compilée, vous pouvez récupérer ces images via HTTPS. Par défaut, le projet iPXE en amont ne se compile pas dans le support HTTPS.
 
 :::
 
-### System Requirements
+### Configuration requise
 
-- i686, x86_64, or aarch64 Processor
-- 4GB of RAM is recommended. Lower amounts of memory can be used depending on how large the distribution is. Some distributions have to load a ramdisk into memory. If you experience issues when kernels are loading, this is generally one of the first things you should check and tune.
-- Hard wired ethernet connection, Wifi support in iPXE is limited
+- Processeur i686, x86_64 ou aarch64
+- 4 Go de RAM sont recommandés. Des quantités de mémoire inférieures peuvent être utilisées en fonction de la taille de la distribution. Certaines distributions doivent charger un disque virtuel en mémoire. Si vous rencontrez des problèmes lors du chargement des noyaux, c'est généralement l'une des premières choses à vérifier et à régler.
+- Connexion Ethernet câblée, la prise en charge du Wi-Fi dans iPXE est limitée
 
-### Source Code
+### Code source
 
-The source code for netboot.xyz is located on [Github](https://github.com/netbootxyz/netboot.xyz).
+Le code source de netboot.xyz se trouve sur [Github](https://github.com/netbootxyz/netboot.xyz).
 
-### Contributing
+### Contribuant
 
-New version of an operating system out?  Found one that network boots well with iPXE?  Pull requests are welcomed and encouraged and helps out a ton!  Feel free to issue a pull request for new versions or tools that you might find useful.  Once merged into master, [Github Actions](https://github.com/netbootxyz/netboot.xyz/actions) will regenerate new versions of [iPXE from upstream](https://github.com/ipxe/ipxe) and deploy the latest changes to netboot.xyz.  See more on contributing [here](https://netboot.xyz/docs/contributing).
+Sortie d'une nouvelle version d'un système d'exploitation ?  Vous en avez trouvé un qui démarre bien avec iPXE ?  Les demandes d'extraction sont les bienvenues et encouragées et aident énormément !  N'hésitez pas à émettre une demande d'extraction de nouvelles versions ou d'outils que vous pourriez trouver utiles.  Une fois fusionné dans le maître, [Github Actions](https://github.com/netbootxyz/netboot.xyz/actions) régénérera les nouvelles versions de [iPXE à partir de l'amont](https://github.com/ipxe/ipxe) et déploiera les dernières modifications sur netboot.xyz.  En savoir plus sur la contribution [ici](https://netboot.xyz/docs/contributing).
 
-### Testing New Features
+### Tester de nouvelles fonctionnalités
 
-Under the **Utilities** menu on netboot.xyz, there's an option for ["netboot.xyz endpoints"](https://github.com/netbootxyz/netboot.xyz/blob/development/roles/netbootxyz/templates/menu/nbxyz.ipxe.j2).  Features or changes that have been merged into the development branch can be loaded here to be tested before they are merged into production.
+Sous le menu **Utilitaires** sur netboot.xyz, il y a une option pour ["points de terminaison netboot.xyz"](https://github.com/netbootxyz/netboot.xyz/blob/development/roles/netbootxyz/templates/menu/nbxyz.ipxe.j2).  Les fonctionnalités ou les modifications qui ont été fusionnées dans la branche de développement peuvent être chargées ici pour être testées avant d'être fusionnées en production.
 
 ### Communication
 
-Feel free to open up an [issue](https://github.com/netbootxyz/netboot.xyz/issues/new/choose) on Github or join us on our [Discord](https://discord.gg/An6PA2a) server.  Follow us on [Twitter](https://twitter.com/netbootxyz) or like us on [Facebook](https://www.facebook.com/netboot.xyz)!
+N'hésitez pas à ouvrir un [numéro](https://github.com/netbootxyz/netboot.xyz/issues/new/choose) sur Github ou à nous rejoindre sur notre serveur [Discord](https://discord.gg/An6PA2a).  Suivez-nous sur [Twitter](https://twitter.com/netbootxyz) ou aimez-nous sur [Facebook](https://www.facebook.com/netboot.xyz)!
