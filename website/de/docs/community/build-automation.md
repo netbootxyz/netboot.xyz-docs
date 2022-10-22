@@ -1,14 +1,14 @@
 ---
-id: build-automation
-title: Build Automation
-description: "Details how the netboot.xyz automated build system works"
-sidebar_label: Build Automation
-hide_table_of_contents: false
-hide_title: true
+id: Build-Automatisierung
+title: Build-Automatisierung
+description: "Beschreibt, wie das automatisierte Build-System netboot.xyz funktioniert"
+sidebar_label: Build-Automatisierung
+hide_table_of_contents: FALSCH
+hide_title: Stimmt
 ---
 
 ```mdx-code-block
-import BuildAutomation, {toc as BuildAutomationTOC} from "@site/external/build-automation.md"
+import BuildAutomation, {toc as BuildAutomationTOC} from „@site/external/build-automation.md“
 
 <BuildAutomation />
 
