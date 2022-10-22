@@ -1,87 +1,87 @@
 ---
-id: usb
-title: Booting from USB
-sidebar_label: Booting from USB
-description: "How to create a USB stick capable of booting into netboot.xyz"
-hide_table_of_contents: true
+id: USB
+title: Booten von USB
+sidebar_label: Booten von USB
+description: "So erstellen Sie einen USB-Stick, der in netboot.xyz booten kann"
+hide_table_of_contents: Stimmt
 ---
 
 :::danger
-Backup your important data before writing the USB as it will overwrite anything on the USB key.
+Sichern Sie Ihre wichtigen Daten, bevor Sie auf den USB-Stick schreiben, da dadurch alles auf dem USB-Stick überschrieben wird.
 :::
 
-Download a netboot.xyz USB disk:
+Laden Sie eine netboot.xyz-USB-Festplatte herunter:
 
 * [netboot.xyz](https://boot.netboot.xyz/ipxe/netboot.xyz.img)
 
-## Creating USB Key on Linux
+## USB-Schlüssel unter Linux erstellen
 
-Insert a USB key in your computer and find the device name. Then use following command:
+Stecken Sie einen USB-Stick in Ihren Computer und suchen Sie den Gerätenamen. Verwenden Sie dann folgenden Befehl:
 
 ```shell
 cat netboot.xyz.img > /dev/sdX
 ```
 
-or
+oder
 
 ```shell
 dd if=netboot.xyz.img of=/dev/sdX
 ```
 
-where sdX is your usb drive.
+wobei sdX Ihr USB-Laufwerk ist.
 
-The USB key should be ready to eject once finished.
+Der USB-Stick sollte nach Abschluss zum Auswerfen bereit sein.
 
-## Creating USB Key on MacOS
+## Erstellen eines USB-Schlüssels unter MacOS
 
-__Run:__
-
-```shell
-diskutil list
-```
-
-to get the current list of devices
-
-___Insert the flash media.___
-
-__Run:__
+__Laufen:__
 
 ```shell
-diskutil list
+Diskutil-Liste
 ```
 
-again and determine the device node assigned to your flash media (e.g. /dev/disk2).
+um die aktuelle Geräteliste abzurufen
 
-__Run:__
+___Legen Sie das Flash-Medium ein.___
+
+__Laufen:__
+
+```shell
+Diskutil-Liste
+```
+
+erneut und ermitteln Sie den Geräteknoten, der Ihrem Flash-Medium zugeordnet ist (z. B. /dev/disk2).
+
+__Laufen:__
 
 ```shell
 diskutil unmountDisk /dev/diskN
 ```
 
-(replace N with the disk number from the last command; in the previous example, N would be 2).
+(Ersetzen Sie N durch die Festplattennummer aus dem letzten Befehl; im vorherigen Beispiel wäre N 2).
 
-__Execute:__
+__Ausführen:__
 
 ```shell
 sudo dd if=netboot.xyz.img of=/dev/rdiskN bs=1m
 ```
 
-* Using /dev/rdisk instead of /dev/disk may be faster
-* If you see the error dd: Invalid number '1m', you are using GNU dd. Use the same command but replace bs=1m with bs=1M
-* If you see the error dd: /dev/diskN: Resource busy, make sure the disk is not in use. Start the 'Disk Utility.app' and unmount (don't eject) the drive
+* Die Verwendung von /dev/rdisk anstelle von /dev/disk kann schneller sein
+* Wenn Sie den Fehler dd: Invalid number '1m' sehen, verwenden Sie GNU dd. Verwenden Sie denselben Befehl, aber ersetzen Sie bs=1m durch bs=1M
+* Wenn Sie den Fehler dd: /dev/diskN: Resource busy sehen, vergewissern Sie sich, dass die Festplatte nicht verwendet wird. Starten Sie die 'Disk Utility.app' und unmounten Sie das Laufwerk (nicht auswerfen).
 
-__Run:__
+__Laufen:__
 
 ```shell
-diskutil eject /dev/diskN
+diskutil wirft /dev/diskN aus
 ```
 
-and remove your flash media when the command completes.
+und entfernen Sie Ihr Flash-Medium, wenn der Befehl abgeschlossen ist.
 
-## Creating USB Key on Windows
+## USB-Schlüssel unter Windows erstellen
 
-Check out [Rufus](https://rufus.akeo.ie/) to install the IMG file to a USB key.
+Sehen Sie sich [Rufus](https://rufus.akeo.ie/) an, um die IMG-Datei auf einem USB-Stick zu installieren.
 
-## Booting
+## Booten
 
-Once you've created your key, reboot and set your BIOS to load the USB key first if it's not set for that already. You should see iPXE load up either load up netboot.xyz automatically or you will be prompted to set your networking information up.
+Nachdem Sie Ihren Schlüssel erstellt haben, starten Sie Ihr BIOS neu und stellen Sie es so ein, dass es zuerst den USB-Schlüssel lädt, falls es noch nicht darauf eingestellt ist. Sie sollten sehen, dass iPXE entweder automatisch netboot.xyz lädt oder Sie werden aufgefordert, Ihre Netzwerkinformationen einzurichten.
