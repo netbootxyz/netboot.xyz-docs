@@ -1,87 +1,87 @@
 ---
-id: usb
-title: Booting from USB
-sidebar_label: Booting from USB
-description: "How to create a USB stick capable of booting into netboot.xyz"
-hide_table_of_contents: true
+id: USB
+title: Démarrage depuis USB
+sidebar_label: Démarrage depuis USB
+description: "Comment créer une clé USB capable de démarrer dans netboot.xyz"
+hide_table_of_contents: vrai
 ---
 
 :::danger
-Backup your important data before writing the USB as it will overwrite anything on the USB key.
+Sauvegardez vos données importantes avant d'écrire sur la clé USB car cela écrasera tout ce qui se trouve sur la clé USB.
 :::
 
-Download a netboot.xyz USB disk:
+Téléchargez un disque USB netboot.xyz :
 
 * [netboot.xyz](https://boot.netboot.xyz/ipxe/netboot.xyz.img)
 
-## Creating USB Key on Linux
+## Créer une clé USB sous Linux
 
-Insert a USB key in your computer and find the device name. Then use following command:
-
-```shell
-cat netboot.xyz.img > /dev/sdX
-```
-
-or
+Insérez une clé USB dans votre ordinateur et recherchez le nom de l'appareil. Utilisez ensuite la commande suivante :
 
 ```shell
-dd if=netboot.xyz.img of=/dev/sdX
+chat netboot.xyz.img > /dev/sdX
 ```
 
-where sdX is your usb drive.
-
-The USB key should be ready to eject once finished.
-
-## Creating USB Key on MacOS
-
-__Run:__
+ou
 
 ```shell
-diskutil list
+jj if=netboot.xyz.img of=/dev/sdX
 ```
 
-to get the current list of devices
+où sdX est votre clé USB.
 
-___Insert the flash media.___
+La clé USB doit être prête à être éjectée une fois terminée.
 
-__Run:__
+## Créer une clé USB sur MacOS
+
+__Courir:__
 
 ```shell
-diskutil list
+liste diskutil
 ```
 
-again and determine the device node assigned to your flash media (e.g. /dev/disk2).
+pour obtenir la liste actuelle des appareils
 
-__Run:__
+___Insérez le support flash.___
+
+__Courir:__
+
+```shell
+liste diskutil
+```
+
+à nouveau et déterminez le nœud de périphérique affecté à votre support flash (par exemple /dev/disk2).
+
+__Courir:__
 
 ```shell
 diskutil unmountDisk /dev/diskN
 ```
 
-(replace N with the disk number from the last command; in the previous example, N would be 2).
+(remplacez N par le numéro de disque de la dernière commande ; dans l'exemple précédent, N serait 2).
 
-__Execute:__
+__Exécuter:__
 
 ```shell
 sudo dd if=netboot.xyz.img of=/dev/rdiskN bs=1m
 ```
 
-* Using /dev/rdisk instead of /dev/disk may be faster
-* If you see the error dd: Invalid number '1m', you are using GNU dd. Use the same command but replace bs=1m with bs=1M
-* If you see the error dd: /dev/diskN: Resource busy, make sure the disk is not in use. Start the 'Disk Utility.app' and unmount (don't eject) the drive
+* Utiliser /dev/rdisk au lieu de /dev/disk peut être plus rapide
+* Si vous voyez l'erreur dd : nombre invalide '1m', vous utilisez GNU dd. Utilisez la même commande mais remplacez bs=1m par bs=1M
+* Si vous voyez l'erreur dd: /dev/diskN : Ressource occupée, assurez-vous que le disque n'est pas utilisé. Démarrez 'Disk Utility.app' et démontez (ne pas éjecter) le lecteur
 
-__Run:__
+__Courir:__
 
 ```shell
-diskutil eject /dev/diskN
+diskutil éjecter /dev/diskN
 ```
 
-and remove your flash media when the command completes.
+et retirez votre support flash lorsque la commande est terminée.
 
-## Creating USB Key on Windows
+## Créer une clé USB sous Windows
 
-Check out [Rufus](https://rufus.akeo.ie/) to install the IMG file to a USB key.
+Découvrez [Rufus](https://rufus.akeo.ie/) pour installer le fichier IMG sur une clé USB.
 
-## Booting
+## Démarrage
 
-Once you've created your key, reboot and set your BIOS to load the USB key first if it's not set for that already. You should see iPXE load up either load up netboot.xyz automatically or you will be prompted to set your networking information up.
+Une fois que vous avez créé votre clé, redémarrez et configurez votre BIOS pour qu'il charge d'abord la clé USB s'il n'est pas déjà configuré pour cela. Vous devriez voir iPXE se charger, soit charger netboot.xyz automatiquement, soit vous serez invité à configurer vos informations de mise en réseau.
