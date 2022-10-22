@@ -1,10 +1,10 @@
 ---
-id: build-automation
-title: Build Automation
-description: "Details how the netboot.xyz automated build system works"
-sidebar_label: Build Automation
-hide_table_of_contents: false
-hide_title: true
+id: automatización de compilación
+title: Automatización de compilación
+description: "Detalla cómo funciona el sistema de compilación automatizado netboot.xyz"
+sidebar_label: Automatización de compilación
+hide_table_of_contents: falso
+hide_title: verdadero
 ---
 
 ```mdx-code-block
