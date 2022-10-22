@@ -1,30 +1,30 @@
 ---
 id: vmware
-title: Boot using VMware
-sidebar_label: Boot using VMware
-description: "Using netboot.xyz in VMware to install a VM"
-hide_table_of_contents: true
+title: Arranque usando VMware
+sidebar_label: Arranque usando VMware
+description: "Uso de netboot.xyz en VMware para instalar una VM"
+hide_table_of_contents: verdadero
 ---
 
-### VMware Fusion
+### Fusión de VMware
 
-These instructions are for setting up netboot.xyz in a VM on VMware's Fusion for MacOS.
+Estas instrucciones son para configurar netboot.xyz en una VM en Fusion de VMware para MacOS.
 
-### Create the VM
+### Crear la máquina virtual
 
-* Add a new virtual machine.
-* Select "Install from disc or image".
-* Click on "Use another disk or disc image...".
-* Download and select the netboot.xyz [ISO](https://boot.netboot.xyz/ipxe/netboot.xyz.iso).
-* On the Choose Operating System Screen, select the OS type you are planning on installing.  If you plan on testing multiple types of installs, you can just choose a CentOS 64-bit OS.
-* Click the "Customize Settings" and give the VM a name, like "netboot.xyz".
+* Agregue una nueva máquina virtual.
+* Seleccione "Instalar desde disco o imagen".
+* Haga clic en "Usar otro disco o imagen de disco...".
+* Descargue y seleccione netboot.xyz [ISO](https://boot.netboot.xyz/ipxe/netboot.xyz.iso).
+* En la pantalla Elegir sistema operativo, seleccione el tipo de sistema operativo que planea instalar.  Si planea probar varios tipos de instalaciones, puede elegir un sistema operativo CentOS de 64 bits.
+* Haga clic en "Personalizar configuración" y asigne un nombre a la máquina virtual, como "netboot.xyz".
 
-This will create your VM.
+Esto creará su máquina virtual.
 
-### Running the VM
+### Ejecutando la máquina virtual
 
-_You'll need to adjust the memory settings of the VM to ensure you'll have enough memory to run the OS installers in memory.  Typically it's good to bump the memory up to 2GB to 4GB._
+_Deberá ajustar la configuración de memoria de la VM para asegurarse de que tendrá suficiente memoria para ejecutar los instaladores del sistema operativo en la memoria.  Por lo general, es bueno aumentar la memoria de 2 GB a 4 GB._
 
-* Click the wrench icon and click on Processors & Memory and bump up the memory to the desired amount of memory.
-* Start the VM up and you should see the netboot.xyz loader.
-* If you determine you no longer want to boot from netboot.xyz, you can either change the boot order to boot from the hard drive by default or delete the ISO from the VM.
+* Haga clic en el icono de llave inglesa y haga clic en Procesadores & Memoria y aumente la memoria hasta la cantidad de memoria deseada.
+* Inicie la máquina virtual y debería ver el cargador netboot.xyz.
+* Si determina que ya no desea iniciar desde netboot.xyz, puede cambiar el orden de inicio para iniciar desde el disco duro de forma predeterminada o eliminar el ISO de la máquina virtual.
