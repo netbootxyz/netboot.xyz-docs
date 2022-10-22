@@ -1,148 +1,148 @@
 ---
-id: faq
-title: Frequently Asked Questions (FAQ)
+id: FAQ
+title: Foire aux questions (FAQ)
 sidebar_label: FAQ
-description: "Frequently Asked Questions about the netboot.xyz project"
-hide_table_of_contents: true
+description: "Foire aux questions sur le projet netboot.xyz"
+hide_table_of_contents: vrai
 ---
 
-### What is this?
-netboot.xyz is tool that allows you to boot your favorite Operating System's installer or various utilities over the network with minimal overhead and all from a single menu system.  It's similar to various tools netbooting tools of the past like boot.kernel.org with a lot more flexibility.  The boot loader is very light weight being under 1MB in size which translates into a very quick time to create a USB key.
+### Qu'est-ce que c'est?
+netboot.xyz est un outil qui vous permet de démarrer le programme d'installation de votre système d'exploitation préféré ou divers utilitaires sur le réseau avec une surcharge minimale et le tout à partir d'un système de menu unique.  Il est similaire à divers outils de netbooting du passé comme boot.kernel.org avec beaucoup plus de flexibilité.  Le chargeur de démarrage est très léger avec une taille inférieure à 1 Mo, ce qui se traduit par un temps très rapide pour créer une clé USB.
 
-### How does this work?
-netboot.xyz uses an open source tool called iPXE.  The bootloader calls to a webserver that hosts that the iPXE source files.  The iPXE source files contain menus and logic that understand how the various Linux installers operate.  When you select an Operating System, netboot.xyz retrieves the images from the project directory when possible or known and trusted performant mirrors.  The location the file is pulled from is always displayed during retrieval.
+### Comment cela marche-t-il?
+netboot.xyz utilise un outil open source appelé iPXE.  Le chargeur de démarrage appelle un serveur Web qui héberge les fichiers source iPXE.  Les fichiers source iPXE contiennent des menus et une logique qui comprennent le fonctionnement des différents programmes d'installation Linux.  Lorsque vous sélectionnez un système d'exploitation, netboot.xyz récupère les images du répertoire du projet lorsque cela est possible ou des miroirs performants connus et approuvés.  L'emplacement à partir duquel le fichier est extrait est toujours affiché lors de la récupération.
 
-### What is PXE Booting?
-PXE stands for **P**re-Boot e**X**ecution **E**nvironment.  PXE booting has been used for years to allow for clients to boot from a server over the network.  It gives you an oportunity to automate a system inside the BIOS before it boots off its hard drive which opens up the door for running stateless machines without having to use storage in the system.  PXE booting is used in many applications but it's most common use is automating the installation of bare metal or a virtual machine.
+### Qu'est-ce que le démarrage PXE ?
+PXE signifie **P**re-Boot e**X**ecution **E**nvironment.  Le démarrage PXE est utilisé depuis des années pour permettre aux clients de démarrer à partir d'un serveur sur le réseau.  Il vous donne la possibilité d'automatiser un système à l'intérieur du BIOS avant qu'il ne démarre son disque dur, ce qui ouvre la porte à l'exécution de machines sans état sans avoir à utiliser le stockage dans le système.  Le démarrage PXE est utilisé dans de nombreuses applications, mais son utilisation la plus courante consiste à automatiser l'installation d'un système nu ou d'une machine virtuelle.
 
-### Will my favorite distribution work with netboot.xyz?
-Usually you need three things to boot up an OS over the network, the vmlinuz, the initramfs, and the rootfs.  Distributions that support an installer kernel hosted on a mirror are typically the easier ones to implement as they are very lightweight.  Distributions that only release ISOs are typically a bit more involved to implement as we have to use memdisk to load it up into memory.
+### Ma distribution préférée fonctionnera-t-elle avec netboot.xyz ?
+Habituellement, vous avez besoin de trois choses pour démarrer un système d'exploitation sur le réseau, le vmlinuz, l'initramfs et le rootfs.  Les distributions qui prennent en charge un noyau d'installation hébergé sur un miroir sont généralement les plus faciles à implémenter car elles sont très légères.  Les distributions qui ne libèrent que des ISO sont généralement un peu plus compliquées à implémenter car nous devons utiliser memdisk pour le charger en mémoire.
 
-From [syslinux - memdisk](http://www.syslinux.org/wiki/index.php/MEMDISK): The majority of Linux based CD images will also fail to work with MEMDISK ISO emulation. Linux distributions require kernel and initrd files to be specified, as soon as these files are loaded the protected mode kernel driver(s) take control and the virtual CD will no longer be accessible. If any other files are required from the CD/DVD they will be missing, resulting in boot error(s). Linux distributions that only require kernel and initrd files function fully via ISO emulation, as no other data needs accessing from the virtual CD/DVD drive once they have been loaded. The boot loader has read all necessary files to memory by using INT 13h, before booting the kernel.
+De [syslinux - memdisk](http://www.syslinux.org/wiki/index.php/MEMDISK): La majorité des images de CD basées sur Linux ne fonctionneront pas non plus avec l'émulation ISO MEMDISK. Les distributions Linux nécessitent que les fichiers kernel et initrd soient spécifiés, dès que ces fichiers sont chargés, le ou les pilotes du noyau en mode protégé prennent le contrôle et le CD virtuel ne sera plus accessible. Si d'autres fichiers sont requis sur le CD/DVD, ils seront manquants, ce qui entraînera des erreurs de démarrage. Les distributions Linux qui ne nécessitent que des fichiers noyau et initrd fonctionnent entièrement via l'émulation ISO, car aucune autre donnée n'a besoin d'accéder à partir du lecteur de CD/DVD virtuel une fois qu'elles ont été chargées. Le chargeur de démarrage a lu tous les fichiers nécessaires en mémoire en utilisant INT 13h, avant de démarrer le noyau.
 
-To get around these limitations, especially since memdisk is not supported with UEFI, we have built a CI/CD system that consumes the ISOs from upstream projects and prepares the needed files to boot the operating system remotely as a release.  In some cases this may involve a small modification to the init scripts in order to tune the network boot flexibility or handle multiple parts for larger operating systems.  Those releases are added to the endpoints.yml in the main netboot.xyz repo and are then available for download.
+Pour contourner ces limitations, d'autant plus que memdisk n'est pas pris en charge avec UEFI, nous avons construit un système CI/CD qui consomme les ISO des projets en amont et prépare les fichiers nécessaires pour démarrer le système d'exploitation à distance en tant que version.  Dans certains cas, cela peut impliquer une petite modification des scripts d'initialisation afin d'ajuster la flexibilité de démarrage du réseau ou de gérer plusieurs parties pour les systèmes d'exploitation plus importants.  Ces versions sont ajoutées à endpoints.yml dans le référentiel principal netboot.xyz et sont ensuite disponibles au téléchargement.
 
-You can read more about our build system [here](https://github.com/netbootxyz/build-pipelines/blob/master/README.md).
+Vous pouvez en savoir plus sur notre système de construction [ici](https://github.com/netbootxyz/build-pipelines/blob/master/README.md).
 
-### My distribution uses ISOs for delivery, how can I see if they work?
-You can do a quick check by loading up netboot.xyz in a virtual environment baremetal.  Make sure you have plenty of RAM as you are loading the ISO into RAM.  Then select the iPXE command line and enter the following;
+### Ma distribution utilise des ISO pour la livraison, comment puis-je voir si elles fonctionnent ?
+Vous pouvez effectuer une vérification rapide en chargeant netboot.xyz dans un environnement virtuel baremetal.  Assurez-vous d'avoir suffisamment de RAM lorsque vous chargez l'ISO dans la RAM.  Sélectionnez ensuite la ligne de commande iPXE et entrez ce qui suit ;
 
-    kernel https://boot.netboot.xyz/memdisk iso raw
+    noyau https://boot.netboot.xyz/memdisk iso brut
     initrd http://url/to/iso
-    boot
+    démarrage
 
-That should load the ISO and if you make it all the way into the installer, great, your OS may work.  If it fails during initramfs load trying to load the CD device, then it has the issue of not being able to find the ISO in memory.
+Cela devrait charger l'ISO et si vous le faites jusqu'au programme d'installation, super, votre système d'exploitation peut fonctionner.  S'il échoue pendant le chargement d'initramfs en essayant de charger le périphérique CD, il a le problème de ne pas pouvoir trouver l'ISO en mémoire.
 
-### Can I create my own configurations?
+### Puis-je créer mes propres configurations ?
 
-Yes!  You can fork [netboot.xyz-custom](https://github.com/netbootxyz/netboot.xyz-custom) and create your own menu.  You can then set your Github user from the Utility menu and your menu will show up in the main menu.  If you don't want to set your user every time, you can custom compile the netboot.xyz iPXE code and include your github_user during the compile.  This allows you to create your own menu without the maintenance of everything else.
+Oui!  Vous pouvez bifurquer [netboot.xyz-custom](https://github.com/netbootxyz/netboot.xyz-custom) et créer votre propre menu.  Vous pouvez ensuite définir votre utilisateur Github à partir du menu Utilitaire et votre menu apparaîtra dans le menu principal.  Si vous ne souhaitez pas définir votre utilisateur à chaque fois, vous pouvez personnaliser la compilation du code iPXE netboot.xyz et inclure votre github_user lors de la compilation.  Cela vous permet de créer votre propre menu sans l'entretien de tout le reste.
 
-### Does netboot.xyz support Secure Boot?
+### Netboot.xyz prend-il en charge le démarrage sécurisé ?
 
-iPXE and hence netboot.xyz does not support Secure Boot because its [binaries are not signed by Microsoft](https://ipxe.org/appnote/etoken). You must disable Secure Boot mode in your computers firmware configuration menu before you can boot netboot.xyz.
+iPXE et donc netboot.xyz ne prend pas en charge le démarrage sécurisé car ses [fichiers binaires ne sont pas signés par Microsoft](https://ipxe.org/appnote/etoken). Vous devez désactiver le mode Secure Boot dans le menu de configuration du micrologiciel de votre ordinateur avant de pouvoir démarrer netboot.xyz.
 
-### What Operating Systems are currently available on netboot.xyz?
+### Quels systèmes d'exploitation sont actuellement disponibles sur netboot.xyz ?
 
-#### Operating Systems
+#### Systèmes d'exploitation
 
-| Name                     | URL                                                | Installer Kernel    | Live OS   |
-| ------------------------ | -------------------------------------------------- | ------------------- | --------- |
-| AlmaLinux                | https://almalinux.org/                             | Yes                 | No        |
-| Alpine Linux             | https://alpinelinux.org                            | Yes                 | No        |
-| Anarchy Linux            | https://anarchyinstaller.org                       | Yes                 | No        |
-| Arch Linux               | https://www.archlinux.org                          | Yes                 | No        |
-| Backbox                  | https://www.backbox.org                            | No                  | Yes       |
-| BlackArch Linux          | https://blackarch.org                              | Yes                 | Yes       |
-| Bluestar Linux           | https://sourceforge.net/projects/bluestarlinux     | No                  | Yes       |
-| Bodhi Linux              | https://www.bodhilinux.com                         | No                  | Yes       |
-| CentOS                   | https://centos.org                                 | Yes                 | No        |
-| CoreOS                   | http://coreos.com/                                 | Yes                 | No        |
-| Debian                   | https://debian.org                                 | Yes                 | Yes       |
-| Deepin                   | https://www.deepin.org                             | No                  | Yes       |
-| Devuan                   | https://devuan.org                                 | Yes                 | No        |
-| Elementary OS            | https://elementary.io                              | No                  | Yes       |
-| EndeavourOS              | https://endeavouros.com                            | No                  | Yes       |
-| Fatdog64                 | https://distro.ibiblio.org/fatdog/web/             | No                  | Yes       |
-| Fedora                   | https://fedoraproject.org                          | Yes                 | Yes       |
-| Feren OS                 | https://ferenos.weebly.com/                        | Yes                 | No        |
-| Flatcar Linux            | https://kinvolk.io/flatcar-container-linux/        | Yes                 | No        |
-| FreeBSD                  | https://freebsd.org                                | Yes, disk image     | No        |
-| FreeDOS                  | http://www.freedos.org                             | ISO - Memdisk       | No        |
-| Garuda Linux             | https://garudalinux.org/                           | No                  | Yes       |
-| Gentoo                   | https://gentoo.org                                 | Yes                 | Yes       |
-| Harvester                | https://harvesterhci.io                            | Yes                 | No        |
-| hrmpf                    | https://github.com/leahneukirchen/hrmpf/           | No                  | Yes       |
-| IPFire                   | https://www.ipfire.org                             | Yes                 | No        |
-| K3OS                     | https://k3os.io/                                   | Yes                 | Yes       |
-| Kali Linux               | https://www.kali.org                               | Yes                 | Yes       |
-| KDE Neon                 | https://neon.kde.org                               | No                  | Yes       |
-| Kodachi                  | https://www.digi77.com/linux-kodachi/              | No                  | Yes       |
-| Linux Lite               | https://www.linuxliteos.com                        | No                  | Yes       |
-| LXLE                     | https://lxle.net/                                  | No                  | Yes       |
-| Mageia                   | https://www.mageia.org                             | Yes                 | No        |
-| Manjaro                  | https://manjaro.org                                | No                  | Yes       |
-| Mint                     | https://linuxmint.com                              | No                  | Yes       |
-| Microsoft Windows        | https://www.microsoft.com                          | User supplied media | No        |
-| MirOS                    | https://www.mirbsd.org                             | Yes                 | No        |
-| Nitrux                   | https://nxos.org/                                  | No                  | Yes       |
-| NixOS                    | https://nixos.org                                  | Yes                 | No        |
-| OpenBSD                  | https://openbsd.org                                | Yes                 | No        |
-| openEuler                | https://openeuler.org                              | Yes                 | No        |
-| OpenSUSE                 | https://opensuse.org                               | Yes                 | No        |
-| Oracle Linux             | https://www.oracle.com/linux/                      | Yes                 | Installer |
-| Parrot Security          | https://www.parrotsec.org                          | No                  | Yes       |
-| Peppermint               | https://peppermintos.com                           | No                  | Yes       |
-| Pop OS                   | https://system76.com/pop                           | No                  | Yes       |
-| Proxmox VE               | https://www.proxmox.com/                           | Yes                 | No        |
-| Q4OS                     | https://q4os.org                                   | No                  | Yes       |
-| Raizo                    | https://sourceforge.net/projects/live-raizo/       | No                  | Yes       |
-| RancherOS                | https://rancher.com/rancher-os                     | Yes                 | No        |
-| Red Hat Enterprise Linux | https://www.redhat.com                             | User supplied media | No        |
-| Regolith                 | https://regolith-linux.org                         | No                  | Yes       |
-| Rocky Linux              | https://rockylinux.org/                            | Yes                 | No        |
-| Scientific Linux         | https://scientificlinux.org                        | Yes                 | No        |
-| Septor                   | https://septor.sourceforge.io                      | No                  | Yes       |
-| Slackware                | https://www.slackware.com                          | Yes                 | No        |
-| SmartOS                  | https://www.joyent.com/smartos                     | Yes                 | No        |
-| SparkyLinux              | https://sparkylinux.org/                           | No                  | Yes       |
-| Tails                    | https://tails.boum.org/                            | No                  | Yes       |
-| Talos                    | https://www.talos.dev/                             | Yes                 | No        |
-| Tiny Core Linux          | https://tinycorelinux.net                          | Yes                 | Yes       |
-| Ubuntu                   | https://www.ubuntu.com                             | Yes                 | Yes       |
-| VMware                   | https://www.vmware.com                             | User supplied media | No        |
-| Voyager                  | https://voyagerlive.org                            | No                  | Yes       |
-| VyOS                     | https://vyos.io                                    | Yes                 | No        |
-| Zen Installer            | https://sourceforge.net/projects/revenge-installer | Yes                 | No        |
-| Zorin OS                 | https://zorinos.com                                | No                  | Yes       |
+| Nom                                | URL                                                | Noyau d'installation             | Système d'exploitation en direct |
+| ---------------------------------- | -------------------------------------------------- | -------------------------------- | -------------------------------- |
+| AlmaLinux                          | https://almalinux.org/                             | Oui                              | Non                              |
+| Alpin Linux                        | https://alpinelinux.org                            | Oui                              | Non                              |
+| Anarchie Linux                     | https://anarchyinstaller.org                       | Oui                              | Non                              |
+| Arch Linux                         | https://www.archlinux.org                          | Oui                              | Non                              |
+| Boîte arrière                      | https://www.backbox.org                            | Non                              | Oui                              |
+| Black Arch Linux                   | https://blackarch.org                              | Oui                              | Oui                              |
+| Bluestar Linux                     | https://sourceforge.net/projects/bluestarlinux     | Non                              | Oui                              |
+| Bodhi-Linux                        | https://www.bodhilinux.com                         | Non                              | Oui                              |
+| CentOS                             | https://centos.org                                 | Oui                              | Non                              |
+| CoreOS                             | http://coreos.com/                                 | Oui                              | Non                              |
+| DebianName                         | https://debian.org                                 | Oui                              | Oui                              |
+| Profond dans                       | https://www.deepin.org                             | Non                              | Oui                              |
+| Devuan                             | https://devuan.org                                 | Oui                              | Non                              |
+| Système d'exploitation élémentaire | https://elementary.io                              | Non                              | Oui                              |
+| EndeavourOS                        | https://endeavouros.com                            | Non                              | Oui                              |
+| Fatdog64                           | https://distro.ibiblio.org/fatdog/web/             | Non                              | Oui                              |
+| Feutre                             | https://fedoraproject.org                          | Oui                              | Oui                              |
+| Feren OS                           | https://ferenos.weebly.com/                        | Oui                              | Non                              |
+| Flatcar Linux                      | https://kinvolk.io/flatcar-container-linux/        | Oui                              | Non                              |
+| FreeBSD                            | https://freebsd.org                                | Oui, image disque                | Non                              |
+| FreeDOS                            | http://www.freedos.org                             | ISO - Disque mémoire             | Non                              |
+| GarudaLinux                        | https://garudalinux.org/                           | Non                              | Oui                              |
+| Gentoo                             | https://gentoo.org                                 | Oui                              | Oui                              |
+| Moissonneuse                       | https://harvesterhci.io                            | Oui                              | Non                              |
+| hrmpf                              | https://github.com/leahneukirchen/hrmpf/           | Non                              | Oui                              |
+| IPFire                             | https://www.ipfire.org                             | Oui                              | Non                              |
+| K3OS                               | https://k3os.io/                                   | Oui                              | Oui                              |
+| Kali Linux                         | https://www.kali.org                               | Oui                              | Oui                              |
+| KDE NéonComment                    | https://neon.kde.org                               | Non                              | Oui                              |
+| Kodachi                            | https://www.digi77.com/linux-kodachi/              | Non                              | Oui                              |
+| Linux Lite                         | https://www.linuxliteos.com                        | Non                              | Oui                              |
+| LXLE                               | https://lxle.net/                                  | Non                              | Oui                              |
+| Magie                              | https://www.mageia.org                             | Oui                              | Non                              |
+| Manjaro                            | https://manjaro.org                                | Non                              | Oui                              |
+| menthe                             | https://linuxmint.com                              | Non                              | Oui                              |
+| Microsoft Windows                  | https://www.microsoft.com                          | Support fourni par l'utilisateur | Non                              |
+| MirOS                              | https://www.mirbsd.org                             | Oui                              | Non                              |
+| Nitrux                             | https://nxos.org/                                  | Non                              | Oui                              |
+| NixOS                              | https://nixos.org                                  | Oui                              | Non                              |
+| OpenBSD                            | https://openbsd.org                                | Oui                              | Non                              |
+| openEuler                          | https://openeuler.org                              | Oui                              | Non                              |
+| OuvrirSUSE                         | https://opensuse.org                               | Oui                              | Non                              |
+| OracleLinux                        | https://www.oracle.com/linux/                      | Oui                              | Installateur                     |
+| Sécurité perroquet                 | https://www.parrotsec.org                          | Non                              | Oui                              |
+| Menthe poivrée                     | https://peppermintos.com                           | Non                              | Oui                              |
+| Système d'exploitation pop         | https://system76.com/pop                           | Non                              | Oui                              |
+| Proxmox VE                         | https://www.proxmox.com/                           | Oui                              | Non                              |
+| Q4OS                               | https://q4os.org                                   | Non                              | Oui                              |
+| Raizo                              | https://sourceforge.net/projects/live-raizo/       | Non                              | Oui                              |
+| RancherOS                          | https://rancher.com/rancher-os                     | Oui                              | Non                              |
+| Red Hat Enterprise Linux           | https://www.redhat.com                             | Support fourni par l'utilisateur | Non                              |
+| Régolithe                          | https://regolith-linux.org                         | Non                              | Oui                              |
+| Rocheux Linux                      | https://rockylinux.org/                            | Oui                              | Non                              |
+| Linux scientifique                 | https://scientificlinux.org                        | Oui                              | Non                              |
+| Septeur                            | https://septor.sourceforge.io                      | Non                              | Oui                              |
+| Slackware                          | https://www.slackware.com                          | Oui                              | Non                              |
+| Smart OS                           | https://www.joyent.com/smartos                     | Oui                              | Non                              |
+| SparkyLinux                        | https://sparkylinux.org/                           | Non                              | Oui                              |
+| Queues                             | https://tails.boum.org/                            | Non                              | Oui                              |
+| Talos                              | https://www.talos.dev/                             | Oui                              | Non                              |
+| Minuscule noyau Linux              | https://tinycorelinux.net                          | Oui                              | Oui                              |
+| Ubuntu                             | https://www.ubuntu.com                             | Oui                              | Oui                              |
+| VMware                             | https://www.vmware.com                             | Support fourni par l'utilisateur | Non                              |
+| Voyageur                           | https://voyagerlive.org                            | Non                              | Oui                              |
+| VyOS                               | https://vyos.io                                    | Oui                              | Non                              |
+| Installateur Zen                   | https://sourceforge.net/projects/revenge-installer | Oui                              | Non                              |
+| Système d'exploitation Zorin       | https://zorinos.com                                | Non                              | Oui                              |
 
-### Utilities
+### Utilitaires
 
-| Name                      | URL                                                          | Type          |
-| ------------------------- | ------------------------------------------------------------ | ------------- |
-| 4MLinux                   | https://4mlinux.com/                                         | Kernel/Initrd |
-| ALT Linux Rescue          | https://en.altlinux.org/Rescue                               | ISO - Memdisk |
-| BakAndImgCD               | https://bakandimgcd.4mlinux.com/                             | Kernel/Initrd |
-| Boot Repair CD            | https://sourceforge.net/projects/boot-repair-cd/             | LiveCD        |
-| Breakin                   | http://www.advancedclustering.com/products/software/breakin/ | Kernel/Initrd |
-| CAINE                     | https://www.caine-live.net/                                  | LiveCD        |
-| Clonezilla                | http://www.clonezilla.org/                                   | LiveCD        |
-| DBAN                      | http://www.dban.org/                                         | Kernel        |
-| GParted                   | http://gparted.org                                           | LiveCD        |
-| Grml                      | http://grml.org                                              | LiveCD        |
-| Kaspersky Rescue Disk     | https://support.kaspersky.com/viruses/krd18                  | LiveCD        |
-| Memtest                   | http://www.memtest.org/                                      | Kernel        |
-| MemTest86 Free            | https://www.memtest86.com                                    | USB Img       |
-| Redo Rescue               | http://redorescue.com/                                       | LiveCD        |
-| Rescatux                  | https://www.supergrubdisk.org/rescatux/                      | LiveCD        |
-| Rescuezilla               | https://rescuezilla.com/                                     | LiveCD        |
-| ShredOS                   | https://github.com/PartialVolume/shredos.x86_64              | Kernel        |
-| Super Grub2 Disk          | http://www.supergrubdisk.org                                 | ISO - Memdisk |
-| System Rescue             | https://system-rescue.org/                                   | LiveCD        |
-| The Smallest Server Suite | https://thesss.4mlinux.com/                                  | Kernel/Initrd |
-| Ultimate Boot CD          | http://www.ultimatebootcd.com                                | ISO - Memdisk |
+| Nom                              | URL                                                          | Taper                |
+| -------------------------------- | ------------------------------------------------------------ | -------------------- |
+| 4MLinux                          | https://4mlinux.com/                                         | Noyau/Initrd         |
+| Sauvetage ALT Linux              | https://en.altlinux.org/Rescue                               | ISO - Disque mémoire |
+| BakAndImgCD                      | https://bakandimgcd.4mlinux.com/                             | Noyau/Initrd         |
+| CD de réparation de démarrage    | https://sourceforge.net/projects/boot-repair-cd/             | CD en direct         |
+| Roder                            | http://www.advancedclustering.com/products/software/breakin/ | Noyau/Initrd         |
+| CAIN                             | https://www.caine-live.net/                                  | CD en direct         |
+| Clonezilla                       | http://www.clonezilla.org/                                   | CD en direct         |
+| DBAN                             | http://www.dban.org/                                         | Noyau                |
+| GParted                          | http://gparted.org                                           | CD en direct         |
+| Grml                             | http://grml.org                                              | CD en direct         |
+| Kaspersky Rescue Disk            | https://support.kaspersky.com/viruses/krd18                  | CD en direct         |
+| Memtest                          | http://www.memtest.org/                                      | Noyau                |
+| MemTest86 Gratuit                | https://www.memtest86.com                                    | Image USB            |
+| Refaire le sauvetage             | http://redorescue.com/                                       | CD en direct         |
+| Rescatux                         | https://www.supergrubdisk.org/rescatux/                      | CD en direct         |
+| Rescuezilla                      | https://rescuezilla.com/                                     | CD en direct         |
+| ShredOS                          | https://github.com/PartialVolume/shredos.x86_64              | Noyau                |
+| Disque Super Grub2               | http://www.supergrubdisk.org                                 | ISO - Disque mémoire |
+| Sauvetage du système             | https://system-rescue.org/                                   | CD en direct         |
+| La plus petite suite de serveurs | https://thesss.4mlinux.com/                                  | Noyau/Initrd         |
+| CD de démarrage ultime           | http://www.ultimatebootcd.com                                | ISO - Disque mémoire |
 
-### What are some good resources for learning more about network booting?
+### Quelles sont les bonnes ressources pour en savoir plus sur le démarrage réseau ?
 
-* [The iPXE Project](http://ipxe.org/)
+* [Le projet iPXE](http://ipxe.org/)
 * [NetworkBoot.org](http://networkboot.org/)
-* [Syslinux Project](http://www.syslinux.org/wiki/index.php?title=The_Syslinux_Project)
+* [Projet Syslinux](http://www.syslinux.org/wiki/index.php?title=The_Syslinux_Project)
