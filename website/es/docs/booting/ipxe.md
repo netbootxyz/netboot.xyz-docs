@@ -1,31 +1,31 @@
 ---
 id: ipxe
-title: Boot using iPXE
-sidebar_label: Boot using iPXE
-description: "Details how to chainload into netboot.xyz from iPXE"
-hide_table_of_contents: true
+title: Arranque usando iPXE
+sidebar_label: Arranque usando iPXE
+description: "Detalla cómo cargar en cadena en netboot.xyz desde iPXE"
+hide_table_of_contents: verdadero
 ---
 
-### NIC with Embedded iPXE
+### NIC con iPXE integrado
 
-If you've already compiled your own iPXE, you can load up the netboot.xyz menu easily by entering CTRL-B when prompted, setting DHCP and then chainloading iPXE:
+Si ya ha compilado su propio iPXE, puede cargar el menú netboot.xyz fácilmente ingresando CTRL-B cuando se le solicite, configurando DHCP y luego cargando iPXE en cadena:
 
-    dhcp
-    chain --autofree https://boot.netboot.xyz
+    cadena dhcp
+    --autofree https://boot.netboot.xyz
 
-If you don't have DHCP on your network, you can manually set your network information:
+Si no tiene DHCP en su red, puede configurar manualmente la información de su red:
 
-    set net0/ip <ip>
-    set net0/netmask <netmask>
-    set net0/gateway <gateway>
-    set dns <nameserver>
+    establecer net0/ip <ip>
+    establecer net0/netmask <netmask>
+    establecer net0/gateway <gateway>
+    establecer dns <nameserver>
     ifopen net0
-    chain --autofree https://boot.netboot.xyz
+    cadena --autofree https://boot.netboot.xyz
 
-Some iPXE builds do not support HTTPS connections. If you get an "Operation not supported" error message, run this instead:
+Algunas compilaciones de iPXE no admiten conexiones HTTPS. Si recibe el mensaje de error "Operación no admitida", ejecute esto en su lugar:
 
-    chain --autofree http://boot.netboot.xyz
+    cadena --autofree http://boot.netboot.xyz
 
 ### KVM
 
-On VPSes that use KVM, you can usually connect to the VPS via VNC, reboot it, press escape while rebooting to get a boot menu, then select the iPXE option. Once iPXE has started, press Ctrl-B and follow the instructions above.
+En los VPS que usan KVM, generalmente puede conectarse al VPS a través de VNC, reiniciarlo, presionar escape mientras reinicia para obtener un menú de inicio y luego seleccionar la opción iPXE. Una vez que iPXE haya comenzado, presione Ctrl-B y siga las instrucciones anteriores.
