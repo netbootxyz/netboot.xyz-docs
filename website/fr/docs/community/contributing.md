@@ -1,10 +1,10 @@
 ---
-id: contributing
-title: Contributing
-description: How to contribute to the netboot.xyz project
-sidebar_label: Contributing
-hide_title: true
-hide_table_of_contents: true
+id: contribuant
+title: Contribuant
+description: Comment contribuer au projet netboot.xyz
+sidebar_label: Contribuant
+hide_title: vrai
+hide_table_of_contents: vrai
 ---
 
 ```mdx-code-block
