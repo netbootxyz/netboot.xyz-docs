@@ -1,81 +1,81 @@
 ---
-id: gce
-title: Google Compute Engine
-description: Using netboot.xyz on Google Compute Engine
-hide_table_of_contents: true
+id: GCE
+title: Moteur de calcul Google
+description: Utiliser netboot.xyz sur Google Compute Engine
+hide_table_of_contents: vrai
 ---
 
-## Using with netboot.xyz
+## Utilisation avec netboot.xyz
 
-**Experimental, currently doesn't work on any images that utilize memdisk as console output cannot be altered.**
+**Expérimental, ne fonctionne actuellement sur aucune image qui utilise memdisk car la sortie de la console ne peut pas être modifiée.**
 
-*Note: Functionality will be limited as the console is Serial Over Lan.  Distros that utilize memdisk may not provide output while other distros that are retrieved via kernel allow for altering of the console settings during load.  This includes most of the utility tools.  I'll probably look at filtering out options that don't work in the future.  Console may work during the install but may stop working on first boot if it's not set during the install.*
+*Remarque : La fonctionnalité sera limitée car la console est Serial Over Lan.  Les distributions qui utilisent memdisk peuvent ne pas fournir de sortie tandis que d'autres distributions récupérées via le noyau permettent de modifier les paramètres de la console pendant le chargement.  Cela inclut la plupart des outils utilitaires.  Je vais probablement chercher à filtrer les options qui ne fonctionnent pas à l'avenir.  La console peut fonctionner pendant l'installation mais peut cesser de fonctionner au premier démarrage si elle n'est pas définie pendant l'installation.*
 
-### Create a Bucket
+### Créer un compartiment
 
-Set a name for your bucket and select the regional storage class.
+Définissez un nom pour votre bucket et sélectionnez la classe de stockage régionale.
 
-Upload the netboot.xyz-gce image from this [link](https://boot.netboot.xyz/ipxe/netboot.xyz-gce.tar.gz) to the root of your bucket.
+Téléchargez l'image netboot.xyz-gce à partir de ce lien [](https://boot.netboot.xyz/ipxe/netboot.xyz-gce.tar.gz) à la racine de votre compartiment.
 
     gsutil cp $tmp/$image_name.tar.gz gs://$gs_bucket
 
-### Create an image
+### Créer une image
 
-Using the gcloud utility or the Google Cloud Shell, create an image from the iPXE disk you uploaded in the previous step:
+À l'aide de l'utilitaire gcloud ou de Google Cloud Shell, créez une image à partir du disque iPXE que vous avez importé à l'étape précédente :
 
-    gcloud compute images create $image_name --source-uri gs://$gs_bucket/$image_name.tar.gz
+    images de calcul gcloud créer $image_name --source-uri gs://$gs_bucket/$image_name.tar.gz
 
-### Boot an instance
+### Démarrer une instance
 
-Start an instance from the image you created, make sure to enable the serial-port:
+Démarrez une instance à partir de l'image que vous avez créée, assurez-vous d'activer le port série :
 
-    gcloud compute instances create $instance_name --image $image_name --metadata serial-port-enable=1
+    création d'instances de calcul gcloud $instance_name --image $image_name --metadata serial-port-enable=1
 
-### Connect to the Instance over Serial Console
+### Connectez-vous à l'instance via la console série
 
-    gcloud beta compute connect-to-serial-port $instance_name
+    gcloud beta calcul connexion-au-port-série $instance_name
 
-From here you should see the netboot.xyz menu and that's probably all you'll be able to do at this point. :)
+De là, vous devriez voir le menu netboot.xyz et c'est probablement tout ce que vous pourrez faire à ce stade. :)
 
-### Configuring the Instance
+### Configuration de l'instance
 
-In the event DHCP does not work, you'll need to set the static IP address during install time.  You can view this by going into instance details in the console, and clicking on default under network.  You'll need to set the internal IP of the instance along with the subnet and gateway on that page.
+Si DHCP ne fonctionne pas, vous devrez définir l'adresse IP statique lors de l'installation.  Vous pouvez afficher cela en accédant aux détails de l'instance dans la console et en cliquant sur par défaut sous réseau.  Vous devrez définir l'adresse IP interne de l'instance ainsi que le sous-réseau et la passerelle sur cette page.
 
-### Notes
+### Remarques
 
-Here are some notes on how the iPXE image is created in case you want to play around with vanilla iPXE in GCE.
+Voici quelques notes sur la création de l'image iPXE au cas où vous voudriez jouer avec vanilla iPXE dans GCE.
 
-See the iPXE commit [here](https://github.com/ipxe/ipxe/commit/de85336abb7861e4ea4df2e296eb33d179c7c9bd) for more info of GCE support in iPXE.
+Voir le commit iPXE [ici](https://github.com/ipxe/ipxe/commit/de85336abb7861e4ea4df2e296eb33d179c7c9bd) pour plus d'informations sur la prise en charge de GCE dans iPXE.
 
-To create a usable image for GCE:
+Pour créer une image utilisable pour GCE :
 
     make bin/ipxe.usb CONFIG=cloud EMBED=$tmp/main.ipxe
     cp -f bin/ipxe.usb $tmp/disk.raw
     ( cd $tmp; tar Sczvf $image_name.tar.gz disk.raw )
 
-To get the installers to work to output serial, when the GCE disk is detected, the console on the kernel command line is set to:
+Pour que les programmes d'installation fonctionnent en sortie série, lorsque le disque GCE est détecté, la console sur la ligne de commande du noyau est définie sur :
 
     console=ttyS0,115200n8
 
-## Using without netboot.xyz (standard iPXE)
+## Utilisation sans netboot.xyz (iPXE standard)
 
-When building your script, you will want it to look something like this:
+Lors de la construction de votre script, vous voudrez qu'il ressemble à ceci :
 
     #!ipxe
     
-    echo Google Compute Engine - iPXE boot via metadata
+    echo Google Compute Engine - Démarrage iPXE via les métadonnées
     ifstat ||
-    dhcp ||
-    route ||
-    chain -ar http://metadata.google.internal/computeMetadata/v1/instance/attributes/ipxeboot
+    DHCP ||
+    parcours ||
+    chaîne -ar http://metadata.google.internal/computeMetadata/v1/instance/attributes/ipxeboot
 
-Then when provisioning your instance, you can specify your custom iPXE script file:
+Ensuite, lors du provisionnement de votre instance, vous pouvez spécifier votre fichier de script iPXE personnalisé :
 
-    # Create shared boot image
+    # Créer une image de démarrage partagée
     make bin/ipxe.usb CONFIG=cloud EMBED=config/cloud/gce.ipxe
     
-    # Configure per-instance boot script
+    # Configurer le script de démarrage par instance
     gcloud compute instances add-metadata <instance> \
-           --metadata-from-file ipxeboot=boot.ipxe
+           --metadata-from-file ipxeboot =boot.ipxe
 
-This lets your custom compiled iPXE boot and then immediately chain to your custom iPXE script.
+Cela permet à votre iPXE compilé personnalisé de démarrer, puis de s'enchaîner immédiatement à votre script iPXE personnalisé .
