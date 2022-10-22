@@ -1,41 +1,41 @@
 ---
-id: windows
-title: "Windows"
-description: "Installing Windows 10 with netboot.xyz"
-hide_table_of_contents: true
+id: ventanas
+title: "ventanas"
+description: "Instalación de Windows 10 con netboot.xyz"
+hide_table_of_contents: verdadero
 ---
 
-This is one of the most frequently asked questions, so this deserves its own page.  
-This guide will assume that you're using the linuxserver.io Docker container.
+Esta es una de las preguntas más frecuentes, por lo que merece su propia página.  
+Esta guía asumirá que está utilizando el contenedor Docker linuxserver.io.
 
-#### Requirements
+#### Requisitos
 
-- Samba (SMB,CIFS) share with Windows 10 ISO extracted
-- Windows PE image as an ISO, instructions on how to build it can be found [here](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/winpe-create-usb-bootable-drive#create-a-winpe-iso-dvd-or-cd)
+- Samba (SMB, CIFS) compartido con Windows 10 ISO extraído
+- Imagen de Windows PE como ISO, las instrucciones sobre cómo compilarla se pueden encontrar [aquí](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/winpe-create-usb-bootable-drive#create-a-winpe-iso-dvd-or-cd)
 
-Step 1. Download WindowsPE/generate the image and download Windows 10 ISO.  
-Step 2. Setup an SMB share with Windows 10 ISO extracted to a directory there.  
-Step 3. Upload Windows PE to Linuxserver.io's netboot.xyz container's /assets/WinPE/x64/ folder.  
-Step 4. Boot the menu, go to Windows.  
-Step 5. Set the base URL to point to the container's IP address, the correct Nginx port for hosting assets and right directory (eg. http://192.168.2.46:8000/WinPE).  
-Step 6. Load the installer.  
-Step 7. You should be prompted with a terminal.  
-Step 8. Mount the Windows ISO share, with `net use F: \\&#060;server-ip-address&#062;\&#060;share-name&#062; /user:&#060;server-ip-address&#062;\&#060;username-if-needed&#062; &#060;password-if-needed&#062;`
+Paso 1. Descargue WindowsPE/genere la imagen y descargue Windows 10 ISO.  
+Paso 2. Configure un recurso compartido SMB con Windows 10 ISO extraído en un directorio allí.  
+Paso 3. Cargue Windows PE en la carpeta /assets/WinPE/x64/ del contenedor netboot.xyz de Linuxserver.io.  
+Paso 4. Inicie el menú, vaya a Windows.  
+Paso 5. Establezca la URL base para que apunte a la dirección IP del contenedor, el puerto Nginx correcto para alojar activos y el directorio correcto (por ejemplo, http://192.168.2.46:8000/WinPE).  
+Paso 6. Cargue el instalador.  
+Paso 7. Debería aparecer un terminal.  
+Paso 8. Monte el recurso compartido ISO de Windows, con `net use F: \\&#060;server-ip-address&#062;\&#060;share-name&#062; /usuario:&#060;dirección-ip-servidor&#062;\&#060;nombre-de-usuario-si-es-necesario&#062; &#060;contraseña si es necesario&#062;`
 
-:::note
+:::Nota
 
-The terminal uses US keyboard layout by default.
+El terminal utiliza el diseño de teclado de EE. UU. de forma predeterminada.
 
 :::  
-Step 9. Change into the mounted share (`F:`), and execute setup.exe or start it with `F:\setup.exe` Step 10. You should be greeted with the normal setup and be able to install it.
+Paso 9. Cambie al recurso compartido montado (`F:`) y ejecute setup.exe o inícielo con `F:\setup.exe` Paso 10. Debería recibir la configuración normal y poder instalarla.
 
-### Persistent url for Windows with the docker container
+### URL persistente para Windows con el contenedor docker
 
-Step 1. Go to the container's configurator (Netboot.xyz Configuration), the place where you can manage local assets and menus.  
-Step 2. Go to Menus -> boot.cfg.  
-Step 3. Set win_base_url to to point to the container's IP address, the correct Nginx port for hosting assets and right directory, for example:
+Paso 1. Vaya al configurador del contenedor (Netboot.xyz Configuration), el lugar donde puede administrar los activos y menús locales.  
+Paso 2. Vaya a Menús -> boot.cfg.  
+Paso 3. Configure win_base_url para que apunte a la dirección IP del contenedor, el puerto Nginx correcto para alojar activos y el directorio correcto, por ejemplo:
 
 ```bash
-set win_base_url http://192.168.2.46:8000/WinPE
+establecer win_base_url http://192.168.2.46:8000/WinPE
 ```
-Step 4. You shouldn't need to input the URL anymore when booting Windows so enjoy.
+Paso 4. Ya no debería necesitar ingresar la URL al iniciar Windows, así que disfrute.
