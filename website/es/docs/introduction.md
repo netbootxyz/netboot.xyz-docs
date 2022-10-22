@@ -1,33 +1,33 @@
 ---
-id: introduction
-title: Introduction
-description: netboot.xyz uses iPXE to network boot Operating System installers and utilities from an easy to use menu."
-hide_table_of_contents: true
+id: Introducción
+title: Introducción
+description: netboot.xyz utiliza iPXE para iniciar en red los instaladores y las utilidades del sistema operativo desde un menú fácil de usar".
+hide_table_of_contents: verdadero
 slug: /
 ---
 
-[netboot.xyz](http://netboot.xyz) lets you [PXE](https://en.wikipedia.org/wiki/Preboot_Execution_Environment) boot various operating system installers or utilities from a single tool over the network. This lets you use one media for many types of operating systems or tools. The [iPXE](http://ipxe.org/) project is used to provide a user friendly menu from within the BIOS that lets you easily choose the operating system you want along with any specific types of versions or bootable flags.
+[netboot.xyz](http://netboot.xyz) le permite [PXE](https://en.wikipedia.org/wiki/Preboot_Execution_Environment) iniciar varios instaladores o utilidades del sistema operativo desde una sola herramienta a través de la red. Esto le permite usar un medio para muchos tipos de sistemas operativos o herramientas. El proyecto [iPXE](http://ipxe.org/) se utiliza para proporcionar un menú fácil de usar desde el BIOS que le permite elegir fácilmente el sistema operativo que desea junto con cualquier tipo específico de versiones o indicadores de arranque.
 
-You can remote attach the ISO to servers, set it up as a rescue option in Grub, or even set up your home network to boot to it by default so that it's always available.
+Puede conectar de forma remota el ISO a los servidores, configurarlo como una opción de rescate en Grub o incluso configurar su red doméstica para que se inicie de forma predeterminada para que siempre esté disponible.
 
-![netboot.xyz menu](../static/img/netboot.xyz.gif)
+![menú netboot.xyz](../static/img/netboot.xyz.gif)
 
-## Menu Overview
+## Descripción general del menú
 
-### Linux Network Installs Menu
+### Menú de instalaciones de red de Linux
 
-For Operating System projects that provide a network bootable installer, this a lightweight method for installation as it retrieves a minimal set of installer kernels and then installs packages as needed. This is typically the faster method of OS installation. You can also leverage built in tools for doing rescue boots too.
+Para los proyectos de sistema operativo que proporcionan un instalador de arranque de red, este es un método liviano para la instalación, ya que recupera un conjunto mínimo de núcleos de instalación y luego instala los paquetes según sea necesario. Este suele ser el método más rápido de instalación del sistema operativo. También puede aprovechar las herramientas integradas para hacer botas de rescate.
 
-### Live CD/Distro Menu
+### CD en vivo/menú de distribución
 
-Many Operating System projects provide their software as an ISO only or provide a Live CD/DVD that you can download and boot into memory with modifying the storage of the machine. Typically you then have the option to do an install from the live system.  These are typically heavier weight installs and can take a lot of bandwidth to install. iPXE generally does not boot the ISOs directly that well.
+Muchos proyectos de sistemas operativos proporcionan su software solo como ISO o proporcionan un Live CD/DVD que puede descargar e iniciar en la memoria modificando el almacenamiento de la máquina. Por lo general, tiene la opción de realizar una instalación desde el sistema en vivo.  Por lo general, estas son instalaciones de mayor peso y pueden requerir mucho ancho de banda para instalarse. iPXE generalmente no arranca los ISO directamente tan bien.
 
-In order for us to make it easy to consume those types of images, we monitor new version updates from upstream, retrieve the releases, extract them, and re-release them with modifications to the initrd as needed to make them iPXE friendly. We then can load the smaller size kernel directly into memory for a better and more consistent experience.
+Para que podamos facilitar el consumo de ese tipo de imágenes, supervisamos las actualizaciones de nuevas versiones desde el principio, recuperamos los lanzamientos, los extraemos y los volvemos a publicar con modificaciones en el initrd según sea necesario para que sean compatibles con iPXE. Luego podemos cargar el kernel de menor tamaño directamente en la memoria para una experiencia mejor y más consistente.
 
-### Utilities Menu
+### Menú Utilidades
 
-The Utilities menu provides access to tools and utilities for tools like disk cloning, drive wiping, or other rescue type of tooling. You can also select other netboot.xyz endpoints to test menus that may be in development.
+El menú Utilidades brinda acceso a herramientas y utilidades para herramientas como la clonación de discos, la limpieza de unidades u otro tipo de herramientas de rescate. También puede seleccionar otros puntos finales de netboot.xyz para probar los menús que pueden estar en desarrollo.
 
-## Supported Architectures
+## Arquitecturas compatibles
 
-netboot.xyz supports 32-bit and 64-bit x86 architectures and arm64 architectures. The menus identify the platform loaded and enable menu options based on the architecture loaded.
+netboot.xyz admite arquitecturas x86 de 32 y 64 bits y arquitecturas arm64. Los menús identifican la plataforma cargada y habilitan opciones de menú basadas en la arquitectura cargada.
