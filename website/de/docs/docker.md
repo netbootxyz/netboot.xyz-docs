@@ -1,12 +1,12 @@
 ---
-id: docker
-title: Docker Container
-description: "How to use the netboot.xyz docker container"
-hide_table_of_contents: true
+id: Docker
+title: Docker-Container
+description: "So verwenden Sie den Docker-Container netboot.xyz"
+hide_table_of_contents: Stimmt
 ---
 
 ```mdx-code-block
-import Docker, {toc as DockerTOC} from "@site/external/docker.md"
+Docker importieren, {toc as DockerTOC} von „@site/external/docker.md“
 
 <Docker/>
 
