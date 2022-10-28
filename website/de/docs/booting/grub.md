@@ -1,5 +1,5 @@
 ---
-id: roden
+id: grub
 title: Booten von einer bestehenden Linux-Installation mit GRUB
 sidebar_label: Booten von GRUB
 description: "So verwenden Sie GRUB zum Booten in netboot.xyz"
