@@ -42,8 +42,21 @@ qemu-system-x86_64 -cdrom netboot.xyz.iso -m 4G
 qemu-system-x86_64 -bios /usr/share/ovmf/OVMF.fd -cdrom netboot.xyz.iso -m 4G
 ```
 
-:::note
+### Booting on MacOS Apple Silicon (M1)
+
+```bash
+$ brew install qemu
+$ qemu-system-aarch64 --version                                       
+QEMU emulator version 7.1.0
+$ qemu-system-aarch64 -cpu host -M virt,accel=hvf -m 4G \
+-drive file=/opt/homebrew/share/qemu/edk2-aarch64-code.fd,if=pflash,format=raw,readonly=on \
+-kernel netboot.xyz-arm64.efi \
+-serial stdio \
+-device virtio-gpu-pci \
+-device nec-usb-xhci -device usb-kbd
+```
+
+
+### note
 
 At least 4GB of memory is recommended for some of the images that are loaded into RAM.  If you experience problems during initrd load, the machine usually just needs more RAM.
-
-:::
