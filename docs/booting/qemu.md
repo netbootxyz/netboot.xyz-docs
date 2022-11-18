@@ -56,7 +56,6 @@ $ qemu-system-aarch64 -cpu host -M virt,accel=hvf -m 4G \
 -device nec-usb-xhci -device usb-kbd
 ```
 
-
-### note
-
+:::note
 At least 4GB of memory is recommended for some of the images that are loaded into RAM.  If you experience problems during initrd load, the machine usually just needs more RAM.
+:::
