@@ -7,7 +7,7 @@ import ThemedImage from "@theme/ThemedImage";
 const FeatureList = [
   {
     title: "Simple to Use",
-    Svg: ["./img/nbxyz-logo.svg", "./img/nbxyz-logo-dark.svg"],
+    Svg: ["./img/nbxyz-user.svg", "./img/nbxyz-user.svg"],
     description: (
       <>
         netboot.xyz enables you to boot into many types of operating systems
@@ -17,7 +17,7 @@ const FeatureList = [
   },
   {
     title: "Evaluate, Install, Rescue",
-    Svg: ["./img/nbxyz-logo.svg", "./img/nbxyz-logo-dark.svg"],
+    Svg: ["./img/nbxyz-laptop.gif", "./img/nbxyz-laptop.gif"],
     description: (
       <>
         Discover new operating systems without having to download and rewrite

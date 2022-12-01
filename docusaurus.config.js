@@ -59,6 +59,11 @@ module.exports = {
           position: "left",
         },
         {
+          href: "https://store.netboot.xyz",
+          label: "Store",
+          position: "left",
+        },
+        {
           href: "https://github.com/netbootxyz/netboot.xyz",
           position: "right",
           className: "header-github-link",
@@ -79,6 +84,10 @@ module.exports = {
             {
               label: "Downloads",
               to: "downloads/",
+            },
+            {
+              label: "Blog",
+              to: "blog",
             },
           ],
         },
@@ -103,20 +112,20 @@ module.exports = {
           title: "More",
           items: [
             {
-              label: "Blog",
-              to: "blog",
-            },
-            {
               label: "Donate",
               href: "https://opencollective.com/netbootxyz/donate",
+            },
+            {
+              label: "GitHub",
+              href: "https://github.com/netbootxyz/netboot.xyz",
             },
             {
               label: "Status",
               href: "https://status.netboot.xyz",
             },
             {
-              label: "GitHub",
-              href: "https://github.com/netbootxyz/netboot.xyz",
+              label: "Store",
+              href: "https://store.netboot.xyz",
             },
           ],
         },
