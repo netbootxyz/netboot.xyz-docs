@@ -28,7 +28,7 @@ const FeatureList = [
   },
   {
     title: "Powered by the iPXE project",
-    Svg: ["./img/ipxe-logo.svg", "./img/ipxe-logo.svg"],
+    Svg: ["./img/ipxechip.svg", "./img/ipxechip.svg"],
     description: (
       <>
         netboot.xyz uses the iPXE project to enable you to provision, rescue or
