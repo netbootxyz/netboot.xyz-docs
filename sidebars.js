@@ -44,6 +44,7 @@ module.exports = {
         'community/build-automation',
         'community/changelog',
         'community/contributing',
+        'community/nbxyz-users',
       ],
     },
     {
