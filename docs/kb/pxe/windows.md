@@ -19,7 +19,8 @@ Step 3. Upload Windows PE to Linuxserver.io's netboot.xyz container's /assets/Wi
 Step 4. Boot the menu, go to Windows.  
 Step 5. Set the base URL to point to the container's IP address, the correct Nginx port for hosting assets and right directory (eg. http://192.168.2.46:8000/WinPE).  
 Step 6. Load the installer.  
-Step 7. You should be prompted with a terminal.  
+Step 7. You should be prompted with a terminal.
+Step 8. type `wpeinit` to load networking support.
 Step 8. Mount the Windows ISO share, with `net use F: \\<server-ip-address>\<share-name> /user:<server-ip-address>\<username-if-needed> <password-if-needed>`
 
 :::note
