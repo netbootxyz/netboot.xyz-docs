@@ -16,7 +16,7 @@ A quick way to try out netboot.xyz without any modifications to your existing en
 sudo apt-get install -y qemu-system ovmf
 
 # download the latest combined Legacy and EFI iso
-wget http://boot.netboot.xyz/ipxe/netboot.xyz.iso
+wget https://boot.netboot.xyz/ipxe/netboot.xyz.iso
 ```
 
 If you want to write to a disk, you can set one at this point, or optionally you can boot without a disk if you want to test drive netboot.xyz:

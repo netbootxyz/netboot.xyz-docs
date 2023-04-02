@@ -6,7 +6,7 @@ hide_table_of_contents: true
 slug: /
 ---
 
-[netboot.xyz](http://netboot.xyz) lets you [PXE](https://en.wikipedia.org/wiki/Preboot_Execution_Environment) boot various operating system installers or utilities from a single tool over the network. This lets you use one media for many types of operating systems or tools. The [iPXE](http://ipxe.org/) project is used to provide a user friendly menu from within the BIOS that lets you easily choose the operating system you want along with any specific types of versions or bootable flags.
+[netboot.xyz](https://netboot.xyz) lets you [PXE](https://en.wikipedia.org/wiki/Preboot_Execution_Environment) boot various operating system installers or utilities from a single tool over the network. This lets you use one media for many types of operating systems or tools. The [iPXE](https://ipxe.org/) project is used to provide a user friendly menu from within the BIOS that lets you easily choose the operating system you want along with any specific types of versions or bootable flags.
 
 You can remote attach the ISO to servers, set it up as a rescue option in Grub, or even set up your home network to boot to it by default so that it's always available.
 

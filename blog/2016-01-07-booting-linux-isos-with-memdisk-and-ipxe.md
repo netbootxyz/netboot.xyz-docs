@@ -40,13 +40,15 @@ memdiskfind can be compiled with the klibc instead of with the glibc C library t
 
 ### Implementations of phram and mtdblock
 
-ArchLinux has implemented the above concept [here](https://projects.archlinux.org/mkinitcpio.git/tree/install/memdisk) and [here](https://projects.archlinux.org/mkinitcpio.git/tree/hooks/memdisk).
+ArchLinux has implemented the above concept [here](https://gitlab.archlinux.org/archlinux/mkinitcpio/mkinitcpio/-/blob/master/install/memdisk) and [here](https://gitlab.archlinux.org/archlinux/mkinitcpio/mkinitcpio/-/blob/master/hooks/memdisk).
 
 Debian Live used it [here](https://anonscm.debian.org/cgit/debian-live/live-boot.git/commit/?id=e08c082e758afa3341a9ebb6e00927d9873c7230).
 
 It's also been implemented in Clonezilla and [GParted](http://gparted-forum.surf4.info/viewtopic.php?id=17263).
 
 [Antergos Linux](https://antergos.com/) based on Arch Linux works great with memdisk using the phram module.
+
+_Editor's Note: Antergos Linux is defunct.  Visit the archived website [here](https://web.archive.org/web/20190816015938/https://antergos.com/).  Antergos Linux's sucessor is [Endeavour OS](https://endeavouros.com/)._
 
 ### Conclusion
 
@@ -61,4 +63,4 @@ Some of the distributions I'd love to see network support or better memdisk supp
 
 There are also many other new distributions being released all the time.  I typically use [DistroWatch](http://distrowatch.com/) to determine the most popular distributions to attempt to add to [netboot.xyz](http://netboot.xyz).  I'd love to get a lot of these added to make it really easy to install anything on the fly.
 
-I'd also love to see some of the hypervisors out there crack open the ISOs, pull them outside of their paywalls, and host the bits on their servers so that it's much easier to immediately boot an install to test something out without having to jump through many hoops.  I have working installs for [VMware ESX](https://www.vmware.com/products/esxi-and-esx/overview) and [Citrix XenServer](http://xenserver.org/overview-xenserver-open-source-virtualization/download.html) but I'd need to have them host the bits or allow permission to do so for a public facing installer menu.
+I'd also love to see some of the hypervisors out there crack open the ISOs, pull them outside of their paywalls, and host the bits on their servers so that it's much easier to immediately boot an install to test something out without having to jump through many hoops.  I have working installs for [VMware ESX](https://www.vmware.com/products/esxi-and-esx/overview) and [Citrix Hypervisor (formerly Citrix XenServer)](https://www.citrix.com/products/citrix-hypervisor/) but I'd need to have them host the bits or allow permission to do so for a public facing installer menu.

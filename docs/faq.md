@@ -18,7 +18,7 @@ PXE stands for **P**re-Boot e**X**ecution **E**nvironment.  PXE booting has been
 ### Will my favorite distribution work with netboot.xyz?
 Usually you need three things to boot up an OS over the network, the vmlinuz, the initramfs, and the rootfs.  Distributions that support an installer kernel hosted on a mirror are typically the easier ones to implement as they are very lightweight.  Distributions that only release ISOs are typically a bit more involved to implement as we have to use memdisk to load it up into memory.
 
-From [syslinux - memdisk](http://www.syslinux.org/wiki/index.php/MEMDISK): The majority of Linux based CD images will also fail to work with MEMDISK ISO emulation. Linux distributions require kernel and initrd files to be specified, as soon as these files are loaded the protected mode kernel driver(s) take control and the virtual CD will no longer be accessible. If any other files are required from the CD/DVD they will be missing, resulting in boot error(s). Linux distributions that only require kernel and initrd files function fully via ISO emulation, as no other data needs accessing from the virtual CD/DVD drive once they have been loaded. The boot loader has read all necessary files to memory by using INT 13h, before booting the kernel.
+From [syslinux - memdisk](https://www.syslinux.org/wiki/index.php/MEMDISK): The majority of Linux based CD images will also fail to work with MEMDISK ISO emulation. Linux distributions require kernel and initrd files to be specified, as soon as these files are loaded the protected mode kernel driver(s) take control and the virtual CD will no longer be accessible. If any other files are required from the CD/DVD they will be missing, resulting in boot error(s). Linux distributions that only require kernel and initrd files function fully via ISO emulation, as no other data needs accessing from the virtual CD/DVD drive once they have been loaded. The boot loader has read all necessary files to memory by using INT 13h, before booting the kernel.
 
 To get around these limitations, especially since memdisk is not supported with UEFI, we have built a CI/CD system that consumes the ISOs from upstream projects and prepares the needed files to boot the operating system remotely as a release.  In some cases this may involve a small modification to the init scripts in order to tune the network boot flexibility or handle multiple parts for larger operating systems.  Those releases are added to the endpoints.yml in the main netboot.xyz repo and are then available for download.
 
@@ -56,7 +56,7 @@ iPXE and hence netboot.xyz does not support Secure Boot because its [binaries ar
 | Bluestar Linux | https://sourceforge.net/projects/bluestarlinux | No | Yes |
 | Bodhi Linux | https://www.bodhilinux.com | No | Yes |
 | CentOS | https://centos.org | Yes | No |
-| CoreOS | http://coreos.com/ | Yes | No |
+| Fedora CoreOS | https://getfedora.org/en/coreos?stream=stable | Yes | No |
 | Debian | https://debian.org | Yes | Yes|
 | Deepin | https://www.deepin.org | No | Yes |
 | Devuan | https://devuan.org | Yes | No |
@@ -67,7 +67,7 @@ iPXE and hence netboot.xyz does not support Secure Boot because its [binaries ar
 | Feren OS | https://ferenos.weebly.com/ | Yes | No |
 | Flatcar Linux | https://kinvolk.io/flatcar-container-linux/ | Yes | No |
 | FreeBSD | https://freebsd.org | Yes, disk image | No |
-| FreeDOS | http://www.freedos.org | ISO - Memdisk| No |
+| FreeDOS | https://www.freedos.org | ISO - Memdisk| No |
 | Garuda Linux | https://garudalinux.org/ | No | Yes |
 | Gentoo | https://gentoo.org | Yes | Yes |
 | Harvester | https://harvesterhci.io | Yes | No |
@@ -83,11 +83,11 @@ iPXE and hence netboot.xyz does not support Secure Boot because its [binaries ar
 | Manjaro | https://manjaro.org | No | Yes |
 | Mint | https://linuxmint.com | No | Yes |
 | Microsoft Windows | https://www.microsoft.com | User supplied media | No |
-| MirOS | https://www.mirbsd.org | Yes | No |
+| MirOS | http://www.mirbsd.org | Yes | No |
 | Nitrux | https://nxos.org/ | No | Yes |
 | NixOS | https://nixos.org | Yes | No |
 | OpenBSD | https://openbsd.org | Yes | No |
-| openEuler | https://openeuler.org | Yes | No |
+| openEuler | https://www.openeuler.org/ | Yes | No |
 | OpenSUSE | https://opensuse.org | Yes | No |
 | Oracle Linux | https://www.oracle.com/linux/ | Yes | Installer |
 | Parrot Security | https://www.parrotsec.org | No | Yes |
@@ -107,7 +107,7 @@ iPXE and hence netboot.xyz does not support Secure Boot because its [binaries ar
 | SparkyLinux | https://sparkylinux.org/ | No | Yes |
 | Tails | https://tails.boum.org/ | No | Yes |
 | Talos | https://www.talos.dev/ | Yes | No |
-| Tiny Core Linux | https://tinycorelinux.net | Yes | Yes |
+| Tiny Core Linux | http://www.tinycorelinux.net/ | Yes | Yes |
 | Ubuntu | https://www.ubuntu.com | Yes | Yes |
 | VMware | https://www.vmware.com | User supplied media | No |
 | Voyager | https://voyagerlive.org | No | Yes |
@@ -123,26 +123,26 @@ iPXE and hence netboot.xyz does not support Secure Boot because its [binaries ar
 | ALT Linux Rescue | https://en.altlinux.org/Rescue | ISO - Memdisk |
 | BakAndImgCD | https://bakandimgcd.4mlinux.com/ | Kernel/Initrd |
 | Boot Repair CD | https://sourceforge.net/projects/boot-repair-cd/ | LiveCD |
-| Breakin | http://www.advancedclustering.com/products/software/breakin/ | Kernel/Initrd |
+| Breakin | https://www.advancedclustering.com/products/software/breakin/ | Kernel/Initrd |
 | CAINE | https://www.caine-live.net/ | LiveCD |
-| Clonezilla | http://www.clonezilla.org/ | LiveCD |
-| DBAN | http://www.dban.org/ | Kernel |
-| GParted | http://gparted.org | LiveCD |
-| Grml | http://grml.org | LiveCD |
+| Clonezilla | https://clonezilla.org/ | LiveCD |
+| DBAN | https://dban.org/ | Kernel |
+| GParted | https://gparted.org | LiveCD |
+| Grml | https://grml.org | LiveCD |
 | Kaspersky Rescue Disk | https://support.kaspersky.com/viruses/krd18 | LiveCD |
-| Memtest | http://www.memtest.org/ | Kernel |
+| Memtest | https://www.memtest.org/ | Kernel |
 | MemTest86 Free | https://www.memtest86.com | USB Img |
 | Redo Rescue | http://redorescue.com/ | LiveCD |
 | Rescatux | https://www.supergrubdisk.org/rescatux/ | LiveCD |
 | Rescuezilla | https://rescuezilla.com/ | LiveCD |
 | ShredOS | https://github.com/PartialVolume/shredos.x86_64 | Kernel | 
-| Super Grub2 Disk | http://www.supergrubdisk.org | ISO - Memdisk |
-| System Rescue | https://system-rescue.org/ | LiveCD |
+| Super Grub2 Disk | https://www.supergrubdisk.org/ | ISO - Memdisk |
+| System Rescue | https://www.system-rescue.org/ | LiveCD |
 | The Smallest Server Suite | https://thesss.4mlinux.com/ | Kernel/Initrd |
-| Ultimate Boot CD | http://www.ultimatebootcd.com | ISO - Memdisk |
+| Ultimate Boot CD | https://www.ultimatebootcd.com/ | ISO - Memdisk |
 
 ### What are some good resources for learning more about network booting?
 
-* [The iPXE Project](http://ipxe.org/)
-* [NetworkBoot.org](http://networkboot.org/)
-* [Syslinux Project](http://www.syslinux.org/wiki/index.php?title=The_Syslinux_Project)
+* [The iPXE Project](https://ipxe.org/)
+* [NetworkBoot.org](https://networkboot.org/)
+* [Syslinux Project](https://www.syslinux.org/wiki/index.php?title=The_Syslinux_Project)

@@ -193,7 +193,7 @@ option ipxe.sdi       code 40 = unsigned integer 8;
 option ipxe.nfs       code 41 = unsigned integer 8;
 
 # Other useful general options
-# http://www.ietf.org/assignments/dhcpv6-parameters/dhcpv6-parameters.txt
+# https://www.iana.org/assignments/dhcpv6-parameters/dhcpv6-parameters.xhtml
 option arch code 93 = unsigned integer 16;
 ```
 
