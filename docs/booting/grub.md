@@ -24,7 +24,8 @@ update-grub2
 reboot
 ```
 
-## On CenOS/Redhat
+## On Red Hat Based Systems
+
 ```shell
 yum install syslinux wget -y
 cp /usr/share/syslinux/memdisk /boot/memdisk
