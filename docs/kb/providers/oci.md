@@ -17,7 +17,7 @@ Take note of which shape you take, as it will determine further steps:
 - AMD (`x86_64`)
 - Ampere A1 (`arm64`)
 
-:::info
+:::caution
 Set up SSH keys!
 You will need to log into the server and there is no default password.
 
@@ -100,6 +100,6 @@ If you make a mistake, move with arrow keys, and use the Delete key.
 
 Once you have typed it in, you might have to press the Escape key twice.
 
-:::note
-If you were not able to boot into netboot.xyz correctly, simple repeat the `grub-reboot` and `reboot` steps to enter UEFI again.
+:::caution
+This is **not** applicable to `arm64`/Ampere A1.
 :::
