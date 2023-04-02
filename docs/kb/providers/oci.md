@@ -20,9 +20,9 @@ Take note of which shape you take, as it will determine further steps:
 Do set up SSH keys, as you will need to log into the server and there is no default password. We assume you know how to use SSH keys.
 
 ### Get into the rescue shell
-First get onto your compute instance's details page, then scroll down to "Resources" under which you'll find "Console connection".
+First get onto your compute instance's details page, then scroll down to `Resources` under which you'll find `Console connection`.
 
-To get into the rescue shell, we recommend you use the Cloud Shell, and not bother with a "local connection". To do so, click on "Launch Cloud Shell connection" and wait for the console connection status to reach the "ACTIVE" state. Be patient, it can take a minute or two.
+To get into the rescue shell, we recommend you use the Cloud Shell, and not bother with a `local connection`. To do so, click on `Launch Cloud Shell connection` and wait for the console connection status to reach the `ACTIVE` state. Be patient, it can take a minute or two.
 
 You do not need to log in, as we'll only use it control the UEFI Firmware.
 
@@ -30,20 +30,16 @@ You do not need to log in, as we'll only use it control the UEFI Firmware.
 
 Now that you have the rescue shell open, you need to open a SSH connection to entere the following commands, as there is no default password.
 
-Follow the instructions depending on which architecture/shape you chose earlier: arm64 or x86_64.
-
-:::info
-If you were not able to boot into netboot.xyz correctly, simple repeat the `grub-reboot` and `reboot` steps to enter UEFI again.
-:::
+Follow the instructions depending on which architecture/shape you chose earlier: `arm64` or `x86_64`.
 
 :::info
 The rescue shell over the Oracle Cloud Shell can be somewhat buggy, for instance, you might have to press the Escape key twice instead of only once when in netboot.xyz
 :::
 
-#### arm64 - Ampere A1
-These steps apply to the Ampere A1 (arm64) instances.
+#### `arm64` - Ampere A1
+These steps apply to the Ampere A1 (`arm64`) instances.
 
-The default GRUB configuration already contains the "UEFI Firmware" option, so we only have to download netboot.xyz and reboot into the correct option.
+The default GRUB configuration already contains the `UEFI Firmware` option, so we only have to download netboot.xyz and reboot into the correct option.
 
 ```shell
 # Download netboot (arm64) into the EFI directory
@@ -56,10 +52,10 @@ sudo grub-reboot "UEFI Firmware Settings"
 sudo reboot
 ```
 
-#### x86_64 - AMD
-These steps apply to the AMD/Intel (x86_64) instances.
+#### `x86_64` - AMD
+These steps apply to the AMD/Intel (`x86_64`) instances.
 
-We need to delete the default GRUB configuration and regenerate it, as it does not contain "UEFI Firmware". Then, we can reboot into the UEFI Firmware and boot into netboot.xyz:
+We need to delete the default GRUB configuration and regenerate it, as it does not contain `UEFI Firmware`. Then, we can reboot into the UEFI Firmware and boot into netboot.xyz:
 
 ```shell
 # Download netboot (amd64) into the EFI directory
@@ -78,11 +74,15 @@ sudo grub-reboot "UEFI Firmware Settings"
 sudo reboot
 ```
 
-##### Console quirks
-Once you have booted into netboot.xyz on x86_64, if you plan on using Linux images, you must still set up custom `Kernel cmdline params` under `Utilities (UEFI)`.
+##### Console quirks: Linux
+Once you have booted into netboot.xyz on `x86_64`, if you plan on using Linux images, you must still set up custom `Kernel cmdline params` under `Utilities (UEFI)`.
 
 Set `Kernel cmdline params: []` to `console=ttyS0,9600`.
 
 If you make a mistake, move with arrow keys, and use the Delete key.
 
 Once you have typed it in, you might have to press the Escape key twice.
+
+:::note
+If you were not able to boot into netboot.xyz correctly, simple repeat the `grub-reboot` and `reboot` steps to enter UEFI again.
+:::
