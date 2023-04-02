@@ -79,7 +79,19 @@ sudo grub-reboot "UEFI Firmware Settings"
 sudo reboot
 ```
 
-##### Console quirks: Linux
+### Boot into netboot.xyz
+Now that you are in the UEFI Firmware, do the following:
+- Choose “Boot Maintenance Manager”
+- Choose “Boot From File”
+- Choose the only device
+- Choose the netboot.xyz EFI file
+- Wait for it to start and configure
+
+:::tip
+If you were not able to boot into netboot.xyz correctly, simple repeat the `grub-reboot` and `reboot` steps to enter UEFI again.
+:::
+
+#### `x86_64` - Console quirks: Linux
 Once you have booted into netboot.xyz on `x86_64`, if you plan on using Linux images, you must still set up custom `Kernel cmdline params` under `Utilities (UEFI)`.
 
 Set `Kernel cmdline params: []` to `console=ttyS0,9600`.
