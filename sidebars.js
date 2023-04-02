@@ -72,6 +72,7 @@ module.exports = {
             'kb/providers/equinixmetal',
             'kb/providers/gce',
             'kb/providers/linode',
+            'kb/providers/oci',
             'kb/providers/openstack',
             'kb/providers/vultr',
           ],
