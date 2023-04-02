@@ -14,8 +14,8 @@ When creating an instance, make sure to select:
 - Image: Ubuntu > Canonical Ubuntu (standard, not minimal)
 
 Take note of which shape you take, as it will determine further steps:
-- AMD (x86_64)
-- Ampere A1 (arm64)
+- AMD (`x86_64`)
+- Ampere A1 (`arm64`)
 
 Do set up SSH keys, as you will need to log into the server and there is no default password. We assume you know how to use SSH keys.
 
