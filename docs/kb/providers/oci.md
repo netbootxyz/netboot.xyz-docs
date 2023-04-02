@@ -17,7 +17,12 @@ Take note of which shape you take, as it will determine further steps:
 - AMD (`x86_64`)
 - Ampere A1 (`arm64`)
 
-Do set up SSH keys, as you will need to log into the server and there is no default password. We assume you know how to use SSH keys.
+:::info
+Set up SSH keys!
+You will need to log into the server and there is no default password.
+
+We assume you know how to use SSH keys.
+:::
 
 ### Get into the rescue shell
 First get onto your compute instance's details page, then scroll down to `Resources` under which you'll find `Console connection`.
