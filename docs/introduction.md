@@ -20,7 +20,7 @@ For Operating System projects that provide a network bootable installer, this a 
 
 ### Live CD/Distro Menu
 
-Many Operating System projects provide their software as an ISO only or provide a Live CD/DVD that you can download and boot into memory with modifying the storage of the machine. Typically you then have the option to do an install from the live system.  These are typically heavier weight installs and can take a lot of bandwidth to install. iPXE generally does not boot the ISOs directly that well.
+Many Operating System projects provide their software as an ISO only or provide a Live CD/DVD that you can download and boot into memory without modifying the storage of the machine. Typically you then have the option to do an install from the live system.  These are typically heavier weight installs and can take a lot of bandwidth to install. iPXE generally does not boot the ISOs directly that well.
 
 In order for us to make it easy to consume those types of images, we monitor new version updates from upstream, retrieve the releases, extract them, and re-release them with modifications to the initrd as needed to make them iPXE friendly. We then can load the smaller size kernel directly into memory for a better and more consistent experience.
 
