@@ -20,16 +20,16 @@ Step 4. Boot the menu, go to Windows.
 Step 5. Set the base URL to point to the container's IP address, the correct Nginx port for hosting assets and right directory (eg. http://192.168.2.46:8000/WinPE).  
 Step 6. Load the installer.  
 Step 7. You should be prompted with a terminal.
-Step 8. type `wpeinit` to load networking support.
-Step 8. Mount the Windows ISO share, with `net use F: \\<server-ip-address>\<share-name> /user:<server-ip-address>\<username-if-needed> <password-if-needed>`
+Step 8. Type `wpeinit` to load networking support.
+Step 9. Mount the Windows ISO share, with `net use F: \\<server-ip-address>\<share-name> /user:<server-ip-address>\<username-if-needed> <password-if-needed>`
 
 :::note
 
 The terminal uses US keyboard layout by default.  
 
 :::
-Step 9. Change into the mounted share (`F:`), and execute setup.exe or start it with `F:\setup.exe`
-Step 10. You should be greeted with the normal setup and be able to install it.
+Step 10. Change into the mounted share (`F:`), and execute setup.exe or start it with `F:\setup.exe`
+Step 11. You should be greeted with the normal setup and be able to install it.
 
 ### Persistent url for Windows with the docker container
 
