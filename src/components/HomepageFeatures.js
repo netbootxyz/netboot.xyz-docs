@@ -32,7 +32,7 @@ const FeatureList = [
     description: (
       <>
         netboot.xyz uses the iPXE project to enable you to provision, rescue or
-        load into a live boot environment leveraging the the Preboot Execution
+        load into a live boot environment leveraging the Preboot Execution
         Environment (PXE) on most systems.
       </>
     ),
