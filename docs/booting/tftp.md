@@ -15,7 +15,7 @@ You will have to tell your DHCP server to provide a "next-server", the address o
 Example:
 
     next-server "1.2.3.4"
-    filename "netboot.xyz.kpxe"
+    filename "./ipxe/netboot.xyz.kpxe"
 
 If you are using [dnsmasq as your DHCP server](https://wiki.archlinux.org/index.php/dnsmasq#DHCP_server) as well as your TFTP server then setting the next-server option is as simple as adding the following line to `/etc/dnsmasq.conf`: 
 
@@ -31,7 +31,7 @@ If you use dnsmasq you can add this configuration to `/etc/dnsmasq.conf`:
 
     enable-tftp
     tftp-root=/var/lib/tftp
-    dhcp-boot=netboot.xyz.kpxe
+    dhcp-boot=./ipxe/netboot.xyz.kpxe
 
 ### Fixing the dnsmasq service
 
