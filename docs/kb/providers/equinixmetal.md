@@ -18,14 +18,18 @@ slug when using the API.
 Put the netboot.xyz URL in the text field that appears in the portal, or use the
 `ipxe_script_url` parameter when creating the device via the API.
 
-    https://boot.netboot.xyz
+```
+https://boot.netboot.xyz
+```
 
 Press "Deploy" to provision your device. It will take 2-3 minutes for the device
 to become active. Once it's online, connect to Equinix Metal's out-of-band
 serial-over-SSH service (S.O.S.) using the device's `id` and the facility where
 the device was deployed, e.g. `ewr1`.
 
-    ssh {server-uuid}@sos.{facility-code}.platformequinix.com
+```
+ssh {server-uuid}@sos.{facility-code}.platformequinix.com
+```
 
 The current list of facilities is [here](https://metal.equinix.com/product/locations). The
 netboot.xyz iPXE menu will appear and you can complete installation from there.
@@ -52,5 +56,7 @@ More information on how Equinix Metal configures bonding can be found
 
 Nameservers should be configured as:
 
-    nameserver 147.75.207.207
-    nameserver 147.75.207.208
+```
+nameserver 147.75.207.207
+nameserver 147.75.207.208
+```

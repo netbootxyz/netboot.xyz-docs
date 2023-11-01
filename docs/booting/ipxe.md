@@ -10,21 +10,27 @@ hide_table_of_contents: true
 
 If you've already compiled your own iPXE, you can load up the netboot.xyz menu easily by entering CTRL-B when prompted, setting DHCP and then chainloading iPXE:
 
-    dhcp
-    chain --autofree https://boot.netboot.xyz
+```bash
+dhcp
+chain --autofree https://boot.netboot.xyz
+```
 
 If you don't have DHCP on your network, you can manually set your network information:
 
-    set net0/ip <ip>
-    set net0/netmask <netmask>
-    set net0/gateway <gateway>
-    set dns <nameserver>
-    ifopen net0
-    chain --autofree https://boot.netboot.xyz
+```bash
+set net0/ip <ip>
+set net0/netmask <netmask>
+set net0/gateway <gateway>
+set dns <nameserver>
+ifopen net0
+chain --autofree https://boot.netboot.xyz
+```
 
 Some iPXE builds do not support HTTPS connections. If you get an "Operation not supported" error message, run this instead:
 
-    chain --autofree http://boot.netboot.xyz
+```bash
+chain --autofree http://boot.netboot.xyz
+```
 
 ### KVM
 

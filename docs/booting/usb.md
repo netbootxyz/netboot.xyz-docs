@@ -11,7 +11,7 @@ Backup your important data before writing the USB as it will overwrite anything 
 
 Download a netboot.xyz USB disk:
 
-* [netboot.xyz](https://boot.netboot.xyz/ipxe/netboot.xyz.img)
+* [netboot.xyz.img](https://boot.netboot.xyz/ipxe/netboot.xyz.img)
 
 ## Creating USB Key on Linux
 

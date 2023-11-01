@@ -10,7 +10,7 @@ If you have an existing Linux system where you are unable to use iPXE or boot fr
 
 ## On Debian/Ubuntu
 
-```shell
+```bash
 # Install grub-imageboot
 apt install grub-imageboot
 

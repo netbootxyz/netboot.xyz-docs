@@ -13,6 +13,9 @@ module.exports = {
   projectName: "netboot.xyz",
   themeConfig: {
     metadata: [{name: 'keywords', content: 'ipxe, netbootxyz, pxe, linux, os, operating system, install, installer, netboot, netboot.xyz'}],
+    prism: {
+      additionalLanguages: ['bash', 'yaml'],
+    },
     docs: {
       sidebar: {
         hideable: true,

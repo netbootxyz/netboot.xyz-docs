@@ -13,11 +13,15 @@ You can look at the next section entitled [Booting Methods](https://netboot.xyz/
 
 If you already have iPXE up and running on the network, you can hit load the netboot.xyz kernel by typing the following when loaded in a Legacy Mode BIOS:
 
-    chain --autofree http://boot.netboot.xyz/ipxe/netboot.xyz.lkrn
+```
+chain --autofree http://boot.netboot.xyz/ipxe/netboot.xyz.lkrn
+```
 
 or when in EFI mode BIOS:
 
-    chain --autofree http://boot.netboot.xyz/ipxe/netboot.xyz.efi
+```
+chain --autofree http://boot.netboot.xyz/ipxe/netboot.xyz.efi
+```
 
 This will load the appropriate netboot.xyz kernel with all of the proper options enabled.
 
