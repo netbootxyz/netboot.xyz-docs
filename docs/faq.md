@@ -27,9 +27,11 @@ You can read more about our build system [here](https://github.com/netbootxyz/bu
 ### My distribution uses ISOs for delivery, how can I see if they work?
 You can do a quick check by loading up netboot.xyz in a virtual environment baremetal.  Make sure you have plenty of RAM as you are loading the ISO into RAM.  Then select the iPXE command line and enter the following;
 
-    kernel https://boot.netboot.xyz/memdisk iso raw
-    initrd http://url/to/iso
-    boot
+```
+kernel https://boot.netboot.xyz/memdisk iso raw
+initrd http://url/to/iso
+boot
+```
 
 That should load the ISO and if you make it all the way into the installer, great, your OS may work.  If it fails during initramfs load trying to load the CD device, then it has the issue of not being able to find the ISO in memory.
 
