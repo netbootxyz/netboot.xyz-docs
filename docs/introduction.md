@@ -16,7 +16,7 @@ You can remote attach the ISO to servers, set it up as a rescue option in Grub, 
 
 ### Linux Network Installs Menu
 
-For Operating System projects that provide a network bootable installer, this a lightweight method for installation as it retrieves a minimal set of installer kernels and then installs packages as needed. This is typically the faster method of OS installation. You can also leverage built in tools for doing rescue boots too.
+For Operating System projects that provide a network bootable installer, this a lightweight method for installation as it retrieves a minimal set of installer kernels and then installs packages as needed. This is typically the faster method of OS installation as it provides just enough installer to get you running and then downloads only the packages needed. You can also leverage built in tools for doing rescue boots too.
 
 ### Live CD/Distro Menu
 
@@ -30,4 +30,4 @@ The Utilities menu provides access to tools and utilities for tools like disk cl
 
 ## Supported Architectures
 
-netboot.xyz supports 32-bit and 64-bit x86 architectures and arm64 architectures. The menus identify the platform loaded and enable menu options based on the architecture loaded.
+netboot.xyz supports x86 (both 32-bit and 64-bit) as well as arm64 architectures. Both Legacy and UEFI BIOS modes are supported. The menus identify the platform loaded and enable menu options based on the architecture loaded.
