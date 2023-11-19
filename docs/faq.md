@@ -75,7 +75,7 @@ We have a CI/CD system that monitors upstream projects for new releases. When a 
 | Fatdog64 | https://distro.ibiblio.org/fatdog/web/ | No | Yes |
 | Fedora | https://fedoraproject.org | Yes | Yes |
 | Feren OS | https://ferenos.weebly.com/ | Yes | No |
-| Flatcar Linux | https://kinvolk.io/flatcar-container-linux/ | Yes | No |
+| Flatcar Linux | https://www.flatcar.org/releases/ | Yes | No |
 | FreeBSD | https://freebsd.org | Yes, disk image | No |
 | FreeDOS | https://www.freedos.org | ISO - Memdisk| No |
 | Garuda Linux | https://garudalinux.org/ | No | Yes |
