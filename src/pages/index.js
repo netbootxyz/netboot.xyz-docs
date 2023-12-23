@@ -3,6 +3,8 @@ import clsx from 'clsx';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import ThemedImage from '@theme/ThemedImage';
 import styles from './index.module.css';
 import HomepageFeatures from '../components/HomepageFeatures';
 
@@ -11,7 +13,13 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
-        <img src="img/nbxyz-transparent-logo-white.png"></img>
+      <ThemedImage
+        alt="netboot.xyz logo"
+        sources={{
+          light: useBaseUrl('img/nbxyz-transparent-logo-white.png'),
+          dark: useBaseUrl('img/nbxyz-transparent-logo-black.png'),
+        }}
+        />
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
           <Link
