@@ -113,7 +113,7 @@ We have a CI/CD system that monitors upstream projects for new releases. When a 
 | Scientific Linux | https://scientificlinux.org | Yes | No |
 | Septor | https://septor.sourceforge.io | No | Yes |
 | Slackware | https://www.slackware.com | Yes | No |
-| SmartOS | https://www.joyent.com/smartos | Yes | No |
+| SmartOS | https://www.smartos.org/ | Yes | No |
 | SparkyLinux | https://sparkylinux.org/ | No | Yes |
 | Tails | https://tails.boum.org/ | No | Yes |
 | Talos | https://www.talos.dev/ | Yes | No |
