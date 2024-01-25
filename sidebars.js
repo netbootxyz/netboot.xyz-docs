@@ -64,6 +64,7 @@ module.exports = {
           "Networking": [
             'kb/networking/asuswrt-merlin',
             'kb/networking/edgerouter',
+            'kb/networking/mikrotik',
           ],
         },
         {
