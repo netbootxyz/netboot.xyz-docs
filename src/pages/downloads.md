@@ -14,7 +14,7 @@ These iPXE disks will automatically load into [boot.netboot.xyz](https://boot.ne
 |ISO| [netboot.xyz.iso](https://boot.netboot.xyz/ipxe/netboot.xyz.iso)| Used for CD/DVD, Virtual CDs, DRAC/iLO, VMware, Virtual Box |
 |USB| [netboot.xyz.img](https://boot.netboot.xyz/ipxe/netboot.xyz.img)| Used for creation of USB Keys|
 
-#### Multiarch (x86_64 and arm64) Combined Legacy and UEFI iPXE Bootloaders
+#### Multi-arch (x86_64 and arm64) Combined Legacy and UEFI iPXE Bootloaders
 
 | Type | Bootloader | Description |
 |------|------------|-------------|
