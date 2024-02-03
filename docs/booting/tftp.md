@@ -10,7 +10,7 @@ If you want to utilize netboot.xyz from your home or office network, it's relati
 
 ### DHCP Server Setup
 
-You will have to tell your DHCP server to provide a "next-server", the address of a TFTP server on your network, and a "filename", the [netboot.xyz boot file](https://boot.netboot.xyz/ipxe/netboot.xyz.kpxe).  When your clients boot up, if they are set to network boot, they'll automatically get a valid DHCP address, pull down the netboot.xyz iPXE bootloader and load up the Operating System menu.
+You will have to tell your DHCP server to provide a "next-server", the address of a TFTP server on your network, and a "filename", the netboot.xyz boot file (you can choose among different architecture systems [here](https://netboot.xyz/downloads/). When your clients boot up, if they are set to network boot, they'll automatically get a valid DHCP address, pull down the netboot.xyz iPXE bootloader and load up the Operating System menu.
 
 Example:
 
