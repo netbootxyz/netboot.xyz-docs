@@ -22,7 +22,7 @@ filename "netboot.xyz.kpxe"
 If you are using [dnsmasq as your DHCP server](https://wiki.archlinux.org/index.php/dnsmasq#DHCP_server) as well as your TFTP server then setting the next-server option is as simple as adding the following line to `/etc/dnsmasq.conf`: 
 
 ```
-dhcp-option=66,0.0.0.0
+dhcp-option=66,"0.0.0.0"
 ```
 
 `0.0.0.0` is parsed as the address of the machine running dnsmasq.
