@@ -5,7 +5,12 @@ hide_table_of_contents: true
 ---
 ### Bootloader Downloads
 
-These iPXE disks will automatically load into [boot.netboot.xyz](https://boot.netboot.xyz):
+This download page provides the latest rolling releases of netboot.xyz. They are generated
+as updates occur and are the most up to date.
+
+If you are looking for the release versions, you can download them [here](https://github.com/netbootxyz/netboot.xyz/releases).
+
+All downloads will automatically load into the **boot.netboot.xyz** [endpoint](https://boot.netboot.xyz).
 
 #### x86_64 Combined Legacy and UEFI iPXE Bootloaders
 
