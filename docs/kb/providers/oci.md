@@ -69,7 +69,7 @@ sudo wget -O /boot/efi/netboot.xyz-snp.efi https://boot.netboot.xyz/ipxe/netboot
 # Delete the default configuration (does not contain UEFI Firmware by default)
 sudo rm -rf /etc/default/grub /etc/default/grub.d/
 
-# Update GRUB menu (with defalt configuration)
+# Update GRUB menu (with default configuration)
 sudo update-grub
 
 # Set the default boot entry (for the following boot only) to the UEFI firmware
