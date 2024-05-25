@@ -57,7 +57,7 @@ The output will be dropped into `/var/www/html` by default.  You can override th
 You can also leverage docker to generate the netboot.xyz menu and disks in a container which then outputs the results of the rendered templates and compiled iPXE disks into a directory.  First ensure you have docker installed and then run:
 
 ```bash
-docker build -t localbuild -f Dockerfile-build .
+docker build -t localbuild -f Dockerfile .
 docker run --rm -it -v $(pwd):/buildout localbuild
 ```
 
