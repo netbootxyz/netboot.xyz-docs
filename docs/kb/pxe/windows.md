@@ -41,3 +41,26 @@ Step 3. Set win_base_url to to point to the container's IP address, the correct 
 set win_base_url http://192.168.2.46:8000/WinPE
 ```
 Step 4. You shouldn't need to input the URL anymore when booting Windows so enjoy.
+
+### Extending the above to allow booting of multiple Windows images from one boot.wim
+Before you do this make sure you know how to follow the basics above.
+
+Step 1. `copype amd64 C:\WinPE_amd64`.
+
+Step 2. `Dism /Mount-Image /ImageFile:"C:\WinPE_amd64\media\sources\boot.wim" /Index:1 /MountDir:"C:\WinPE_amd64\mount"`.
+
+Step 3. Open notepad as Administrator and the open "C:\WinPE_amd64\mount\Windows\System32\startnet.cmd" and add the following subsiuting your own nework share info.
+`wpeinit
+net use F: \\192.168.0.24\iso\Win10_22H2_English_x64 /user:winPE PublicPassword123
+F:\init.bat`
+
+Step 4. `Dism /Unmount-Image /MountDir:C:\WinPE_amd64\mount /Commit`.
+
+Step 5. Upload "C:\WinPE_amd64\media\sources\boot.wim" to your netboot server as per the above in step 3.
+
+Step 6. Create "\\192.168.0.24\iso\Win10_22H2_English_x64\init.bat" and add.
+`F:\setup.exe`
+If you would like to use a unattend.xml file you can use.
+`F:\setup.exe /unattend:F:\unattend.xml`
+
+The above should now boot the boot.wim and then auto start the setup.exe. You could always extend your init.bat to contain a selection menu to chose what setup.exe you boot from Winodws 10 or 11.
