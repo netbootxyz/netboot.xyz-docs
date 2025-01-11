@@ -23,11 +23,10 @@ hide_table_of_contents: true
 ## Hosting Providers
 
 - [1gservers](https://1gservers.com/blog/system-administration/booting-into-netboot-xyz-is-now-supported/)
-- [Equinix Metal](https://metal.equinix.com/developers/docs/operating-systems/custom-ipxe/)
+- [Equinix Metal](https://deploy.equinix.com/developers/docs/metal/operating-systems/custom-ipxe/)
 - [ExtraVM](https://extravm.com/billing/knowledgebase/39/Can-I-use-my-own-ISO-on-VPS.html)
 - [Leaseweb](https://kb.leaseweb.com/products/dedicated-server/installing-servers-using-your-own-pxe-boot-environment/)
 - [MVPS](https://www.mvps.net/docs/how-to-use-netboot-xyz-iso-to-install-other-operating-systems-on-your-vps/)
-- [Qeru](https://billing.qeru.net/index.php?rp=/knowledgebase/5/VPS-FAQ.html)
 - [Vultr](https://www.vultr.com/docs/ipxe-boot-feature/)
 
 ## Open Source Projects
