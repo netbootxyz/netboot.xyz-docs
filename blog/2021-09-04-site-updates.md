@@ -1,13 +1,14 @@
 ---
 slug: 2021/09/04/doc-site-updates
 title: Site Updates
-author: Antony Messerli
-author_url: https://github.com/antonym
-author_image_url: https://avatars.githubusercontent.com/u/245007?v=4
+authors:
+  - antonym
 tags: [site-updates, netboot.xyz]
 ---
 
 It has been a while since an update, but the main netboot.xyz site has a new look to it. I switched from using [Hugo](https://gohugo.io/) to using [Docusaurus](https://docusaurus.io/). I also moved the blog from [Ghost](https://ghost.org/) to simplify things. I started down this path a while back and recently got around to polishing it all up and pushing it out. I plan on building out more content and docs over time to make it a great resource for everything netboot related. At some point, I still would like to get some updated pictures, logos, etc as well but those are a much lower priority.
+
+<!-- truncate -->
 
 I want to thank everyone who has contributed to the netboot.xyz community to this day. I originally started the project to create a quick way to install and test operating systems on VMs without having to download media and mount it everytime I needed to boot a new OS.  It is great to see that it is helping out others on a day to day basis. We recently crossed 150,000 main menu loads over the past 30 days so it is great to see it being used worldwide.
 

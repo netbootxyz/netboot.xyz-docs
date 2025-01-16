@@ -1,9 +1,8 @@
 ---
 slug: 2016/01/07/booting-linux-isos-with-memdisk-and-ipxe
 title: Booting Linux ISOs with Memdisk and iPXE
-author: Antony Messerli
-author_url: https://github.com/antonym
-author_image_url: https://avatars.githubusercontent.com/u/245007?v=4
+authors:
+  - antonym
 tags: [iso, memdisk, netboot.xyz, ipxe]
 ---
 
@@ -12,6 +11,8 @@ There are a number of distributions out there that provide proper support for bo
 There are some distributions out there that don't have this functionality and typically only produce the ISO without any repositories that provide installer kernels or the rootfs.
 
 In those cases, occasionally you can use memdisk and iPXE to boot those ISOs but they don't always work.  In doing some research, I ran across one of the major issues as to why.
+
+<!-- truncate -->
 
 ### Syslinux - Memdisk
 

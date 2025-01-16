@@ -1,15 +1,16 @@
 ---
 slug: 2019/11/29/self-hosting-and-live-booting
 title: Self Hosting and Live Booting
-author: Antony Messerli
-author_url: https://github.com/antonym
-author_image_url: https://avatars.githubusercontent.com/u/245007?v=4
+authors:
+  - antonym
 tags: [self_hosting, netboot.xyz]
 ---
 
 We have been hard at work the last few weeks and I wanted to provide some updates as to what we're currently working on and where we want to go.
 
 I would like to thank all of the contributors over the last few years that have contributed code, tested, and provided feedback for the project. The contributions have all been really helpful and have helped keep the project up to date.
+
+<!-- truncate -->
 
 ### Self Hosting
 

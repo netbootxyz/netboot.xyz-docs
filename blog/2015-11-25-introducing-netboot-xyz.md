@@ -1,13 +1,14 @@
 ---
 slug: 2015/11/25/introducing-netboot-xyz
+authors:
+  - antonym
 title: Introducing netboot.xyz
-author: Antony Messerli
-author_url: https://github.com/antonym
-author_image_url: https://avatars.githubusercontent.com/u/245007?v=4
 tags: [netboot.xyz]
 ---
 
 My newest project on the side is [netboot.xyz](https://netboot.xyz).  If you've seen [boot.rackspace.com](http://boot.rackspace.com), this should look pretty familiar to you.  I ran across cheap .xyz domains from [Namecheap](https://www.namecheap.com) (one dollar at the time!), and figured the netboot.xyz name space was much easier to remember and was more neutral to the goal I was trying to accomplish.  I forked boot.rackspace.com (still doing basic maintenance) and am now focusing my efforts on netboot.xyz.
+
+<!-- truncate -->
 
 My goal with the project is to make it easy as possible to boot many of the popular operating systems from bare metal, virtual machines, etc without the hassle of hunting down the latest ISO for the OS you want to download.  Ideally it's usable with any service provider or just someone who maintains their own servers.
 
