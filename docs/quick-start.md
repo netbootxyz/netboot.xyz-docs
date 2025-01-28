@@ -46,7 +46,7 @@ Memory requirements vary depending on the distribution. Live CD Images typically
 
 ### Source Code
 
-The source code for netboot.xyz is located on [Github](https://github.com/netbootxyz/netboot.xyz).
+The source code for netboot.xyz is located on [Github](https://github.com/netbootxyz/netboot.xyz). If you enjoy the project, make sure to give it a star!
 
 ### Contributing
 

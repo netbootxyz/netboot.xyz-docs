@@ -15,6 +15,10 @@ hide_table_of_contents: true
 - [Netboot Linux over the internet](https://news.ycombinator.com/item?id=14883590) (2017-07-29)
 - [Netboot](https://news.ycombinator.com/item?id=10923460) (2016-01-18)
 
+## Podcasts
+
+- [LINUX Unplugged - EP 592: Chris' Netboot Nonsense](https://www.jupiterbroadcasting.com/show/linux-unplugged/592/) (2024-12-08)
+
 ## Youtube
 
 - [TechnoTim: Meet netboot.xyz - Network Boot Any Operating System](https://youtu.be/4btW5x_clpg) (2023-11-11)

@@ -8,7 +8,7 @@ hide_table_of_contents: true
 
 If you have an existing Linux system where you are unable to use iPXE or boot from a disk image, but you can see the GRUB menu on boot, you can boot into netboot.xyz using `grub-imageboot`.
 
-## On Debian/Ubuntu
+## Debian and Ubuntu Based Systems
 
 ```bash
 # Install grub-imageboot
@@ -24,7 +24,7 @@ update-grub2
 reboot
 ```
 
-## On Red Hat Based Systems
+## Red Hat Based Systems
 
 ```shell
 yum install syslinux wget -y
