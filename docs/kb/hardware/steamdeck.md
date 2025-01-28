@@ -8,13 +8,13 @@ hide_table_of_contents: true
 
 ## Overview
 
-This is a guide to PXE booting the [Valve Steam Deck](https://store.steampowered.com/steamdeck).
+This is a guide to PXE booting the [Valve Steam Deck](https://amzn.to/4jBYBwv).
 
 ## Requirements
 
 To get the Steam Deck to PXE boot, you will need:
 
-- [USB-C Hub](https://amzn.to/3zveSgu) that supports Ethernet and USB
+- [USB-C Hub](https://amzn.to/3PRGzc4) that supports Ethernet and USB
 - USB Keyboard
 - Hard Wired Ethernet
 
