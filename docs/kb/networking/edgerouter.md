@@ -7,7 +7,7 @@ hide_table_of_contents: true
 
 This document covers how to setup netboot.xyz, a service that provides
 iPXE-based installation and live boot of a bunch of operating systems,
-on a Ubiquiti EdgeRouter.
+on a [Ubiquiti EdgeRouter](https://amzn.to/40zL2oL).
 
 Thanks go to [Sam Kottler](https://github.com/skottler) for originally writing up this how-to. Improve setup robustness by using the embedded TFTP daemon from dnsmasq by [Yan Grunenberger](https://github.com/ravens) instead of external TFTP package.
 
