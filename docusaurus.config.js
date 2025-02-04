@@ -98,11 +98,11 @@ module.exports = {
             },
             {
               label: "Discussions",
-              href: "https://github.com/netbootxyz/netboot.xyz/discussions",
+              href: "https://github.com/orgs/netbootxyz/discussions",
             },
             {
-              label: "Twitter",
-              href: "https://twitter.com/netbootxyz",
+              label: "X",
+              href: "https://x.com/netbootxyz",
             },
           ],
         },
