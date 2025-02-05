@@ -1,7 +1,7 @@
 ---
 title: Container Parameters
 sidebar_position: 3
-description: "Setting up the netboot.xyz Docker Container"
+description: "netboot.xyz Docker Container Parameters"
 hide_table_of_contents: true
 ---
 
