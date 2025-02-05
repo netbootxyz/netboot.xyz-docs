@@ -1,7 +1,8 @@
 ---
 id: ipxe
-title: Boot using iPXE
-sidebar_label: Boot using iPXE
+title: iPXE
+sidebar_label: iPXE
+sidebar_position: 4
 description: "Details how to chainload into netboot.xyz from iPXE"
 hide_table_of_contents: true
 ---

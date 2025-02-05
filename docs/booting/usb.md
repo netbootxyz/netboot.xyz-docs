@@ -1,7 +1,8 @@
 ---
 id: usb
-title: Booting from USB
-sidebar_label: Booting from USB
+title: USB
+sidebar_label: USB
+sidebar_position: 1
 description: "How to create a USB stick capable of booting into netboot.xyz"
 hide_table_of_contents: true
 ---

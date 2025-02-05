@@ -1,13 +1,12 @@
 ---
 id: quick-start
+sidebar_position: 2
 title: Quick Start
 description: "Getting started with netboot.xyz"
 hide_table_of_contents: true
 ---
 
-### Getting started
-
-[Download](https://netboot.xyz/downloads/) one of the netboot.xyz bootloaders that works best for your situation and start PXE booting your favorite operating system.  The bootloaders are precompiled versions of the latest version of [iPXE](https://github.com/ipxe/ipxe) that will allow you to PXE boot into [https://boot.netboot.xyz](https://boot.netboot.xyz).  If you have DHCP it'll automatically attempt to boot from DHCP.  If you need to set a static IP address, hit the 'm' key during boot up for the failsafe menu and choose manual network configuration.
+[Download](https://netboot.xyz/downloads/) one of the netboot.xyz bootloaders that works best for your situation and start PXE booting your favorite operating system.  The bootloaders are precompiled versions of the latest version of [iPXE](https://github.com/ipxe/ipxe) that will allow you to PXE boot into [https://boot.netboot.xyz](https://boot.netboot.xyz).  If you have DHCP it'll automatically attempt to boot from DHCP.  If you need to set a static IP address, hit the **`m`** key during boot up for the failsafe menu and choose manual network configuration.
 
 You can look at the next section entitled [Booting Methods](https://netboot.xyz/docs/category/booting-methods) for instructions on how to set up the downloaded bootloader.
 

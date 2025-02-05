@@ -11,6 +11,10 @@ module.exports = {
   favicon: "img/favicon.ico",
   organizationName: "netbootxyz",
   projectName: "netboot.xyz",
+  markdown: {
+    mermaid: true,
+  },
+  themes: ['@docusaurus/theme-mermaid'],
   themeConfig: {
     metadata: [{name: 'keywords', content: 'ipxe, netbootxyz, pxe, linux, os, operating system, install, installer, netboot, netboot.xyz'}],
     prism: {
@@ -23,6 +27,9 @@ module.exports = {
     },
     docsSideNavCollapsible: true,
     image: 'img/nbxyz_logo_name.png',
+    mermaid: {
+      theme: {light: 'neutral', dark: 'dark'},
+    },
     announcementBar: {
       id: "announcementBar-1", // Increment on change
       content: `If you like netboot.xyz, give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/netbootxyz/netboot.xyz">GitHub</a>⭐️, follow us on <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/netbootxyz" >Twitter</a> ${TwitterSvg} and join our <a target="_blank" rel="noopener noreferrer" href="https://discord.gg/An6PA2a">Discord</a>!`,
