@@ -69,6 +69,11 @@ module.exports = {
           position: "left",
         },
         {
+          href: "https://store.netboot.xyz",
+          label: "Store",
+          position: "left",
+        },
+        {
           href: "https://github.com/netbootxyz/netboot.xyz",
           position: "right",
           className: "header-github-link",
