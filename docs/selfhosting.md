@@ -1,6 +1,7 @@
 ---
 id: selfhosting
 title: Self Hosting
+sidebar_position: 4
 description: "How to self host your own netboot.xyz in your environment"
 hide_table_of_contents: true
 ---

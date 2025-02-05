@@ -1,7 +1,8 @@
 ---
 id: iso
-title: Booting with an ISO
-sidebar_label: Booting with an ISO
+title: ISO
+sidebar_label: ISO
+sidebar_position: 2
 description: "How to use an ISO to boot into netboot.xyz"
 hide_table_of_contents: true
 ---
