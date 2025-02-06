@@ -1,7 +1,7 @@
 ---
 id: tftp
-title: TFTP
-sidebar_label: TFTP
+title: Boot from TFTP
+sidebar_label: Boot from TFTP
 sidebar_position: 3
 description: "Methods of booting into netboot.xyz using TFTP and DHCP"
 hide_table_of_contents: true

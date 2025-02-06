@@ -1,7 +1,7 @@
 ---
 id: qemu
 title: QEMU
-sidebar_label: QEMU
+sidebar_label: Boot with QEMU
 sidebar_position: 6
 description: "Methods of booting into netboot.xyz using QEMU"
 hide_table_of_contents: true

@@ -1,7 +1,7 @@
 ---
 id: grub
 title: Booting from an existing Linux installation using GRUB
-sidebar_label: GRUB
+sidebar_label: Boot from GRUB
 sidebar_position: 5
 description: "How to use GRUB to boot into netboot.xyz"
 hide_table_of_contents: true
