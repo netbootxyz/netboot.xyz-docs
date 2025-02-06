@@ -20,23 +20,31 @@ netboot.xyz was originally a hosted only tool and used static source files that 
 
 The netbootxyz Ansible [role](https://github.com/netbootxyz/netboot.xyz/tree/master/roles/netbootxyz) is located in the main netboot.xyz repository.  Most of the logic for netboot.xyz is contained in these areas:
 
-* defaults/main.yml - Consists default settings for deployment, OS versions, Utilities, and Bootloaders
-* tasks/* - Contains all tasks for rendering templates and compiling iPXE bootloaders 
-* templates/disks - Templates for iPXE bootloaders
-* templates/menus - Templates for netboot.xyz menus
-* vars/* - Contain required package lists needed to support the compile and deployment of netboot.xyz
+* `defaults/main.yml` - Consists default settings for deployment, OS versions, Utilities, and Bootloaders
+* `tasks/*` - Contains all tasks for rendering templates and compiling iPXE bootloaders 
+* `templates/disks` - Templates for iPXE bootloaders
+* `templates/menus` - Templates for netboot.xyz menus
+* `vars/*` - Contain required package lists needed to support the compile and deployment of netboot.xyz
 
 #### Deploying using Ansible
 
-To run a deployment using Ansible, first install Ansible, Apache and git:
+To run a deployment using Ansible, install Ansible, Apache and git:
 
-```bash
-# For Debian/Ubuntu:
-apt install -y ansible git apache2
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-# For Red Hat/CentOS/Fedora
-yum install -y ansible git httpd
-```
+<Tabs>
+  <TabItem value="deb" label="Debian/Ubuntu" default>
+    ```shell
+    sudo apt install -y ansible git apache2
+    ```
+  </TabItem>
+  <TabItem value="rhel" label="RHEL/Rocky Linux/Fedora">
+    ```bash
+    sudo dnf install -y ansible git httpd
+    ```
+  </TabItem>
+</Tabs>
 
 Then check out the netboot.xyz repo:
 
@@ -55,7 +63,7 @@ The output will be dropped into `/var/www/html` by default.  You can override th
 
 #### Deploying with Docker
 
-You can also leverage docker to generate the netboot.xyz menu and disks in a container which then outputs the results of the rendered templates and compiled iPXE disks into a directory.  First ensure you have docker installed and then run:
+You can also leverage Docker to generate the netboot.xyz menu and disks in a container which then outputs the results of the rendered templates and compiled iPXE disks into a directory.  First ensure you have Docker installed and then run:
 
 ```bash
 docker build -t localbuild -f Dockerfile .
