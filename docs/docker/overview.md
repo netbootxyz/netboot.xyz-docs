@@ -25,15 +25,37 @@ The container runs under both x86_64 and ARM based architectures.
 
 The following diagram details the flow of how netboot.xyz serves content to a client and how it works when the Docker container is used:
 
-```mermaid
-graph TD
-    A[Client Computer] -->|PXE Boot Request| B{netboot.xyz container?}
-    B -- Yes --> C[netboot.xyz container]
-    C -- Local request --> D[Serve netboot.xyz]
-    C -- Unavailable --> E[boot.netboot.xyz]
-    B -- No --> E
-    E -->|Internet Request| F[boot.netboot.xyz]
-    F --> G[Serve netboot.xyz]
-    G --> H[Client Boots OS]
-    D --> H
-```
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+
+  <TabItem value="lr-diag" label="Left Right" default>
+  ```mermaid
+  graph LR
+      A[Client Computer] -->|PXE Boot Request| B{netboot.xyz container?}
+      B -- Yes --> C[netboot.xyz container]
+      C -- Local request --> D[Serve netboot.xyz]
+      C -- Unavailable --> E[boot.netboot.xyz]
+      B -- No --> E
+      E -->|Internet Request| F[boot.netboot.xyz]
+      F --> G[Serve netboot.xyz]
+      G --> H[Client Boots OS]
+      D --> H
+  ```
+  </TabItem>
+  <TabItem value="td-diag" label="Top Down">
+  ```mermaid
+  graph TD
+      A[Client Computer] -->|PXE Boot Request| B{netboot.xyz container?}
+      B -- Yes --> C[netboot.xyz container]
+      C -- Local request --> D[Serve netboot.xyz]
+      C -- Unavailable --> E[boot.netboot.xyz]
+      B -- No --> E
+      E -->|Internet Request| F[boot.netboot.xyz]
+      F --> G[Serve netboot.xyz]
+      G --> H[Client Boots OS]
+      D --> H
+  ```
+  </TabItem>
+</Tabs>
