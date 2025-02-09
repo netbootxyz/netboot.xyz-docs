@@ -1,6 +1,7 @@
 ---
 id: faq
 title: Frequently Asked Questions (FAQ)
+sidebar_position: 7
 sidebar_label: FAQ
 description: "Frequently Asked Questions about the netboot.xyz project"
 hide_table_of_contents: true
