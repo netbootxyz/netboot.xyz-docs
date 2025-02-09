@@ -16,7 +16,7 @@ The following are some configuration examples for setting up a DHCP server to ge
 
 ### Setting up dnsmasq
 
-To install dnsmasq as your DHCP server under Debian and Ubuntu run:
+To install dnsmasq as your DHCP server run:
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
