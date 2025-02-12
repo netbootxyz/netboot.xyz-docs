@@ -74,6 +74,11 @@ module.exports = {
           position: "left",
         },
         {
+          href: "https://github.com/sponsors/netbootxyz",
+          label: "Donate",
+          position: "left",
+        },       
+        {
           href: "https://github.com/netbootxyz/netboot.xyz",
           position: "right",
           className: "header-github-link",
