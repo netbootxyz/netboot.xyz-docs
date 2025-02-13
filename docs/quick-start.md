@@ -24,6 +24,8 @@ chain --autofree http://boot.netboot.xyz/ipxe/netboot.xyz.efi
 
 This will load the appropriate netboot.xyz kernel with all of the proper options enabled.
 
+You can also boot into netboot.xyz using a local UEFI executable. This method involves placing the UEFI executable on the EFI system partition and configuring the UEFI boot manager to boot from it. For more details, refer to the [Booting from a Local UEFI Executable](https://netboot.xyz/docs/booting/uefi) guide.
+
 :::info
 
 If your version of iPXE has HTTPS support compiled in, you can retrieve those images over HTTPS. By default the upstream iPXE project does not compile in HTTPS support.
