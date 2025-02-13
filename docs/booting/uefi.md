@@ -2,7 +2,7 @@
 id: uefi
 title: Booting from a Local UEFI Executable
 sidebar_label: Boot from UEFI
-sidebar_position: 8
+sidebar_position: 4
 description: "How to use a local UEFI executable to boot into netboot.xyz"
 hide_table_of_contents: true
 ---
