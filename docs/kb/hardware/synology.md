@@ -8,25 +8,25 @@ hide_table_of_contents: false
 
 ## Overview
 
-This guide will walk you through the steps to install netboot.xyz onto a [Synology NAS](https://amzn.to/430KH1n) using Docker.
+This guide will walk you through the steps to install netboot.xyz onto a [Synology NAS](https://amzn.to/430KH1n) using Container Manager.
 
 ## Requirements
 
 - [Synology NAS](https://amzn.to/430KH1n) with Container Manager support
-- Docker package installed on the Synology NAS
+- Container Manager package installed on the Synology NAS
 - Internet connection
 
 ### Install Container Manager
 
 Open the Synology Package Center, search for "Container Manager", and click "Install".
 
-### Download netboot.xyz Docker Image
+### Download netboot.xyz Container Image
 
 Open Container Manager from the main menu, go to the "Registry" tab, and search for `netbootxyz`. Select the `netbootxyz/netboot.xyz` image from the list, click "Download", and choose the latest version.
 
 ### Create and Configure the Container
 
-Go to the "Image" tab in Docker, select the `netbootxyz/netboot.xyz` image, and click "Run". In the "Create Container" wizard, configure the following settings:
+Go to the "Image" tab in Container Manager, select the `netbootxyz/netboot.xyz` image, and click "Run". In the "Create Container" wizard, configure the following settings:
 
 - **General Settings**:
   - Container Name: `netbootxyz`
@@ -48,7 +48,7 @@ Click "Apply" to create the container.
 
 ### Start the Container
 
-Go to the "Container" tab in Docker, select the `netbootxyz` container, and click "Start".
+Go to the "Container" tab in Container Manager, select the `netbootxyz` container, and click "Start".
 
 ### Access netboot.xyz
 
@@ -56,4 +56,4 @@ Open a web browser and navigate to the IP address of your Synology NAS on port 3
 
 ## Conclusion
 
-You have successfully installed netboot.xyz on your Synology NAS using Docker. You can now use netboot.xyz to manage and boot various operating systems over the network.
+You have successfully installed netboot.xyz on your Synology NAS using Container Manager. You can now use netboot.xyz to manage and boot various operating systems over the network.
