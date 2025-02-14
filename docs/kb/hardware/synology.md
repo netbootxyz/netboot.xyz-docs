@@ -3,7 +3,7 @@ id: synology
 title: Installing netboot.xyz on Synology NAS
 sidebar_label: Synology NAS
 description: Installing netboot.xyz onto a Synology NAS in a container
-hide_table_of_contents: false
+hide_table_of_contents: true
 ---
 
 ## Overview
