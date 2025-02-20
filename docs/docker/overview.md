@@ -1,7 +1,7 @@
 ---
 title: Overview
 sidebar_position: 1
-slug: /docs/docker
+slug: /docker/
 description: "Overview of the netboot.xyz docker container"
 hide_table_of_contents: true
 ---
