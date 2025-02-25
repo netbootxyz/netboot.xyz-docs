@@ -1,9 +1,10 @@
-import React from "react";
+import React, { Suspense } from "react";
 import clsx from "clsx";
 import styles from "./HomepageFeatures.module.css";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import ThemedImage from "@theme/ThemedImage";
 
+// List of features to be displayed on the homepage
 const FeatureList = [
   {
     title: "Simple to Use",
@@ -39,11 +40,19 @@ const FeatureList = [
   },
 ];
 
+// LazyImage component to lazy load images
+const LazyImage = ({ sources, alt, className }) => (
+  <Suspense fallback={<div>Loading...</div>}>
+    <ThemedImage sources={sources} alt={alt} className={className} />
+  </Suspense>
+);
+
+// Feature component to display individual features
 function Feature({ Svg, title, description }) {
   return (
     <div className={clsx("col col--4")}>
       <div className="text--center">
-        <ThemedImage
+        <LazyImage
           sources={{
             light: useBaseUrl(Svg[0]),
             dark: useBaseUrl(Svg[1]),
