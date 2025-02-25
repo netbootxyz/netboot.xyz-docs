@@ -1,8 +1,9 @@
-import React, { Suspense } from "react";
+import React, { Suspense, lazy } from "react";
 import clsx from "clsx";
 import styles from "./HomepageFeatures.module.css";
 import useBaseUrl from "@docusaurus/useBaseUrl";
-import ThemedImage from "@theme/ThemedImage";
+
+const ThemedImage = lazy(() => import("@theme/ThemedImage"));
 
 // List of features to be displayed on the homepage
 const FeatureList = [
