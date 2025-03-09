@@ -4,7 +4,7 @@ title: Frequently Asked Questions (FAQ)
 sidebar_position: 7
 sidebar_label: FAQ
 description: "Frequently Asked Questions about the netboot.xyz project"
-hide_table_of_contents: true
+hide_table_of_contents: false
 ---
 
 ### What is this?
@@ -76,7 +76,7 @@ We have a CI/CD system that monitors upstream projects for new releases. When a 
 | Fatdog64 | https://distro.ibiblio.org/fatdog/web/ | No | Yes |
 | Fedora | https://fedoraproject.org | Yes | Yes |
 | Feren OS | https://ferenos.weebly.com/ | Yes | No |
-| Flatcar Linux | https://www.flatcar.org/releases/ | Yes | No |
+| Flatcar Container Linux | https://www.flatcar.org | Yes | No |
 | FreeBSD | https://freebsd.org | Yes, disk image | No |
 | FreeDOS | https://www.freedos.org | ISO - Memdisk| No |
 | Garuda Linux | https://garudalinux.org/ | No | Yes |
@@ -85,6 +85,7 @@ We have a CI/CD system that monitors upstream projects for new releases. When a 
 | hrmpf | https://github.com/leahneukirchen/hrmpf/ | No | Yes |
 | IPFire | https://www.ipfire.org | Yes | No |
 | K3OS | https://k3os.io/ | Yes | Yes |
+| Kairos | https://kairos.io/ | Yes | No |
 | Kali Linux | https://www.kali.org | Yes | Yes |
 | KDE Neon | https://neon.kde.org | No | Yes |
 | Kodachi | https://www.digi77.com/linux-kodachi/ | No | Yes |
@@ -98,59 +99,57 @@ We have a CI/CD system that monitors upstream projects for new releases. When a 
 | Nitrux | https://nxos.org/ | No | Yes |
 | NixOS | https://nixos.org | Yes | No |
 | OpenBSD | https://openbsd.org | Yes | No |
-| openEuler | https://www.openeuler.org/ | Yes | No |
-| OpenSUSE | https://opensuse.org | Yes | No |
+| openEuler | https://openeuler.org | Yes | No |
+| openSUSE | https://opensuse.org | Yes | No |
 | Oracle Linux | https://www.oracle.com/linux/ | Yes | Installer |
 | Parrot Security | https://www.parrotsec.org | No | Yes |
 | Peppermint | https://peppermintos.com | No | Yes |
 | Pop OS |https://system76.com/pop| No | Yes |
-| Proxmox VE | https://www.proxmox.com/ | Yes | No |
+| Proxmox Open Source Products | https://www.proxmox.com/ | Yes | No |
 | Q4OS | https://q4os.org | No | Yes |
 | Raizo | https://sourceforge.net/projects/live-raizo/ | No | Yes |
-| RancherOS | https://rancher.com/rancher-os | Yes | No |
 | Red Hat Enterprise Linux | https://www.redhat.com | User supplied media | No |
 | Regolith | https://regolith-linux.org | No | Yes |
 | Rocky Linux | https://rockylinux.org/ | Yes | No |
-| Scientific Linux | https://scientificlinux.org | Yes | No |
 | Septor | https://septor.sourceforge.io | No | Yes |
 | Slackware | https://www.slackware.com | Yes | No |
 | SmartOS | https://www.smartos.org/ | Yes | No |
 | SparkyLinux | https://sparkylinux.org/ | No | Yes |
-| Tails | https://tails.boum.org/ | No | Yes |
+| Tails | https://tails.net | No | Yes |
 | Talos | https://www.talos.dev/ | Yes | No |
-| Tiny Core Linux | http://www.tinycorelinux.net/ | Yes | Yes |
+| Tiny Core Linux | https://tinycorelinux.net | Yes | Yes |
 | Ubuntu | https://www.ubuntu.com | Yes | Yes |
 | VMware | https://www.vmware.com | User supplied media | No |
+| VMware Photon | https://vmware.github.io/photon/ | Yes | No |
+| Vanilla OS | https://vanillaos.org | No | Yes |
 | Voyager | https://voyagerlive.org | No | Yes |
 | VyOS | https://vyos.io | Yes | No |
 | Zen Installer | https://sourceforge.net/projects/revenge-installer | Yes | No |
-| Zorin OS | https://zorinos.com | No | Yes |
+| Zorin OS | https://zorin.com | No | Yes |
 
 ### Utilities
 
 | Name       | URL                     | Type |
 |------------|-------------------------|------|
 | 4MLinux | https://4mlinux.com/ | Kernel/Initrd |
-| ALT Linux Rescue | https://en.altlinux.org/Rescue | ISO - Memdisk |
-| BakAndImgCD | https://bakandimgcd.4mlinux.com/ | Kernel/Initrd |
 | Boot Repair CD | https://sourceforge.net/projects/boot-repair-cd/ | LiveCD |
 | Breakin | https://www.advancedclustering.com/products/software/breakin/ | Kernel/Initrd |
 | CAINE | https://www.caine-live.net/ | LiveCD |
-| Clonezilla | https://clonezilla.org/ | LiveCD |
-| DBAN | https://dban.org/ | Kernel |
+| Clonezilla | https://www.clonezilla.org/ | LiveCD |
+| DBAN | https://www.dban.org/ | Kernel |
 | GParted | https://gparted.org | LiveCD |
 | Grml | https://grml.org | LiveCD |
-| Kaspersky Rescue Disk | https://support.kaspersky.com/viruses/krd18 | LiveCD |
+| Kaspersky Rescue Disk | https://support.kaspersky.com/krd18 | LiveCD |
 | Memtest | https://www.memtest.org/ | Kernel |
 | MemTest86 Free | https://www.memtest86.com | USB Img |
 | Redo Rescue | http://redorescue.com/ | LiveCD |
 | Rescatux | https://www.supergrubdisk.org/rescatux/ | LiveCD |
 | Rescuezilla | https://rescuezilla.com/ | LiveCD |
 | ShredOS | https://github.com/PartialVolume/shredos.x86_64 | Kernel | 
-| Super Grub2 Disk | https://www.supergrubdisk.org/ | ISO - Memdisk |
-| System Rescue | https://www.system-rescue.org/ | LiveCD |
-| The Smallest Server Suite | https://thesss.4mlinux.com/ | Kernel/Initrd |
-| Ultimate Boot CD | https://www.ultimatebootcd.com/ | ISO - Memdisk |
+| Super Grub2 Disk | https://www.supergrubdisk.org | ISO - Memdisk |
+| System Rescue | https://system-rescue.org/ | LiveCD |
+| Ultimate Boot CD | https://www.ultimatebootcd.com | ISO - Memdisk |
+| ZFSBootMenu | https://docs.zfsbootmenu.org/ | Kernel |
 
 ### What are some good resources for learning more about network booting?
 
