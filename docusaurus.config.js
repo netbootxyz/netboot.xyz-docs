@@ -52,13 +52,13 @@ module.exports = {
       },
       items: [
         {
-          to: "docs/",
+          to: "docs",
           activeBasePath: "docs",
           label: "Docs",
           position: "left",
         },
         {
-          to: "downloads/",
+          to: "downloads",
           activeBasePath: "downloads",
           label: "Downloads",
           position: "left",
@@ -94,11 +94,11 @@ module.exports = {
           items: [
             {
               label: "Documentation",
-              to: "docs/",
+              to: "docs",
             },
             {
               label: "Downloads",
-              to: "downloads/",
+              to: "downloads",
             },
             {
               label: "Blog",
