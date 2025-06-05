@@ -1,4 +1,4 @@
----
+---Control + Shift + mtabesctab
 id: windows
 title: "Windows"
 description: "Installing Windows using netboot.xyz and the Docker container."
