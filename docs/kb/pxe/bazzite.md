@@ -9,7 +9,7 @@ hide_table_of_contents: true
 
 ## Overview
 
-To be able to use Bazzite's ISO with `netboot.xyz` you will need:
+To be able to use Bazzite's ISO with `netboot.xyz` you will need the following:
 - A NFS server
 - A local netboot.xyz server [you can use  Docker Container > Setting up the container with the Docker CLI](https://netboot.xyz/docs/docker/usage#starting-up-the-container-with-the-docker-cli)
 
