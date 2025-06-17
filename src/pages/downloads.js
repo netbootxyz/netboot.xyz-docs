@@ -178,15 +178,15 @@ export default function Downloads() {
 
           <DownloadSection
             title="UEFI Bootloaders - ARM64"
-            description="Bootloaders for ARM64-based systems and servers."
+            description="Modern UEFI bootloaders for ARM64 systems."
             downloads={arm64Bootloaders}
             isCollapsible={true}
             defaultExpanded={false}
           />
 
           <DownloadSection
-            title="BIOS Bootloaders - PCBIOS (Legacy)"
-            description="Specialized bootloaders for older systems and advanced use cases."
+            title="BIOS Bootloaders - Legacy"
+            description="Legacy BIOS bootloaders for x86_64 systems."
             downloads={legacyBootloaders}
             isCollapsible={true}
             defaultExpanded={false}
