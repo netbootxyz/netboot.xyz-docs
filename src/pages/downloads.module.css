@@ -1,0 +1,108 @@
+.downloadsPage {
+  padding: 2rem 0 4rem;
+  min-height: calc(100vh - 200px);
+}
+
+.pageHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+  padding-bottom: 2rem;
+  border-bottom: 3px solid var(--ifm-color-primary);
+}
+
+.pageHeader h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--ifm-color-emphasis-800);
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--ifm-color-primary), var(--ifm-color-primary-dark));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.pageDescription {
+  font-size: 1.2rem;
+  color: var(--ifm-color-emphasis-700);
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+
+.infoBox {
+  background: var(--ifm-color-info-contrast-background);
+  border: 1px solid var(--ifm-color-info);
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.infoBox p {
+  margin: 0;
+  color: var(--ifm-color-info-contrast-foreground);
+}
+
+.infoBox a {
+  color: var(--ifm-color-info-dark);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.infoBox a:hover {
+  color: var(--ifm-color-info-darker);
+}
+
+.checksumsSection {
+  margin-top: 4rem;
+  padding: 2rem;
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 12px;
+  border-left: 4px solid var(--ifm-color-warning);
+}
+
+.checksumsSection h3 {
+  margin-top: 0;
+  color: var(--ifm-color-emphasis-800);
+  font-size: 1.3rem;
+}
+
+.checksumsSection p {
+  margin-bottom: 0;
+  color: var(--ifm-color-emphasis-700);
+  line-height: 1.6;
+}
+
+.checksumsSection a {
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+}
+
+.checksumsSection a:hover {
+  color: var(--ifm-color-primary-dark);
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .downloadsPage {
+    padding: 1rem 0 2rem;
+  }
+
+  .pageHeader {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+  }
+
+  .pageHeader h1 {
+    font-size: 2rem;
+  }
+
+  .pageDescription {
+    font-size: 1rem;
+  }
+
+  .checksumsSection {
+    margin-top: 2rem;
+    padding: 1.5rem;
+  }
+}
