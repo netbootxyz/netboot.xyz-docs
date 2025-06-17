@@ -1,0 +1,89 @@
+.downloadSection {
+  margin-bottom: 3rem;
+}
+
+.sectionHeader {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--ifm-color-emphasis-200);
+}
+
+.collapsible {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  background: var(--ifm-background-surface-color);
+  transition: all 0.2s ease;
+}
+
+.collapsible:hover {
+  border-color: var(--ifm-color-primary);
+  background: var(--ifm-color-emphasis-100);
+}
+
+.sectionTitle {
+  margin: 0;
+  color: var(--ifm-color-emphasis-800);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.sectionDescription {
+  margin: 0.5rem 0 0 0;
+  color: var(--ifm-color-emphasis-600);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.toggleButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  color: var(--ifm-color-emphasis-600);
+  transition: color 0.2s ease;
+}
+
+.toggleButton:hover {
+  color: var(--ifm-color-primary);
+}
+
+.chevron {
+  transition: transform 0.2s ease;
+}
+
+.chevron.expanded {
+  transform: rotate(180deg);
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .cardsGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.25rem;
+  }
+
+  .collapsible {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .toggleButton {
+    align-self: flex-end;
+  }
+}

@@ -1,0 +1,143 @@
+.downloadCard {
+  position: relative;
+  background: var(--ifm-card-background-color, #fff);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.2s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.downloadCard:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.recommended {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 4px 12px rgba(37, 194, 160, 0.2);
+}
+
+.recommendedBadge {
+  position: absolute;
+  top: -8px;
+  right: 16px;
+  background: white;
+  border: 1px solid var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] .recommendedBadge {
+  background: var(--ifm-card-background-color);
+  border: 1px solid var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1rem;
+}
+
+.icon {
+  font-size: 1.5rem;
+  color: var(--ifm-color-primary);
+  min-width: 24px;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-800);
+  flex: 1;
+}
+
+.type {
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-emphasis-700);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.description {
+  color: var(--ifm-color-emphasis-600);
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+  flex: 1;
+}
+
+.downloadButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: white;
+  border: 2px solid var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.downloadButton:hover {
+  background: var(--ifm-color-primary);
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 194, 160, 0.2);
+}
+
+[data-theme='dark'] .downloadButton {
+  background: var(--ifm-card-background-color);
+  border: 2px solid var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+}
+
+[data-theme='dark'] .downloadButton:hover {
+  background: var(--ifm-color-primary);
+  color: var(--ifm-card-background-color);
+}
+
+.downloadButton svg {
+  transition: transform 0.2s ease;
+}
+
+.downloadButton:hover svg {
+  transform: translateY(2px);
+}
+
+@media (max-width: 768px) {
+  .downloadCard {
+    padding: 1rem;
+  }
+
+  .cardHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .title {
+    font-size: 1rem;
+  }
+}
