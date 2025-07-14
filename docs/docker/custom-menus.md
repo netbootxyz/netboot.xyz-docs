@@ -45,7 +45,7 @@ chain custom/custom.ipxe
 
 With:
 ```bash
-chain custom/custom.ipxe
+chain custom.ipxe
 ```
 
 ### Step 4: Configure Your Custom Menu
