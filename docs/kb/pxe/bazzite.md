@@ -59,6 +59,11 @@ initrd ${live_endpoint}/ISO/bazzite/images/pxeboot/initrd.img
 boot
 ```
 - Save the file
+- Still in the netboot.xyz web interface, edit the `linux.ipxe` script, and add a line under `menu Linux Isntallers - Current Arch [ ${arch} ]`
+``` 
+item bazzite ${space} Bazzite
+```
+- Save the file
 
 ## Boot your server
 
