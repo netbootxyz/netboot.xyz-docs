@@ -136,6 +136,6 @@ If you encounter issues with your custom menu:
 
 ## Related Documentation
 
-- [Self Hosting](./selfhosting.md) - For information about self-hosted custom options
-- [FAQ](./faq.md) - For general questions about netboot.xyz
-- [Quick Start](./quick-start.md) - For getting started with netboot.xyz
+- [Self Hosting](../selfhosting.md) - For information about self-hosted custom options
+- [FAQ](../faq.md) - For general questions about netboot.xyz
+- [Quick Start](../quick-start.md) - For getting started with netboot.xyz
