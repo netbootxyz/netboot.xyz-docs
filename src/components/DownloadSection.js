@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import clsx from 'clsx';
 import DownloadCard from './DownloadCard';
 import styles from './DownloadSection.module.css';
@@ -9,7 +9,7 @@ const DownloadSection = ({
   description,
   downloads,
   isCollapsible = false,
-  defaultExpanded = true
+  defaultExpanded = true,
 }) => {
   const [isExpanded, setIsExpanded] = useState(defaultExpanded);
 
@@ -24,7 +24,7 @@ const DownloadSection = ({
       <div
         className={clsx(
           styles.sectionHeader,
-          isCollapsible && styles.collapsible
+          isCollapsible && styles.collapsible,
         )}
         onClick={toggleExpanded}
       >
@@ -41,7 +41,7 @@ const DownloadSection = ({
               fill="currentColor"
               className={clsx(styles.chevron, isExpanded && styles.expanded)}
             >
-              <path d="M7.41 8.84L12 13.42l4.59-4.58L18 10.25l-6 6-6-6z"/>
+              <path d="M7.41 8.84L12 13.42l4.59-4.58L18 10.25l-6 6-6-6z" />
             </svg>
           </button>
         )}

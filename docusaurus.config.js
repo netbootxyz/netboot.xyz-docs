@@ -14,6 +14,7 @@ module.exports = {
   markdown: {
     mermaid: true,
   },
+  staticDirectories: ['static'],
   themes: ['@docusaurus/theme-mermaid'],
   themeConfig: {
     metadata: [
@@ -161,6 +162,18 @@ module.exports = {
       copyright: `Copyright © ${new Date().getFullYear()} netboot.xyz`,
     },
   },
+  plugins: [
+    [
+      '@docusaurus/plugin-ideal-image',
+      {
+        quality: 70,
+        max: 1030,
+        min: 640,
+        steps: 2,
+        disableInDev: false,
+      },
+    ],
+  ],
   presets: [
     [
       "@docusaurus/preset-classic",

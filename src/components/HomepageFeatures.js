@@ -1,15 +1,15 @@
-import React, { Suspense, lazy } from "react";
-import clsx from "clsx";
-import styles from "./HomepageFeatures.module.css";
-import useBaseUrl from "@docusaurus/useBaseUrl";
+import React, {Suspense, lazy} from 'react';
+import clsx from 'clsx';
+import styles from './HomepageFeatures.module.css';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
-const ThemedImage = lazy(() => import("@theme/ThemedImage"));
+const ThemedImage = lazy(() => import('@theme/ThemedImage'));
 
 // List of features to be displayed on the homepage
 const FeatureList = [
   {
-    title: "Simple to Use",
-    Svg: ["./img/nbxyz-user.svg", "./img/nbxyz-user.svg"],
+    title: 'Simple to Use',
+    Svg: ['./img/nbxyz-user.svg', './img/nbxyz-user.svg'],
     description: (
       <>
         netboot.xyz enables you to boot into many types of operating systems
@@ -18,8 +18,8 @@ const FeatureList = [
     ),
   },
   {
-    title: "Evaluate, Install, Rescue",
-    Svg: ["./img/nbxyz-laptop.gif", "./img/nbxyz-laptop.gif"],
+    title: 'Evaluate, Install, Rescue',
+    Svg: ['./img/nbxyz-laptop.gif', './img/nbxyz-laptop.gif'],
     description: (
       <>
         Discover new operating systems without having to download and rewrite
@@ -29,8 +29,8 @@ const FeatureList = [
     ),
   },
   {
-    title: "Powered by the iPXE project",
-    Svg: ["./img/ipxechip.svg", "./img/ipxechip.svg"],
+    title: 'Powered by the iPXE project',
+    Svg: ['./img/ipxechip.svg', './img/ipxechip.svg'],
     description: (
       <>
         netboot.xyz uses the iPXE project to enable you to provision, rescue or
@@ -42,16 +42,16 @@ const FeatureList = [
 ];
 
 // LazyImage component to lazy load images
-const LazyImage = ({ sources, alt, className }) => (
+const LazyImage = ({sources, alt, className}) => (
   <Suspense fallback={<div>Loading...</div>}>
     <ThemedImage sources={sources} alt={alt} className={className} />
   </Suspense>
 );
 
 // Feature component to display individual features
-function Feature({ Svg, title, description }) {
+function Feature({Svg, title, description}) {
   return (
-    <div className={clsx("col col--4")}>
+    <div className={clsx('col col--4')}>
       <div className="text--center">
         <LazyImage
           sources={{

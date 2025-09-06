@@ -42,4 +42,52 @@ html[data-theme='dark'] .header-github-link:before {
     no-repeat;
 }
 
-html[data-theme='dark'] .navbar .navbar__logo { content: url(../../static/img/nbxyz-logo-dark.svg) }
+html[data-theme='dark'] .navbar .navbar__logo {
+  content: url(../../static/img/nbxyz-logo-dark.svg);
+}
+
+/* Copy button styles */
+.copy-code-button {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.copy-code-button:hover {
+  background-color: var(--ifm-color-emphasis-200) !important;
+  color: var(--ifm-color-emphasis-900) !important;
+}
+
+div:hover .copy-code-button {
+  opacity: 1;
+}
+
+html[data-theme='dark'] .copy-code-button {
+  background-color: var(--ifm-color-gray-800) !important;
+  border-color: var(--ifm-color-emphasis-200) !important;
+  color: var(--ifm-color-emphasis-200) !important;
+}
+
+html[data-theme='dark'] .copy-code-button:hover {
+  background-color: var(--ifm-color-emphasis-300) !important;
+  color: var(--ifm-color-emphasis-900) !important;
+}
+
+/* Image optimization styles */
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+.markdown img {
+  border-radius: 0.25rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin: 1rem auto;
+  display: block;
+}
+
+/* Responsive images */
+@media (max-width: 768px) {
+  .markdown img {
+    margin: 0.5rem auto;
+  }
+}
