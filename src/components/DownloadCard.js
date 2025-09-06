@@ -9,21 +9,18 @@ const DownloadCard = ({
   url,
   type,
   isRecommended = false,
-  icon
+  icon,
 }) => {
   const handleDownload = () => {
     window.open(url, '_blank');
   };
 
   return (
-    <div className={clsx(
-      styles.downloadCard,
-      isRecommended && styles.recommended
-    )}>
+    <div
+      className={clsx(styles.downloadCard, isRecommended && styles.recommended)}
+    >
       {isRecommended && (
-        <div className={styles.recommendedBadge}>
-          Recommended
-        </div>
+        <div className={styles.recommendedBadge}>Recommended</div>
       )}
 
       <div className={styles.cardHeader}>
@@ -40,7 +37,7 @@ const DownloadCard = ({
         aria-label={`Download ${title}`}
       >
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+          <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
         </svg>
         Download
       </button>
@@ -53,7 +50,7 @@ DownloadCard.propTypes = {
   url: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   isRecommended: PropTypes.bool,
-  icon: PropTypes.node
+  icon: PropTypes.node,
 };
 
 export default DownloadCard;

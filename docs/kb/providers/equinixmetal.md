@@ -52,7 +52,7 @@ address information can be found by querying https://metadata.platformequinix.co
 from the host.
 
 More information on how Equinix Metal configures bonding can be found
-[here](https://metal.equinix.com/developers/docs/networking/layer2/).
+[here](https://deploy.equinix.com/developers/docs/metal/layer2-networking/overview/).
 
 Nameservers should be configured as:
 
