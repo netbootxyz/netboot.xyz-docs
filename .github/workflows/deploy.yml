@@ -25,7 +25,7 @@ jobs:
           wget https://raw.githubusercontent.com/netbootxyz/netboot.xyz/master/CONTRIBUTING.md -O external/contributing.md
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 22
 
