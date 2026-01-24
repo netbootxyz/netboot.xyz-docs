@@ -11,10 +11,6 @@ const DownloadCard = ({
   isRecommended = false,
   icon,
 }) => {
-  const handleDownload = () => {
-    window.open(url, '_blank');
-  };
-
   return (
     <div
       className={clsx(styles.downloadCard, isRecommended && styles.recommended)}
@@ -31,16 +27,18 @@ const DownloadCard = ({
 
       <p className={styles.description}>{description}</p>
 
-      <button
+      <a
         className={styles.downloadButton}
-        onClick={handleDownload}
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
         aria-label={`Download ${title}`}
       >
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
           <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
         </svg>
         Download
-      </button>
+      </a>
     </div>
   );
 };
