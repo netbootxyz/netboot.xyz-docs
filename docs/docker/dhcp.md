@@ -66,6 +66,7 @@ dhcp-boot=tag:efi64-2,netboot.xyz.efi,,SERVER_IP_ADDRESS
 
 # 64-bit UEFI for arm64
 dhcp-match=set:efi64-3,60,PXEClient:Arch:0000B
+dhcp-match=set:efi64-3,60,PXEClient:Arch:00011
 dhcp-boot=tag:efi64-3,netboot.xyz-arm64.efi,,SERVER_IP_ADDRESS
 ```
 
