@@ -1,7 +1,7 @@
 ---
 id: introduction
 sidebar_position: 1
-title: "netboot.xyz — PXE Boot Any OS Over the Network"
+title: Introduction
 description: "netboot.xyz lets you PXE boot Linux installers, live CDs, and utilities over the network from a single iPXE-powered menu. No media required."
 hide_table_of_contents: true
 slug: /
