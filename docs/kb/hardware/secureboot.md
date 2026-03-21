@@ -2,7 +2,6 @@
 id: secureboot
 title: UEFI Secure Boot
 sidebar_label: Secure Boot
-sidebar_position: 5
 description: "Overview of UEFI Secure Boot support in netboot.xyz and how to use the pre-built Secure Boot images"
 hide_table_of_contents: false
 ---
