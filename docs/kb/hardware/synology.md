@@ -2,7 +2,7 @@
 id: synology
 title: Installing netboot.xyz on Synology NAS
 sidebar_label: Synology NAS
-description: Installing netboot.xyz onto a Synology NAS in a container
+description: "Step-by-step guide to running netboot.xyz as a Docker container on a Synology NAS using Container Manager for PXE booting."
 hide_table_of_contents: true
 ---
 

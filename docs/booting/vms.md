@@ -3,7 +3,7 @@ id: vms
 title: Boot from VMs
 sidebar_label: Boot from VMs
 sidebar_position: 7
-description: "Using netboot.xyz with various Virtualization Machine Platforms"
+description: "How to boot netboot.xyz in VMware Fusion, Proxmox VE, and Hyper-V virtual machines using the netboot.xyz ISO."
 hide_table_of_contents: false
 ---
 

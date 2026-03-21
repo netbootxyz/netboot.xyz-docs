@@ -1,7 +1,7 @@
 ---
 title: Setting up the Container
 sidebar_position: 2
-description: "Setting up the netboot.xyz Docker Container"
+description: "Step-by-step guide to installing and running the netboot.xyz Docker container with DHCP, TFTP, and the web configuration interface."
 hide_table_of_contents: true
 ---
 

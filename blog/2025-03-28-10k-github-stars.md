@@ -1,6 +1,7 @@
 ---
 slug: 2025/03/28/10k-github-stars
 title: 10,000 GitHub Stars!
+description: "netboot.xyz hits 10,000 GitHub stars and 1 million monthly menu loads. A thank you to the community and the iPXE project."
 authors:
   - antonym
 tags: [milestone, site-updates, netboot.xyz, ipxe, github]

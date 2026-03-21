@@ -1,7 +1,7 @@
 ---
 id: edgerouter
 title: "Ubiquiti EdgeRouter"
-description: Ubiquiti EdgeRouter Usage
+description: "Set up netboot.xyz PXE booting on a Ubiquiti EdgeRouter using dnsmasq TFTP and ISC DHCP with Legacy and UEFI support."
 hide_table_of_contents: true
 ---
 

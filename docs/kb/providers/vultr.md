@@ -1,7 +1,7 @@
 ---
 id: vultr
 title: "Vultr"
-description: "Using netboot.xyz with Vultr"
+description: "How to boot netboot.xyz on Vultr using an ISO upload or iPXE chain URL for both VPS and bare metal servers."
 hide_table_of_contents: true
 ---
 

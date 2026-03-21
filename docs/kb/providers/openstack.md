@@ -1,7 +1,7 @@
 ---
 id: openstack
 title: "OpenStack"
-description: "Using netboot.xyz with OpenStack"
+description: "Boot netboot.xyz on OpenStack using Glance to import the ISO image and Nova to launch an instance with the iPXE menu."
 hide_table_of_contents: true
 ---
 

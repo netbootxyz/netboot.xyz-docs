@@ -35,7 +35,7 @@ hide_table_of_contents: true
 
 ## Open Source Projects
 
-- [JetKVM - Hardware KVM with suppport for netboot.xyz](https://amzn.to/4sjx5rH)
+- [JetKVM - Hardware KVM with support for netboot.xyz](https://amzn.to/4sjx5rH)
 - [Quickemu](https://github.com/quickemu-project/quickemu)
 - [Tinkerbell](https://tinkerbell.org/examples/netboot-xyz/)
 - [u-root](https://github.com/u-root/u-root/blob/main/cmds/exp/netbootxyz/netbootxyz.go)

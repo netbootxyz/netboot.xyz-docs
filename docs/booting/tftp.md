@@ -3,7 +3,7 @@ id: tftp
 title: Boot from TFTP
 sidebar_label: Boot from TFTP
 sidebar_position: 3
-description: "Methods of booting into netboot.xyz using TFTP and DHCP"
+description: "Configure your home or office network for PXE booting with netboot.xyz using a TFTP server, DHCP options, and dnsmasq."
 hide_table_of_contents: true
 ---
 

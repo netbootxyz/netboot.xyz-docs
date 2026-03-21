@@ -1,7 +1,7 @@
 ---
 id: windows
-title: "Windows"
-description: "Installing Windows using netboot.xyz and the Docker container."
+title: "Installing Windows via PXE Network Boot with netboot.xyz"
+description: "Install Windows 11 over the network using netboot.xyz, WinPE, and the Docker container with an SMB share for the Windows ISO."
 hide_table_of_contents: true
 ---
 

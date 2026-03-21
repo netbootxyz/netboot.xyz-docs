@@ -1,6 +1,7 @@
 ---
 slug: 2021/09/04/doc-site-updates
 title: Site Updates
+description: "netboot.xyz migrates documentation from Hugo to Docusaurus, consolidates the blog, and celebrates 150,000 monthly menu loads."
 authors:
   - antonym
 tags: [site-updates, netboot.xyz]

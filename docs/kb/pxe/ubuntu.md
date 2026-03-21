@@ -2,7 +2,7 @@
 id: ubuntu
 title: PXE Booting the Ubuntu Installer
 sidebar_label: Ubuntu
-description: PXE Booting the Ubuntu Installer
+description: "PXE boot the Ubuntu installer using netboot.xyz and iPXE, including autoinstall configuration and Ubuntu live boot ISO options."
 hide_table_of_contents: true
 ---
 

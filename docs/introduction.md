@@ -1,8 +1,8 @@
 ---
 id: introduction
 sidebar_position: 1
-title: Introduction
-description: netboot.xyz uses iPXE to network boot Operating System installers and utilities from an easy to use menu."
+title: "netboot.xyz — PXE Boot Any OS Over the Network"
+description: "netboot.xyz lets you PXE boot Linux installers, live CDs, and utilities over the network from a single iPXE-powered menu. No media required."
 hide_table_of_contents: true
 slug: /
 ---
@@ -32,3 +32,11 @@ The Utilities menu provides access to tools and utilities for tools like disk cl
 ## Supported Architectures
 
 netboot.xyz supports x86 (both 32-bit and 64-bit) as well as arm64 architectures. Both Legacy and UEFI BIOS modes are supported. The menus identify the platform loaded and enable menu options based on the architecture loaded.
+
+## Getting Started
+
+- [Quick Start](./quick-start.md) — download a bootloader and get booting in minutes
+- [Boot from USB](./booting/usb.md) — write a netboot.xyz image to a USB drive
+- [Boot from TFTP](./booting/tftp.md) — set up PXE booting on your local network
+- [Self Hosting](./selfhosting.md) — run your own netboot.xyz server with Docker or Ansible
+- [FAQ](./faq.md) — common questions answered

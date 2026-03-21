@@ -1,7 +1,7 @@
 ---
 id: asuswrt-merlin
 title: "Asuswrt-Merlin"
-description: Asuswrt-Merlin Usage
+description: "Configure PXE booting with netboot.xyz on an Asus router running Asuswrt-Merlin firmware using dnsmasq and TFTP."
 hide_table_of_contents: true
 ---
 

@@ -2,7 +2,7 @@
 id: rockylinux
 title: PXE Booting the Rocky Linux Installer
 sidebar_label: Rocky Linux
-description: PXE Booting the Rocky Linux Installer using Kickstart
+description: "PXE boot the Rocky Linux installer via iPXE and netboot.xyz using Kickstart for automated RHEL-compatible network installation."
 hide_table_of_contents: true
 ---
 

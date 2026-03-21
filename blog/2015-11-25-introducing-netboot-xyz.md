@@ -3,6 +3,7 @@ slug: 2015/11/25/introducing-netboot-xyz
 authors:
   - antonym
 title: Introducing netboot.xyz
+description: "Introducing netboot.xyz: a tool to PXE boot popular operating systems over the network from a single iPXE-powered menu without hunting for ISOs."
 tags: [netboot.xyz]
 ---
 

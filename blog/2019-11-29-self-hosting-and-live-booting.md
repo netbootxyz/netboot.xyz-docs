@@ -1,6 +1,7 @@
 ---
 slug: 2019/11/29/self-hosting-and-live-booting
 title: Self Hosting and Live Booting
+description: "Updates to netboot.xyz: self-hosting via Ansible and Docker, automated live OS build pipeline, new GitHub organization, and Discord community."
 authors:
   - antonym
 tags: [self_hosting, netboot.xyz]
