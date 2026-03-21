@@ -1,7 +1,7 @@
 ---
 id: gce
 title: Google Compute Engine
-description: Using netboot.xyz on Google Compute Engine
+description: "How to boot netboot.xyz on Google Compute Engine (GCE) using a custom iPXE disk image and serial console."
 hide_table_of_contents: true
 ---
 

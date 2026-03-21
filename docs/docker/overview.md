@@ -1,8 +1,8 @@
 ---
-title: Overview
+title: netboot.xyz Docker Container Overview
 sidebar_position: 1
 slug: /docker/
-description: "Overview of the netboot.xyz docker container"
+description: "The netboot.xyz Docker container provides a self-hosted PXE boot server with a web UI, TFTP, NGINX, and local asset mirroring."
 hide_table_of_contents: true
 ---
 

@@ -1,7 +1,7 @@
 ---
 id: mikrotik
 title: "Mikrotik RouterOS"
-description: Mikrotik RouterOS Usage
+description: "Configure DHCP and TFTP on Mikrotik RouterOS to PXE boot Legacy BIOS and UEFI clients with netboot.xyz."
 hide_table_of_contents: true
 ---
 

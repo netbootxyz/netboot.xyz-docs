@@ -2,7 +2,7 @@
 id: selfhosting
 title: Self Hosting
 sidebar_position: 4
-description: "How to self host your own netboot.xyz in your environment"
+description: "Set up a self-hosted netboot.xyz environment using Ansible or Docker to run your own iPXE PXE boot server at home or in production."
 hide_table_of_contents: true
 ---
 

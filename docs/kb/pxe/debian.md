@@ -2,7 +2,7 @@
 id: debian
 title: PXE Booting the Debian Installer
 sidebar_label: Debian
-description: PXE Booting the Debian Installer
+description: "PXE boot the Debian installer over the network with netboot.xyz and iPXE, including preseed automation and Debian live boot ISOs."
 hide_table_of_contents: true
 ---
 

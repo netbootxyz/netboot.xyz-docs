@@ -2,7 +2,7 @@
 id: almalinux
 title: PXE Booting the AlmaLinux Installer
 sidebar_label: AlmaLinux
-description: PXE Booting the AlmaLinux Installer using Kickstart
+description: "PXE boot the AlmaLinux installer via iPXE and netboot.xyz using Kickstart for automated unattended network installation."
 hide_table_of_contents: true
 ---
 

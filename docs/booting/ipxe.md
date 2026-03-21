@@ -3,7 +3,7 @@ id: ipxe
 title: Boot from iPXE
 sidebar_label: Boot from iPXE
 sidebar_position: 5
-description: "Details how to chainload into netboot.xyz from iPXE"
+description: "How to chainload netboot.xyz from an existing iPXE installation using DHCP or static network config, including KVM VPS instructions."
 hide_table_of_contents: true
 ---
 

@@ -2,7 +2,7 @@
 id: steamdeck
 title: PXE Booting on the Steam Deck
 sidebar_label: Steam Deck
-description: PXE Booting on the Steam Deck
+description: "How to configure Steam Deck BIOS settings and use a USB-C hub with Ethernet to PXE boot with netboot.xyz over IPv4."
 hide_table_of_contents: true
 ---
 

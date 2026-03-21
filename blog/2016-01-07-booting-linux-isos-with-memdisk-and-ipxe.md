@@ -1,6 +1,7 @@
 ---
 slug: 2016/01/07/booting-linux-isos-with-memdisk-and-ipxe
 title: Booting Linux ISOs with Memdisk and iPXE
+description: "Why many Linux ISOs fail to work with MEMDISK and iPXE, and how the phram/mtdblock approach can enable ISO-based network booting."
 authors:
   - antonym
 tags: [iso, memdisk, netboot.xyz, ipxe]

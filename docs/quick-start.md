@@ -2,7 +2,7 @@
 id: quick-start
 sidebar_position: 2
 title: Quick Start
-description: "Getting started with netboot.xyz"
+description: "Download the netboot.xyz bootloader, create a USB drive or ISO, and PXE boot any operating system over your network in minutes."
 hide_table_of_contents: true
 ---
 
@@ -66,3 +66,10 @@ Version updates are typically deployed to the development endpoint and the prima
 ### Communication
 
 Feel free to open up an [issue](https://github.com/netbootxyz/netboot.xyz/issues/new/choose) on Github or join us on our [Discord](https://discord.gg/An6PA2a) server.  Follow us on [Twitter](https://twitter.com/netbootxyz) or like us on [Facebook](https://www.facebook.com/netboot.xyz)!
+
+### Next Steps
+
+- [Self Hosting](./selfhosting.md) — run your own netboot.xyz server with Docker or Ansible
+- [Docker Container](./docker/overview.md) — set up the netboot.xyz Docker container with a web UI
+- [Troubleshooting](./troubleshooting/index.md) — common issues and how to resolve them
+- [FAQ](./faq.md) — frequently asked questions about the project

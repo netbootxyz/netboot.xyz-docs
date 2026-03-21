@@ -7,11 +7,11 @@ description: "Frequently Asked Questions about the netboot.xyz project"
 hide_table_of_contents: false
 ---
 
-### What is this?
+### What is netboot.xyz?
 
 netboot.xyz is tool that allows you to boot your favorite Operating System's installer or various utilities over the network with minimal overhead and all from a single menu system. It's similar to various tools netbooting tools of the past like boot.kernel.org with a lot more flexibility. The boot loader is very light weight being under 1MB in size which translates into a very quick time to create a USB key.
 
-### How does this work?
+### How does netboot.xyz work?
 
 netboot.xyz uses an open source tool called iPXE. The bootloader calls to a webserver that hosts that the iPXE source files. The iPXE source files contain menus and logic that understand how the various Linux installers operate. When you select an Operating System, netboot.xyz retrieves the images from the project directory when possible or known and trusted performant mirrors. The location the file is pulled from is always displayed during retrieval. From the very beginning, we have made it a priority to make sure that the source code for the project is open and available for review so that our users can view and understand what is happening.
 
@@ -47,9 +47,11 @@ Yes!  You can fork [netboot.xyz-custom](https://github.com/netbootxyz/netboot.xy
 
 ### Does netboot.xyz support Secure Boot?
 
-iPXE and hence netboot.xyz does not support Secure Boot because its [binaries are not signed by Microsoft](https://ipxe.org/appnote/etoken). You must disable Secure Boot mode in your computers firmware configuration menu before you can boot netboot.xyz.
+Yes. netboot.xyz provides pre-built Secure Boot compatible images that use a Microsoft-trusted shim to chainload a signed iPXE binary, so you can network boot without disabling Secure Boot in your firmware. See the [Secure Boot](./kb/hardware/secureboot.md) documentation for details on the available images and how to use them.
 
-### How do we keep versions current?
+Note that Secure Boot support is currently limited to a subset of distributions (Debian, Devuan, and Kali Linux) for end-to-end installations. Other distributions can be accessed from the netboot.xyz menu but may require Secure Boot to be disabled for the final OS installation step.
+
+### How does netboot.xyz keep OS versions up to date?
 
 We have a CI/CD system that monitors upstream projects for new releases. When a new release is detected for releases without hosted installer kernels, it will download the ISO, extract it, and then repackage it with the needed iPXE files to make it bootable. It will then push the release to the netboot.xyz endpoints.yml file and then push the changes to the netboot.xyz repo. The endpoints.yml file is then used by the netboot.xyz iPXE code to display the menu options. Versions change a lot, so automation is key in making the maintenance of the project sustainable.
 
@@ -151,7 +153,7 @@ We have a CI/CD system that monitors upstream projects for new releases. When a 
 | Ultimate Boot CD | https://www.ultimatebootcd.com | ISO - Memdisk |
 | ZFSBootMenu | https://docs.zfsbootmenu.org/ | Kernel |
 
-### What are some good resources for learning more about network booting?
+### Where can I learn more about network booting and iPXE?
 
 * [The iPXE Project](https://ipxe.org/)
 * [NetworkBoot.org](https://networkboot.org/)

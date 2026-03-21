@@ -3,7 +3,7 @@ id: usb
 title: Boot from USB
 sidebar_label: Boot from USB
 sidebar_position: 1
-description: "How to create a USB stick capable of booting into netboot.xyz"
+description: "Create a bootable USB drive for netboot.xyz on Linux, macOS, or Windows using dd or Rufus to PXE boot any operating system."
 hide_table_of_contents: true
 ---
 :::danger
