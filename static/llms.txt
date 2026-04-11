@@ -1,0 +1,76 @@
+# netboot.xyz
+
+> netboot.xyz lets you PXE boot various operating system installers and utilities from a single tool over the network using iPXE. Boot Linux, BSD, Windows, and dozens of live CDs from one lightweight menu — no physical media required.
+
+## Getting Started
+
+- [Introduction](https://netboot.xyz/docs): Overview of netboot.xyz, its menus (network installs, live CDs, utilities), and supported architectures (x86, x86_64, arm64)
+- [Quick Start](https://netboot.xyz/docs/quick-start): Download a bootloader and PXE boot your first operating system in minutes
+- [Downloads](https://netboot.xyz/downloads): Pre-compiled iPXE bootloader images for Legacy BIOS and UEFI
+
+## Booting Methods
+
+- [Boot from USB](https://netboot.xyz/docs/booting/usb): Write a netboot.xyz image to a USB drive on Linux, macOS, or Windows
+- [Boot from TFTP](https://netboot.xyz/docs/booting/tftp): Set up PXE booting on a local network with a TFTP server and DHCP options
+- [Boot from iPXE](https://netboot.xyz/docs/booting/ipxe): Chainload netboot.xyz from an existing iPXE installation
+- [Boot from ISO](https://netboot.xyz/docs/booting/iso): Use the netboot.xyz ISO image directly
+- [Boot from UEFI](https://netboot.xyz/docs/booting/uefi): Place the UEFI executable on the EFI system partition and boot without media
+- [Boot with QEMU](https://netboot.xyz/docs/booting/qemu): Boot netboot.xyz inside a QEMU virtual machine
+- [Boot from VMs](https://netboot.xyz/docs/booting/vms): Use netboot.xyz in VMware Fusion, Proxmox VE, and Hyper-V
+
+## Self Hosting
+
+- [Self Hosting](https://netboot.xyz/docs/selfhosting): Run your own netboot.xyz server using Ansible or Docker
+- [Docker Container Overview](https://netboot.xyz/docs/docker/): The netboot.xyz Docker container with web UI, TFTP, and local asset mirroring
+- [Setting up the Container](https://netboot.xyz/docs/docker/usage): Install and run the Docker container
+- [Container Parameters](https://netboot.xyz/docs/docker/parameters): All available Docker environment variables and volume mounts
+- [DHCP Configuration](https://netboot.xyz/docs/docker/dhcp): Configure DHCP to point clients at the self-hosted container
+- [Custom Menus](https://netboot.xyz/docs/docker/custom-menus): Create custom iPXE menus via the web interface
+
+## Knowledge Base
+
+### Hardware
+
+- [UEFI Secure Boot](https://netboot.xyz/docs/kb/hardware/secureboot): Use pre-built Secure Boot images to network boot without disabling Secure Boot
+- [Steam Deck](https://netboot.xyz/docs/kb/hardware/steamdeck): PXE boot on the Steam Deck via USB-C hub with Ethernet
+- [Synology NAS](https://netboot.xyz/docs/kb/hardware/synology): Run netboot.xyz as a Docker container on a Synology NAS
+- [JetKVM](https://netboot.xyz/docs/kb/hardware/jetkvm): Using netboot.xyz with the JetKVM hardware KVM device
+
+### Networking
+
+- [Asuswrt-Merlin](https://netboot.xyz/docs/kb/networking/asuswrt-merlin): Configure PXE booting on an Asus router running Asuswrt-Merlin
+- [Ubiquiti EdgeRouter](https://netboot.xyz/docs/kb/networking/edgerouter): Set up netboot.xyz PXE booting on a Ubiquiti EdgeRouter
+- [Mikrotik RouterOS](https://netboot.xyz/docs/kb/networking/mikrotik): Configure DHCP and TFTP on Mikrotik RouterOS
+- [TFTP Filename Issues](https://netboot.xyz/docs/kb/networking/tftp-filename-issues): Troubleshoot TFTP filename interpretation issues with older PXE clients
+
+### Cloud Providers
+
+- [DigitalOcean](https://netboot.xyz/docs/kb/providers/digitalocean): Using netboot.xyz on DigitalOcean
+- [Google Compute Engine](https://netboot.xyz/docs/kb/providers/gce): Boot netboot.xyz on GCE using a custom iPXE disk image
+- [Vultr](https://netboot.xyz/docs/kb/providers/vultr): Boot netboot.xyz on Vultr via ISO upload or iPXE chain URL
+- [Linode](https://netboot.xyz/docs/kb/providers/linode): Using netboot.xyz on Linode
+- [Equinix Metal](https://netboot.xyz/docs/kb/providers/equinixmetal): Using netboot.xyz with Equinix Metal bare metal servers
+- [Cherry Servers](https://netboot.xyz/docs/kb/providers/cherryservers): Using netboot.xyz with Cherry Servers dedicated bare metal
+- [Oracle Cloud Infrastructure](https://netboot.xyz/docs/kb/providers/oci): Using netboot.xyz on Oracle Cloud Infrastructure
+- [OpenStack](https://netboot.xyz/docs/kb/providers/openstack): Boot netboot.xyz on OpenStack using Glance and Nova
+
+### PXE Installation Guides
+
+- [Ubuntu](https://netboot.xyz/docs/kb/pxe/ubuntu): PXE boot the Ubuntu installer with autoinstall support
+- [Debian](https://netboot.xyz/docs/kb/pxe/debian): PXE boot the Debian installer with preseed automation
+- [AlmaLinux](https://netboot.xyz/docs/kb/pxe/almalinux): PXE boot AlmaLinux using Kickstart for automated installation
+- [Rocky Linux](https://netboot.xyz/docs/kb/pxe/rockylinux): PXE boot Rocky Linux using Kickstart for automated installation
+- [Windows](https://netboot.xyz/docs/kb/pxe/windows): Install Windows 11 over the network using WinPE and the Docker container
+
+## Troubleshooting
+
+- [Troubleshooting Guide](https://netboot.xyz/docs/troubleshooting): Common issues and solutions
+- [Common Error Codes](https://netboot.xyz/docs/troubleshooting/common-error-codes): Understanding and resolving common netboot.xyz errors
+- [Performance Optimization](https://netboot.xyz/docs/troubleshooting/performance-optimization): Optimize for faster boot times and downloads
+
+## Reference
+
+- [FAQ](https://netboot.xyz/docs/faq): Frequently asked questions including supported operating systems and utilities
+- [Contributing](https://netboot.xyz/docs/contributing): How to contribute new OS versions or features to the project
+- [Build Automation](https://netboot.xyz/docs/community/build-automation): How the automated CI/CD build system keeps OS versions current
+- [Changelog](https://netboot.xyz/docs/community/changelog): Release history and changes
