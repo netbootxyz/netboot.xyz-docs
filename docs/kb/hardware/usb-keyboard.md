@@ -19,14 +19,27 @@ article is for you.
 
 ## Cause
 
-Modern iPXE builds include USB NIC drivers so that USB Ethernet adapters can be used for
-network booting. On some hardware, loading these USB drivers causes iPXE to take over the
-USB controller and disable the BIOS SMM-based USB legacy support — the firmware feature that
-emulates a PS/2 keyboard for USB input devices. Without that emulation, iPXE never receives
-keystrokes and the menu appears frozen.
+Starting with iPXE commit
+[`2161e976`](https://github.com/ipxe/ipxe/commit/2161e976cdf78d0b26687e14f2cdc14008a99c83)
+("[build] Include USB drivers in the all-drivers build by default"), the standard iPXE builds
+include USB NIC drivers so that USB Ethernet adapters can be used for network booting.
+Attaching iPXE's USB host-controller drivers has an unavoidable side effect on affected
+hardware:
 
-This is a hardware/firmware interaction rather than a netboot.xyz bug: the standard images
-trade USB legacy keyboard support for USB NIC support.
+- **On BIOS firmware**, it disables the SMM-based USB legacy support that emulates a PS/2
+  keyboard.
+- **On UEFI firmware**, it can disconnect less-compliant vendor USB keyboard drivers (commonly
+  seen on AMI-based firmware, including some BMC/KVM keyboard emulations).
+
+In both cases iPXE stops receiving keystrokes and the menu appears frozen. This change first
+shipped in the netboot.xyz `3.x` images, which is why USB keyboards work on `2.0.89` but not on
+`3.0.1`. It is a hardware/firmware interaction rather than a netboot.xyz bug — the standard
+images now trade USB legacy keyboard support for USB NIC support.
+
+The same iPXE commit also added the `ipxe-legacy` fallback build target (the existing driver
+set, with USB NIC drivers excluded) that the legacy images below are built from. The underlying
+firmware behavior is tracked upstream in
+[ipxe/ipxe#1643](https://github.com/ipxe/ipxe/issues/1643).
 
 ## Solution: Use the Legacy Images
 
