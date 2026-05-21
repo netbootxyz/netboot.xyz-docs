@@ -91,16 +91,15 @@ instead of the standard one — `netboot.xyz-legacy.kpxe` for BIOS clients or
 
 ## Self-Hosted Deployments
 
-The [netboot.xyz Docker container](../../docker/overview.md) does **not** download the legacy
-bootloaders. On first start it fetches only the standard boot files (`netboot.xyz.kpxe`,
-`netboot.xyz.efi`, the `snp`/`snponly` variants, and the arm64 builds), so the
-`netboot.xyz-legacy.*` binaries are not present in its TFTP root by default.
+The [netboot.xyz Docker container](../../docker/overview.md) downloads the legacy bootloaders
+automatically. On first start it fetches `netboot.xyz-legacy.kpxe` (BIOS) and
+`netboot.xyz-legacy.efi` (UEFI) alongside the standard boot files and serves them from its TFTP
+root, so you can point your DHCP `boot-file-name` at whichever one matches the affected client.
 
-To use a legacy binary in a self-hosted PXE setup, download the one that matches your boot method
-from the [netboot.xyz release assets](https://github.com/netbootxyz/netboot.xyz/releases) (or from
-`boot.netboot.xyz/ipxe/`) and place it in the container's TFTP root (`/config/menus`), then point
-your DHCP `boot-file-name` at it — `netboot.xyz-legacy.kpxe` for BIOS clients or
-`netboot.xyz-legacy.efi` for UEFI clients.
+If you are running an older image from before this was added, either update to the latest
+container image or download the binary manually from the
+[netboot.xyz release assets](https://github.com/netbootxyz/netboot.xyz/releases) (or from
+`boot.netboot.xyz/ipxe/`) and place it in the container's TFTP root (`/config/menus`).
 
 ## Notes
 
