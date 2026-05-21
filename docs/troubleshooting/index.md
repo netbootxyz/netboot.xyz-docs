@@ -80,6 +80,20 @@ Before diving into specific issues, try these basic diagnostic steps:
    - Check corporate firewall/proxy settings
    ```
 
+#### Menu loads but the USB keyboard doesn't respond
+
+**Symptoms:**
+- The netboot.xyz menu displays correctly but keystrokes do nothing
+- You cannot navigate or select menu entries
+- The keyboard works in BIOS/UEFI setup but not in the menu
+
+**Solution:**
+
+USB NIC drivers in the standard iPXE builds can disable the BIOS USB legacy support that
+emulates a PS/2 keyboard. Boot the **legacy** images instead, which omit those drivers and
+restore keyboard support. See [USB Keyboard Issues](../kb/hardware/usb-keyboard.md) for the
+download links and instructions.
+
 ### Menu and OS Loading Issues
 
 #### Menu loads but OS downloads fail
