@@ -49,7 +49,12 @@ export const SOFTWARE_APPLICATION = {
   url: SITE_URL,
   downloadUrl: `${SITE_URL}/downloads`,
   isAccessibleForFree: true,
-  offers: {'@type': 'Offer', price: '0', priceCurrency: 'USD'},
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD',
+    url: `${SITE_URL}/downloads`,
+  },
 };
 
 // Curated, evergreen subset of docs/faq.md. Keep concise answers in sync with

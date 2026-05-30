@@ -60,10 +60,21 @@ function toUrl(relPath, data) {
   return SITE_URL + DOCS_BASE + (clean ? `/${clean}` : '');
 }
 
+// Remove HTML comments, looping until stable so overlapping/reconstructed
+// markers (e.g. `<!--<!---->-->`) can't survive a single pass.
+function stripHtmlComments(text) {
+  let out = text;
+  let prev;
+  do {
+    prev = out;
+    out = out.replace(/<!--[\s\S]*?-->/g, '');
+  } while (out !== prev);
+  return out;
+}
+
 // Strip MDX noise so the LLM sees clean prose + markdown.
 function cleanBody(body) {
-  return body
-    .replace(/<!--[\s\S]*?-->/g, '') // HTML comments
+  return stripHtmlComments(body)
     .split('\n')
     .filter(line => !/^\s*(import|export)\s/.test(line)) // MDX import/export
     .filter(line => !/^\s*<\/?[A-Za-z][\w.]*[\s/>]/.test(line)) // standalone JSX/HTML tag lines
