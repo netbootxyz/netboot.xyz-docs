@@ -1,25 +1,411 @@
 /* stylelint-disable docusaurus/copyright-header */
 
 /**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
+ * Homepage — netboot.xyz redesign (Direction A: docs-site calm, cyan accent).
+ * The palette ships in both light and dark; the .home wrapper exposes it as
+ * CSS custom properties so the page tracks Docusaurus's theme toggle with no
+ * JS and no hydration mismatch.
  */
 
-.heroBanner {
-  padding: 4rem 0;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+.home {
+  /* Light palette (default) */
+  --nb-bg: #ffffff;
+  --nb-panel: #f7f9fc;
+  --nb-ink: #0b1220;
+  --nb-ink2: #3d4a5e;
+  --nb-dim: #6b7a93;
+  --nb-rule: #e3e8f0;
+  --nb-accent: #0891b2;
+  --nb-accent-soft: rgba(8, 145, 178, 0.08);
+  --nb-accent-ink: #ffffff;
+  --nb-menu-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.2);
+
+  --nb-sans: 'Inter Tight', 'Inter', system-ui, -apple-system, sans-serif;
+  --nb-mono: 'JetBrains Mono', 'IBM Plex Mono', ui-monospace, monospace;
+
+  background: var(--nb-bg);
+  color: var(--nb-ink);
+  font-family: var(--nb-sans);
 }
 
-@media screen and (max-width: 966px) {
-  .heroBanner {
-    padding: 2rem;
-  }
+:global([data-theme='dark']) .home {
+  --nb-bg: #0b1220;
+  --nb-panel: #0f1a2e;
+  --nb-ink: #e6edf7;
+  --nb-ink2: #aab6c8;
+  --nb-dim: #6b7a93;
+  --nb-rule: #1c2a45;
+  --nb-accent: #22c8ff;
+  --nb-accent-soft: rgba(34, 200, 255, 0.12);
+  --nb-accent-ink: #0b1220;
+  --nb-menu-shadow: 0 30px 80px -30px rgba(34, 200, 255, 0.25);
 }
 
-.buttons {
+.section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 56px;
+  padding-right: 56px;
+  box-sizing: border-box;
+}
+
+/* ── Hero ── */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 64px;
+  align-items: center;
+  padding-top: 72px;
+  padding-bottom: 56px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px;
+  background: var(--nb-accent-soft);
+  color: var(--nb-accent);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+
+.badgeDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--nb-accent);
+}
+
+.heroTitle {
+  font-size: 60px;
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+  margin: 0 0 24px;
+  color: var(--nb-ink);
+}
+
+.heroTitle .accent {
+  color: var(--nb-accent);
+}
+
+.heroLede {
+  font-size: 19px;
+  line-height: 1.55;
+  color: var(--nb-ink2);
+  margin: 0 0 32px;
+  max-width: 520px;
+}
+
+.heroActions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.btnPrimary,
+.btnSecondary {
+  padding: 12px 20px;
+  font-size: 14px;
+  font-family: var(--nb-sans);
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  display: inline-block;
+  transition:
+    transform 80ms ease,
+    opacity 120ms ease;
+}
+
+.btnPrimary {
+  background: var(--nb-accent);
+  color: var(--nb-accent-ink);
+  border: none;
+  font-weight: 600;
+}
+
+.btnSecondary {
+  background: transparent;
+  color: var(--nb-ink);
+  border: 1px solid var(--nb-rule);
+  font-weight: 500;
+}
+
+.btnPrimary:hover {
+  transform: translateY(-1px);
+  color: var(--nb-accent-ink);
+}
+
+.btnSecondary:hover {
+  transform: translateY(-1px);
+  color: var(--nb-ink);
+  border-color: var(--nb-accent);
+}
+
+.heroNote {
+  margin-left: 8px;
+  font-size: 13px;
+  color: var(--nb-dim);
+}
+
+/* The menu frame — terminal black regardless of theme */
+.menuFrame {
+  background: #000;
+  border-radius: 10px;
+  padding: 8px;
+  border: 1px solid var(--nb-rule);
+  box-shadow: var(--nb-menu-shadow);
+}
+
+.menuChrome {
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 6px;
+  padding: 6px 8px 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #3a3a3a;
+}
+
+.menuChromeLabel {
+  margin-left: 8px;
+  font-family: var(--nb-mono);
+  font-size: 11px;
+  color: #6b8aa0;
+}
+
+/* ── Fact strip ── */
+.facts {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 1px solid var(--nb-rule);
+  border-bottom: 1px solid var(--nb-rule);
+}
+
+.fact {
+  flex: 1;
+  padding: 8px 24px;
+}
+
+.fact + .fact {
+  border-left: 1px solid var(--nb-rule);
+}
+
+.factHead {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--nb-ink);
+}
+
+.factBody {
+  font-size: 13px;
+  color: var(--nb-dim);
+  margin-top: 3px;
+}
+
+/* ── Feature cards ── */
+.features {
+  padding-top: 80px;
+  padding-bottom: 48px;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.card {
+  background: var(--nb-panel);
+  border: 1px solid var(--nb-rule);
+  border-radius: 10px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.cardTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--nb-ink);
+}
+
+.cardBody {
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--nb-ink2);
+  margin: 0;
+}
+
+.cardCode {
+  background: var(--nb-bg);
+  border: 1px solid var(--nb-rule);
+  border-radius: 6px;
+  font-family: var(--nb-mono);
+  font-size: 12px;
+  color: var(--nb-ink2);
+  padding: 12px 14px;
+  margin: 0;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+/* ── Quick start ── */
+.quickStart {
+  padding-top: 48px;
+  padding-bottom: 64px;
+  border-top: 1px solid var(--nb-rule);
+}
+
+.h2 {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--nb-ink);
+  margin: 0 0 28px;
+  letter-spacing: -0.02em;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.stepNum {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: var(--nb-accent-soft);
+  color: var(--nb-accent);
+  display: grid;
+  place-items: center;
+  font-family: var(--nb-mono);
+  font-weight: 600;
+  font-size: 13px;
+  margin-bottom: 14px;
+}
+
+.stepTitle {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--nb-ink);
+  margin-bottom: 8px;
+}
+
+.stepBody {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--nb-ink2);
+  margin: 0 0 12px;
+}
+
+.stepCmd {
+  display: block;
+  font-family: var(--nb-mono);
+  font-size: 12px;
+  color: var(--nb-accent);
+  background: var(--nb-panel);
+  border: 1px solid var(--nb-rule);
+  border-radius: 6px;
+  padding: 8px 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Downloads band ── */
+.downloads {
+  padding-top: 56px;
+  padding-bottom: 56px;
+  border-top: 1px solid var(--nb-rule);
+}
+
+.downloadCard {
+  background: var(--nb-panel);
+  border: 1px solid var(--nb-rule);
+  border-radius: 12px;
+  padding: 36px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+}
+
+.downloadTitle {
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--nb-ink);
+  margin: 0 0 8px;
+  letter-spacing: -0.02em;
+}
+
+.downloadBody {
+  font-size: 15px;
+  color: var(--nb-ink2);
+  margin: 0;
+  max-width: 520px;
+  line-height: 1.5;
+}
+
+.downloadActions {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 996px) {
+  .section {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding-top: 48px;
+  }
+
+  .heroTitle {
+    font-size: 44px;
+  }
+
+  .facts {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .fact {
+    flex: 1 1 45%;
+    padding: 8px 12px;
+  }
+
+  .fact + .fact {
+    border-left: none;
+  }
+
+  .cardGrid,
+  .steps {
+    grid-template-columns: 1fr;
+  }
+
+  .downloadCard {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .downloadActions {
+    flex-wrap: wrap;
+  }
 }

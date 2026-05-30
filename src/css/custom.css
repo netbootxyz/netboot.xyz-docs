@@ -6,15 +6,39 @@
  */
 
 /* You can override the default Infima variables here. */
+/* netboot.xyz redesign — cyan accent, light + dark (see design handoff). */
 :root {
-  --ifm-color-primary: #1c90f3;
-  --ifm-color-primary-dark: #0c83e8;
-  --ifm-color-primary-darker: #0c7bdb;
-  --ifm-color-primary-darkest: #0a66b4;
-  --ifm-color-primary-light: #369df4;
-  --ifm-color-primary-lighter: #43a3f5;
-  --ifm-color-primary-lightest: #69b6f7;
+  --ifm-color-primary: #0891b2;
+  --ifm-color-primary-dark: #0782a0;
+  --ifm-color-primary-darker: #077a96;
+  --ifm-color-primary-darkest: #06647c;
+  --ifm-color-primary-light: #0aa0c5;
+  --ifm-color-primary-lighter: #0ba8cf;
+  --ifm-color-primary-lightest: #11bde6;
   --ifm-code-font-size: 95%;
+
+  --ifm-font-family-base:
+    'Inter Tight', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    sans-serif;
+  --ifm-font-family-monospace: 'JetBrains Mono', 'IBM Plex Mono', ui-monospace, SFMono-Regular,
+    Menlo, monospace;
+  --ifm-heading-font-weight: 600;
+}
+
+/* Dark mode — Direction A's palette is the dark mode. */
+html[data-theme='dark'] {
+  --ifm-color-primary: #22c8ff;
+  --ifm-color-primary-dark: #06bdfa;
+  --ifm-color-primary-darker: #06b3ec;
+  --ifm-color-primary-darkest: #0593c2;
+  --ifm-color-primary-light: #44d2ff;
+  --ifm-color-primary-lighter: #57d7ff;
+  --ifm-color-primary-lightest: #8ce4ff;
+
+  --ifm-background-color: #0b1220;
+  --ifm-background-surface-color: #0f1a2e;
+  --ifm-navbar-background-color: #0b1220;
+  --ifm-footer-background-color: #070d18;
 }
 
 .docusaurus-highlight-code-line {

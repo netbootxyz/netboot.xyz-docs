@@ -1,0 +1,133 @@
+/* Interactive iPXE-style boot menu — terminal/CRT presentation. */
+
+.root {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  outline: none;
+  line-height: 1.5;
+  box-sizing: border-box;
+  font-family:
+    'JetBrains Mono', 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+}
+
+.root::-webkit-scrollbar {
+  display: none;
+}
+
+/* CRT scanlines overlay */
+.scanlines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0) 0px,
+    rgba(0, 0, 0, 0) 2px,
+    rgba(0, 0, 0, 0.18) 3px
+  );
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.screen {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.metaRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 16px;
+}
+
+.rule {
+  border-top: 1px dashed;
+  margin-bottom: 14px;
+}
+
+.title {
+  margin-bottom: 14px;
+  letter-spacing: 0.04em;
+  white-space: pre;
+}
+
+.rows {
+  flex: 1;
+  overflow: hidden;
+}
+
+.row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  cursor: pointer;
+  transition: background 80ms;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px dashed;
+  margin-top: 12px;
+  padding-top: 8px;
+}
+
+.booting {
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.bootLine {
+  white-space: pre-wrap;
+}
+
+.cursorBlink {
+  display: inline-block;
+  width: 0.6em;
+  height: 1em;
+  animation: bm-blink 1s steps(2) infinite;
+}
+
+.booted {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 12px;
+}
+
+.restart {
+  margin-top: 18px;
+  background: transparent;
+  border: 1px solid;
+  padding: 8px 18px;
+  font-family: inherit;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+}
+
+@keyframes bm-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
