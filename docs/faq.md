@@ -7,6 +7,11 @@ description: "Frequently Asked Questions about the netboot.xyz project"
 hide_table_of_contents: false
 ---
 
+import StructuredData from '@site/src/components/StructuredData';
+import {FAQ_PAGE} from '@site/src/data/structuredData';
+
+<StructuredData data={FAQ_PAGE} />
+
 ### What is netboot.xyz?
 
 netboot.xyz is a tool that allows you to boot your favorite Operating System's installer or various utilities over the network with minimal overhead and all from a single menu system. It's similar to various netbooting tools of the past like boot.kernel.org with a lot more flexibility. The boot loader is very light weight being under 1MB in size which translates into a very quick time to create a USB key.

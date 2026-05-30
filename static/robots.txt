@@ -1,0 +1,8 @@
+# https://netboot.xyz/robots.txt
+# Allow all crawlers; point them at the sitemap.
+
+User-agent: *
+Allow: /
+Disallow: /search
+
+Sitemap: https://netboot.xyz/sitemap.xml

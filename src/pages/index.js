@@ -2,6 +2,12 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import BootMenu from '../components/BootMenu';
+import StructuredData from '../components/StructuredData';
+import {
+  ORGANIZATION,
+  WEBSITE,
+  SOFTWARE_APPLICATION,
+} from '../data/structuredData';
 import styles from './index.module.css';
 
 // Honest, non-numeric facts — no invented metrics (per the design's final
@@ -179,6 +185,7 @@ export default function Home() {
       title="Your favorite operating systems in one place"
       description="netboot.xyz enables you to PXE boot many Operating System installers and utilities from a simple to use menu powered by the iPXE project."
     >
+      <StructuredData data={[ORGANIZATION, WEBSITE, SOFTWARE_APPLICATION]} />
       <main className={styles.home}>
         <Hero />
         <FactStrip />
