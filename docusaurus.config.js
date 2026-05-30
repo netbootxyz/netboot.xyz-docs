@@ -7,12 +7,14 @@ module.exports = {
   url: "https://netboot.xyz",
   baseUrl: "/",
   onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
   organizationName: "netbootxyz",
   projectName: "netboot.xyz",
   markdown: {
     mermaid: true,
+    hooks: {
+      onBrokenMarkdownLinks: "warn",
+    },
   },
   staticDirectories: ['static'],
   stylesheets: [
