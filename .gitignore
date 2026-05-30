@@ -5,3 +5,6 @@ node_modules
 # macOS
 .DS_Store
 **/.DS_Store
+
+# Generated at build time (scripts/generate-llms-full.js)
+static/llms-full.txt
