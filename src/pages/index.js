@@ -36,7 +36,7 @@ const QUICK_START = [
     n: '1',
     title: 'Grab the image',
     body: 'Pick the format that matches how you boot — ISO for VMs and IPMI, .img for USB, .kpxe for TFTP.',
-    cmd: 'curl -O boot.netboot.xyz/ipxe/netboot.xyz.iso',
+    cmd: 'curl -O https://boot.netboot.xyz/ipxe/netboot.xyz.iso',
   },
   {
     n: '2',
