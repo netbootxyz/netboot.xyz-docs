@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 430" width="800" height="430" font-family="'JetBrains Mono','SFMono-Regular','Courier New',monospace" role="img" aria-label="netboot.xyz iPXE boot menu — animated demo of the main menu, with the selection cycling through Linux Network Installs, Desktop and Live Distros, Security and Forensics, Utilities and Rescue, Hypervisors and Storage, Windows (WIM), netboot.xyz Endpoints, iPXE Shell and Reboot.">
+  <defs>
+    <!-- Moving selection mask: a row-height rect that steps down the list on a loop. -->
+    <clipPath id="sel">
+      <rect x="22" width="756" height="28" rx="3">
+        <animate attributeName="y" dur="9s" repeatCount="indefinite" calcMode="discrete"
+          keyTimes="0;0.1111;0.2222;0.3333;0.4444;0.5556;0.6667;0.7778;0.8889"
+          values="105;135;165;195;225;255;285;315;345" />
+      </rect>
+    </clipPath>
+    <!-- Subtle CRT scanlines. -->
+    <pattern id="scan" width="3" height="3" patternUnits="userSpaceOnUse">
+      <rect width="3" height="3" fill="none" />
+      <rect width="3" height="1" y="2" fill="#000" opacity="0.18" />
+    </pattern>
+  </defs>
+
+  <!-- Screen -->
+  <rect x="0.5" y="0.5" width="799" height="429" rx="9" fill="#02101a" stroke="#0e2a3a" />
+
+  <!-- Header -->
+  <text x="28" y="36" font-size="13" fill="#3a7a92">netboot.xyz / Main Menu</text>
+  <text x="772" y="36" font-size="13" fill="#3a7a92" text-anchor="end">iPXE 2.0.0+ · net0 192.168.1.42</text>
+  <line x1="28" y1="52" x2="772" y2="52" stroke="#3a7a92" stroke-width="1" stroke-dasharray="2 4" opacity="0.7" />
+  <text x="28" y="84" font-size="16" fill="#b4f5ff" letter-spacing="1">[ MAIN MENU ]</text>
+
+  <!-- Menu rows (cyan, default state) -->
+  <g font-size="16" fill="#7ee8ff">
+    <text x="56" y="124">Linux Network Installs</text>
+    <text x="56" y="154">Desktop &amp; Live Distros</text>
+    <text x="56" y="184">Security &amp; Forensics</text>
+    <text x="56" y="214">Utilities &amp; Rescue</text>
+    <text x="56" y="244">Hypervisors &amp; Storage</text>
+    <text x="56" y="274">Windows (WIM)</text>
+    <text x="56" y="304">netboot.xyz Endpoints</text>
+    <text x="56" y="334">iPXE Shell</text>
+    <text x="56" y="364">Reboot</text>
+  </g>
+
+  <!-- Selection bar -->
+  <rect x="22" width="756" height="28" rx="3" fill="#7ee8ff">
+    <animate attributeName="y" dur="9s" repeatCount="indefinite" calcMode="discrete"
+      keyTimes="0;0.1111;0.2222;0.3333;0.4444;0.5556;0.6667;0.7778;0.8889"
+      values="105;135;165;195;225;255;285;315;345" />
+  </rect>
+
+  <!-- Menu rows again in dark ink, clipped to the bar so only the selected row shows -->
+  <g font-size="16" fill="#02101a" clip-path="url(#sel)">
+    <text x="56" y="124">Linux Network Installs</text>
+    <text x="56" y="154">Desktop &amp; Live Distros</text>
+    <text x="56" y="184">Security &amp; Forensics</text>
+    <text x="56" y="214">Utilities &amp; Rescue</text>
+    <text x="56" y="244">Hypervisors &amp; Storage</text>
+    <text x="56" y="274">Windows (WIM)</text>
+    <text x="56" y="304">netboot.xyz Endpoints</text>
+    <text x="56" y="334">iPXE Shell</text>
+    <text x="56" y="364">Reboot</text>
+  </g>
+
+  <!-- Selection arrow, riding the bar -->
+  <text x="32" font-size="16" fill="#02101a" font-weight="bold">
+    ►
+    <animate attributeName="y" dur="9s" repeatCount="indefinite" calcMode="discrete"
+      keyTimes="0;0.1111;0.2222;0.3333;0.4444;0.5556;0.6667;0.7778;0.8889"
+      values="124;154;184;214;244;274;304;334;364" />
+  </text>
+
+  <!-- Footer -->
+  <line x1="28" y1="386" x2="772" y2="386" stroke="#3a7a92" stroke-width="1" stroke-dasharray="2 4" opacity="0.7" />
+  <text x="28" y="408" font-size="12" fill="#3a7a92">↑↓ navigate · enter select · esc back</text>
+  <text x="772" y="408" font-size="12" fill="#3a7a92" text-anchor="end">main</text>
+
+  <!-- Scanline overlay -->
+  <rect x="1" y="1" width="798" height="428" rx="9" fill="url(#scan)" pointer-events="none" />
+</svg>
