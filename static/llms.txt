@@ -74,3 +74,7 @@
 - [Contributing](https://netboot.xyz/docs/contributing): How to contribute new OS versions or features to the project
 - [Build Automation](https://netboot.xyz/docs/community/build-automation): How the automated CI/CD build system keeps OS versions current
 - [Changelog](https://netboot.xyz/docs/community/changelog): Release history and changes
+
+## Optional
+
+- [Full documentation](https://netboot.xyz/llms-full.txt): The complete text of all documentation pages concatenated into a single file for ingestion in one fetch

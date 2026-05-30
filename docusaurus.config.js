@@ -17,9 +17,6 @@ module.exports = {
     },
   },
   staticDirectories: ['static'],
-  stylesheets: [
-    'https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap',
-  ],
   clientModules: [require.resolve('./src/clientModules/gtagFallback.js')],
   themes: ['@docusaurus/theme-mermaid'],
   themeConfig: {
