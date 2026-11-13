@@ -50,6 +50,7 @@
 - [Vultr](https://netboot.xyz/docs/kb/providers/vultr): Boot netboot.xyz on Vultr via ISO upload or iPXE chain URL
 - [Linode](https://netboot.xyz/docs/kb/providers/linode): Using netboot.xyz on Linode
 - [Cherry Servers](https://netboot.xyz/docs/kb/providers/cherryservers): Using netboot.xyz with Cherry Servers dedicated bare metal
+- [IONOS](https://netboot.xyz/docs/kb/providers/ionos): Using netboot.xyz self-installation on IONOS Dedicated Bare Metal servers
 - [Oracle Cloud Infrastructure](https://netboot.xyz/docs/kb/providers/oci): Using netboot.xyz on Oracle Cloud Infrastructure
 - [OpenStack](https://netboot.xyz/docs/kb/providers/openstack): Boot netboot.xyz on OpenStack using Glance and Nova
 
