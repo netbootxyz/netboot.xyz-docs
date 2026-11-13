@@ -29,6 +29,6 @@ The languages and regions options provide a quick way for booting installers wit
 IONOS bare metal servers boot directly into iPXE over the network.
 
 1. **Network Boot**: The bare metal server will uses your primary IP to contact the public mirror to chain both the tailored menus and the netboot.xyz OS menus from the mirror as well. 
-2. **Welcome Screen**: A tailored initial iPXE screen is loaded. This early menu will remain in a screen refresh loop. The control refresh sequence characters ensure the Serial-over-LAN terminal sessions is rendered nicely without side effects. A countdown timer indicates the next screen refresh. Use the arrow keys to navigate to the installer menus.
+2. **Welcome Screen**: A tailored initial iPXE screen is loaded. This early menu will remain in a screen refresh loop. The control refresh sequence characters ensure the Serial-over-LAN terminal sessions are rendered nicely without side effects. A countdown timer indicates the next screen refresh. Use the arrow keys to navigate to the installer menus.
 3. **Geo-Mirror**: Upon pressing `<Enter>` to proceed into the installer menus you will observe iPXE chainload from the nearest high-speed [IONOS regional mirror](https://tropo.mirror.ionos.com/). If your OS is backed by the mirror you may see iPXE netboot from this mirror and again utilize it for packages and updates.
 4. **Patches**: Modifications are maintained publicly in the [IONOS netboot.xyz-custom GitHub repository](https://github.com/ionos-cloud/netboot.xyz-custom).
