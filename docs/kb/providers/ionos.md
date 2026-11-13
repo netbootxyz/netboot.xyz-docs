@@ -9,7 +9,7 @@ Bare Metal Servers at [IONOS](https://www.ionos.de/server/bare-metal-server) can
 
 The tailored self-install menus can be accessed simultaneously using SSH or VNC. The [Serial Console](https://www.ionos.com/help/server-cloud-infrastructure/first-steps-dedicated-servers/using-the-serial-console-for-server-access-dedicated-server/) over SSH is for text-based installation. A graphical install over VNC is helpful when customizing raid, filesystems and security policy. Both can be used at the same time and should be available after install.
 
-To support a persistent grub serial console after install we default select to apply a fix. Kernel parameters are passed to the installer when enabled. A kickstart post-install script may be applied. After the installation the first boot will already support both Serial and VNC. The fix will ensure grub continues to persist the kernel parameters after OS kernel upgrades. All iPXE source code modifications and OS post-install scripts is put to public. See Boot process section below.
+To support a persistent grub serial console after install we default select to apply a fix. Kernel parameters are passed to the installer when enabled. A kickstart post-install script may be applied. After the installation the first boot will already support both Serial and VNC. The fix will ensure grub continues to persist the kernel parameters after OS kernel upgrades. All iPXE source code modifications and OS post-install scripts are made public. See Boot process section below.
 
 The languages and regions options provide a quick way for booting installers with a preferred choice here as well.  
 
