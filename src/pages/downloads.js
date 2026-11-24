@@ -99,6 +99,61 @@ export default function Downloads() {
     },
   ];
 
+  const usbLegacyBootloaders = [
+    {
+      title: 'netboot.xyz-legacy.iso',
+      description:
+        'ISO without iPXE USB drivers, for CD/DVD and virtual media (DRAC/iLO) where the keyboard stops responding in the menu.',
+      url: 'https://boot.netboot.xyz/ipxe/netboot.xyz-legacy.iso',
+      type: 'ISO',
+      icon: getTypeIcon('ISO'),
+    },
+    {
+      title: 'netboot.xyz-legacy.img',
+      description:
+        'USB image without iPXE USB drivers, for systems where the USB keyboard stops responding in the menu.',
+      url: 'https://boot.netboot.xyz/ipxe/netboot.xyz-legacy.img',
+      type: 'USB',
+      icon: getTypeIcon('USB'),
+    },
+    {
+      title: 'netboot.xyz-legacy.efi',
+      description: 'UEFI DHCP boot image without iPXE USB drivers.',
+      url: 'https://boot.netboot.xyz/ipxe/netboot.xyz-legacy.efi',
+      type: 'DHCP',
+      icon: getTypeIcon('DHCP'),
+    },
+    {
+      title: 'netboot.xyz-legacy.kpxe',
+      description: 'BIOS DHCP boot image without iPXE USB drivers.',
+      url: 'https://boot.netboot.xyz/ipxe/netboot.xyz-legacy.kpxe',
+      type: 'DHCP',
+      icon: getTypeIcon('DHCP'),
+    },
+    {
+      title: 'netboot.xyz-legacy.lkrn',
+      description:
+        'Linux kernel format without iPXE USB drivers, for GRUB or EXTLINUX.',
+      url: 'https://boot.netboot.xyz/ipxe/netboot.xyz-legacy.lkrn',
+      type: 'Kernel',
+      icon: getTypeIcon('Kernel'),
+    },
+    {
+      title: 'netboot.xyz-legacy.dsk',
+      description: 'Virtual floppy disk image without iPXE USB drivers.',
+      url: 'https://boot.netboot.xyz/ipxe/netboot.xyz-legacy.dsk',
+      type: 'Floppy',
+      icon: getTypeIcon('Floppy'),
+    },
+    {
+      title: 'netboot.xyz-legacy.pdsk',
+      description: 'Padded virtual floppy disk image without iPXE USB drivers.',
+      url: 'https://boot.netboot.xyz/ipxe/netboot.xyz-legacy.pdsk',
+      type: 'Floppy',
+      icon: getTypeIcon('Floppy'),
+    },
+  ];
+
   const uefiBootloaders = [
     {
       title: 'netboot.xyz.efi',
@@ -206,6 +261,14 @@ export default function Downloads() {
             title="BIOS Bootloaders - Legacy"
             description="Legacy BIOS bootloaders for x86_64 systems."
             downloads={legacyBootloaders}
+            isCollapsible={true}
+            defaultExpanded={false}
+          />
+
+          <DownloadSection
+            title="Legacy USB Builds - x86_64"
+            description="Builds without iPXE's USB drivers, for systems where the USB keyboard (including BMC/KVM keyboard emulation) stops responding in the menu. USB network adapters are not supported. See the USB Keyboard Issues article in the knowledge base."
+            downloads={usbLegacyBootloaders}
             isCollapsible={true}
             defaultExpanded={false}
           />
